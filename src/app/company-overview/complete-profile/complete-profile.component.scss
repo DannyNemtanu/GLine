@@ -1,0 +1,205 @@
+/* Complete Profile Page */
+.progress-steps{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  
+  }
+  .progress-steps li{
+    padding: 8% 5%;
+    width: 100%;
+  }
+  .progress-steps li.active{
+    padding: 3% 2.5%;
+    width: 100%;
+  }
+  
+  .progress-steps .step-ico{
+    border: 3px solid #A7A7A7;
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+  }
+  .progress-steps .step-ico span{
+    font-size: 40px;
+    line-height: 50px;
+    font-weight: lighter;
+    color: #A7A7A7;
+  }
+  .progress-steps .completed .step-ico span{
+    font-size: 2.5rem;
+    position: relative;
+    color: #fff !important;
+  }
+  
+  .progress-steps .step-info{
+    margin-left: 10px;
+    line-height: 15px;
+  }
+  .progress-steps .step-info .step-counter{
+    font-size: .7rem;
+    font-weight: 500;
+    color: #A6A6A6;
+  }
+  .progress-steps .step-info .title{
+    font-size: .9rem;
+    font-weight: bold;
+    color: #A7A7A7;
+  }
+  .progress-steps .completed .step-ico{
+    border: 3px solid #20c997;
+    background-color: #20c997;
+  }
+  
+  .progress-steps .completed *{
+   color: #20c997 !important;
+  }
+  
+  .progress-steps .active .step-ico{
+    border: 3px solid #007bff;
+  }
+  .progress-steps .active .step-ico{
+    height: 70px;
+    width: 70px;
+    padding: 5px;
+  }
+  .progress-steps .active .step-ico span{
+    background-color: #007bff;
+    color: #fff !important;
+    width: 50px;
+    left: 10px;
+    top: 10px;
+    border-radius: 50%;
+    position: absolute;
+  
+  }
+  
+  .progress-steps .active *{
+   color: #007bff !important;
+  }
+  
+  .complete-profile-page{
+    overflow: hidden;
+    width: 100%;
+    font-family: 'Google Sans';
+  }
+  .complete-profile-page>.title{
+    font-size: 1.5rem;
+    color: #989898;
+  }
+  .profile-form,.completion-progress{
+    position: relative;
+    border-radius: 20px;
+    margin-top: 50px;
+    width: 100%;
+    height: 70vh;
+    padding: 2%;
+    background-color: #fefefe;
+  }
+  
+  
+  /* Main Form */
+  .profile-form{
+    padding: 20px 40px;
+  }
+  .profile-form .header{
+  
+    padding: 10px 0px;
+    border-bottom: 1px solid #efefef;
+  }
+  .profile-form .header h1{
+    font-size: 1.8rem;
+    color: #005684;
+  }
+  .profile-form .header button, .profile-form .body #application-fns{
+    border-radius: 2px;
+    float: right;
+    padding: 5px 25px;
+  }
+  .profile-form .body{
+    padding-top: 10px;
+    overflow-y: scroll;
+    position: relative;
+    width: 100%;
+    height: 87%;
+  }
+  .profile-form .body .upload-function{
+    cursor: pointer;
+    width: 100%;
+    height: 100px;
+    background-image: url('../../../assets/images/Upload.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  .profile-form .body>.step-title{
+    font-size: 1.2rem;
+    color: #14AEFF;
+  }
+  .profile-form .body .form-group{
+    margin-top: 20px;
+  }
+  .profile-form .body .form-group .field-label{
+    font-size: .8rem;
+    font-weight: 500;
+    margin-top: 10px;
+  }
+  .profile-form .body .form-group .custom-input{
+    opacity: .2;
+    border: 2px solid #333;
+    padding: 5px 5px;
+    font-size: .8rem;
+    color: #005684;
+    font-weight: 400;
+    outline: none;
+  }
+  .profile-form .body .form-group textarea.custom-input{
+    min-height: 70px;
+  }
+  .profile-form .body .form-group .custom-input:focus,.profile-form .body .form-group .custom-input:hover{
+    opacity: 1;
+    transition: .6s;
+  }
+  .profile-form .body .row-input-3 .custom-input, .profile-form .body .row-input-3 .field-label{
+    width: 33%;
+  }
+  
+  .profile-form .body .optional{
+    color: #a7a7a7;
+    font-weight: lighter;
+  }
+  
+  .profile-form .body .st .the-map .googlemaps{
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #ccc;
+  }
+  
+  .prod-flow input{
+    margin-top: 10px;
+  }
+  
+  .prod-flow .prod-flow-image{
+    width: 100%;
+    height: 100px;
+    background-color: #333;
+  }
+  .prod-flow .upload-on .prod-flow-image{
+    cursor: pointer;
+    background-color: #005684;
+  }
+  .prod-flow .upload-on .prod-flow-image>span{
+    font-size: 3.5rem;
+    color: #fff;
+  }
+  
+  
+  
+  
+  
+  
+  /* End Complete Profile Page */

@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig: {
+    apiKey: 'AIzaSyBYDWpiU5hcYz6zH8qq8oolEQSLNjhlPlk',
+    authDomain: 'goldenline-76114.firebaseapp.com',
+    databaseURL: 'https://goldenline-76114.firebaseio.com',
+    projectId: 'goldenline-76114',
+    storageBucket: 'goldenline-76114.appspot.com',
+    messagingSenderId: '419459474140'
+  }
 };
 
 /*

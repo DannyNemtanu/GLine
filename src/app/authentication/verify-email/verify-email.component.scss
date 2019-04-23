@@ -1,0 +1,25 @@
+body {
+    height: 100wh;
+  }
+  
+  .bg {
+    height: 100vh;
+    /* The image used */
+    background-image: url("../../../assets/images/Header_BG.jpg");
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+  }
+  
+  .flex-fill {
+    flex: 1 1 auto;
+  }
+  
+  #login:hover {
+      background-color: #f6f6f6 !important;
+      transition: .3s;
+    }
+  

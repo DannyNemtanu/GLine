@@ -1,0 +1,336 @@
+.brand {
+  font-size: 1.2rem;
+}
+
+.header-main {
+  height: 70px;
+  background-color: #fff;
+}
+
+.top-navigation {
+  width: 85%;
+  margin-left: 15%;
+  position: absolute;
+  top: 0;
+}
+
+.icon {
+  margin-top: 5px;
+}
+
+.btn {
+  &:focus, &:active:focus, &.active:focus, &.focus, &:active.focus, &.active.focus {
+    outline: 0;
+  }
+}
+
+.outoff {
+  &:focus, &:active:focus, &.active:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+.darkform {
+  &:focus, &:active:focus, &.active:focus {
+    border: 2px solid #333;
+  }
+}
+
+.icoa {
+  position: absolute;
+  left: 5px;
+}
+
+.email-badge {
+  padding-bottom: 4px;
+  margin-left: -10px;
+  margin-top: -10px;
+}
+
+.black-border {
+  border: 2px solid #333;
+}
+
+.sc-hd-cell {
+  line-height: 15px;
+  float: left;
+}
+
+.sc-hd-category .sc-hd-scc-category-unit {
+  width: 230px;
+  position: relative;
+  z-index: 6;
+}
+
+.header-category-wrapper {
+  position: relative;
+  display: inline-block;
+  .header-category-trigger {
+    z-index: 1;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 0;
+    width: 170px;
+    height: 38px;
+    border: 1px solid transparent;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 38px;
+    color: #333;
+    background: #fff;
+  }
+  &.trigger-active {
+    &:hover .header-category-trigger {
+      color: #FF751A;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid #DCDEE3;
+      border-bottom: 1px solid transparent;
+    }
+    .header-category {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      margin-top: -1px;
+    }
+    &:hover .header-category {
+      display: block;
+    }
+  }
+  .header-category {
+    z-index: 0;
+    box-sizing: border-box;
+    width: 400px;
+    background: #fff;
+    border: 1px solid #DCDEE3;
+    padding: 10px 0;
+  }
+}
+
+.sc-hd {
+  ul {
+    margin: 0;
+  }
+  li {
+    margin-left: 0;
+    list-style: none;
+  }
+}
+
+.header-category .component-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sc-hd .header-category-wrapper .header-category .title {
+  box-sizing: content-box;
+}
+
+.header-category-wrapper .header-category {
+  .title {
+    position: relative;
+    display: block;
+    padding: 7px 35px 7px 21px;
+    max-height: 38px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 21px;
+    background: #fff;
+    -moz-box-shadow: -2px 1px 5px transparent;
+    -webkit-box-shadow: -2px 1px 5px transparent;
+    box-shadow: -2px 1px 5px transparent;
+    border: 1px solid transparent;
+    box-sizing: content-box;
+  }
+  li {
+    border: 1px solid transparent;
+    &:hover {
+      cursor: pointer;
+      z-index: 2;
+      -moz-box-shadow: -2px 1px 5px e7e7;
+      -webkit-box-shadow: -2px 1px 5px e7e7e7;
+      box-shadow: -2px 1px 5px e7e7e7;
+      border: 1px solid #e7e7e7;
+      border-right: 1px solid transparent;
+      > .level-one-list {
+        display: block;
+      }
+    }
+  }
+  .title a {
+    line-height: 21px;
+    text-decoration: none;
+    color: #666;
+    width: 260px;
+    font-size: 0.9rem;
+  }
+}
+
+.header-category a:hover {
+  color: #FF751A !important;
+  text-decoration: none;
+}
+
+.header-category-wrapper .header-category {
+  .view-more {
+    color: #999;
+    font-size: 12px;
+  }
+  .title .sc-hd-prefix2-icon {
+    position: absolute;
+    padding-right: 10px;
+    right: 5px;
+    top: 7px;
+    -moz-transition: all .3s;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all 0.3s;
+  }
+  .level-one-list {
+    z-index: 1;
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: -1px;
+    margin-left: -2px;
+    min-width: 500px;
+    height: 100%;
+    background: #fff;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid #e7e7e7;
+  }
+  .level-one-inner {
+    margin: 20px 20px 0;
+    width: 600px;
+  }
+  .level-one {
+    float: left;
+    box-sizing: border-box;
+    padding: 0 20px 20px;
+    width: 50%;
+    height: 250px;
+  }
+  .level-one-title {
+    display: table-cell;
+    vertical-align: middle;
+    height: 48px;
+    font-weight: 700;
+    line-height: 16px;
+    color: #2192D9;
+  }
+  .level-two-title {
+    display: block;
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+    line-height: 24px;
+    color: #666;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .all-categories {
+    display: block;
+    padding: 7px 35px 17px 21px;
+    color: #2192D9;
+  }
+}
+
+.navigation-left {
+  overflow: hidden;
+  background-color: #262f3d;
+  font-size: 0.7em;
+  height: 100vh;
+  width: 15%;
+  position: fixed;
+  * {
+    color: #fff !important;
+  }
+}
+.nav-item .nav-link.active{
+    background-color: #FF751A !important;
+    opacity: .9;
+    transition: 0.4s ease-in-out;
+}
+.nav-item:hover {
+  cursor: pointer;
+  background-color: #FF751A !important;
+  opacity: 1;
+  transition: 0.4s ease-in-out;
+}
+
+.navigation-left .brand {
+  .container {
+    margin-left: 20px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+  }
+  #logo {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.nav-body {
+  overflow-y: scroll;
+  height: 70vh;
+}
+
+.nav-link {
+  z-index: -1;
+  padding: 12px 0px 12px 10px;
+  font-weight: bold;
+  line-height: 24px !important;
+}
+
+.sub-category {
+  .nav-link {
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  p {
+    padding-left: 10px;
+    margin-bottom: 0;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  li {
+    font-size: 0.9em;
+    line-height: 20px;
+    font-weight: 500 !important;
+    opacity: 0.8;
+    i {
+      font-size: 20px;
+    }
+  }
+  &:hover {
+    background-color: #19212b;
+    transition: 0.4s;
+  }
+}
+
+.navigation-left i {
+  font-size: 20px;
+  float: left;
+  margin-right: 5px;
+  padding-left: 1rem;
+}
+
+.logout {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ff6a00;
+  border: none;
+  * {
+    line-height: 50px;
+  }
+}
+

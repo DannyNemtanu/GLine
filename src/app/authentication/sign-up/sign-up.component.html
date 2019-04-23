@@ -1,0 +1,41 @@
+<div class="container-fluid p-0">
+  <div class="row">
+    <div class="d-none d-md-block col p-0">
+      <div class="main-page d-flex flex-column flex-fill">
+        <div class="bg flex-fill"></div>
+      </div>
+    </div>
+    <div class="col media p-0">
+      <div class="offset-md-1 col-md-7 align-self-center">
+        <img class="mx-auto d-block" src="../../assets/Logo.png" alt="Logo">
+        <h1 class="text-center font-weight-bold">GoldenLine</h1>
+        <p class="text-center text-secondary">Welcome back! Please login to your account.</p>
+        <form>
+          <div class="form-row my-2">
+              <div class="col">
+                  <input type="button" value="Manufacturer" class="form-btn w-100 btn" [ngClass]="toogleManufacturer ?  'active' : ' '" (click)="manufacturer()" required />
+              </div>
+              <div class="col">
+                  <input type="button" class="form-btn w-100 btn" [ngClass]="toogleRetailer ?  'active' : ''" value="Retailer" (click)="retailer()" required />
+              </div>
+          </div>
+          <div class="form-group">
+            <input type="text"  class="form-control" placeholder="Username" #regUsername required>
+          </div>
+          <div class="form-group">
+            <input type="email"  class="form-control" aria-describedby="emailHelp" #regEmail placeholder="Email Address" required>
+          </div>
+          <div class="form-group">
+            <input type="password"  class="form-control" placeholder="Passowrd" #regPassword required>
+          </div>
+          <div class="form-group">
+            <input type="password"  class="form-control" placeholder="Confirm Password" #regcPass required>
+          </div>
+          <button type="submit" (click)="tryRegister(regUsername.value, regEmail.value, regPassword.value, regcPass.value)" class="w-100 btn btn-primary"><i class="material-icons">arrow_forward</i></button>
+            <p class="text-center font-weight-bold mt-2 mb-0">Already have an account ?</p>
+          <button id="reg" routerLink="../sign-in" type="button" class="m-0 btn btn-default w-100 font-weight-bold">LOGIN</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

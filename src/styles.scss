@@ -1,1 +1,73 @@
 /* You can add global styles to this file, and also import other style files */
+/* Body */
+body {
+    background-color: #f2f3f7;
+  }
+  
+  a,
+  abbr,
+  acronym,
+  address,
+  article,
+  aside,
+  blockquote,
+  body,
+  code,
+  dd,
+  del,
+  details,
+  dfn,
+  dialog,
+  div,
+  dl,
+  dt,
+  em,
+  fieldset,
+  figcaption,
+  figure,
+  footer,
+  form,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  header,
+  hgroup,
+  html,
+  iframe,
+  img,
+  label,
+  legend,
+  li,
+  menu,
+  nav,
+  object,
+  ol,
+  p,
+  pre,
+  q,
+  section,
+  span,
+  summary,
+  ul {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+  }
+  
+  ul {
+    list-style-type: none;
+  }
+  
+  div {
+    display: block;
+  }
+  .main-container {
+    margin-left: 15%;
+    width: 85%;
+    margin-top: 70px;
+  }

@@ -1,0 +1,666 @@
+/* COMPANY PROFILE */
+.companyProfile,
+.companyOverview,
+.companyProduction,
+.sendDirectMessage,
+.companyContact {
+  padding: 0;
+  border: 1px solid #f4f4f4;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.wrap-box {
+  border: none;
+  padding: 20px !important;
+}
+
+.companyOverview .block-top {
+  margin-bottom: 26px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.companyOverview .block-top>.block-left {
+  width: 495px;
+  height: 284px;
+  overflow: hidden;
+}
+
+.companyOverview .company-images {
+  width: 100%;
+  height: 100%;
+}
+
+.companyOverview .company-images .image-slider {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.next-slick,
+.next-slick *,
+.next-slick :after,
+.next-slick :before {
+  box-sizing: border-box;
+}
+
+.next-slick {
+  position: relative;
+  display: block;
+  -webkit-touch-callout: none;
+  user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.next-slick,
+.next-slick *,
+.next-slick :after,
+.next-slick :before {
+  box-sizing: border-box;
+}
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
+.next-slick-list {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+  transform: translateZ(0);
+}
+
+.next-slick,
+.next-slick *,
+.next-slick :after,
+.next-slick :before {
+  box-sizing: border-box;
+}
+
+.next-slick-track {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+  transform: translateZ(0);
+}
+
+.next-slick-initialized .next-slick-slide {
+  display: block;
+}
+
+.next-slick-slide {
+  float: left;
+  height: 100%;
+  min-height: 1px;
+  outline: 0;
+  transition: all .3s cubic-bezier(.86, 0, .07, 1);
+}
+
+.company-images .image-slider .image-box {
+  position: relative;
+  width: 495px;
+  height: 282px;
+  cursor: pointer;
+}
+
+.next-row.next-row-justify-center {
+  justify-content: center;
+}
+
+.next-row.next-row-no-padding,
+.next-row.next-row-no-padding>.next-col {
+  padding: 0;
+}
+
+.next-row-align-center {
+  -ms-flex-align: center;
+  -moz-align-items: center;
+  align-items: center;
+}
+
+.companyOverview .company-images .image-slider .image-box img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.next-slick-slide img {
+  display: block;
+}
+
+.companyOverview .company-images .image-slider .image-box .mask {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(-180deg, transparent, rgba(0, 0, 0, .6));
+}
+
+.companyOverview .company-images .image-slider .image-box .play-btn {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  margin-top: -29px;
+  left: 50%;
+  margin-left: -29px;
+  width: 58px;
+  height: 58px;
+  background: rgba(0, 0, 0, .4);
+  border-radius: 8px;
+}
+
+.companyOverview .company-images .image-slider .image-box .play-btn:before {
+  content: " ";
+  display: block;
+  width: 1px;
+  height: 2px;
+  border-width: 14px 25px;
+  border-style: solid;
+  border-color: transparent;
+  border-left-color: #fff;
+  border-radius: 3px;
+  margin: 15px 0 0 18px;
+  box-sizing: content-box;
+}
+
+.next-slick-initialized .next-slick-slide {
+  display: block;
+}
+
+.next-slick-dots.horizontal {
+  width: 100%;
+  bottom: 12px;
+  left: 0;
+  text-align: center;
+}
+
+.next-slick-dots {
+  display: block;
+  position: absolute;
+  z-index: 100;
+  margin: 0;
+  padding: 0;
+}
+
+.next-slick-dots.horizontal .next-slick-dots-item {
+  margin: 0 4px;
+}
+
+.next-slick-dots-item {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.next-slick,
+.next-slick *,
+.next-slick :after,
+.next-slick :before {
+  box-sizing: border-box;
+}
+
+.company-images .next-slick-dots-item.active button {
+  background: #ff6a00;
+  opacity: 1;
+}
+
+.company-images .next-slick-dots-item button {
+  background: #fff;
+  opacity: .6;
+}
+
+.next-slick-dots-item.active button {
+  background: #ff6a00;
+  opacity: 1;
+  animation: zoom .3s cubic-bezier(.86, 0, .07, 1);
+}
+
+.next-slick-dots-item button {
+  border: 0;
+  outline: none;
+  padding: 0;
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background: #000;
+  opacity: .32;
+}
+
+.next-slick-dots.horizontal .next-slick-dots-item {
+  margin: 0 4px;
+}
+
+.next-slick-dots-item {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.company-images .next-slick-dots-item button {
+  background: #fff;
+  opacity: .6;
+}
+
+.next-slick-dots-item button {
+  border: 0;
+  outline: none;
+  padding: 0;
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background: #000;
+  opacity: .32;
+}
+
+.companyOverview .block-top>.block-right {
+
+  font-size: .8rem;
+  height: 284px;
+  width: 50%;
+  overflow: hidden;
+}
+
+.companyOverview .company-card-title {
+  max-height: 48px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  color: #333;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.companyOverview .company-card-title .title-text {
+  display: inline-block;
+  min-width: 210px;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.companyOverview .company-card-title .title-text span {
+  word-break: break-word;
+}
+
+.companyOverview .company-card-title .assessment-icon {
+  display: flex;
+  align-items: center;
+}
+
+.icbu-icon-gs-year.icbu-icon-gs-year-bg {
+  background-color: #f5f5f5;
+}
+
+.icbu-icon-gs-year:active,
+.icbu-icon-gs-year:hover,
+.icbu-icon-gs-year:link,
+.icbu-icon-gs-year:visited {
+  color: #333;
+  text-decoration: none;
+}
+
+.icbu-icon-gs-year-small.no-icon .join-year {
+  margin-left: 8px;
+}
+
+.icbu-icon-gs-year .join-year {
+  display: inline-block;
+  font-weight: 700;
+  margin-left: 2px;
+  vertical-align: top;
+  line-height: 1;
+}
+
+.icbu-icon-gs-year-small {
+  font-size: 16px;
+  border-radius: 20px;
+}
+
+.icbu-icon-gs-year {
+  line-height: 1;
+  overflow: hidden;
+  padding: 2px;
+}
+
+.icbu-icon-gs-year,
+.icbu-icon-svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.icbu-icon-gs-year .value {
+  display: inline-block;
+}
+
+.icbu-icon-gs-year-small .unit {
+  top: 1px;
+}
+
+.icbu-icon-gs-year .unit {
+  display: inline-block;
+  position: relative;
+  transform: scale(.7);
+  transform-origin: left top;
+}
+
+.companyOverview .company-card .assessment .assessment-icons {
+  vertical-align: top;
+  display: flex;
+  align-items: center;
+}
+
+.companyOverview .company-card-title {
+  max-height: 48px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  color: #333;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.companyOverview .company-card-desc {
+  height: 84px;
+  overflow: hidden;
+  margin-bottom: 35px;
+  color: #999;
+  line-height: 1.5;
+}
+
+.companyOverview .company-card-desc {
+  height: 84px;
+  overflow: hidden;
+  margin-bottom: 35px;
+  color: #999;
+  line-height: 1.5;
+}
+
+.companyOverview .company-card-transaction {
+  display: flex;
+  align-items: flex-start;
+}
+
+.companyOverview .company-card-transaction .transaction-rate {
+  width: 112px;
+  height: 97px;
+  margin-right: 41px;
+  background: #fff1e7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px 0;
+}
+
+.companyOverview .company-card-transaction .transaction-rate .total-score {
+  flex: 1;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 48px;
+  height: 48px;
+  padding: 0 11px;
+  color: #ff751a;
+  border-radius: 2px;
+}
+
+.companyOverview .company-card-transaction .transaction-rate .total-score .max-score {
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+.companyOverview .company-card-transaction .transaction-rate .total-desc {
+  flex: 1;
+  color: #ff751a;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.companyOverview .company-card-transaction .transaction-detail {
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+
+.companyOverview .company-card-transaction .transaction-detail li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.companyOverview .company-card-transaction .transaction-detail li .transaction-detail-title {
+  width: 120px;
+}
+
+.companyOverview .company-card-transaction .transaction-detail li .transaction-detail-content {
+  flex: 1;
+}
+
+/* Company Information */
+.companyOverview .company-basicInfo {
+  font-size: 12px;
+  line-height: 16.8px;
+}
+
+.companyOverview .company-basicInfo table {
+  width: 100%;
+}
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.companyOverview .company-basicInfo tr {
+  border: 1px solid #f4f4f4;
+}
+
+.companyOverview .company-basicInfo .field-title {
+  background-color: #fafafa;
+  padding: 10px 20px;
+  word-break: break-word;
+}
+
+.companyOverview .company-basicInfo td {
+  border-left: 1px solid #f4f4f4;
+  border-right: 1px solid #f4f4f4;
+  vertical-align: baseline;
+}
+
+.companyOverview .company-basicInfo .field-content-wrap {
+  padding: 10px 20px;
+  word-break: break-word;
+}
+
+.companyOverview .company-basicInfo td {
+  border-left: 1px solid #f4f4f4;
+  border-right: 1px solid #f4f4f4;
+  vertical-align: baseline;
+}
+
+.companyOverview .company-basicInfo .field-content-wrap .field-content {
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+}
+
+.companyOverview .company-basicInfo .field-content-wrap .field-content>:first-child {
+  margin-right: 20px;
+}
+
+/* Company Production */
+.companyProduction .info-list>.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-align: left;
+  line-height: 40px;
+  font-size: 14px;
+  color: #333;
+  margin-top: 20px;
+  margin-bottom: 14px;
+  font-weight: bold;
+}
+
+.companyProduction .info-list:first-child>.title {
+  margin-top: 0;
+}
+
+.companyProduction .image-list .image-item>.title {
+  text-align: left;
+  line-height: 16px;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+  margin-top: 10px;
+}
+
+.companyProduction .factoryinfo .col-item {
+  font-size: 12px;
+  line-height: 1.4;
+  color: #666;
+  border: 1px solid #f4f4f4;
+}
+
+.companyProduction .factoryinfo .col-item>.title {
+  width: 164px;
+  max-width: 164px;
+  border-right: 1px solid #f4f4f4;
+  background-color: #fafafa;
+}
+
+.companyProduction .factoryinfo .col-item td {
+  padding: 10px 20px;
+  word-break: break-word;
+}
+
+/* End Company Production */
+
+/* Company Contact Information */
+.companyContact .mod-content .title {
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 12px;
+  font-weight: normal;
+}
+
+.companyContact .mod-content .left-side {
+  border-right: 1px solid #efefef;
+}
+
+.companyContact .mod-content .left-side,
+.companyContact .mod-content .right-side {
+  padding: 5% 0;
+
+}
+
+.companyContact .left-side .company-manager-info,
+.companyContact .left-side .company-manager-posision,
+.companyContact .left-side .company-profile {
+  text-align: center;
+  margin-left: 30%;
+}
+
+.companyContact .left-side .company-manager-info>h2 {
+  font-size: 1.3rem;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.companyContact .left-side .company-manager-posision>p {
+  line-height: 17px;
+  font-size: .8rem;
+  color: #c6c6c6;
+}
+
+.companyContact .right-side>table {
+  margin-left: 50px;
+}
+
+.companyContact .right-side>table tr {
+  width: 100%;
+  line-height: 25px;
+  overflow: hidden;
+}
+
+.companyContact .right-side>table td {
+  font-size: .8rem !important;
+}
+
+.companyContact .right-side>table td.title {
+  color: #A0A0A0;
+}
+
+.companyContact .right-side>table td.content {
+  max-width: 400px;
+  color: #333333;
+  padding-left: 20px;
+  font-style: italic;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.companyContact .right-side>table tr.action-row>td>button{
+  border-radius: 2px;
+  padding: 5px 15px;
+  margin-top: 20px;
+  font-size: .8rem;
+  font-weight: lighter;
+}
+
+/* End Company Contact Information */
+
+/* Company Direct Message */
+.sendDirectMessage .mod-content>.title h2 {
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 12px;
+  font-weight: normal;
+}
+
+.sendDirectMessage .mod-content .message-form .label {
+  font-size: .9rem;
+  color: #666;
+  text-align: right;
+}
+
+.sendDirectMessage .mod-content .message-form .to-person {
+  text-align: left;
+}
+
+.sendDirectMessage .mod-content .message-form .message-area textarea {
+  width: 70%;
+  min-height: 100px;
+  border: 1px solid #ccc;
+  color: #333;
+  padding: 4px 8px;
+  font-size: 14px;
+
+}
+
+/* End Company Direct Message */
+
+/* END COMPANY PROFILE */

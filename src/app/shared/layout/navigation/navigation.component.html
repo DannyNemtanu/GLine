@@ -1,0 +1,953 @@
+<div class="navigation">
+  <div class="navigation-left sticky-top float-left">
+    <!-- Navigation Header -->
+    <div class="brand border-bottom">
+      <a href="#">
+        <div class="container">
+          <div class="row">
+            <div class="col-auto p-0">
+              <img id="logo" src="../../../../assets//Logo.png" alt="LOGO" />
+            </div>
+            <div class="col-auto p-0">
+              <h5 class="float-left m-2 brand" style="color:white">GoldenLine</h5>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="nav-body">
+      <!-- Functionalities -->
+      <ul class="navbar-nav scrollable-content p-0">
+        <li class="nav-item" *ngIf="manufacturer">
+          <a routerLink="/overview" class="nav-link">
+            <i class="material-icons">
+              dashboard
+            </i>
+            MY PAGE <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item" *ngIf="retailer">
+            <a routerLink="/dashboard" class="nav-link">
+              <i class="material-icons">
+                dashboard
+              </i>
+              HOME <span class="sr-only">(current)</span></a>
+          </li>
+        <!-- SERVICES CATEGORY -->
+        <!-- Manufacturer -->
+        <li class="sub-category">
+          <p class="w-100 align-self-center">SERVICES</p>
+          <ul class="p-0 w-100" *ngIf="manufacturer">
+              <li class="nav-item">
+                  <a routerLink="/complete-profile" class="nav-link">
+                    <i class="material-icons">
+                      business_center
+                    </i>
+                    Complete Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/rfq" class="nav-link">
+                      <i class="material-icons">
+                          category
+                      </i>
+                      Request Forms</a>
+                  </li>
+                  <li class="nav-item">
+                      <a routerLink="/products" class="nav-link">
+                        <i class="material-icons">
+                          all_inbox
+                        </i>
+                        Products</a>
+                    </li>
+              <!-- End Manufacturer -->    
+          </ul>
+          <ul class="p-0 w-100" *ngIf="retailer">
+            <!-- Retailer -->
+            <li class="nav-item">
+                <a routerLink="/products" class="nav-link" href="#">
+                  <i class="material-icons">
+                    category
+                  </i>
+                  Search Products</a>
+              </li>
+              <li class="nav-item">
+                <a routerLink="/complete-profile" class="nav-link" href="#">
+                  <i class="material-icons">
+                    money
+                  </i>
+                  Search Manufacturers</a>
+              </li>
+              <li class="nav-item">
+                  <a routerLink="/complete-profile" class="nav-link">
+                    <i class="material-icons">
+                      business_center
+                    </i>
+                    RFQ</a>
+                </li>
+                <!-- End Retailer -->
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/messenger" class="nav-link" href="#">
+            <i class="material-icons">
+              people
+            </i>
+            CONNECTIONS</a>
+        </li>
+      </ul>
+      <button type="button" class="logout" (click)="this.as.SignOut()">
+        <span class="float-left font-weight-bold">SIGN OUT</span>
+        <i class="font-weight-bold material-icons float-right">
+          arrow_back_ios
+        </i>
+      </button>
+    </div>
+  </div>
+  <!-- End Left Navigation -->
+    <!-- Top Navigation -->
+    <div class="top-navigation float-left p-0">
+      <div class="header-main">
+        <div class="container">
+          <div class="row-sm align-items-center">
+            <div class="col-lg-4-24 col-sm-3">
+              <div class="sc-hd-cell sc-hd-category">
+                <div class="J-sc-hd-scc-category-unit sc-hd-scc-category-unit" data-role="scc-category-unit">
+                  <div class="header-category-wrapper trigger-active">
+                    <h3 class="header-category-trigger font-weight-bold">
+                      <i class="material-icons icon" style="position: absolute; margin-top: 4%; ">menu</i>
+                      <span style="margin-left:20%; font-size: 1.2rem">Categories</span>
+                    </h3>
+                    <div class="header-category">
+                      <ul class="component-list" data-role="component-list">
+                        <li class="current">
+                          <div class="title">
+                            <a href="//www.alibaba.com/Machinery_p43">Machinery</a>
+                            /
+                            <a href="//www.alibaba.com/Fabrication-Services_p41">Fabrication Service</a>
+                            <i class="material-icons text-dark float-right sc-hd-prefix2-icon">arrow_right</i>
+                          </div>
+                          <div class="level-one-list">
+                            <div class="level-one-inner">
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Machinery_p43">Machinery</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/general-industrial-equipment_cid14">General
+                                    Industrial Equipment</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/engineering-construction-machinery_cid1326">Engineering
+                                    &amp; Construction Machinery</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/agriculture-machinery-equipment_cid100009395">Agriculture
+                                    Machinery &amp; Equipment</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/packaging-machine_cid100009422">Packaging
+                                    Machine</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/woodworking-machinery_cid1431">Woodworking
+                                    Machinery</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/printing-machine_cid100009431">Printing
+                                    Machine</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Machinery_p43">View
+                                    More</a>
+                                </div>
+                              </div>
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Fabrication-Services_p41">Fabrication
+                                  Services</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/bearing-accessory_cid100003868">Bearing
+                                    Accessory</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/motors_cid100006831">Motors</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/custom-fabrication-services_cid100003880">Custom
+                                    Fabrication Services</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/pumps-parts_cid100008662">Pumps
+                                    &amp; Parts</a>
+                                  <a class="level-two-title" href=""></a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/power-transmission_cid1469">Power
+                                    Transmission</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Fabrication-Services_p41">View
+                                    More</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="title">
+                            <a href="//www.alibaba.com/Consumer-Electronics_p44">Consumer Electronics</a>
+                            /
+                            <a href="//www.alibaba.com/Home-Appliances_p6">Home Appliances</a>
+                            <i class="sc-hd-prefix2-icon sc-hd-prefix2-icon-arrow-right"></i>
+                          </div>
+                          <div class="level-one-list">
+                            <div class="level-one-inner">
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Consumer-Electronics_p44">Consumer
+                                  Electronics</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/computer-hardware-software_cid7">Computer
+                                    Hardware &amp; Software</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/e-cigarettes/">Electronic
+                                    Cigarettes</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/accessories-parts_cid100009632">Accessories
+                                    &amp; Parts</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/mobile-phone-accessories_cid100002954">Mobile
+                                    Phone &amp; Accessories</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/home-audio-video-accessories_cid100009629">Home
+                                    Audio, Video &amp; Accessories</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/camera-photo-accessories_cid100009630">Camera,
+                                    Photo &amp; Accessories</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Consumer-Electronics_p44">View
+                                    More</a>
+                                </div>
+                              </div>
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Home-Appliances_p6">Home
+                                  Appliances</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/air-conditioning-appliances_cid100000050">Air
+                                    Conditioning Appliances</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/kitchen-appliances_cid100000011">Kitchen
+                                    Appliances</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/cleaning-appliances_cid100000013">Cleaning
+                                    Appliances</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/water-heaters_cid100000054">Water
+                                    Heaters</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/home-heaters_cid100000015">Home
+                                    Heaters</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/water-treatment-appliances_cid100000014">Water
+                                    Treatment Appliances</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Home-Appliances_p6">View
+                                    More</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="title">
+                            <a href="//www.alibaba.com/Vehicles-Accessories_p34">Vehicles &amp;
+                              Accessories</a>
+                            /
+                            <a href="//www.alibaba.com/Sports-Entertainment_p18">Sports &amp;
+                              Entertainment</a>
+                            <i class="sc-hd-prefix2-icon sc-hd-prefix2-icon-arrow-right"></i>
+                          </div>
+                          <div class="level-one-list">
+                            <div class="level-one-inner">
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Vehicles-Accessories_p34">Vehicles
+                                  &amp; Accessories</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/auto-electronics_cid3404">Auto
+                                    Electronics</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/auto-electrical-system_cid120203">Auto
+                                    Electrical System</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/interior-accessories_cid1212">Interior
+                                    Accessories</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/exterior-accessories_cid1213">Exterior
+                                    Accessories</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/body-parts_cid120688">Body
+                                    Parts</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/vehicle-tools_cid3408">Vehicle
+                                    Tools</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Vehicles-Accessories_p34">View
+                                    More</a>
+                                </div>
+                              </div>
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Sports-Entertainment_p18">Sports
+                                  &amp; Entertainment</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/outdoor-sports_cid100005431">Outdoor
+                                    Sports</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/fitness-body-building_cid100005259">Fitness
+                                    &amp; Body Building</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/sportswear_cid301">Sportswear</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/water-sports_cid100005575">Water
+                                    Sports</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/golf_cid100005322">Golf</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/amusement-park_cid100005611">Amusement
+                                    Park</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Sports-Entertainment_p18">View
+                                    More</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="title">
+                            <a href="//www.alibaba.com/Apparel_p3">Apparel</a>
+                            /
+                            <a href="//www.alibaba.com/Textiles-Leather-Products_p4">Textiles</a>
+                            /
+                            <a href="//www.alibaba.com/Timepieces-Jewelry-Eyewear_p36">Timepieces</a>
+                            /
+                            <a href="//www.alibaba.com/Fashion-Accessories_p339">Accessories</a>
+                            <i class="sc-hd-prefix2-icon sc-hd-prefix2-icon-arrow-right"></i>
+                          </div>
+                          <div class="level-one-list">
+                            <div class="level-one-inner">
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Apparel_p3">Apparel</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/men-s-clothing_cid100003070">Men's
+                                    Clothing</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/sportswear_cid301">Sportswear</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/women-s-clothing_cid100003109">Women's
+                                    Clothing</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/garment-accessories_cid328">Garment
+                                    Accessories</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/plus-size-clothing_cid100003244">Plus
+                                    Size Clothing</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/girls-clothing_cid100003199">Girls'
+                                    Clothing</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Apparel_p3">View
+                                    More</a>
+                                </div>
+                              </div>
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Textiles-Leather-Products_p4">Textiles
+                                  &amp; Leather Products</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/towel-table-linens_cid405">Towel
+                                    &amp; Table Linens</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/fabric_cid423">Fabric</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/down-feather_cid100000938">Down
+                                    &amp; Feather</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/yarn_cid408">Yarn</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/leather_cid100000941">Leather</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/fur_cid100000936">Fur</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Textiles-Leather-Products_p4">View
+                                    More</a>
+                                </div>
+                              </div>
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Timepieces-Jewelry-Eyewear_p36">Timepieces,
+                                  Jewelry, Eyewear</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/jewelry_cid1509">Jewelry</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/watches_cid1511">Watches</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/eyewear_cid1512">Eyewear</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/clocks_cid1528">Clocks</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Timepieces-Jewelry-Eyewear_p36">View
+                                    More</a>
+                                </div>
+                              </div>
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Fashion-Accessories_p339">Fashion
+                                  Accessories</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href=""></a>
+                                  <a class="level-two-title" href=""></a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/children-s-shoes_cid32212">Children's
+                                    Shoes</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/gloves-mittens_cid324">Gloves
+                                    &amp; Mittens</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/belts_cid32801">Belts</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/belt-accessories_cid33913">Belt
+                                    Accessories</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Fashion-Accessories_p339">View
+                                    More</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="title">
+                            <a href="//www.alibaba.com/Home-Garden_p15">Home &amp; Garden</a>
+                            /
+                            <a href="//www.alibaba.com/Lights-Lighting_p39">Lights</a>
+                            /
+                            <a href="//www.alibaba.com/Furniture_p1503">Furniture</a>
+                            /
+                            <a href="//www.alibaba.com/Construction-Real-Estate_p13">Construction</a>
+                            <i class="sc-hd-prefix2-icon sc-hd-prefix2-icon-arrow-right"></i>
+                          </div>
+                          <div class="level-one-list">
+                            <div class="level-one-inner">
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Home-Garden_p15">Home
+                                  &amp; Garden</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href=""></a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/home-decor_cid3710">Home
+                                    Decor</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/household-sundries_cid100004944">Household
+                                    Sundries</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/garden-supplies_cid125">Garden
+                                    Supplies</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/home-storage-organization_cid1541">Home
+                                    Storage &amp; Organization</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/pet-products_cid100006206">Pet
+                                    Products</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Home-Garden_p15">View
+                                    More</a>
+                                </div>
+                              </div>
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Lights-Lighting_p39">Lights
+                                  &amp; Lighting</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/led-lighting_cid100009100">LED
+                                    Lighting</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/indoor-lighting_cid100009161">Indoor
+                                    Lighting</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/lighting-accessories_cid530">Lighting
+                                    Accessories</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/outdoor-lighting_cid100009165">Outdoor
+                                    Lighting</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/lighting-bulbs-tubes_cid150402">Lighting
+                                    Bulbs &amp; Tubes</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/professional-lighting_cid100009174">Professional
+                                    Lighting</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Lights-Lighting_p39">View
+                                    More</a>
+                                </div>
+                              </div>
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Furniture_p1503">Furniture</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/home-furniture_cid150303">Home
+                                    Furniture</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/commercial-furniture_cid150301">Commercial
+                                    Furniture</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/outdoor-furniture_cid150302">Outdoor
+                                    Furniture</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/furniture-hardware_cid150306">Furniture
+                                    Hardware</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/furniture-parts_cid3708">Furniture
+                                    Parts</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/baby-furniture_cid100002964">Baby
+                                    Furniture</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Furniture_p1503">View
+                                    More</a>
+                                </div>
+                              </div>
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Construction-Real-Estate_p13">Construction
+                                  &amp; Real Estate</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/cctv-products_cid3011">CCTV
+                                    Products</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/engineering-construction-machinery_cid1326">Engineering
+                                    &amp; Construction Machinery</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/real-estate_cid31">Real
+                                    Estate</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/door-window-accessories_cid153803">Door
+                                    &amp; Window Accessories</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/woodworking-machinery_cid1431">Woodworking
+                                    Machinery</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/doors-windows_cid100006533">Doors
+                                    &amp; Windows</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Construction-Real-Estate_p13">View
+                                    More</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="title">
+                            <a href="//www.alibaba.com/Beauty-Personal-Care_p66">Beauty &amp; Personal
+                              Care</a>
+                            /
+                            <a href="//www.alibaba.com/Health-Medical_p16">Health &amp; Medical </a>
+                            <i class="sc-hd-prefix2-icon sc-hd-prefix2-icon-arrow-right"></i>
+                          </div>
+                          <div class="level-one-list">
+                            <div class="level-one-inner">
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Beauty-Personal-Care_p66">Beauty
+                                  &amp; Personal Care</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/makeup-tools_cid660104">Makeup
+                                    Tools</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/oral-hygiene_cid3305">Oral
+                                    Hygiene</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/beauty-equipment_cid660101">Beauty
+                                    Equipment</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/hair-extensions-wigs_cid100000992">Hair
+                                    Extensions &amp; Wigs</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/nail-supplies_cid3308">Nail
+                                    Supplies</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/skin-care_cid3306">Skin
+                                    Care</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Beauty-Personal-Care_p66">View
+                                    More</a>
+                                </div>
+                              </div>
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Health-Medical_p16">Health
+                                  &amp; Medical</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/health-care-products_cid100003172">Health
+                                    Care Products</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/medical-devices_cid100003100">Medical
+                                    Devices</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/pharmaceuticals_cid100009383">Pharmaceuticals</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/extract_cid100002660">Extract</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/animal-veterinary_cid100003119">Animal
+                                    &amp; Veterinary</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/herbal-medicines_cid100009267">Herbal
+                                    Medicines</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Health-Medical_p16">View
+                                    More</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="title">
+                            <a href="//www.alibaba.com/Packaging-Printing_p23">Packaging &amp; Printing</a>
+                            /
+                            <a href="//www.alibaba.com/Office-School-Supplies_p21">Office &amp; School</a>
+                            /
+                            <a href="//www.alibaba.com/Service-Equipment_p2829">Service Equipment</a>
+                            <i class="sc-hd-prefix2-icon sc-hd-prefix2-icon-arrow-right"></i>
+                          </div>
+                          <div class="level-one-list">
+                            <div class="level-one-inner">
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Packaging-Printing_p23">Packaging
+                                  &amp; Printing</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/transport-packaging_cid2320">Transport
+                                    Packaging</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/paper-paperboard_cid100002856">Paper
+                                    &amp; Paperboard</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/printing-services_cid3597">Printing
+                                    Services</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/food-packaging_cid231902">Food
+                                    Packaging</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/cosmetics-packaging_cid231903">Cosmetics
+                                    Packaging</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/paper-packaging_cid100002862">Paper
+                                    Packaging</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Packaging-Printing_p23">View
+                                    More</a>
+                                </div>
+                              </div>
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Office-School-Supplies_p21">Office
+                                  &amp; School Supplies</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/writing-instruments_cid100009730">Writing
+                                    Instruments</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/office-paper_cid2112">Office
+                                    Paper</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/office-equipment_cid100003766">Office
+                                    Equipment</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/filing-products_cid100003804">Filing
+                                    Products</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/notebooks-writing-pads_cid100003745">Notebooks
+                                    &amp; Writing Pads</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/board_cid212002">Board</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Office-School-Supplies_p21">View
+                                    More</a>
+                                </div>
+                              </div>
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Service-Equipment_p2829">Service
+                                  Equipment</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/store-supermarket-supplies_cid282903">Store
+                                    &amp; Supermarket Supplies</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/advertising-equipment_cid281919">Advertising
+                                    Equipment</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/restaurant-hotel-supplies_cid2406">Restaurant
+                                    &amp; Hotel Supplies</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/financial-equipment_cid510">Financial
+                                    Equipment</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/trade-show-equipment_cid282901">Trade
+                                    Show Equipment</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Service-Equipment_p2829">View
+                                    More</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="title">
+                            <a href="//www.alibaba.com/Electrical-Equipment-Supplies_p5">Electrical</a>
+                            /
+                            <a href="//www.alibaba.com/Tools-Hardware_p1420">Tools &amp; Hardware</a>
+                            /
+                            <a href="//www.alibaba.com/Security-Protection_p30">Security &amp;
+                              Protection</a>
+                            <i class="sc-hd-prefix2-icon sc-hd-prefix2-icon-arrow-right"></i>
+                          </div>
+                          <div class="level-one-list">
+                            <div class="level-one-inner">
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Electrical-Equipment-Supplies_p5">Electrical
+                                  Equipment &amp; Supplies</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/batteries_cid528">Batteries</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/switches_cid141906">Switches</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/connectors-terminals_cid14190406">Connectors
+                                    &amp; Terminals</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/power-supplies_cid141911">Power
+                                    Supplies</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/wires-cables-cable-assemblies_cid141904">Wires,
+                                    Cables &amp; Cable Assemblies</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/generators_cid141902">Generators</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Electrical-Equipment-Supplies_p5">View
+                                    More</a>
+                                </div>
+                              </div>
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Tools-Hardware_p1420">Tools
+                                  &amp; Hardware</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/hand-tools_cid142003">Hand
+                                    Tools</a>
+                                  <a class="level-two-title" href=""></a>
+                                  <a class="level-two-title" href=""></a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/power-tools_cid1417">Power
+                                    Tools</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/material-handling-tools_cid100009597">Material
+                                    Handling Tools</a>
+                                  <a class="level-two-title" href=""></a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Tools-Hardware_p1420">View
+                                    More</a>
+                                </div>
+                              </div>
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Security-Protection_p30">Security
+                                  &amp; Protection</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/cctv-products_cid3011">CCTV
+                                    Products</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/roadway-safety_cid3015">Roadway
+                                    Safety</a>
+                                  <a class="level-two-title" href=""></a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/access-control-systems-products_cid3030">Access
+                                    Control Systems &amp; Products</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/police-military-supplies_cid3005">Police
+                                    &amp; Military Supplies</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/firefighting-supplies_cid3009">Firefighting
+                                    Supplies</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Security-Protection_p30">View
+                                    More</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="title">
+                            <a href="//www.alibaba.com/Electronic-Components-Supplies_p502">Electronic
+                              Components</a>
+                            /
+                            <a href="//www.alibaba.com/Telecommunications_p509">Telecommunications</a>
+                            <i class="sc-hd-prefix2-icon sc-hd-prefix2-icon-arrow-right"></i>
+                          </div>
+                          <div class="level-one-list">
+                            <div class="level-one-inner">
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Electronic-Components-Supplies_p502">Electronic
+                                  Components &amp; Supplies</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/active-components_cid4001">Active
+                                    Components</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/optoelectronic-displays_cid4004">Optoelectronic
+                                    Displays</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/passive-components_cid4005">Passive
+                                    Components</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/electronic-accessories-supplies_cid4003">Electronic
+                                    Accessories &amp; Supplies</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Electronic-Components-Supplies_p502">View
+                                    More</a>
+                                </div>
+                              </div>
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Telecommunications_p509">Telecommunications</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/mobile-phone-accessories_cid100002954">Mobile
+                                    Phone &amp; Accessories</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/radio-tv-accessories_cid503">Radio
+                                    &amp; TV Accessories</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/communication-equipment_cid100002951">Communication
+                                    Equipment</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/telephones-accessories_cid100002953">Telephones
+                                    &amp; Accessories</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Telecommunications_p509">View
+                                    More</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="title">
+                            <a href="//www.alibaba.com/Toys-Hobbies_p26">Toys &amp; Hobbies</a>
+                            /
+                            <a href="//www.alibaba.com/Gifts-Crafts_p17">Gifts &amp; Crafts</a>
+                            <i class="sc-hd-prefix2-icon sc-hd-prefix2-icon-arrow-right"></i>
+                          </div>
+                          <div class="level-one-list">
+                            <div class="level-one-inner">
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Toys-Hobbies_p26">Toys
+                                  &amp; Hobbies</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/outdoor-toys-structures_cid100001623">Outdoor
+                                    Toys &amp; Structures</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/toy-animal_cid100001628">Toy
+                                    Animal</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/toy-vehicle_cid100001627">Toy
+                                    Vehicle</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/inflatable-toys_cid100001700">Inflatable
+                                    Toys</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/baby-toys_cid100001622">Baby
+                                    Toys</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/educational-toys_cid100001625">Educational
+                                    Toys</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Toys-Hobbies_p26">View
+                                    More</a>
+                                </div>
+                              </div>
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Gifts-Crafts_p17">Gifts
+                                  &amp; Crafts</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/festive-party-supplies_cid100002992">Festive
+                                    &amp; Party Supplies</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/home-decoration_cid100002931">Home
+                                    Decoration</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/holiday-gifts_cid100002999">Holiday
+                                    Gifts</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Gifts-Crafts_p17">View
+                                    More</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="title">
+                            <a href="//www.alibaba.com/Luggage-Bags-Cases_p1524">Luggage，Bags &amp;
+                              Cases</a>
+                            /
+                            <a href="//www.alibaba.com/Shoes-Accessories_p322">Shoes &amp; Accessories</a>
+                            <i class="sc-hd-prefix2-icon sc-hd-prefix2-icon-arrow-right"></i>
+                          </div>
+                          <div class="level-one-list">
+                            <div class="level-one-inner">
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Luggage-Bags-Cases_p1524">Luggage,
+                                  Bags &amp; Cases</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/special-purpose-bags-cases_cid3805">Special
+                                    Purpose Bags &amp; Cases</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/digital-gear-camera-bags_cid3802">Digital
+                                    Gear &amp; Camera Bags</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/sports-leisure-bags_cid3806">Sports
+                                    &amp; Leisure Bags</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/wallets-holders_cid3803">Wallets
+                                    &amp; Holders</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/handbags-messenger-bags_cid100002610">Handbags
+                                    &amp; Messenger Bags</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/luggage-travel-bags_cid152404">Luggage
+                                    &amp; Travel Bags</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Luggage-Bags-Cases_p1524">View
+                                    More</a>
+                                </div>
+                              </div>
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Shoes-Accessories_p322">Shoes
+                                  &amp; Accessories</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/shoe-parts-accessories_cid32210">Shoe
+                                    Parts &amp; Accessories</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/men-s-shoes_cid100001615">Men's
+                                    Shoes</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/women-s-shoes_cid100001606">Women's
+                                    Shoes</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/children-s-shoes_cid32212">Children's
+                                    Shoes</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/special-purpose-shoes_cid32208">Special
+                                    Purpose Shoes</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/shoe-materials_cid32209">Shoe
+                                    Materials</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Shoes-Accessories_p322">View
+                                    More</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="title">
+                            <a href="//www.alibaba.com/Minerals-Metallurgy_p9">Minerals</a>
+                            /
+                            <a href="//www.alibaba.com/Chemicals_p8">Chemicals</a>
+                            /
+                            <a href="//www.alibaba.com/Rubber-Plastics_p80">Rubber &amp; Plastics</a>
+                            /
+                            <a href="//www.alibaba.com/Energy_p10">Energy</a>
+                            <i class="sc-hd-prefix2-icon sc-hd-prefix2-icon-arrow-right"></i>
+                          </div>
+                          <div class="level-one-list">
+                            <div class="level-one-inner">
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Minerals-Metallurgy_p9">Minerals
+                                  &amp; Metallurgy</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/steel_cid100000300">Steel</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/aluminum_cid936">Aluminum</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/graphite-products_cid90904">Graphite
+                                    Products</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/metal-scrap_cid110502">Metal
+                                    Scrap</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/metal-metallurgy-machinery_cid1426">Metal
+                                    &amp; Metallurgy Machinery</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/fiberglass-products_cid1406">Fiberglass
+                                    Products</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Minerals-Metallurgy_p9">View
+                                    More</a>
+                                </div>
+                              </div>
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Chemicals_p8">Chemicals</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/inorganic-chemicals_cid100003732">Inorganic
+                                    Chemicals</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/pharmaceuticals_cid100009383">Pharmaceuticals</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/paints-coatings_cid100009393">Paints
+                                    &amp; Coatings</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/chemical-machinery-equipment_cid1416">Chemical
+                                    Machinery &amp; Equipment</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/admixture-additives_cid100003960">Admixture&amp;Additives</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/organic-intermediates_cid100009389">Organic
+                                    Intermediates</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Chemicals_p8">View
+                                    More</a>
+                                </div>
+                              </div>
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Rubber-Plastics_p80">Rubber
+                                  &amp; Plastics</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/plastic-products_cid8005">Plastic
+                                    Products</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/rubber-products_cid8012">Rubber
+                                    Products</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/rubber-raw-materials_cid808">Rubber
+                                    Raw Materials</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/plastic-raw-materials_cid807">Plastic
+                                    Raw Materials</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/plastic-raw-material-machinery_cid1471">Plastic
+                                    Raw Material Machinery</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Rubber-Plastics_p80">View
+                                    More</a>
+                                </div>
+                              </div>
+                              <div class="level-one">
+                                <a class="level-one-title" href="//www.alibaba.com/Energy_p10">Energy</a>
+                                <div class="level-two-list">
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/solar-energy-products_cid1007">Solar
+                                    Energy Products</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/petrochemical-products_cid1001">Petrochemical
+                                    Products</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/power-supply-units_cid709">Power
+                                    Supply Units</a>
+                                  <a class="level-two-title" href="//www.alibaba.com/catalog/industrial-fuel_cid100002941">Industrial
+                                    Fuel</a>
+                                  <a class="view-more" rel="nofollow" href="//www.alibaba.com/Energy_p10">View
+                                    More</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                      <a class="all-categories" href="//www.alibaba.com/Products">All Categories</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-11-24 col-sm-8">
+              <form action="#" class="py-1">
+                <div class="input-group w-100">
+                  <select class="custom-select black-border outoff darkform" name="category_name">
+                    <option value="">Products</option>
+                    <option value="">Manufacturer</option>
+                  </select>
+                  <input type="text" class="form-control black-border darkform outoff" style="width:50%;" placeholder="Search" />
+                  <div class="input-group-append">
+                    <button class="btn btn-dark pb-0" type="submit">
+                      <i class="material-icons">search</i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+              <!-- search-wrap .end// -->
+            </div>
+
+            <div class="col-lg-9-24 col-sm-12">
+              <div class="widgets-wrap float-right row no-gutters py-1">
+                <div class="col-auto">
+                  <a href="#" class="widget-header">
+                    <div class="icontext">
+                      <i class="material-icons icon text-dark">notifications</i>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="col-auto">
+                  <a href="#" class="widget-header">
+                    <div class="icontext">
+                      <i class="material-icons icon text-dark">email</i>
+                      <span class="small round badge badge-danger email-badge">0</span>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="col-auto">
+                  <div class="widget-header dropdown">
+                    <a href="#" data-toggle="dropdown" data-offset="20,10">
+                      <div class="icontext">
+                        <div class="text-wrap text-dark">
+                          <button type="button" class="btn btn-dark">
+                            Account
+                          </button>
+                        </div>
+                      </div>
+                    </a>
+                    <div class="dropdown-menu">
+                      <form class="px-4 py-3">
+                        <div class="form-group">
+                          <label>Email address</label>
+                          <input type="email" class="form-control" placeholder="email@example.com" style='background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAmJJREFUWAntV7uKIkEUvbYGM4KID3wEIgjKRLLpKGLgFwiCfslGhkb7IbLgAzE1GhMxWxRRBEEwmEgDERWfW6fXuttq60a2wU6B1qlzb9U5fatsKROJVigUArvd7oeAyePx6Af3qGYymT7F2h8Wi+V7Pp+fmE7iv4Sw81GieusKIzNh4puCJzdaHIagCW1F4KSeQ4O4pPLoPb/3INBGBZ7avgz8fxWIxWIUCoX43Blegbe3NwoGg88zwMoncFUB8Yokj8dDdrv9MpfHVquV/H4/iVcpc1qgKAp5vV6y2WxaWhefreB0OimXy6kGkD0YDKhSqdB2u+XJqVSK4vE4QWS5XKrx0WjEcZ/PR9lslhwOh8p1Oh2q1Wp0OBw4RwvOKpBOp1kcSdivZPLvmxrjRCKhiiOOSmQyGXp5ecFQbRhLcRDRaJTe39//BHW+2cDr6ysFAoGrlEgkwpwWS1I7z+VykdvtliHuw+Ew40vABvb7Pf6hLuMk/rGY02ImBZC8dqv04lpOYjaw2WzUPZcB2WMPZet2u1cmZ7MZTSYTNWU+n9N4PJbp3GvXYPIE2ADG9Xqder2e+kTr9ZqazSa1222eA6FqtUoQwqHCuFgscgWQWC6XaTgcEiqKQ9poNOiegbNfwWq1olKppB6yW6cWVcDHbDarIuzuBBaLhWrqVvwy/6wCMnhLXMbR4wnvtX/F5VxdAzJoRH+2BUYItlotmk6nLGW4gX6/z+IAT9+CLwPPr8DprnZ2MIwaQBsV+DBKUEfnQ8EtFRdFneBDKWhCW8EVGbdUQfxESR6qKhaHBrSgCe3fbLTpPlS70M0AAAAASUVORK5CYII="); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;' />
+                        </div>
+                        <div class="form-group">
+                          <label>Password</label>
+                          <input type="password" class="form-control" placeholder="Password" style='background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAmJJREFUWAntV7uKIkEUvbYGM4KID3wEIgjKRLLpKGLgFwiCfslGhkb7IbLgAzE1GhMxWxRRBEEwmEgDERWfW6fXuttq60a2wU6B1qlzb9U5fatsKROJVigUArvd7oeAyePx6Af3qGYymT7F2h8Wi+V7Pp+fmE7iv4Sw81GieusKIzNh4puCJzdaHIagCW1F4KSeQ4O4pPLoPb/3INBGBZ7avgz8fxWIxWIUCoX43Blegbe3NwoGg88zwMoncFUB8Yokj8dDdrv9MpfHVquV/H4/iVcpc1qgKAp5vV6y2WxaWhefreB0OimXy6kGkD0YDKhSqdB2u+XJqVSK4vE4QWS5XKrx0WjEcZ/PR9lslhwOh8p1Oh2q1Wp0OBw4RwvOKpBOp1kcSdivZPLvmxrjRCKhiiOOSmQyGXp5ecFQbRhLcRDRaJTe39//BHW+2cDr6ysFAoGrlEgkwpwWS1I7z+VykdvtliHuw+Ew40vABvb7Pf6hLuMk/rGY02ImBZC8dqv04lpOYjaw2WzUPZcB2WMPZet2u1cmZ7MZTSYTNWU+n9N4PJbp3GvXYPIE2ADG9Xqder2e+kTr9ZqazSa1222eA6FqtUoQwqHCuFgscgWQWC6XaTgcEiqKQ9poNOiegbNfwWq1olKppB6yW6cWVcDHbDarIuzuBBaLhWrqVvwy/6wCMnhLXMbR4wnvtX/F5VxdAzJoRH+2BUYItlotmk6nLGW4gX6/z+IAT9+CLwPPr8DprnZ2MIwaQBsV+DBKUEfnQ8EtFRdFneBDKWhCW8EVGbdUQfxESR6qKhaHBrSgCe3fbLTpPlS70M0AAAAASUVORK5CYII="); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;' />
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                          Sign in
+                        </button>
+                      </form>
+                      <hr class="dropdown-divider" />
+                      <a class="dropdown-item" href="#">Have account? Sign up</a>
+                      <a class="dropdown-item" href="#">Forgot password?</a>
+                    </div>
+                    <!--  dropdown-menu .// -->
+                  </div>
+                  <!-- widget-header .// -->
+                </div>
+
+              </div>
+              <!-- widgets-wrap.// row.// -->
+            </div>
+
+          </div>
+          <!-- row.// -->
+        </div>
+      </div>
+      <!-- container.// -->
+    </div>
+  <!-- End Top Navigation -->
+  </div>

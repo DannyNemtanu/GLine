@@ -1,0 +1,247 @@
+<app-navigation></app-navigation>
+<div class="main-container">
+<div class="container py-3">
+  <div class="complete-profile-page">
+      <h1 class="title">Complete Business Profile</h1>
+      <div class="row">
+          <div class="col-3">
+              <div class="completion-progress">
+                  <div class="container">
+                      <ul class="progress-steps">
+                          <li [ngClass]="progressOne" id="p-one">
+                              <div class="row no-gutters">
+                                  <div class="col-auto">
+                                      <div class="step-ico text-center">
+                                          <span>1</span>
+                                      </div>
+                                  </div>
+                                  <div class="col-auto my-auto">
+                                      <div class="step-info">
+                                          <span class="step-counter">Step One</span>
+                                          <p class="title">Company Details</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </li>
+                          <li [ngClass]="progressTwo" id="p-two">
+                              <div class="row no-gutters">
+                                  <div class="col-auto">
+                                      <div class="step-ico text-center"><span>2</span></div>
+                                  </div>
+                                  <div class="col-auto my-auto">
+                                      <div class="step-info">
+                                          <span class="step-counter">Step Two</span>
+                                          <p class="title">Contact Details</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </li>
+                          <li [ngClass]="progressThree" id="p-three">
+                              <div class="row no-gutters">
+                                  <div class="col-auto">
+                                      <div class="step-ico text-center"><span>3</span></div>
+                                  </div>
+                                  <div class="col-auto my-auto">
+                                      <div class="step-info">
+                                          <span class="step-counter">Step Three</span>
+                                          <p class="title">Basic Information</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </li>
+                          <li [ngClass]="progressFour" id="p-four">
+                              <div class="row no-gutters">
+                                  <div class="col-auto">
+                                      <div class="step-ico text-center"><span>4</span></div>
+                                  </div>
+                                  <div class="col-auto my-auto">
+                                      <div class="step-info">
+                                          <span class="step-counter">Step Four</span>
+                                          <p class="title">Company Highlights</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </li>
+                          <li [ngClass]="progressFive" id="p-five">
+                              <div class="row no-gutters">
+                                  <div class="col-auto">
+                                      <div class="step-ico text-center"><span>5</span></div>
+                                  </div>
+                                  <div class="col-auto my-auto">
+                                      <div class="step-info">
+                                          <span class="step-counter">Step Five</span>
+                                          <p class="title">Optional Items</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+          <div class="col-9">
+              <div class="profile-form">
+                  <div class="header">
+                      <div class="row">
+                          <div class="col">
+                              <h1>Step One</h1>
+                          </div>
+                          <div class="col">
+                              <button class="btn btn-success ml-2" (click)="next()">Next</button>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="body" [ngSwitch]="step">
+                      <div class="so" *ngSwitchCase="'one'">
+                          <h1 class="step-title">Company details</h1>
+                          <div class="pic-upload form-group">
+                              <p class="field-label">Upload profile picture <span class="optional" [ngClass]="{'text-success': uploadStatus === 'Uploaded', 'text-danger': uploadStatus === 'Not Uploaded'}">{{uploadStatus}} - {{uploadProgress}}%</span></p>
+                            <div class="upload-function">
+                                    <input class="upload-function"
+                                    type="file"
+                                    accept='image/*'
+                                    (change)="startUpload($event.target.files)"
+                                    style="opacity: 0;">
+                            </div>
+
+                          </div>
+                          <div class="form-row form-group">
+                              <div class="col">
+                                  <p class="field-label">Company trading name</p>
+                                  <input class="w-100 custom-input txt" [(ngModel)]="form_data.companyProfile.tradingName" type="text" placeholder="GoldenLine">
+                              </div>
+                              <div class="col">
+                                  <p class="field-label">Company’s registration number</p>
+                                  <input class="w-100 custom-input txt" type="text" [(ngModel)]="form_data.companyProfile.registrationNumber" placeholder="GL1239413">
+                              </div>
+                          </div>
+                          <div class="form-group row-input-3">
+                              <p class="field-label">Established Date</p>
+                              <input class="custom-input txt"  [(ngModel)]="form_data.companyProfile.establishedDate.day" type="text" placeholder="Day">
+                              <input class="custom-input txt" [(ngModel)]="form_data.companyProfile.establishedDate.month" type="text" placeholder="Month">
+                              <input class="custom-input txt" [(ngModel)]="form_data.companyProfile.establishedDate.year" type="text" placeholder="Year">
+                          </div>
+                          <div class="form-group">
+                              <p class="field-label">Company website address <span class="optional">(Optional)</span></p>
+                              <input class="w-100 custom-input txt" [(ngModel)]="form_data.companyProfile.websiteURL" type="text" placeholder="www.example.com">
+                          </div>
+                      </div>
+                      <div class="st" *ngSwitchCase="'two'">
+                          <h1 class="step-title">Contact Details</h1>
+                          <div class="form-group form-row">
+                              <div class="col">
+                                  <p class="field-label">Physical Address</p>
+                                  <textarea name="address" [(ngModel)]="form_data.companyProfile.pyshicalAddress" id="addr" class="custom-input w-100" placeholder="Please enter your full address here..."></textarea>
+                              </div>
+                              <div class="col-4 the-map">
+                                  <div class="googlemaps"></div>
+                              </div>
+                          </div>
+                          <div class="form-row form-group">
+                              <div class="col">
+                                  <p class="field-label">Telephone <span class="optional">(Optional)</span></p>
+                                  <input class="w-100 custom-input txt" [(ngModel)]="form_data.companyProfile.telephone" type="text" placeholder="+353 1 398 812">
+                              </div>
+                              <div class="col">
+                                  <p class="field-label">Fax <span class="optional">(Optional)</span></p>
+                                  <input class="w-100 custom-input txt" [(ngModel)]="form_data.companyProfile.fax"  type="text" placeholder="+353 1 321233">
+                              </div>
+                          </div>
+
+                          <div class="form-group">
+                              <p class="field-label">Mobile Number</p>
+                              <input class="w-100 custom-input txt" [(ngModel)]="form_data.companyProfile.mobilePhone" type="text" placeholder="+353 87 777 7777">
+                          </div>
+                          <div class="form-row form-group">
+                              <div class="col">
+                                  <p class="field-label">Email Address</p>
+                                  <input class="w-100 custom-input txt" [(ngModel)]="form_data.companyProfile.emailAddress" type="text" placeholder="email@example.com">
+                              </div>
+                              <div class="col">
+                                  <p class="field-label">Manager Name</p>
+                                  <input class="w-100 custom-input txt" [(ngModel)]="form_data.companyProfile.managerName" type="text" placeholder="John Doe">
+                              </div>
+                          </div>
+                      </div>
+                      <div class="sth" *ngSwitchCase="'three'">
+                          <h1 class="step-title">Basic Information</h1>
+                          <div class="form-group">
+                              <p class="field-label">Business Description</p>
+                              <textarea name="address" [(ngModel)]="form_data.companyProfile.businessDescription" id="b-desc" class="custom-input w-100" placeholder="Please enter your business description here..."></textarea>
+                          </div>
+                          <div class="form-row form-group prod-flow">
+                              <div class="col-2">
+                                  <div class="prod-flow-image"></div>
+                                  <input class="w-100 custom-input txt" [(ngModel)]="form_data.companyProfile.productFlow.stepOne.title" type="text" placeholder="Type of activity">
+                              </div>
+                              <div class="col-2 upload-on">
+                                  <div class="prod-flow-image"><span>
+                                          <p class="text-center h-100 py-auto">+</p>
+                                      </span></div>
+                              </div>
+
+                          </div>
+
+                          <div class="form-group">
+                              <p class="field-label">Main Products</p>
+                              <input class="w-100 custom-input txt" [(ngModel)]="form_data.companyProfile.mainProducts" type="text" placeholder="+353 87 777 7777">
+                          </div>
+                      </div>
+                      <div class="sf" *ngSwitchCase="'four'">
+                          <h1 class="step-title">Company Highlights</h1>
+                          <div class="form-group">
+                              <p class="field-label">Business Certifications <span class="optional">(Optional)</span></p>
+                              <textarea name="Certifications" [(ngModel)]="form_data.companyProfile.businessCertification" id="b-certs" class="custom-input w-100"
+                                  placeholder="Please enter your certifications here..."></textarea>
+                          </div>
+                          <div class="form-group">
+                              <p class="field-label">Business Patents <span class="optional">(Optional)</span></p>
+                              <textarea name="Patents" [(ngModel)]="form_data.companyProfile.businessPatents" id="b-pantents" class="custom-input w-100" placeholder="Please enter your patents here..."></textarea>
+                          </div>
+                          <div class="form-group">
+                              <p class="field-label">Business Trademarks <span class="optional">(Optional)</span></p>
+                              <textarea name="Trademarks" [(ngModel)]="form_data.companyProfile.businessTrademarks" id="b-trademks" class="custom-input w-100"
+                                  placeholder="Please enter your trademarks here..."></textarea>
+                          </div>
+                      </div>
+                      <div class="sfv" *ngSwitchCase="'five'">
+                          <h1 class="step-title">Optional Items</h1>
+                          <div class="form-group form-row">
+                              <div class="col-12">
+                                      <p class="field-label">Annual Sales <span class="optional">(Optional)</span></p>
+                              </div>
+                              <div class="col">
+                                      <input class="w-100 custom-input txt" [(ngModel)]="form_data.companyProfile.annualSales.min" type="text" value="€">
+                              </div>
+                              <div class="col">
+                                      <input class="w-100 custom-input txt" [(ngModel)]="form_data.companyProfile.annualSales.max" type="text" value="€">
+                              </div>
+                              
+                          </div>
+                          <div class="form-group">
+                              <p class="field-label">Main Markets <span class="optional">(Optional)</span></p>
+                              <textarea name="Patents" [(ngModel)]="form_data.companyProfile.mainMarkets" id="b-pantents" class="custom-input w-100" placeholder="Please enter your business main markets of export here..."></textarea>
+                          </div>
+                          <div class="form-group form-row">
+                                  <div class="col-12">
+                                          <p class="field-label">Number of Employees <span class="optional">(Optional)</span></p>
+                                  </div>
+                                  <div class="col">
+                                          <input class="w-100 custom-input txt" [(ngModel)]="form_data.companyProfile.numberOfEmployees.min" type="text" placeholder="Min - 1">
+                                  </div>
+                                  <div class="col">
+                                          <input class="w-100 custom-input txt" [(ngModel)]="form_data.companyProfile.numberOfEmployees.max" type="text" value="Max">
+                                  </div>
+                          </div>
+                          <div class="form-group">
+                              <button class="btn btn-primary w-100" id="application-fns" (click)="completeProfile()">Complete Profile</button>
+                          </div>
+                      </div>
+                  </div>
+                  
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>

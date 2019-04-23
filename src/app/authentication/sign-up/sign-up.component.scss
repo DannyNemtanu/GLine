@@ -1,0 +1,37 @@
+body{
+    height:  100wh;
+}
+.bg { 
+    height:  100vh;
+    /* The image used */
+    background-image: url("../../../assets/images/Header_BG.jpg");
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.flex-fill {
+    flex: 1 1 auto;
+}
+#userType{
+    outline: none !important;
+}
+.form-btn{
+ border: 2px solid #ccc;
+ border-radius: 2px;
+ color: #a7a7a7;
+}
+.form-btn:hover{
+    border-color: #333;
+    color: #333;
+    transition: .5s;
+}
+.form-btn.active{
+    border-color: #007bff;
+    background-color: #007bff;
+    color: #fefefe;
+    transition: .2s;
+}
