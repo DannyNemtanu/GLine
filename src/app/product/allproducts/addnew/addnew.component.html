@@ -1,0 +1,197 @@
+<app-navigation></app-navigation>
+<div class="main-container my-0">
+  <!-- Header -->
+  <div class="container py-3">
+    <div class="row">
+      <div class="col ml-auto">
+        <h1 class="mtitle ml-2 text-secondary">Add Product</h1>
+      </div>
+      <div class="col mr-auto text-right">
+        <a routerLink="/allproducts" class="btn btn-sm btn-secondary text-white py-2" style="height: 100%;">Back</a>
+      </div>
+    </div>
+  </div>
+  <div class="container my-2 p-0">
+    <form action="">
+      <div class="row">
+        <!-- Basic -->
+        <div class="col-8">
+          <div class="card">
+            <span class="card-title font-weight-bold">Basic</span>
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text" class="form-control" placeholder="Short Sleeve T-Shirt">
+            </div>
+            <div class="form-group">
+              <label for="desc">Description</label>
+              <textarea type="text" rows="7" class="form-control" placeholder="Product description..."></textarea>
+            </div>
+          </div>
+        </div>
+        <!-- Oranization -->
+        <div class="col-4">
+          <div class="card">
+            <span class="card-title font-weight-bold">Organization</span>
+            <div class="form-group">
+              <label for="ptype">Product Type</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="pbrand">Brand</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="pcollection">Collection</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="ptags">Tags</label>
+              <input type="text" class="form-control">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Image -->
+      <div class="row">
+        <div class="col-8">
+          <div class="card image-card">
+            <ul class="ctitle">
+              <li class="float-left">
+                <span class="ctitle font-weight-bold">Images</span>
+              </li>
+              <li class="float-right">
+                <button class="text-warning" style="background: none; border:none">Upload Image</button>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+      <!-- Pricing -->
+      <div class="row">
+        <div class="col-8">
+          <div class="card">
+            <span class="card-title font-weight-bold">Pricing</span>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="pmin">Min</label>
+                  <input type="text" class="form-control" placeholder="€ 0, 00">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="pmax">Max</label>
+                  <input type="text" class="form-control" placeholder="€ ---">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Order -->
+      <div class="row">
+        <div class="col-8">
+          <div class="card">
+            <span class="card-title font-weight-bold">Order</span>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="omin">Min</label>
+                  <input type="text" class="form-control" placeholder="0 piece/pieces">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="omax">Max</label>
+                  <input type="text" class="form-control" placeholder="- piece/pieces">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Inventory -->
+      <div class="row">
+        <div class="col-8">
+          <div class="card">
+            <span class="card-title font-weight-bold">Inventory</span>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="sku">SKU (stock keeping unit)</label>
+                  <input type="text" class="form-control" placeholder="">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="barcode">Barcode (ISBN, UPC, GTIN, etc.)</label>
+                  <input type="text" class="form-control" placeholder="">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="barcode">Quantity</label>
+              <input type="text" class="form-control" placeholder="0 min">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Shipping -->
+      <div class="row">
+        <div class="col-8">
+          <div class="card">
+            <span class="card-title font-weight-bold">Shipping</span>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="ptype">
+              <label class="form-check-label" for="ptype">
+                This is a digital product
+              </label>
+            </div>
+            <hr>
+            <div class="form-group">
+              <label for="pweight">Weight</label>
+              <span style="font-size: .8rem;">Used to calculate shipping rates at checkout.</span>
+              <input type="text" class="form-control" placeholder="e.g. 1.2 Kg">
+            </div>
+            <div class="form-group">
+              <label for="corigitn">Country of origin</label>
+              <input type="text" class="form-control" placeholder="e.g. Italy">
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!-- Variants -->
+      <div class="row">
+        <div class="col-8">
+          <div class="card">
+            <span class="card-title font-weight-bold">Variants</span>
+            <div class="row">
+              <div class="col-4">
+                <div class="form-group">
+                  <label for="voption">Option name</label>
+                  <input type="text" class="form-control mt-2" placeholder="Size">
+                  <input type="text" class="form-control mt-2" placeholder="Color">
+                </div>
+              </div>
+              <div class="col-8">
+                <div class="form-group">
+                  <label for="oval">Option value</label>
+                  <input type="text" class="form-control mt-2" placeholder="Separate options with comma">
+                  <input type="text" class="form-control mt-2" placeholder="Separate options with comma">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-2 pb-3">
+              <div class="col-12">
+                  <button class="w-100 btn btn-small btn-primary b-0">Add Product</button>
+              </div>
+            </div>
+        </div>
+      </div>
+      
+    </form>
+  </div>
+</div>

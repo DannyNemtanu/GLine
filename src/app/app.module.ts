@@ -32,6 +32,8 @@ import { CompleteProfileComponent } from './company-overview/complete-profile/co
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { HttpClientModule } from '@angular/common/http';
 import { DropZoneDirective } from './shared/directives/drop-zone.directive';
+import { AllproductsComponent } from './product/allproducts/allproducts.component';
+import { AddnewComponent } from './product/allproducts/addnew/addnew.component';
 
 
 @NgModule({
@@ -50,6 +52,8 @@ import { DropZoneDirective } from './shared/directives/drop-zone.directive';
     MessengerComponent,
     CompleteProfileComponent,
     DropZoneDirective,
+    AllproductsComponent,
+    AddnewComponent,
   ],
   imports: [
     BrowserModule,

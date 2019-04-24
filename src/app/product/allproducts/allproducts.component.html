@@ -1,0 +1,49 @@
+<app-navigation></app-navigation>
+<div class="main-container my-0">
+  <!-- Header -->
+  <div class="container py-3">
+    <div class="row">
+      <div class="col ml-auto">
+        <h1 class="mtitle ml-2 text-secondary">All Products</h1>
+      </div>
+      <div class="col mr-auto text-right">
+        <a routerLink="/add" class="btn btn-sm btn-secondary text-white py-2" style="height: 100%;">Add Product</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Body -->
+
+  <div class="container my-2 p-0" style="background-color: white;">
+      <div class="header w-100" style="background-color: #dbdbdc; padding: 0">
+          <span class="m-0 p-2 px-3 text-secondary font-weight-bold" style="font-size: 1.2rem; background-color: white; display:block; width: 150px; word-wrap:break-word;">All Products</span>
+      </div>
+      <table class="table table-hover mtable">
+          <thead>
+            <tr>
+              <th scope="col">Product</th>
+              <th scope="col">Inventory</th>
+              <th scope="col">Min Order</th>
+              <th scope="col">Price Range</th>
+              <th scope="col">Brand</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td scope="row">
+                  <div class="media">
+                <img class="align-self-center mr-3" src="https://via.placeholder.com/50" alt="img" height="50" width="50" style="object-fit: contain;">
+                <div class="media-body">
+                    <span>Fancy Bear</span>
+                </div>
+              </div>
+              </td>
+              <td>32,000 pieces</td>
+              <td>100 piece/pieces</td>
+              <td>$22 - 29/piece</td>
+              <td>HoXen</td>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+</div>

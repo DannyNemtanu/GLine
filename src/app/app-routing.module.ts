@@ -1,3 +1,5 @@
+import { AddnewComponent } from './product/allproducts/addnew/addnew.component';
+import { AllproductsComponent } from './product/allproducts/allproducts.component';
 import { CompanyOverviewComponent } from './company-overview/company-overview.component';
 import { CompleteProfileComponent } from './company-overview/complete-profile/complete-profile.component';
 import { MessengerComponent } from './messenger/messenger.component';
@@ -22,11 +24,14 @@ const routes: Routes = [
   { path: 'sign-in', component: SignInComponent, canActivate: [SecureInnerPagesGuard]},
   { path: 'register-user', component: SignUpComponent, canActivate: [SecureInnerPagesGuard]},
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'allproducts', component: AllproductsComponent, canActivate: [AuthGuard] },
+  { path: 'add', component: AddnewComponent, canActivate: [AuthGuard] },
   { path: 'products', component: ProductComponent, canActivate: [AuthGuard] },
   { path: 'manufacturers', component: ProductComponent, canActivate: [AuthGuard] },
   { path: 'complete-profile', component: CompleteProfileComponent, canActivate: [AuthGuard] },
   { path: 'overview', component: CompanyOverviewComponent, canActivate: [AuthGuard] },
-  { path: 'rfq', component: ProductComponent, canActivate: [AuthGuard] },
+  // { path: 'rfq', component: ProductComponent, canActivate: [AuthGuard] },
+  // { path: 'rfqlist', component: ProductComponent, canActivate: [AuthGuard] },
   { path: 'messenger', component: MessengerComponent, canActivate: [AuthGuard] },
   { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'verify-email-address', component: VerifyEmailComponent, canActivate: [SecureInnerPagesGuard] }
