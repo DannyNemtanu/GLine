@@ -1,8 +1,5 @@
-import { AuthService } from './../../services/auth.service';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { UserDataService } from './../../../services/user-data.service';
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../services/user';
 
 @Component({
   selector: 'app-navigation',
@@ -15,8 +12,6 @@ export class NavigationComponent implements OnInit {
   user;
   constructor(
     private userService: UserDataService,
-    private afs: AngularFirestore,
-    private as: AuthService
   ) {}
 
   ngOnInit() {
@@ -24,7 +19,7 @@ export class NavigationComponent implements OnInit {
     this.checkUser();
   }
   private checkUser() {
-    console.log(this.userService.setUserType());
+    // console.log(this.userService.setUserType());
     if (this.userService.setUserType()) {
       this.retailer = true;
     } else {

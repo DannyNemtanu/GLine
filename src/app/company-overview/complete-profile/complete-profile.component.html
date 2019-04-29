@@ -1,247 +1,479 @@
 <app-navigation></app-navigation>
-<div class="main-container">
-<div class="container py-3">
-  <div class="complete-profile-page">
+<div class="main-container my-5">
+  <div class="container">
+    <div class="complete-profile-page">
       <h1 class="title">Complete Business Profile</h1>
       <div class="row">
-          <div class="col-3">
-              <div class="completion-progress">
-                  <div class="container">
-                      <ul class="progress-steps">
-                          <li [ngClass]="progressOne" id="p-one">
-                              <div class="row no-gutters">
-                                  <div class="col-auto">
-                                      <div class="step-ico text-center">
-                                          <span>1</span>
-                                      </div>
-                                  </div>
-                                  <div class="col-auto my-auto">
-                                      <div class="step-info">
-                                          <span class="step-counter">Step One</span>
-                                          <p class="title">Company Details</p>
-                                      </div>
-                                  </div>
-                              </div>
-                          </li>
-                          <li [ngClass]="progressTwo" id="p-two">
-                              <div class="row no-gutters">
-                                  <div class="col-auto">
-                                      <div class="step-ico text-center"><span>2</span></div>
-                                  </div>
-                                  <div class="col-auto my-auto">
-                                      <div class="step-info">
-                                          <span class="step-counter">Step Two</span>
-                                          <p class="title">Contact Details</p>
-                                      </div>
-                                  </div>
-                              </div>
-                          </li>
-                          <li [ngClass]="progressThree" id="p-three">
-                              <div class="row no-gutters">
-                                  <div class="col-auto">
-                                      <div class="step-ico text-center"><span>3</span></div>
-                                  </div>
-                                  <div class="col-auto my-auto">
-                                      <div class="step-info">
-                                          <span class="step-counter">Step Three</span>
-                                          <p class="title">Basic Information</p>
-                                      </div>
-                                  </div>
-                              </div>
-                          </li>
-                          <li [ngClass]="progressFour" id="p-four">
-                              <div class="row no-gutters">
-                                  <div class="col-auto">
-                                      <div class="step-ico text-center"><span>4</span></div>
-                                  </div>
-                                  <div class="col-auto my-auto">
-                                      <div class="step-info">
-                                          <span class="step-counter">Step Four</span>
-                                          <p class="title">Company Highlights</p>
-                                      </div>
-                                  </div>
-                              </div>
-                          </li>
-                          <li [ngClass]="progressFive" id="p-five">
-                              <div class="row no-gutters">
-                                  <div class="col-auto">
-                                      <div class="step-ico text-center"><span>5</span></div>
-                                  </div>
-                                  <div class="col-auto my-auto">
-                                      <div class="step-info">
-                                          <span class="step-counter">Step Five</span>
-                                          <p class="title">Optional Items</p>
-                                      </div>
-                                  </div>
-                              </div>
-                          </li>
-                      </ul>
+        <div class="col-3">
+          <div class="completion-progress">
+            <div class="container">
+              <ul class="progress-steps">
+                <li [ngClass]="progressOne" id="p-one">
+                  <div class="row no-gutters">
+                    <div class="col-auto">
+                      <div class="step-ico text-center">
+                        <span>1</span>
+                      </div>
+                    </div>
+                    <div class="col-auto my-auto">
+                      <div class="step-info">
+                        <span class="step-counter">Step One</span>
+                        <p class="title">Company Details</p>
+                      </div>
+                    </div>
                   </div>
-              </div>
+                </li>
+                <li [ngClass]="progressTwo" id="p-two">
+                  <div class="row no-gutters">
+                    <div class="col-auto">
+                      <div class="step-ico text-center"><span>2</span></div>
+                    </div>
+                    <div class="col-auto my-auto">
+                      <div class="step-info">
+                        <span class="step-counter">Step Two</span>
+                        <p class="title">Contact Details</p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li [ngClass]="progressThree" id="p-three">
+                  <div class="row no-gutters">
+                    <div class="col-auto">
+                      <div class="step-ico text-center"><span>3</span></div>
+                    </div>
+                    <div class="col-auto my-auto">
+                      <div class="step-info">
+                        <span class="step-counter">Step Three</span>
+                        <p class="title">Basic Information</p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li [ngClass]="progressFour" id="p-four">
+                  <div class="row no-gutters">
+                    <div class="col-auto">
+                      <div class="step-ico text-center"><span>4</span></div>
+                    </div>
+                    <div class="col-auto my-auto">
+                      <div class="step-info">
+                        <span class="step-counter">Step Four</span>
+                        <p class="title">Company Highlights</p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li [ngClass]="progressFive" id="p-five">
+                  <div class="row no-gutters">
+                    <div class="col-auto">
+                      <div class="step-ico text-center"><span>5</span></div>
+                    </div>
+                    <div class="col-auto my-auto">
+                      <div class="step-info">
+                        <span class="step-counter">Step Five</span>
+                        <p class="title">Optional Items</p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
-          <div class="col-9">
-              <div class="profile-form">
-                  <div class="header">
+        </div>
+        <div class="col-9">
+          <div class="profile-form">
+            <div class="header">
+              <div class="row">
+                <div class="col">
+                  <h1>Step One</h1>
+                </div>
+              </div>
+            </div>
+            <div class="body" [ngSwitch]="step">
+              <div class="so" *ngSwitchCase="'one'">
+                <form (ngSubmit)="stepOne()" [formGroup]="formOne">
+                  <div class="row fheader">
+                    <div class="col">
+                      <h1 class="step-title">Company details</h1>
+                    </div>
+                    <div class="col">
+                      <button type="submit" class="btn btn-success ml-2" [disabled]="formOne.invalid">Next</button>
+                    </div>
+                  </div>
+                  <div class="pic-upload form-group">
+                    <p class="field-label">Upload profile picture <span class="optional"
+                        [ngClass]="{'text-success': uploadStatus === 'Uploaded', 'text-danger': uploadStatus === 'Not Uploaded'}">{{uploadStatus}}
+                        - {{uploadProgress}}%</span></p>
+                    <div>
                       <div class="row">
-                          <div class="col">
-                              <h1>Step One</h1>
-                          </div>
-                          <div class="col">
-                              <button class="btn btn-success ml-2" (click)="next()">Next</button>
-                          </div>
+                        <div [ngClass]="{'col-9':showImage == true, 'col':showImage == true}"
+                          class="upload-function mx-auto" [ngStyle]="{'background-image':'url(' + image + ')'}">
+                          <input class="ievent" type="file" accept='image/*' (change)="startUpload($event.target.files)"
+                            style="opacity: 0;">
+                        </div>
+                        <div *ngFor="let validation of profile_validation.profilePicture">
+                          <div class="invalid-feedback d-block"
+                            *ngIf="formOne.get('profilePicture').hasError(validation.type) && (formOne.get('profilePicture').dirty || formOne.get('profilePicture').touched)">
+                            {{validation.message}}</div>
+                        </div>
+                        <div class="col-3" *ngIf="showImage">
+                          <img id="uploadedImage" src="{{uploadedImage}}" alt="Uploaded Image">
+                        </div>
                       </div>
+                    </div>
+
                   </div>
-                  <div class="body" [ngSwitch]="step">
-                      <div class="so" *ngSwitchCase="'one'">
-                          <h1 class="step-title">Company details</h1>
-                          <div class="pic-upload form-group">
-                              <p class="field-label">Upload profile picture <span class="optional" [ngClass]="{'text-success': uploadStatus === 'Uploaded', 'text-danger': uploadStatus === 'Not Uploaded'}">{{uploadStatus}} - {{uploadProgress}}%</span></p>
-                            <div class="upload-function">
-                                    <input class="upload-function"
-                                    type="file"
-                                    accept='image/*'
-                                    (change)="startUpload($event.target.files)"
-                                    style="opacity: 0;">
-                            </div>
+                  <div class="form-row form-group">
+                    <div class="col">
+                      <p class="field-label">Company trading name</p>
+                      <input class="custom-input form-control" type="text" placeholder="GoldenLine"
+                        formControlName="tradingName" />
+                      <div *ngFor="let validation of profile_validation.tradingName">
+                        <div class="invalid-feedback d-block"
+                          *ngIf="formOne.get('tradingName').hasError(validation.type) && (formOne.get('tradingName').dirty || formOne.get('tradingName').touched)">
+                          {{validation.message}}</div>
+                      </div>
 
-                          </div>
-                          <div class="form-row form-group">
-                              <div class="col">
-                                  <p class="field-label">Company trading name</p>
-                                  <input class="w-100 custom-input txt" [(ngModel)]="form_data.companyProfile.tradingName" type="text" placeholder="GoldenLine">
-                              </div>
-                              <div class="col">
-                                  <p class="field-label">Company’s registration number</p>
-                                  <input class="w-100 custom-input txt" type="text" [(ngModel)]="form_data.companyProfile.registrationNumber" placeholder="GL1239413">
-                              </div>
-                          </div>
-                          <div class="form-group row-input-3">
-                              <p class="field-label">Established Date</p>
-                              <input class="custom-input txt"  [(ngModel)]="form_data.companyProfile.establishedDate.day" type="text" placeholder="Day">
-                              <input class="custom-input txt" [(ngModel)]="form_data.companyProfile.establishedDate.month" type="text" placeholder="Month">
-                              <input class="custom-input txt" [(ngModel)]="form_data.companyProfile.establishedDate.year" type="text" placeholder="Year">
-                          </div>
-                          <div class="form-group">
-                              <p class="field-label">Company website address <span class="optional">(Optional)</span></p>
-                              <input class="w-100 custom-input txt" [(ngModel)]="form_data.companyProfile.websiteURL" type="text" placeholder="www.example.com">
-                          </div>
-                      </div>
-                      <div class="st" *ngSwitchCase="'two'">
-                          <h1 class="step-title">Contact Details</h1>
-                          <div class="form-group form-row">
-                              <div class="col">
-                                  <p class="field-label">Physical Address</p>
-                                  <textarea name="address" [(ngModel)]="form_data.companyProfile.pyshicalAddress" id="addr" class="custom-input w-100" placeholder="Please enter your full address here..."></textarea>
-                              </div>
-                              <div class="col-4 the-map">
-                                  <div class="googlemaps"></div>
-                              </div>
-                          </div>
-                          <div class="form-row form-group">
-                              <div class="col">
-                                  <p class="field-label">Telephone <span class="optional">(Optional)</span></p>
-                                  <input class="w-100 custom-input txt" [(ngModel)]="form_data.companyProfile.telephone" type="text" placeholder="+353 1 398 812">
-                              </div>
-                              <div class="col">
-                                  <p class="field-label">Fax <span class="optional">(Optional)</span></p>
-                                  <input class="w-100 custom-input txt" [(ngModel)]="form_data.companyProfile.fax"  type="text" placeholder="+353 1 321233">
-                              </div>
-                          </div>
 
-                          <div class="form-group">
-                              <p class="field-label">Mobile Number</p>
-                              <input class="w-100 custom-input txt" [(ngModel)]="form_data.companyProfile.mobilePhone" type="text" placeholder="+353 87 777 7777">
-                          </div>
-                          <div class="form-row form-group">
-                              <div class="col">
-                                  <p class="field-label">Email Address</p>
-                                  <input class="w-100 custom-input txt" [(ngModel)]="form_data.companyProfile.emailAddress" type="text" placeholder="email@example.com">
-                              </div>
-                              <div class="col">
-                                  <p class="field-label">Manager Name</p>
-                                  <input class="w-100 custom-input txt" [(ngModel)]="form_data.companyProfile.managerName" type="text" placeholder="John Doe">
-                              </div>
-                          </div>
+                    </div>
+                    <div class="col">
+                      <p class="field-label">Company’s registration number</p>
+                      <input class="custom-input form-control" type="text" formControlName="registrationNumber"
+                        placeholder="GL1239413">
+                      <div *ngFor="let validation of profile_validation.registrationNumber">
+                        <div class="invalid-feedback d-block"
+                          *ngIf="formOne.get('registrationNumber').hasError(validation.type) && (formOne.get('registrationNumber').dirty || formOne.get('registrationNumber').touched)">
+                          {{validation.message}}</div>
                       </div>
-                      <div class="sth" *ngSwitchCase="'three'">
-                          <h1 class="step-title">Basic Information</h1>
-                          <div class="form-group">
-                              <p class="field-label">Business Description</p>
-                              <textarea name="address" [(ngModel)]="form_data.companyProfile.businessDescription" id="b-desc" class="custom-input w-100" placeholder="Please enter your business description here..."></textarea>
-                          </div>
-                          <div class="form-row form-group prod-flow">
-                              <div class="col-2">
-                                  <div class="prod-flow-image"></div>
-                                  <input class="w-100 custom-input txt" [(ngModel)]="form_data.companyProfile.productFlow.stepOne.title" type="text" placeholder="Type of activity">
-                              </div>
-                              <div class="col-2 upload-on">
-                                  <div class="prod-flow-image"><span>
-                                          <p class="text-center h-100 py-auto">+</p>
-                                      </span></div>
-                              </div>
-
-                          </div>
-
-                          <div class="form-group">
-                              <p class="field-label">Main Products</p>
-                              <input class="w-100 custom-input txt" [(ngModel)]="form_data.companyProfile.mainProducts" type="text" placeholder="+353 87 777 7777">
-                          </div>
-                      </div>
-                      <div class="sf" *ngSwitchCase="'four'">
-                          <h1 class="step-title">Company Highlights</h1>
-                          <div class="form-group">
-                              <p class="field-label">Business Certifications <span class="optional">(Optional)</span></p>
-                              <textarea name="Certifications" [(ngModel)]="form_data.companyProfile.businessCertification" id="b-certs" class="custom-input w-100"
-                                  placeholder="Please enter your certifications here..."></textarea>
-                          </div>
-                          <div class="form-group">
-                              <p class="field-label">Business Patents <span class="optional">(Optional)</span></p>
-                              <textarea name="Patents" [(ngModel)]="form_data.companyProfile.businessPatents" id="b-pantents" class="custom-input w-100" placeholder="Please enter your patents here..."></textarea>
-                          </div>
-                          <div class="form-group">
-                              <p class="field-label">Business Trademarks <span class="optional">(Optional)</span></p>
-                              <textarea name="Trademarks" [(ngModel)]="form_data.companyProfile.businessTrademarks" id="b-trademks" class="custom-input w-100"
-                                  placeholder="Please enter your trademarks here..."></textarea>
-                          </div>
-                      </div>
-                      <div class="sfv" *ngSwitchCase="'five'">
-                          <h1 class="step-title">Optional Items</h1>
-                          <div class="form-group form-row">
-                              <div class="col-12">
-                                      <p class="field-label">Annual Sales <span class="optional">(Optional)</span></p>
-                              </div>
-                              <div class="col">
-                                      <input class="w-100 custom-input txt" [(ngModel)]="form_data.companyProfile.annualSales.min" type="text" value="€">
-                              </div>
-                              <div class="col">
-                                      <input class="w-100 custom-input txt" [(ngModel)]="form_data.companyProfile.annualSales.max" type="text" value="€">
-                              </div>
-                              
-                          </div>
-                          <div class="form-group">
-                              <p class="field-label">Main Markets <span class="optional">(Optional)</span></p>
-                              <textarea name="Patents" [(ngModel)]="form_data.companyProfile.mainMarkets" id="b-pantents" class="custom-input w-100" placeholder="Please enter your business main markets of export here..."></textarea>
-                          </div>
-                          <div class="form-group form-row">
-                                  <div class="col-12">
-                                          <p class="field-label">Number of Employees <span class="optional">(Optional)</span></p>
-                                  </div>
-                                  <div class="col">
-                                          <input class="w-100 custom-input txt" [(ngModel)]="form_data.companyProfile.numberOfEmployees.min" type="text" placeholder="Min - 1">
-                                  </div>
-                                  <div class="col">
-                                          <input class="w-100 custom-input txt" [(ngModel)]="form_data.companyProfile.numberOfEmployees.max" type="text" value="Max">
-                                  </div>
-                          </div>
-                          <div class="form-group">
-                              <button class="btn btn-primary w-100" id="application-fns" (click)="completeProfile()">Complete Profile</button>
-                          </div>
-                      </div>
+                    </div>
                   </div>
-                  
+                  <div class="form-row form-group">
+                    <div class="col-12">
+                      <p class="field-label">Established Date</p>
+                    </div>
+                    <div class="col">
+                      <input class="custom-input form-control" type="text" formControlName="day" placeholder="26">
+                      <div *ngFor="let validation of profile_validation.day">
+                        <div class="invalid-feedback d-block"
+                          *ngIf="formOne.get('day').hasError(validation.type) && (formOne.get('day').dirty || formOne.get('day').touched)">
+                          {{validation.message}}</div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <input class="custom-input form-control" type="text" formControlName="month" placeholder="August">
+                      <div *ngFor="let validation of profile_validation.month">
+                        <div class="invalid-feedback d-block"
+                          *ngIf="formOne.get('month').hasError(validation.type) && (formOne.get('month').dirty || formOne.get('month').touched)">
+                          {{validation.message}}</div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <input class="custom-input form-control" type="text" formControlName="year" placeholder="1996">
+                      <div *ngFor="let validation of profile_validation.year">
+                        <div class="invalid-feedback d-block"
+                          *ngIf="formOne.get('year').hasError(validation.type) && (formOne.get('year').dirty || formOne.get('year').touched)">
+                          {{validation.message}}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <p class="field-label">Company website address <span class="optional">(Optional)</span></p>
+                    <input formControlName="websiteURL" class="w-100 custom-input form-control txt" type="text"
+                      placeholder="https://www.example.com">
+                    <div *ngFor="let validation of profile_validation.websiteURL">
+                      <div class="invalid-feedback d-block"
+                        *ngIf="formOne.get('websiteURL').hasError(validation.type) && (formOne.get('websiteURL').dirty || formOne.get('websiteURL').touched)">
+                        {{validation.message}}</div>
+                    </div>
+                  </div>
+                </form>
               </div>
+
+              <div class="st" *ngSwitchCase="'two'">
+                <form (ngSubmit)="stepTwo()" [formGroup]="formTwo">
+                  <div class="row fheader">
+                    <div class="col">
+                      <h1 class="step-title">Contact details</h1>
+                    </div>
+                    <div class="col">
+                      <button type="submit" class="btn btn-success ml-2" [disabled]="formTwo.invalid">Next</button>
+                    </div>
+                  </div>
+                  <div class="form-group form-row">
+                    <div class="col">
+                      <p class="field-label">Physical Address</p>
+                      <textarea name="address" formControlName="addr" id="addr" class="custom-input w-100" rows="10"
+                        (change)="updateLocation()" placeholder="Please enter your full address here..."></textarea>
+                      <div *ngFor="let validation of profile_validation.addr">
+                        <div class="invalid-feedback d-block"
+                          *ngIf="formTwo.get('addr').hasError(validation.type) && (formTwo.get('addr').dirty || formTwo.get('addr').touched)">
+                          {{validation.message}}</div>
+                      </div>
+                    </div>
+                    <div class="col-4 the-map">
+                      <div class="mapouter">
+                        <div class="gmap_canvas"><iframe width="250" height="200" id="gmap_canvas" [src]="gmap"
+                            frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row form-group">
+                    <div class="col">
+                      <p class="field-label">Telephone <span class="optional">(Optional)</span></p>
+                      <input class="w-100 custom-input txt" formControlName="telephone" type="text"
+                        placeholder="+353 1 398 812">
+                      <div *ngFor="let validation of profile_validation.telephone">
+                        <div class="invalid-feedback d-block"
+                          *ngIf="formTwo.get('telephone').hasError(validation.type) && (formTwo.get('telephone').dirty || formTwo.get('telephone').touched)">
+                          {{validation.message}}</div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <p class="field-label">Fax <span class="optional">(Optional)</span></p>
+                      <input class="w-100 custom-input txt" formControlName="fax" type="text"
+                        placeholder="+353 1 321233">
+                      <div *ngFor="let validation of profile_validation.fax">
+                        <div class="invalid-feedback d-block"
+                          *ngIf="formTwo.get('fax').hasError(validation.type) && (formTwo.get('fax').dirty || formTwo.get('fax').touched)">
+                          {{validation.message}}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <p class="field-label">Mobile Number</p>
+                    <input class="w-100 custom-input txt" type="text" formControlName="mobilePhone"
+                      placeholder="+353 87 777 7777">
+                    <div *ngFor="let validation of profile_validation.mobilePhone">
+                      <div class="invalid-feedback d-block"
+                        *ngIf="formTwo.get('mobilePhone').hasError(validation.type) && (formTwo.get('mobilePhone').dirty || formTwo.get('mobilePhone').touched)">
+                        {{validation.message}}</div>
+                    </div>
+                  </div>
+                  <div class="form-row form-group">
+                    <div class="col">
+                      <p class="field-label">Email Address</p>
+                      <input class="w-100 custom-input txt" type="email" formControlName="emailAddress"
+                        placeholder="suppport@gline.com">
+                      <div *ngFor="let validation of profile_validation.emailAddress">
+                        <div class="invalid-feedback d-block"
+                          *ngIf="formTwo.get('emailAddress').hasError(validation.type) && (formTwo.get('emailAddress').dirty || formTwo.get('emailAddress').touched)">
+                          {{validation.message}}</div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <p class="field-label">Manager Name</p>
+                      <input class="w-100 custom-input txt" type="text" formControlName="managerName"
+                        placeholder="Dan Nemtanu">
+                      <div *ngFor="let validation of profile_validation.managerName">
+                        <div class="invalid-feedback d-block"
+                          *ngIf="formTwo.get('managerName').hasError(validation.type) && (formTwo.get('managerName').dirty || formTwo.get('managerName').touched)">
+                          {{validation.message}}</div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+
+              <div class="sth" *ngSwitchCase="'three'">
+                <form (ngSubmit)="stepThree()" [formGroup]="formThree">
+                  <div class="row fheader">
+                    <div class="col">
+                      <h1 class="step-title">Basic Information</h1>
+                    </div>
+                    <div class="col">
+                      <button type="submit" class="btn btn-success ml-2" [disabled]="formThree.invalid">Next</button>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <p class="field-label">Business Description</p>
+                    <textarea name="address" id="b-desc" class="custom-input w-100"
+                      formControlName="businessDescription"
+                      placeholder="Please enter your business description here..."></textarea>
+                    <div *ngFor="let validation of profile_validation.businessDescription">
+                      <div class="invalid-feedback d-block"
+                        *ngIf="formThree.get('businessDescription').hasError(validation.type) && (formThree.get('businessDescription').dirty || formThree.get('businessDescription').touched)">
+                        {{validation.message}}</div>
+                    </div>
+                  </div>
+                  <div class="form-row form-group prod-flow">
+                    <!-- Product Flow -->
+                    <div class="col-3">
+                      <div class="prod-flow-image" [ngStyle]="{'background-image':'url(' + prodOne + ')'}">
+                        <input class="ievent" type="file" accept='image/*' (change)="prodFlow($event.target.files)"
+                          style="opacity: 0;">
+                      </div>
+                      <input class="w-100 custom-input txt" formControlName="potitle" type="text"
+                        placeholder="Type of activity">
+                    </div>
+                    <div class="col-3" *ngIf="flow > 1">
+                      <div class="prod-flow-image" [ngStyle]="{'background-image':'url(' + prodTwo + ')'}">
+                        <input class="ievent" type="file" accept='image/*' (change)="prodFlow($event.target.files)"
+                          style="opacity: 0;">
+                      </div>
+                      <input class="w-100 custom-input txt" formControlName="pstitle" type="text"
+                        placeholder="Type of activity">
+                    </div>
+                    <div class="col-3" *ngIf="flow > 2">
+                      <div class="prod-flow-image" [ngStyle]="{'background-image':'url(' + prodThree + ')'}">
+                        <input class="ievent" type="file" accept='image/*' (change)="prodFlow($event.target.files)"
+                          style="opacity: 0;">
+                      </div>
+                      <input class="w-100 custom-input txt" formControlName="pttitle" type="text"
+                        placeholder="Type of activity">
+                    </div>
+                    <div class="col-3" *ngIf="flow > 3">
+                      <div class="prod-flow-image" [ngStyle]="{'background-image':'url(' + prodFour + ')'}">
+                        <input class="ievent" type="file" accept='image/*' (change)="prodFlow($event.target.files)"
+                          style="opacity: 0;">
+                      </div>
+                      <input class="w-100 custom-input txt" formControlName="pftitle" type="text"
+                        placeholder="Type of activity">
+                    </div>
+                    <div class="col-3 upload-on" *ngIf="flow < 4">
+                      <div class="prod-flow-add">
+                        <p class="text-center h-100 py-auto">
+                          <span id="add-new">+</span>
+                          <input class="ievent" type="file" accept='image/*' (change)="prodFlow($event.target.files)"
+                            style="opacity: 0;" />
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-12" *ngIf="flow === 5">
+                      <div class="form-group">
+                        <button class="w-100 btn btn-primary btn-sm" (click)="resetImageUpdate()">Update Images</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <p class="field-label">Main Products</p>
+                    <input class="w-100 custom-input txt" type="text"
+                      placeholder="Computer Electronics, Harware, Software" formControlName="mainProducts">
+                    <div *ngFor="let validation of profile_validation.mainProducts">
+                      <div class="invalid-feedback d-block"
+                        *ngIf="formThree.get('mainProducts').hasError(validation.type) && (formThree.get('mainProducts').dirty || formThree.get('mainProducts').touched)">
+                        {{validation.message}}</div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="sf" *ngSwitchCase="'four'">
+                <form (ngSubmit)="stepFour()" [formGroup]="formFour">
+                  <div class="row fheader">
+                    <div class="col">
+                      <h1 class="step-title">Company Highlights</h1>
+                    </div>
+                    <div class="col">
+                      <button type="submit" class="btn btn-success ml-2" [disabled]="formFour.invalid">Next</button>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <p class="field-label">Business Certifications <span class="optional">(Optional)</span></p>
+                    <textarea name="Certifications" id="b-certs" class="custom-input w-100"
+                      formControlName="businessCertification"
+                      placeholder="Please enter your certifications here..."></textarea>
+                    <div *ngFor="let validation of profile_validation.businessCertification">
+                      <div class="invalid-feedback d-block"
+                        *ngIf="formFour.get('businessCertification').hasError(validation.type) && (formFour.get('businessCertification').dirty || formFour.get('businessCertification').touched)">
+                        {{validation.message}}</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <p class="field-label">Business Patents <span class="optional">(Optional)</span></p>
+                    <textarea name="Patents" id="b-pantents" class="custom-input w-100"
+                      formControlName="businessPatents" placeholder="Please enter your patents here..."></textarea>
+                    <div *ngFor="let validation of profile_validation.businessPatents">
+                      <div class="invalid-feedback d-block"
+                        *ngIf="formFour.get('businessPatents').hasError(validation.type) && (formFour.get('businessPatents').dirty || formFour.get('businessPatents').touched)">
+                        {{validation.message}}</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <p class="field-label">Business Trademarks <span class="optional">(Optional)</span></p>
+                    <textarea name="Trademarks" id="b-trademks" class="custom-input w-100"
+                      formControlName="businessTrademarks"
+                      placeholder="Please enter your trademarks here..."></textarea>
+                    <div *ngFor="let validation of profile_validation.businessTrademarks">
+                      <div class="invalid-feedback d-block"
+                        *ngIf="formFour.get('businessTrademarks').hasError(validation.type) && (formFour.get('businessTrademarks').dirty || formFour.get('businessTrademarks').touched)">
+                        {{validation.message}}</div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="sfv" *ngSwitchCase="'five'">
+                <form (ngSubmit)="stepFive()" [formGroup]="formFive">
+                  <div class="row fheader">
+                    <div class="col">
+                      <h1 class="step-title">Optional Items</h1>
+                    </div>
+
+                  </div>
+                  <div class="form-group form-row">
+                    <div class="col-12">
+                      <p class="field-label">Annual Sales <span class="optional">(Optional)</span></p>
+                    </div>
+                    <div class="col">
+                      <input class="w-100 custom-input txt" type="text" value="€" formControlName="asmin">
+                      <div *ngFor="let validation of profile_validation.asmin">
+                        <div class="invalid-feedback d-block"
+                          *ngIf="formFive.get('asmin').hasError(validation.type) && (formFive.get('asmin').dirty || formFive.get('asmin').touched)">
+                          {{validation.message}}</div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <input class="w-100 custom-input txt" type="text" value="€" formControlName="asmax">
+                      <div *ngFor="let validation of profile_validation.asmax">
+                          <div class="invalid-feedback d-block"
+                            *ngIf="formFive.get('asmax').hasError(validation.type) && (formFive.get('asmax').dirty || formFive.get('asmax').touched)">
+                            {{validation.message}}</div>
+                        </div>
+                    </div>
+
+                  </div>
+                  <div class="form-group">
+                    <p class="field-label">Main Markets <span class="optional">(Optional)</span></p>
+                    <textarea name="Patents" id="b-pantents" class="custom-input w-100" formControlName="mainMarkets"
+                      placeholder="Please enter your business main markets of export here..."></textarea>
+                      <div *ngFor="let validation of profile_validation.mainMarkets">
+                          <div class="invalid-feedback d-block"
+                            *ngIf="formFive.get('mainMarkets').hasError(validation.type) && (formFive.get('mainMarkets').dirty || formFive.get('mainMarkets').touched)">
+                            {{validation.message}}</div>
+                        </div>
+                  </div>
+                  <div class="form-group form-row">
+                    <div class="col-12">
+                      <p class="field-label">Number of Employees <span class="optional">(Optional)</span></p>
+                    </div>
+                    <div class="col">
+                      <input class="w-100 custom-input txt" type="text" placeholder="Min - 1" formControlName="nemin">
+                      <div *ngFor="let validation of profile_validation.nemin">
+                          <div class="invalid-feedback d-block"
+                            *ngIf="formFive.get('nemin').hasError(validation.type) && (formFive.get('nemin').dirty || formFive.get('nemin').touched)">
+                            {{validation.message}}</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                      <input class="w-100 custom-input txt" type="text" value="Max" formControlName="nemax">
+                      <div *ngFor="let validation of profile_validation.nemax">
+                          <div class="invalid-feedback d-block"
+                            *ngIf="formFive.get('nemax').hasError(validation.type) && (formFive.get('nemax').dirty || formFive.get('nemax').touched)">
+                            {{validation.message}}</div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary w-100" id="application-fns"
+                      [disabled]="formFive.invalid">Complete
+                      Profile</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
           </div>
+        </div>
       </div>
+    </div>
   </div>
-</div>
 </div>

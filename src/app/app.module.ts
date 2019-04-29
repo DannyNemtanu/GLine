@@ -2,7 +2,7 @@
 // Main
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +18,7 @@ import { SignInComponent } from './authentication/sign-in/sign-in.component';
 import { SignUpComponent } from './authentication/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './authentication/verify-email/verify-email.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 // Auth service
 import { AuthService } from './shared/services/auth.service';
@@ -56,6 +57,7 @@ import { AddnewComponent } from './product/allproducts/addnew/addnew.component';
     AddnewComponent,
   ],
   imports: [
+    NgbModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
@@ -64,7 +66,8 @@ import { AddnewComponent } from './product/allproducts/addnew/addnew.component';
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
