@@ -12,7 +12,7 @@
     </div>
   </div>
   <div class="container my-2 p-0">
-    <form action="">
+    <form (ngSubmit)="addNewProduct()" [formGroup]="ProductForm">
       <div class="row">
         <!-- Basic -->
         <div class="col-8">
@@ -20,11 +20,22 @@
             <span class="card-title font-weight-bold">Basic</span>
             <div class="form-group">
               <label for="title">Title</label>
-              <input type="text" class="form-control" placeholder="Short Sleeve T-Shirt">
+              <input type="text" class="form-control" placeholder="Short Sleeve T-Shirt" formControlName="title">
+              <div *ngFor="let validation of productValidation.title">
+                <div class="invalid-feedback d-block"
+                  *ngIf="ProductForm.get('title').hasError(validation.type) && (ProductForm.get('title').dirty || ProductForm.get('title').touched)">
+                  {{validation.message}}</div>
+              </div>
             </div>
             <div class="form-group">
               <label for="desc">Description</label>
-              <textarea type="text" rows="7" class="form-control" placeholder="Product description..."></textarea>
+              <textarea type="text" rows="7" class="form-control" placeholder="Product description..."
+                formControlName="description"></textarea>
+              <div *ngFor="let validation of productValidation.description">
+                <div class="invalid-feedback d-block"
+                  *ngIf="ProductForm.get('description').hasError(validation.type) && (ProductForm.get('description').dirty || ProductForm.get('description').touched)">
+                  {{validation.message}}</div>
+              </div>
             </div>
           </div>
         </div>
@@ -34,19 +45,39 @@
             <span class="card-title font-weight-bold">Organization</span>
             <div class="form-group">
               <label for="ptype">Product Type</label>
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" formControlName="type">
+              <div *ngFor="let validation of productValidation.type">
+                <div class="invalid-feedback d-block"
+                  *ngIf="ProductForm.get('type').hasError(validation.type) && (ProductForm.get('type').dirty || ProductForm.get('type').touched)">
+                  {{validation.message}}</div>
+              </div>
             </div>
             <div class="form-group">
               <label for="pbrand">Brand</label>
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" formControlName="brand">
+              <div *ngFor="let validation of productValidation.brand">
+                <div class="invalid-feedback d-block"
+                  *ngIf="ProductForm.get('brand').hasError(validation.type) && (ProductForm.get('brand').dirty || ProductForm.get('brand').touched)">
+                  {{validation.message}}</div>
+              </div>
             </div>
             <div class="form-group">
               <label for="pcollection">Collection</label>
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" formControlName="collection">
+              <div *ngFor="let validation of productValidation.collection">
+                <div class="invalid-feedback d-block"
+                  *ngIf="ProductForm.get('collection').hasError(validation.type) && (ProductForm.get('collection').dirty || ProductForm.get('collection').touched)">
+                  {{validation.message}}</div>
+              </div>
             </div>
             <div class="form-group">
               <label for="ptags">Tags</label>
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" formControlName="tags">
+              <div *ngFor="let validation of productValidation.tags">
+                <div class="invalid-feedback d-block"
+                  *ngIf="ProductForm.get('tags').hasError(validation.type) && (ProductForm.get('tags').dirty || ProductForm.get('tags').touched)">
+                  {{validation.message}}</div>
+              </div>
             </div>
           </div>
         </div>
@@ -59,11 +90,9 @@
               <li class="float-left">
                 <span class="ctitle font-weight-bold">Images</span>
               </li>
-              <li class="float-right">
-                <button class="text-warning" style="background: none; border:none">Upload Image</button>
-              </li>
             </ul>
-
+            <input class="ievent" type="file" accept='image/*' (change)="startUpload($event.target.files)"
+            style="opacity: 0;">
           </div>
         </div>
       </div>
@@ -76,13 +105,23 @@
               <div class="col">
                 <div class="form-group">
                   <label for="pmin">Min</label>
-                  <input type="text" class="form-control" placeholder="€ 0, 00">
+                  <input type="text" class="form-control" placeholder="€ 0, 00" formControlName="pricingmin">
+                  <div *ngFor="let validation of productValidation.pricingmin">
+                    <div class="invalid-feedback d-block"
+                      *ngIf="ProductForm.get('pricingmin').hasError(validation.type) && (ProductForm.get('pricingmin').dirty || ProductForm.get('pricingmin').touched)">
+                      {{validation.message}}</div>
+                  </div>
                 </div>
               </div>
               <div class="col">
                 <div class="form-group">
                   <label for="pmax">Max</label>
-                  <input type="text" class="form-control" placeholder="€ ---">
+                  <input type="text" class="form-control" placeholder="€ ---" formControlName="pricingmax">
+                  <div *ngFor="let validation of productValidation.pricingmax">
+                    <div class="invalid-feedback d-block"
+                      *ngIf="ProductForm.get('pricingmax').hasError(validation.type) && (ProductForm.get('pricingmax').dirty || ProductForm.get('pricingmax').touched)">
+                      {{validation.message}}</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -98,13 +137,23 @@
               <div class="col">
                 <div class="form-group">
                   <label for="omin">Min</label>
-                  <input type="text" class="form-control" placeholder="0 piece/pieces">
+                  <input type="text" class="form-control" placeholder="0 piece/pieces" formControlName="qmin">
+                  <div *ngFor="let validation of productValidation.qmin">
+                    <div class="invalid-feedback d-block"
+                      *ngIf="ProductForm.get('qmin').hasError(validation.type) && (ProductForm.get('qmin').dirty || ProductForm.get('qmin').touched)">
+                      {{validation.message}}</div>
+                  </div>
                 </div>
               </div>
               <div class="col">
                 <div class="form-group">
                   <label for="omax">Max</label>
-                  <input type="text" class="form-control" placeholder="- piece/pieces">
+                  <input type="text" class="form-control" placeholder="- piece/pieces" formControlName="qmax">
+                  <div *ngFor="let validation of productValidation.qmax">
+                    <div class="invalid-feedback d-block"
+                      *ngIf="ProductForm.get('qmax').hasError(validation.type) && (ProductForm.get('qmax').dirty || ProductForm.get('qmax').touched)">
+                      {{validation.message}}</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -132,7 +181,12 @@
             </div>
             <div class="form-group">
               <label for="barcode">Quantity</label>
-              <input type="text" class="form-control" placeholder="0 min">
+              <input type="text" class="form-control" placeholder="0 min" formControlName="stockQuantity">
+              <div *ngFor="let validation of productValidation.stockQuantity">
+                <div class="invalid-feedback d-block"
+                  *ngIf="ProductForm.get('stockQuantity').hasError(validation.type) && (ProductForm.get('stockQuantity').dirty || ProductForm.get('stockQuantity').touched)">
+                  {{validation.message}}</div>
+              </div>
             </div>
           </div>
         </div>
@@ -143,20 +197,32 @@
           <div class="card">
             <span class="card-title font-weight-bold">Shipping</span>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="ptype">
+              <input class="form-check-input" type="checkbox" id="ptype" ngControl="digital" formControlName="digital">
               <label class="form-check-label" for="ptype">
                 This is a digital product
               </label>
             </div>
             <hr>
-            <div class="form-group">
-              <label for="pweight">Weight</label>
-              <span style="font-size: .8rem;">Used to calculate shipping rates at checkout.</span>
-              <input type="text" class="form-control" placeholder="e.g. 1.2 Kg">
-            </div>
-            <div class="form-group">
-              <label for="corigitn">Country of origin</label>
-              <input type="text" class="form-control" placeholder="e.g. Italy">
+            <div *ngIf="ProductForm.get('digital').value === false">
+              <div class="form-group">
+                <label for="pweight">Weight</label>
+                <span style="font-size: .8rem;">Used to calculate shipping rates at checkout.</span>
+                <input type="text" class="form-control" placeholder="e.g. 1.2 Kg" formControlName="weight">
+                <div *ngFor="let validation of productValidation.weight">
+                  <div class="invalid-feedback d-block"
+                    *ngIf="ProductForm.get('weight').hasError(validation.type) && (ProductForm.get('weight').dirty || ProductForm.get('weight').touched)">
+                    {{validation.message}}</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="corigitn">Country of origin</label>
+                <input type="text" class="form-control" placeholder="e.g. Italy" formControlName="origin">
+                <div *ngFor="let validation of productValidation.origin">
+                  <div class="invalid-feedback d-block"
+                    *ngIf="ProductForm.get('origin').hasError(validation.type) && (ProductForm.get('origin').dirty || ProductForm.get('origin').touched)">
+                    {{validation.message}}</div>
+                </div>
+              </div>
             </div>
 
           </div>
@@ -166,32 +232,56 @@
       <div class="row">
         <div class="col-8">
           <div class="card">
-            <span class="card-title font-weight-bold">Variants</span>
+            <div class="row">
+              <div class="col">
+                <span class="card-title font-weight-bold">Variants</span>
+              </div>
+              <div class="col text-right">
+                <button class="btn btn-sm" (click)="addVariant()">
+                  <i class="material-icons">
+                    playlist_add
+                  </i></button>
+              </div>
+            </div>
             <div class="row">
               <div class="col-4">
                 <div class="form-group">
                   <label for="voption">Option name</label>
-                  <input type="text" class="form-control mt-2" placeholder="Size">
-                  <input type="text" class="form-control mt-2" placeholder="Color">
+                  <div formArrayName="variants">
+                    <div [formGroupName]="i"
+                      *ngFor="let variant of ProductForm.get('variants').controls; let i = index">
+                      <input type="text" class="form-control mt-2" placeholder="Size" formControlName="optionName">
+                    </div>
+                  </div>
+                  <!-- <input type="text" class="form-control mt-2" placeholder="Color" formControlName="optionName2"> -->
                 </div>
               </div>
               <div class="col-8">
                 <div class="form-group">
                   <label for="oval">Option value</label>
-                  <input type="text" class="form-control mt-2" placeholder="Separate options with comma">
-                  <input type="text" class="form-control mt-2" placeholder="Separate options with comma">
+                  <div formArrayName="variants">
+                    <div [formGroupName]="i"
+                      *ngFor="let variant of ProductForm.get('variants').controls; let i = index">
+                      <input type="text" class="form-control mt-2" placeholder="Separate options with comma"
+                        formControlName="optionValue">
+                    </div>
+                  </div>
+
+                  <!-- <input type="text" class="form-control mt-2" placeholder="Separate options with comma"
+                    formControlName="optionValue2"> -->
                 </div>
               </div>
             </div>
           </div>
           <div class="row mt-2 pb-3">
-              <div class="col-12">
-                  <button class="w-100 btn btn-small btn-primary b-0">Add Product</button>
-              </div>
+            <div class="col-12">
+              <button type="submit" [disabled]="ProductForm.invalid" class="w-100 btn btn-small btn-primary b-0">Add
+                Product</button>
             </div>
+          </div>
         </div>
       </div>
-      
+
     </form>
   </div>
 </div>

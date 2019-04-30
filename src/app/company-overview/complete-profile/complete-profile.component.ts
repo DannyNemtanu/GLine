@@ -11,7 +11,6 @@ import {
 import { Observable } from 'rxjs';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { Logs } from 'selenium-webdriver';
 import { Router } from '@angular/router';
 
 @Component({
@@ -24,7 +23,7 @@ export class CompleteProfileComponent implements OnInit {
   task: AngularFireUploadTask;
   percentage: Observable<number>;
   snapshot: Observable<any>;
-
+  currentYear = new Date();
   // Profile Picture
   showImage = false;
   uploadStatus = 'Not Uploaded';
@@ -63,6 +62,7 @@ export class CompleteProfileComponent implements OnInit {
   // Data to be updated into database
   form_data = {
     companyProfile: {
+      currentYear: 0,
       profilePicture: '',
       tradingName: '',
       registrationNumber: '',
@@ -246,14 +246,14 @@ export class CompleteProfileComponent implements OnInit {
       { type: 'maxlength', message: 'Maximum 100 characters long' }
     ],
     // Step Five
-    asmin: [
-      { type: 'pattern', message: 'Enter valid number.' },
-    ],
-    asmax: [
-      { type: 'pattern', message: 'Enter valid number.' },
-    ],
+    asmin: [{ type: 'pattern', message: 'Enter valid number.' }],
+    asmax: [{ type: 'pattern', message: 'Enter valid number.' }],
     mainMarkets: [
-      { type: 'pattern', message: 'Please separate main markets using comma. Do not use prohibitted charachters such as ("<","\","/")' },
+      {
+        type: 'pattern',
+        message:
+          'Please separate main markets using comma. Do not use prohibitted charachters such as ("<","","/")'
+      },
       { type: 'maxlength', message: 'Maximum 500 characters long' }
     ],
     nemin: [{ type: 'pattern', message: 'Enter valid number.' }],
@@ -472,28 +472,27 @@ export class CompleteProfileComponent implements OnInit {
       console.log('Please upload an valid iamge!');
       return;
     } else {
+      // Storage path
+      const path = `${uid}/profilePicture`;
+      this.task = this.afStorage.upload(path, file);
 
-    // Storage path
-    const path = `${uid}/profilePicture`;
-    this.task = this.afStorage.upload(path, file);
-
-    this.task.percentageChanges().subscribe(data => {
-      this.uploadProgress = data.toFixed();
-    });
-    this.task.snapshotChanges().subscribe(snap => {
-      if (snap.bytesTransferred === snap.totalBytes) {
-        snap.ref.getDownloadURL().then(url => {
-          this.uploadedImage = url;
-          // this.form_data.companyProfile.profilePicture = url;
-          this.formOne.patchValue({
-            profilePicture: url
+      this.task.percentageChanges().subscribe(data => {
+        this.uploadProgress = data.toFixed();
+      });
+      this.task.snapshotChanges().subscribe(snap => {
+        if (snap.bytesTransferred === snap.totalBytes) {
+          snap.ref.getDownloadURL().then(url => {
+            this.uploadedImage = url;
+            // this.form_data.companyProfile.profilePicture = url;
+            this.formOne.patchValue({
+              profilePicture: url
+            });
+            this.showImage = true;
           });
-          this.showImage = true;
-        });
-        this.uploadStatus = 'Uploaded';
-      }
-    });
-  }
+          this.uploadStatus = 'Uploaded';
+        }
+      });
+    }
   }
   // Reset Image Upload
   resetImageUpdate() {
@@ -604,7 +603,9 @@ export class CompleteProfileComponent implements OnInit {
   }
   stepFour() {
     const form = this.form_data.companyProfile;
-    form.businessCertification = this.formFour.get('businessCertification').value;
+    form.businessCertification = this.formFour.get(
+      'businessCertification'
+    ).value;
     form.businessPatents = this.formFour.get('businessPatents').value;
     form.businessTrademarks = this.formFour.get('businessTrademarks').value;
     this.next();
@@ -616,7 +617,7 @@ export class CompleteProfileComponent implements OnInit {
     form.mainMarkets = this.formFive.get('mainMarkets').value;
     form.numberOfEmployees.min = this.formFive.get('nemin').value;
     form.numberOfEmployees.max = this.formFive.get('nemax').value;
-    this.next();
+    this.completeProfile();
   }
   // Continue to next step
   next() {
@@ -674,22 +675,26 @@ export class CompleteProfileComponent implements OnInit {
     // console.log(this.form_data);
   }
 
-  setFormData(form_data) {
-    this.form_data = {
-      ...this.form_data,
-      ...form_data
-    };
-    // console.log('next', this.form_data);
-  }
-
   // Updating the company profile
   completeProfile() {
     const user = this.user.getUserID();
-    const userRef: AngularFirestoreDocument<any> = this.afs.doc(
-      `users/${user}`
-    );
-    return userRef.update(this.form_data).then(() => {
-      this.router.navigate(['overview']);
+    const doc = this.afs.doc(`users/${user}`);
+
+    doc.valueChanges().subscribe(data => {
+      const profile = data.completedProfile;
+      if (profile) {
+        this.form_data.companyProfile.currentYear =
+          data.companyProfile.currentYear;
+        return doc.update(this.form_data).then(() => {
+          this.router.navigate(['overview']);
+        });
+      } else {
+        this.form_data.companyProfile.currentYear = this.currentYear.getFullYear();
+        return doc.update(this.form_data).then(() => {
+          doc.update({completedProfile: true});
+          this.router.navigate(['overview']);
+        });
+      }
     });
     // return userRef.set(this.form_data, {
     //   merge: true

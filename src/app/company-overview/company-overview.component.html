@@ -1,438 +1,423 @@
 <app-navigation></app-navigation>
-<div class="main-container">
-<div class="container py-3">
-  <div class="companyOverview">
+<div class="main-container" *ngIf="isLoaded">
+  <div class="container py-3" >
+    <div class="companyOverview">
       <div class="wrap-box">
-          <div class="mod-content">
-              <div class="block-top">
-                  <div class="block-left">
-                      <div class="company-images">
-                          <div class="image-item" style="outline: none; width: 495px;">
-                              <div class="next-row next-row-no-padding next-row-justify-center next-row-align-center image-box">
-                                  <img src="https://sc01.alicdn.com/kf/HTB1EaXbKf9TBuNjy0Fcq6zeiFXaA.jpg"
-                                      style="width: 100%; height: 100%;" />
-                              </div>
-                          </div>
-                      </div>
+        <div class="mod-content">
+          <div class="block-top">
+            <div class="block-left">
+              <div class="company-images">
+                <div class="image-item" style="outline: none; width: 495px;">
+                  <div class="next-row next-row-no-padding next-row-justify-center next-row-align-center image-box">
+                    <img src="{{cInfo.profilePicture}}"
+                      style="width: 100%; height: 100%;" />
                   </div>
-                  <div class="block-right">
-                      <div class="company-card">
-                          <div class="company-card-title">
-                              <div class="title-text" style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;"><span>Shenzhen
-                                      Calion Power Co., Ltd.
-                                  </span></div><span class="assessment-icon">
-                                  <a class="icbu-icon-gs-year icbu-icon-gs-year-bg icbu-icon-gs-year-small no-icon">
-                                      <span class="join-year"><span class="value">2</span><span class="unit">YRS</span></span>
-                                  </a>
-                                  <span class="font-weight-bold ml-1" style="font-size: .7rem;">In the
-                                      business</span>
-                              </span>
-
-                          </div>
-                          <div class="company-card-desc">
-                              <div style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 4;">
-                                  <div title="company-description">
-                                      Shenzhen Calion power Co Ltd is an ISO9001 certified manufacturer and
-                                      professional ,exporter focusing on design ,manufacture and sales of a
-                                      wide range of electric products. We mainly produce Bluetooth earbuds,
-                                      Bluetooth knitted beanie , Bluetooth caps, Bluetooth knitted gloves and
-                                      so on. ALL of our products based on ODM and OEM comply with
-                                      international quality standards, say CE,RoHS,FCC,BQB. We have earned
-                                      trust from domestic market and abroad.We have outstanding international
-                                      business team, working closely with our customers from hardware and
-                                      software.With strict operation under the quality control standard,
-                                      integrity criteria and identification of records to skills and
-                                      experience of team spirit building, we've been providing the best
-                                      products and service to our clients.'Good quality, Good price and Good
-                                      service" ,the 3 Goods are what we are always trying to provide for our
-                                      custumers.</div>
-                              </div>
-                          </div>
-                          <div class="company-card-transaction">
-                              <div class="transaction-rate">
-                                  <div class="total-score">
-                                      4.7
-                                      <span class="max-score">
-                                          /
-                                          5
-                                      </span></div>
-                                  <div class="total-desc">
-                                      <div class="desc-title">Satisfied</div>
-                                      <div class="review-num">
-                                          124
-                                          Reviews
-                                      </div>
-                                  </div>
-                              </div>
-                              <ul class="transaction-detail">
-                                  <li>
-                                      <div class="transaction-detail-title">Transaction level</div>
-                                      <div class="transaction-detail-content font-weight-bold">3+</div>
-                                  </li>
-                                  <li>
-                                      <div class="transaction-detail-title">
-                                          466
-                                          Transactions
-                                      </div>
-                                      <div class="transaction-detail-content">110,000+</div>
-                                  </li>
-                                  <li>
-                                      <div class="transaction-detail-title">Response Time</div>
-                                      <div class="transaction-detail-content">&lt;24h</div>
-                                  </li>
-                                  <li>
-                                      <div class="transaction-detail-title">Response Rate</div>
-                                      <div class="transaction-detail-content">58.5%</div>
-                                  </li>
-                              </ul>
-                          </div>
-                      </div>
-                  </div>
+                </div>
               </div>
-              <div class="block-bottom">
-                  <div class="company-basicInfo">
-                      <table>
-                          <tbody>
-                              <tr>
-                                  <td class="field-title " width="20%">Business Type</td>
-                                  <td class="field-content-wrap" width="30%">
-                                      <div class="field-content">
-                                          <div style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;"><span
-                                                  class="content-value" title="Manufacturer, Trading Company">Manufacturer,
-                                                  Trading Company</span></div>
-                                      </div>
-                                  </td>
-                                  <td class="field-title " width="20%">Main Products</td>
-                                  <td class="field-content-wrap" width="30%"><a class="field-content" href="#cpProduct">
-                                          <div style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;"><span
-                                                  class="content-value" title="Bluetooth earphones,Bluetooth wear products">Bluetooth
-                                                  earphones,Bluetooth wear products</span></div>
-
-                                      </a></td>
-                              </tr>
-                              <tr>
-                                  <td class="field-title " width="20%">Location</td>
-                                  <td class="field-content-wrap" width="30%">
-                                      <div class="field-content">
-                                          <div style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;"><span
-                                                  class="content-value" title="Guangdong, China (Mainland)">Guangdong,
-                                                  China (Mainland)</span></div>
-                                      </div>
-                                  </td>
-                                  <td class="field-title " width="20%">Ownership</td>
-                                  <td class="field-content-wrap" width="30%">
-                                      <div class="field-content">
-                                          <div style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;"><span
-                                                  class="content-value" title="Private Owner">Private Owner</span></div>
-                                      </div>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td class="field-title " width="20%">Total Employees</td>
-                                  <td class="field-content-wrap" width="30%">
-                                      <div class="field-content">
-                                          <div style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;"><span
-                                                  class="content-value" title="11 - 50 People">11 - 50 People</span></div>
-                                      </div>
-                                  </td>
-                                  <td class="field-title " width="20%">Total Annual Revenue</td>
-                                  <td class="field-content-wrap" width="30%">
-                                      <div class="field-content">
-                                          <div style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;"><span
-                                                  class="content-value" title="confidential">confidential</span></div>
-                                      </div>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td class="field-title " width="20%">Year Established</td>
-                                  <td class="field-content-wrap" width="30%">
-                                      <div class="field-content">
-                                          <div style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;"><span
-                                                  class="content-value" title="">2011</span></div>
-                                      </div>
-                                  </td>
-                                  <td class="field-title " width="20%">Product Certifications</td>
-                                  <td class="field-content-wrap" width="30%"><a class="field-content">
-                                          <div style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;"><span
-                                                  class="content-value" title="BQB,FCC,CE,CE,Test Report,Test Report,Test Report">BQB,FCC,CE,CE,Test
-                                                  Report,Test Report,Test Report</span></div>
-                                      </a></td>
-                              </tr>
-                              <tr>
-                                  <td class="field-title " width="20%">Certifications</td>
-                                  <td class="field-content-wrap" width="30%">
-                                      <div class="field-content">
-                                          <div style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;"><span
-                                                  class="content-value" title=""> - </span></div>
-                                      </div>
-                                  </td>
-                                  <td class="field-title " width="20%">Trademarks</td>
-                                  <td class="field-content-wrap" width="30%"><a class="field-content">
-                                          <div style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;"><span
-                                                  class="content-value" title="CALION">CALION</span></div>
-                                      </a></td>
-                              </tr>
-                              <tr>
-                                  <td class="field-title " width="20%">Patents</td>
-                                  <td class="field-content-wrap" width="30%"><a class="field-content">
-                                          <div style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;"><span
-                                                  class="content-value" title="Certificate of Registration for a UK Design">Certificate
-                                                  of Registration for a UK Design</span></div>
-                                      </a></td>
-                                  <td class="field-title " width="20%">Main Markets</td>
-                                  <td class="field-content-wrap" width="30%">
-                                      <div class="field-content">
-                                          <div style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;"><span
-                                                  class="content-value" title=""><span class="content-fields">
-                                                      Domestic Market
-                                                      60.00
-                                                      %
-                                                  </span><span class="content-fields">
-                                                      North America
-                                                      15.00
-                                                      %
-                                                  </span><span class="content-fields">
-                                                      Eastern Asia
-                                                      15.00
-                                                      %
-                                                  </span><span class="content-fields">
-                                                      Western Europe
-                                                      5.00
-                                                      %
-                                                  </span><span class="content-fields">
-                                                      Central America
-                                                      2.00
-                                                      %
-                                                  </span><span class="content-fields">
-                                                      South Asia
-                                                      2.00
-                                                      %
-                                                  </span><span class="content-fields">
-                                                      Oceania
-                                                      1.00
-                                                      %
-                                                  </span></span></div>
-                                      </div>
-                                  </td>
-                              </tr>
-                          </tbody>
-                      </table>
+            </div>
+            <div class="block-right">
+              <div class="company-card">
+                <div class="company-card-title">
+                  <div class="title-text"
+                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
+                    {{cInfo.tradingName}}
                   </div>
+                  <span class="assessment-icon">
+                    <a class="icbu-icon-gs-year icbu-icon-gs-year-bg icbu-icon-gs-year-small no-icon">
+                      <span class="join-year"><span class="value">{{yearsInBusiness}}</span><span class="unit">YRS</span></span>
+                    </a>
+                    <span class="font-weight-bold ml-1" style="font-size: .7rem;">In the
+                      business</span>
+                  </span>
+
+                </div>
+                <div class="company-card-desc">
+                  <div
+                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 4;">
+                    <div title="company-description">
+                      {{cInfo.businessDescription}}</div>
+                  </div>
+                </div>
+                <div class="company-card-transaction">
+                  <div class="transaction-rate">
+                    <div class="total-score">
+                      4.7
+                      <span class="max-score">
+                        /
+                        5
+                      </span></div>
+                    <div class="total-desc">
+                      <div class="desc-title">Satisfied</div>
+                      <div class="review-num">
+                        124
+                        Reviews
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="transaction-detail">
+                    <li>
+                      <div class="transaction-detail-title">Transaction level</div>
+                      <div class="transaction-detail-content font-weight-bold">3+</div>
+                    </li>
+                    <li>
+                      <div class="transaction-detail-title">
+                        466
+                        Transactions
+                      </div>
+                      <div class="transaction-detail-content">110,000+</div>
+                    </li>
+                    <li>
+                      <div class="transaction-detail-title">Response Time</div>
+                      <div class="transaction-detail-content">&lt;24h</div>
+                    </li>
+                    <li>
+                      <div class="transaction-detail-title">Response Rate</div>
+                      <div class="transaction-detail-content">58.5%</div>
+                    </li>
+                  </ul>
+                </div>
               </div>
+            </div>
           </div>
+          <div class="block-bottom">
+            <div class="company-basicInfo">
+              <table>
+                <tbody>
+                  <tr>
+                    <td class="field-title " width="20%">Registration Number</td>
+                    <td class="field-content-wrap" width="30%">
+                      <div class="field-content">
+                        <div
+                          style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">
+                          <span class="content-value" title="{{cInfo.registrationNumber}}">
+                            {{cInfo.registrationNumber}}
+                          </span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="field-title " width="20%">Main Products</td>
+                    <td class="field-content-wrap" width="30%">
+                      <div
+                        style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">
+                        <span class="content-value" title="{{cInfo.mainProducts}}">
+                          {{cInfo.mainProducts}}
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="field-title " width="20%">Location</td>
+                    <td class="field-content-wrap" width="30%">
+                      <div class="field-content">
+                        <div
+                          style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">
+                          <span class="content-value" title="{{cInfo.addr}}">{{cInfo.addr}}</span></div>
+                      </div>
+                    </td>
+                    <td class="field-title " width="20%">Ownership</td>
+                    <td class="field-content-wrap" width="30%">
+                      <div class="field-content">
+                        <div
+                          style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">
+                          <span class="content-value" title="Private Owner">Private Owner</span></div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="field-title " width="20%">Total Employees</td>
+                    <td class="field-content-wrap" width="30%">
+                      <div class="field-content">
+                        <div
+                          style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">
+                          <span class="content-value"
+                            title="{{cInfo.numberOfEmployees.min}}-{{cInfo.numberOfEmployees.max}}">
+                            {{cInfo.numberOfEmployees.min}} - {{cInfo.numberOfEmployees.max}} Employees
+                          </span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="field-title " width="20%">Total Annual Revenue</td>
+                    <td class="field-content-wrap" width="30%">
+                      <div class="field-content">
+                        <div
+                          style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">
+                          <span class="content-value" title="{{cInfo.annualSales.min}}-{{cInfo.annualSales.max}}">
+                            {{cInfo.annualSales.min}} -{{cInfo.annualSales.max}}
+                          </span>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="field-title " width="20%">Established</td>
+                    <td class="field-content-wrap" width="30%">
+                      <div class="field-content">
+                        <div
+                          style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">
+                          <span class="content-value"
+                            title="{{cInfo.establishedDate.day}}-{{cInfo.establishedDate.month}}-{{cInfo.establishedDate.year}}">
+                            {{cInfo.establishedDate.day}} - {{cInfo.establishedDate.month}} -
+                            {{cInfo.establishedDate.year}}
+                          </span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="field-title " width="20%">Product Certifications</td>
+                    <td class="field-content-wrap" width="30%"><a class="field-content">
+                        <div
+                          style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">
+                          <span class="content-value"
+                            title="{{cInfo.businessCertification}}">{{cInfo.businessCertification}}</span>
+                        </div>
+                      </a></td>
+                  </tr>
+                  <tr>
+                    <td class="field-title " width="20%">Certifications</td>
+                    <td class="field-content-wrap" width="30%">
+                      <div class="field-content">
+                        <div
+                          style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">
+                          <span class="content-value" title=""> - </span></div>
+                      </div>
+                    </td>
+                    <td class="field-title " width="20%">Trademarks</td>
+                    <td class="field-content-wrap" width="30%">
+                      <div
+                        style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">
+                        <span class="content-value"
+                          title="{{cInfo.businessTrademarks}}">{{cInfo.businessTrademarks}}</span></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="field-title" width="20%">Patents</td>
+                    <td class="field-content-wrap" width="30%">
+                      <div
+                        style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">
+                        <span class="content-value" title="{{cInfo.businessPatents}}">{{cInfo.businessPatents}}</span>
+                      </div>
+                    </td>
+                    <td class="field-title" width="20%">Main Markets</td>
+                    <td class="field-content-wrap" width="30%">
+                      <div class="field-content">
+                        <div
+                          style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">
+                          <span class="content-value" title="{{cInfo.mainMarkets}}"><span class="content-fields">
+                              {{cInfo.mainMarkets}}
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
-  </div>
-  <div class="companyProduction mt-2">
+    </div>
+    <div class="companyProduction mt-2">
       <div class="wrap-box">
-          <div class="mod-content">
-              <div class="info-list">
-                  <div class="title">
-                      <h3>Production Flow</h3>
-                  </div>
-                  <div class="content mt-3">
-                      <div class="image-list">
-                          <div class="row">
-                              <div class="col">
-                                  <div class="image-item">
-                                      <img class="rounded d-block" width="200" src="https://sc02.alicdn.com/kf/HTB1zzvPJ4SYBuNjSsphq6zGvVXaZ.jpg"
-                                          alt="Raw Materials">
-                                      <div class="title">
-                                          <div class="title-con" style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">Raw
-                                              Material</div>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="col">
-                                  <div class="image-item">
-                                      <img class="rounded d-block" width="200" src="https://sc02.alicdn.com/kf/HTB15JtVnmMmBKNjSZTEq6ysKpXaD.jpg"
-                                          alt="Assembly">
-                                      <div class="title">
-                                          <div class="title-con" style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">Assembly</div>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="col">
-                                  <div class="image-item">
-                                      <img class="rounded d-block" width="200" src="https://sc02.alicdn.com/kf/HTB1tgwBnljTBKNjSZFuq6z0HFXaE.jpg"
-                                          alt="Life Testing">
-                                      <div class="title">
-                                          <div class="title-con" style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">Life
-                                              Testing</div>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="col">
-                                  <div class="image-item">
-                                      <img class="rounded d-block" width="200" src="https://sc01.alicdn.com/kf/HTB1rOoQmZIrBKNjSZK9q6ygoVXab.jpg"
-                                          alt="Inspection and Packaging">
-                                      <div class="title">
-                                          <div class="title-con" style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">Inspection
-                                              and Packaging</div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
+        <div class="mod-content">
+          <div class="info-list">
+            <div class="title">
+              <h3>Production Flow</h3>
+            </div>
+            <div class="content mt-3">
+              <div class="image-list">
+                <div class="row">
+                  <div class="col">
+                    <div class="image-item">
+                      <img class="rounded d-block" width="200" src="{{cInfo.productFlow.stepOne.imageUrl}}"
+                        alt="{{cInfo.productFlow.stepOne.title}}">
+                      <div class="title">
+                        <div class="title-con"
+                          style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
+                          {{cInfo.productFlow.stepOne.title}}
+                        </div>
                       </div>
+                    </div>
                   </div>
+                  <div class="col">
+                    <div class="image-item">
+                      <img class="rounded d-block" width="200" src="{{cInfo.productFlow.stepTwo.imageUrl}}"
+                        alt="{{cInfo.productFlow.stepTwo.title}}">
+                      <div class="title">
+                        <div class="title-con"
+                          style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
+                          {{cInfo.productFlow.stepTwo.title}}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="image-item">
+                      <img class="rounded d-block" width="200" src="{{cInfo.productFlow.stepThree.imageUrl}}"
+                        alt="{{cInfo.productFlow.stepThree.title}}">
+                      <div class="title">
+                        <div class="title-con"
+                          style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
+                          {{cInfo.productFlow.stepThree.title}}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="image-item">
+                      <img class="rounded d-block" width="200" src="{{cInfo.productFlow.stepFour.imageUrl}}"
+                        alt="{{cInfo.productFlow.stepFour.title}}">
+                      <div class="title">
+                        <div class="title-con"
+                          style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
+                          {{cInfo.productFlow.stepFour.title}}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="info-list factoryinfo">
-                  <div class="title">
-                      <h3>Factory Information</h3>
-                  </div>
-                  <div class="content mt-3">
-                      <table class="w-100">
-                          <tbody>
-                              <tr class="col-item">
-                                  <td class="title">Factory Size</td>
-                                  <td class="content">
-                                      <div>1,000-3,000 square meters</div>
-                                  </td>
-                              </tr>
-                              <tr class="col-item">
-                                  <td class="title">No. of Production Lines</td>
-                                  <td class="content">
-                                      <div>Above 10</div>
-                                  </td>
-                              </tr>
-                              <tr class="col-item">
-                                  <td class="title">Contract Manufacturing</td>
-                                  <td class="content">
-                                      <div>
-                                          OEM Service Offered
-                                          Design Service Offered
-                                          Buyer Label Offered
-                                      </div>
-                                  </td>
-                              </tr>
-                              <tr class="col-item">
-                                  <td class="title">Annual Output Value</td>
-                                  <td class="content">
-                                      <div>US$5 Million - US$10 Million</div>
-                                  </td>
-                              </tr>
-                              <tr class="col-item">
-                                  <td class="title">Contract Manufacturing</td>
-                                  <td class="content">
-                                      <div>
-                                          OEM Service Offered
-                                          Design Service Offered
-                                          Buyer Label Offered
-                                      </div>
-                                  </td>
-                              </tr>
-                          </tbody>
-                      </table>
-                  </div>
-              </div>
-
+            </div>
           </div>
+          <div class="info-list factoryinfo">
+            <div class="title">
+              <h3>Factory Information</h3>
+            </div>
+            <div class="content mt-3">
+              <table class="w-100">
+                <tbody>
+                  <tr class="col-item">
+                    <td class="title">Factory Size</td>
+                    <td class="content">
+                      <div>1,000-3,000 square meters</div>
+                    </td>
+                  </tr>
+                  <tr class="col-item">
+                    <td class="title">No. of Production Lines</td>
+                    <td class="content">
+                      <div>Above 10</div>
+                    </td>
+                  </tr>
+                  <tr class="col-item">
+                    <td class="title">Contract Manufacturing</td>
+                    <td class="content">
+                      <div>
+                        OEM Service Offered
+                        Design Service Offered
+                        Buyer Label Offered
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="col-item">
+                    <td class="title">Annual Output Value</td>
+                    <td class="content">
+                      <div>US$5 Million - US$10 Million</div>
+                    </td>
+                  </tr>
+                  <tr class="col-item">
+                    <td class="title">Contract Manufacturing</td>
+                    <td class="content">
+                      <div>
+                        OEM Service Offered
+                        Design Service Offered
+                        Buyer Label Offered
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
       </div>
-  </div>
-  <div class="companyContact mt-2">
+    </div>
+    <div class="companyContact mt-2">
       <div class="wrap-box">
-          <div class="mod-content">
-              <h1 class="title">Contact Information</h1>
-              <div class="contact-content">
-                  <div class="row">
-                      <div class="col-4 left-side">
-                          <div class="company-profile"><img src="../../assets//images/profile-pic@2x.png" alt="Profile"
-                                  width="150" height="150"></div>
-                          <div class="company-manager-info">
-                              <h2>Mr. Bruce chan</h2>
-                          </div>
-                          <div class="company-manager-posision mt-2">
-                              <p>Director/CEO/General Manager<br> General manager</p>
+        <div class="mod-content">
+          <h1 class="title">Contact Information</h1>
+          <div class="contact-content">
+            <div class="row">
+              <div class="col-4 left-side">
+                <div class="company-profile"><img src="../../assets//images/profile-pic@2x.png" alt="Profile"
+                    width="150" height="150"></div>
+                <div class="company-manager-info">
+                  <h2>Mr. Bruce chan</h2>
+                </div>
+                <div class="company-manager-posision mt-2">
+                  <p>Director/CEO/General Manager<br> General manager</p>
 
-                          </div>
+                </div>
 
-                      </div>
-                      <div class="col-8 right-side">
-                          
-                                  <table>
-                                          <tbody>
-                                              <tr class="telephone">
-                                                  <td class="title">Telephone:</td>
-                                                  <td class="content">+40378120</td>
-                                              </tr>
-                                              <tr class="m-phone">
-                                                  <td class="title">Mobile Phone:</td>
-                                                  <td class="content">+40612341234123</td>
-                                              </tr>
-                                              <tr class="fax">
-                                                  <td class="title">Fax:</td>
-                                                  <td class="content">+40123141</td>
-                                              </tr>
-                                              <tr class="addr">
-                                                  <td class="title">Address:</td>
-                                                  <td class="content text-truncate">No.31,Cendong road,Xinhua
-                                                      street,huadu district,Guangzhou cityNo.31,Cendong road,Xinhua
-                                                      street,huadu district,Guangzhou cityNo.31,Cendong road,Xinhua
-                                                      street,huadu district,Guangzhou city</td>
-                                              </tr>
-                                              <tr class="zip">
-                                                  <td class="title">Zip:</td>
-                                                  <td class="content">510800</td>
-                                              </tr>
-                                              <tr class="cr">
-                                                  <td class="title">Country/Region:</td>
-                                                  <td class="content">China (Mainland)</td>
-                                              </tr>
-                                              <tr class="ps">
-                                                  <td class="title">Province/State:</td>
-                                                  <td class="content">Guangdong</td>
-                                              </tr>
-                                              <tr class="city">
-                                                  <td class="title">City:</td>
-                                                  <td class="content">Guangzhou</td>
-                                              </tr>
-                                              <tr class="action-row">
-                                                  <td><button class="btn btn-dark btn-sm">Contact Supplier</button></td>
-                                              </tr>
-                                          </tbody>
-                                      </table>
-                      </div>
-                  </div>
               </div>
+              <div class="col-8 right-side">
+
+                <table>
+                  <tbody>
+                    <tr class="telephone">
+                      <td class="title">Telephone:</td>
+                      <td class="content">{{cInfo.telephone}}</td>
+                    </tr>
+                    <tr class="m-phone">
+                      <td class="title">Mobile Phone:</td>
+                      <td class="content">{{cInfo.mobilePhone}}</td>
+                    </tr>
+                    <tr class="fax">
+                      <td class="title">Fax:</td>
+                      <td class="content">{{cInfo.fax}}</td>
+                    </tr>
+                    <tr class="addr">
+                      <td class="title">Address:</td>
+                      <td class="content text-truncate">{{cInfo.addr}}</td>
+                    </tr>
+                    <tr class="action-row">
+                      <td><button class="btn btn-dark btn-sm">Contact Supplier</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
+        </div>
       </div>
-  </div>
-  <div class="sendDirectMessage mt-2" *ngIf="retailer">
+    </div>
+    <div class="sendDirectMessage mt-2" *ngIf="retailer">
       <div class="wrap-box">
-          <div class="mod-content">
-              <div class="title">
-                  <h2>Send direct message to supplier</h2>
-              </div>
-              <div class="message-form">
-                  <div class="row">
-                      <div class="col-12 mx-auto">
-                          <div class="row">
-                              <div class="col-3 label">
-                                  To:
-                              </div>
-                              <div class="col-9 to-person">
-                                  <p>Name Surname</p>
-                              </div>
-                          </div>
-                          <div class="row mt-3">
-                              <div class="col-3 label">
-                                  Message:
-                              </div>
-                              <div class="col-9 message-area">
-                                  <textarea name="content" rows="4" placeholder="Enter your inquiry details such as product name, color, size, quantity, material, etc."
-                                      data-meta="Field" id="content" maxlength="8000" type="text" height="100%"></textarea>
-                              </div>
-                          </div>
-                          <div class="row mt-1">
-                              <div class="col-3"></div>
-                              <div class="col-9">
-                                  <button class="btn btn-dark btn-sm">Send Message</button>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+        <div class="mod-content">
+          <div class="title">
+            <h2>Send direct message to supplier</h2>
           </div>
+          <div class="message-form">
+            <div class="row">
+              <div class="col-12 mx-auto">
+                <div class="row">
+                  <div class="col-3 label">
+                    To:
+                  </div>
+                  <div class="col-9 to-person">
+                    <p>Name Surname</p>
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-3 label">
+                    Message:
+                  </div>
+                  <div class="col-9 message-area">
+                    <textarea name="content" rows="4"
+                      placeholder="Enter your inquiry details such as product name, color, size, quantity, material, etc."
+                      data-meta="Field" id="content" maxlength="8000" type="text" height="100%"></textarea>
+                  </div>
+                </div>
+                <div class="row mt-1">
+                  <div class="col-3"></div>
+                  <div class="col-9">
+                    <button class="btn btn-dark btn-sm">Send Message</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
   </div>
-</div>
 </div>
