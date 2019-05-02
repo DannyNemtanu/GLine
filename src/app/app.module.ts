@@ -35,6 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DropZoneDirective } from './shared/directives/drop-zone.directive';
 import { AllproductsComponent } from './product/allproducts/allproducts.component';
 import { AddnewComponent } from './product/allproducts/addnew/addnew.component';
+import { EditProductComponent } from './product/allproducts/edit-product/edit-product.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { AddnewComponent } from './product/allproducts/addnew/addnew.component';
     DropZoneDirective,
     AllproductsComponent,
     AddnewComponent,
+    EditProductComponent,
   ],
   imports: [
     NgbModule,

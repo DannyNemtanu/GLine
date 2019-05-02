@@ -7,13 +7,14 @@ import {
   AngularFireStorage
 } from 'angularfire2/storage';
 import { Observable } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-addnew',
-  templateUrl: './addnew.component.html',
-  styleUrls: ['./addnew.component.scss']
+  selector: 'app-edit-product',
+  templateUrl: './edit-product.component.html',
+  styleUrls: ['./edit-product.component.scss']
 })
-export class AddnewComponent implements OnInit {
+export class EditProductComponent implements OnInit {
   // AngularFirestore
   task: AngularFireUploadTask;
   snapshot: Observable<any>;
@@ -21,6 +22,9 @@ export class AddnewComponent implements OnInit {
   ProductForm: FormGroup;
   imageCounter = 0;
   imageError = false;
+  pid;
+  id;
+  product: any;
   productValidation = {
     // Step One
     title: [
@@ -159,7 +163,9 @@ export class AddnewComponent implements OnInit {
     private afs: AngularFirestore,
     private fb: FormBuilder,
     private us: UserDataService,
-    private afStorage: AngularFireStorage
+    private afStorage: AngularFireStorage,
+    private route: ActivatedRoute,
+    public router: Router
   ) {
     this.ProductForm = this.fb.group({
       title: [
@@ -170,8 +176,8 @@ export class AddnewComponent implements OnInit {
           Validators.pattern(/^[a-zA-Z0-9-"', ]*$/)
         ])
       ],
-      overview: this.fb.array([this.initOverview()]),
-      pd: this.fb.array([this.initPD()]),
+      overview: this.fb.array([]),
+      pd: this.fb.array([]),
       supplyAbility: [
         '1200 piece per Month',
         Validators.compose([
@@ -213,32 +219,70 @@ export class AddnewComponent implements OnInit {
         'Romania',
         Validators.compose([Validators.pattern(/^[a-zA-Z0-9-,. ]*$/)])
       ],
-      variants: this.fb.array([this.initVariant()]),
-      orderPrices: this.fb.array([this.initPrices()]),
+      variants: this.fb.array([]),
+      orderPrices: this.fb.array([]),
       productImages: this.fb.array([]),
-      uid: [''],
-
+      uid: ['']
+    });
+  }
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.pid = params['id'];
+      this.id = params['user'];
+      this.getPrduct(this.id, this.pid);
+    });
+  }
+  // Getting Product Data
+  getPrduct(id, pid) {
+    const doc = this.afs.doc(`users/${id}/products/${pid}`).valueChanges();
+    doc.subscribe(data => {
+      this.product = data;
+      console.log(this.product);
+      this.product.overview.forEach(item => {
+        this.populateOverview(item);
+      });
+      this.product.pd.forEach(item => {
+        this.populatePD(item);
+      });
+      this.product.orderPrices.forEach(item => {
+        this.populatePrices(item);
+      });
+      this.product.variants.forEach(item => {
+        this.populateVariants(item);
+      });
+      this.product.productImages.forEach(item => {
+        this.populateImages(item);
+      });
+      this.ProductForm.patchValue({
+        title: this.product.title,
+        brand: this.product.brand,
+        digital: this.product.digital,
+        supplyAbility: this.product.supplyAbility,
+        origin: this.product.origin,
+        collection: this.product.collection,
+        tags: this.product.tags,
+        weight: this.product.weight
+      });
     });
   }
 
-  ngOnInit() {}
   // Overview
   initOverview(): FormGroup {
     return this.fb.group({
-    title: [
-      '',
-      Validators.compose([
-        Validators.maxLength(50),
-        Validators.pattern(/^[a-zA-Z0-9-"()/:', ]*$/)
-      ])
-    ],
-    value: [
-      '',
-      Validators.compose([
-        Validators.maxLength(50),
-        Validators.pattern(/^[a-zA-Z0-9-"/():', ]*$/)
-      ])
-    ],
+      title: [
+        '',
+        Validators.compose([
+          Validators.maxLength(50),
+          Validators.pattern(/^[a-zA-Z0-9-"()/:', ]*$/)
+        ])
+      ],
+      value: [
+        '',
+        Validators.compose([
+          Validators.maxLength(50),
+          Validators.pattern(/^[a-zA-Z0-9-"/():', ]*$/)
+        ])
+      ]
     });
   }
   addOverview() {
@@ -246,29 +290,57 @@ export class AddnewComponent implements OnInit {
     newO.push(this.initOverview());
     console.log(this.ProductForm.get('overview').value);
   }
+  populateOverview(item) {
+    const newO = this.ProductForm.get('overview') as FormArray;
+    const overviewItem = this.fb.group({
+      title: item.title,
+      value: item.value
+    });
+    newO.push(overviewItem);
+  }
   // Packagin Delivery
   initPD(): FormGroup {
     return this.fb.group({
-    title: [
-      '',
-      Validators.compose([
-        Validators.maxLength(50),
-        Validators.pattern(/^[a-zA-Z0-9-"/:()', ]*$/)
-      ])
-    ],
-    value: [
-      '',
-      Validators.compose([
-        Validators.maxLength(50),
-        Validators.pattern(/^[a-zA-Z0-9-"/:', ]*$/)
-      ])
-    ],
+      title: [
+        '',
+        Validators.compose([
+          Validators.maxLength(50),
+          Validators.pattern(/^[a-zA-Z0-9-"/:()', ]*$/)
+        ])
+      ],
+      value: [
+        '',
+        Validators.compose([
+          Validators.maxLength(50),
+          Validators.pattern(/^[a-zA-Z0-9-"/:', ]*$/)
+        ])
+      ]
     });
   }
   addPD() {
     const newO = this.ProductForm.get('pd') as FormArray;
     newO.push(this.initPD());
     console.log(this.ProductForm.get('pd').value);
+  }
+  populatePD(item) {
+    const newO = this.ProductForm.get('pd') as FormArray;
+    const npd = this.fb.group({
+      title: [
+        item.title,
+        Validators.compose([
+          Validators.maxLength(50),
+          Validators.pattern(/^[a-zA-Z0-9-"/:()', ]*$/)
+        ])
+      ],
+      value: [
+        item.value,
+        Validators.compose([
+          Validators.maxLength(50),
+          Validators.pattern(/^[a-zA-Z0-9-"/:', ]*$/)
+        ])
+      ]
+    });
+    newO.push(npd);
   }
   // Manage Variants
   initVariant(): FormGroup {
@@ -286,23 +358,27 @@ export class AddnewComponent implements OnInit {
   addVariant() {
     const newV = this.ProductForm.get('variants') as FormArray;
     newV.push(this.initVariant());
-    console.log(this.ProductForm.get('variants').value);
+  }
+  populateVariants(item) {
+    const newV = this.ProductForm.get('variants') as FormArray;
+    const variant = this.fb.group({
+      optionName: [
+        item.optionName,
+        Validators.compose([Validators.pattern(/^[a-zA-Z0-9-, ]*$/)])
+      ],
+      optionValue: [
+        item.optionValue,
+        Validators.compose([Validators.pattern(/^[a-zA-Z0-9-, ]*$/)])
+      ]
+    });
+    newV.push(variant);
   }
   // Mange Price
   initPrices(): FormGroup {
     return this.fb.group({
-      qmin: [
-        '',
-        Validators.compose([Validators.pattern(/^[0-9]*$/)])
-      ],
-      qmax: [
-        '',
-        Validators.compose([Validators.pattern(/^[0-9]*$/)])
-      ],
-      qprice: [
-        '',
-        Validators.compose([Validators.pattern(/^[0-9.]*$/)])
-      ]
+      qmin: ['', Validators.compose([Validators.pattern(/^[0-9]*$/)])],
+      qmax: ['', Validators.compose([Validators.pattern(/^[0-9]*$/)])],
+      qprice: ['', Validators.compose([Validators.pattern(/^[0-9.]*$/)])]
     });
   }
   addPrice() {
@@ -310,32 +386,35 @@ export class AddnewComponent implements OnInit {
     newC.push(this.initPrices());
     console.log(this.ProductForm.get('orderPrices').value);
   }
-  // Complete Form Adding Product
-  addNewProduct() {
-    const uid = this.us.getUserID();
-    const path = `users/${uid}/products`;
-    this.afs
-      .collection(path)
-      .add(this.ProductForm.value)
-      .then(docRef => {
-        console.log(docRef.id);
-      })
-      .catch(function(error) {
-        console.error('Error adding document: ', error);
-      });
+  populatePrices(item) {
+    const newO = this.ProductForm.get('orderPrices') as FormArray;
+    const price = this.fb.group({
+      qmin: [item.qmin, Validators.compose([Validators.pattern(/^[0-9]*$/)])],
+      qmax: [item.qmax, Validators.compose([Validators.pattern(/^[0-9]*$/)])],
+      qprice: [
+        item.qprice,
+        Validators.compose([Validators.pattern(/^[0-9.]*$/)])
+      ]
+    });
+    newO.push(price);
   }
 
   // Upload product images
   initProductImages(url): FormGroup {
     return this.fb.group({
-      productImage: [
-        url
-      ]
+      productImage: [url]
     });
   }
   addImageUrl(url) {
     const picForm = this.ProductForm.get('productImages') as FormArray;
     picForm.push(this.initProductImages(url));
+  }
+  populateImages(item) {
+    const picForm = this.ProductForm.get('productImages') as FormArray;
+    const picture = this.fb.group({
+      productImage: [item.productImage]
+    });
+    picForm.push(picture);
   }
   startUpload(event: FileList) {
     const uid = this.us.getUserID();
@@ -366,5 +445,17 @@ export class AddnewComponent implements OnInit {
         }
       });
     }
+  }
+
+  // Complete Form Adding Product
+  addNewProduct() {
+    const productDoc = this.afs.doc(`users/${this.id}/products/${this.pid}`);
+    productDoc.update(this.ProductForm.value);
+    this.router.navigate(['/allproducts']);
+  }
+  removeProduct() {
+    const productDoc = this.afs.doc(`users/${this.id}/products/${this.pid}`);
+    productDoc.delete();
+    this.router.navigate(['/allproducts']);
   }
 }

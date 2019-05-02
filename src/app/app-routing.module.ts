@@ -17,6 +17,8 @@ import { VerifyEmailComponent } from './authentication/verify-email/verify-email
 // Import canActivate guard services
 import { SecureInnerPagesGuard } from './shared/guard/secure-inner-pages.guard.ts.guard';
 import { AuthGuard } from './shared/guard/auth.guard';
+import { SingleProductComponent } from './product/single-product/single-product.component';
+import { EditProductComponent } from './product/allproducts/edit-product/edit-product.component';
 
 // Include route guard in routes array
 const routes: Routes = [
@@ -27,9 +29,11 @@ const routes: Routes = [
   { path: 'allproducts', component: AllproductsComponent, canActivate: [AuthGuard] },
   { path: 'add', component: AddnewComponent, canActivate: [AuthGuard] },
   { path: 'products', component: ProductComponent, canActivate: [AuthGuard] },
+  { path: 'product/:user/:id', component: SingleProductComponent, canActivate: [AuthGuard] },
+  { path: 'editProduct/:user/:id', component: EditProductComponent, canActivate: [AuthGuard] },
   { path: 'manufacturers', component: ProductComponent, canActivate: [AuthGuard] },
   { path: 'complete-profile', component: CompleteProfileComponent, canActivate: [AuthGuard] },
-  { path: 'overview', component: CompanyOverviewComponent, canActivate: [AuthGuard] },
+  { path: 'overview/:id', component: CompanyOverviewComponent, canActivate: [AuthGuard] },
   // { path: 'rfq', component: ProductComponent, canActivate: [AuthGuard] },
   // { path: 'rfqlist', component: ProductComponent, canActivate: [AuthGuard] },
   { path: 'messenger', component: MessengerComponent, canActivate: [AuthGuard] },

@@ -2431,34 +2431,17 @@
 
   <!-- END FILTER BOX -->
   <!-- PRODUCTS LIST -->
-  <div class="product-list row py-3">
-    <div class="col-3 px-1">
+  <div class="product-list row py-3" *ngIf="isLoaded">
+    <div class="col-3 px-1" *ngFor="let product of products; let i = index;">
       <div class="gallery-product">
         <div class="item-main">
           <div class="item-img">
             <div class="place"></div>
             <div class="item-img-inner">
-              <a target="_blank" data-domdot="id:2677,mn:allpage,pid:60822475528" data-p4plog="60822475528" href="www.alibaba.com/product-detail/Lesozoh-portable-speaker-outdoor-vibrating-home_60822475528.html?s=p">
+              <a target="_blank" [routerLink]="['/product',sid[i].id,pid[i].id]">
                 <div class="offer-image-box">
-                  <div class="J-favorite-manager-wrap-product gallery-favorite-container J-sc-fav-item-wrap"
-                    data-fav-id="60822475528" data-type="product" data-hasbkgcircle="true" data-fav-init="true">
-                    <div class="J-scc-favorite-manager-label scc-favorite-manager-label scc-fav-label-onlyicon scc-fav-icon-bkg">
-                      <i class="J-fav-icon scc-fav-i-heart-n-normal-small label-icon-mail"></i>
-                      <i class="J-animation-circle fav-bak-animation"></i>
-                      <span class="J-text scc-fav-lable-text">Add to Favorites</span>&nbsp;
-                    </div>
-                  </div>
-                  <img src="http://sc01.alicdn.com/kf/HTB1p2AMIHSYBuNjSspiq6xNzpXaA/M915-Special-Cat-Pet-Audio-BT-4.jpg"
-                    alt="Lesozoh portable speaker outdoor vibrating home theater professional audio">
-                </div>
-                <div class="image-arrow-wrap image-arrow-wrap-left" data-domdot="id:25103">
-                  <i class="ui2-icon ui2-icon-arrow-left image-arrow-left"></i>
-                </div>
-                <div class="image-arrow-wrap image-arrow-wrap-right" data-domdot="id:25103">
-                  <i class="ui2-icon ui2-icon-arrow-right image-arrow-right"></i>
-                </div>
-                <div class="icon-wrap">
-
+                  <img [src]="product.productImages[0].productImage"
+                    alt="product.title">
                 </div>
               </a>
             </div>
@@ -2466,280 +2449,28 @@
         </div>
         <div class="item-info">
           <h2 class="title two-line" style="display:flex;">
-            <a target="_blank" data-domdot="id:2678,mn:allpage,pid:60786752103" data-p4plog="60786752103" href="//www.alibaba.com/product-detail/M915-Special-Cat-Pet-Audio-BT_60786752103.html?s=p"
-              title="M915 Special Cat Pet Audio BT 4.1 Animal Wireless Mini Speaker 3W output power" flasher-type="title">
-
-              <span data-role="tags-before-title" style="display: inline-block;">
-                <div class="promotion-tags-wrapper">
-                  <span class="promotion-activity-tag style-552502"></span>
-                </div>
-              </span>
-
-
-              <div class="ad-flag" mul76i1="" hidden="">
-                <div class="sl">
-                  Ad
-                </div>
-              </div>
-              M915 Special Cat Pet <strong>Audio</strong> BT 4.1 Animal Wireless Mini Speaker 3W
-              output power
+            <a target="_blank" [routerLink]="['/product',sid[i].id,pid[i].id]"
+              title="product.title">
+              {{product.title}}
             </a>
-
           </h2>
-          <div class="pmo ">
+          <div class="pmo">
             <div class="price">
               <b>
-                US$4.50-US$6.50
+                US${{product.orderPrices.slice(-1)[0].qprice}}-US${{product.orderPrices[0].qprice}}
               </b>
               / Piece
             </div>
-
             <div class="min-order">
-              <b>50 Pieces</b>
+              <b>{{product.orderPrices[0].qmin}}</b>
               (Min Order)
             </div>
           </div>
           <div class="stitle util-ellipsis">
-
             <div class="s-gold-supplier-year-icon" flasher-type="supplierYear">3<span class="unit">YRS
               </span></div>
-            <a title="Shenzhen Microboe iCutes Technology Co., Ltd." href="//microboe.en.alibaba.com/company_profile.html#top-nav-bar"
-              data-domdot="id:2679,mn:allpage,pid:60786752103" data-p4plog="60786752103" target="_blank" flasher-type="supplierName">Shenzhen
-              Microboe iCutes Technology Co., Ltd.</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-3 px-1">
-      <div class="gallery-product">
-        <div class="item-main">
-          <div class="item-img">
-            <div class="place"></div>
-            <div class="item-img-inner">
-              <a target="_blank" data-domdot="id:2677,mn:allpage,pid:60822475528" data-p4plog="60822475528" href="www.alibaba.com/product-detail/Lesozoh-portable-speaker-outdoor-vibrating-home_60822475528.html?s=p">
-                <div class="offer-image-box">
-                  <div class="J-favorite-manager-wrap-product gallery-favorite-container J-sc-fav-item-wrap"
-                    data-fav-id="60822475528" data-type="product" data-hasbkgcircle="true" data-fav-init="true">
-                    <div class="J-scc-favorite-manager-label scc-favorite-manager-label scc-fav-label-onlyicon scc-fav-icon-bkg">
-                      <i class="J-fav-icon scc-fav-i-heart-n-normal-small label-icon-mail"></i>
-                      <i class="J-animation-circle fav-bak-animation"></i>
-                      <span class="J-text scc-fav-lable-text">Add to Favorites</span>&nbsp;
-                    </div>
-                  </div>
-                  <img src="http://sc01.alicdn.com/kf/HTB1p2AMIHSYBuNjSspiq6xNzpXaA/M915-Special-Cat-Pet-Audio-BT-4.jpg"
-                    alt="Lesozoh portable speaker outdoor vibrating home theater professional audio">
-                </div>
-                <div class="image-arrow-wrap image-arrow-wrap-left" data-domdot="id:25103">
-                  <i class="ui2-icon ui2-icon-arrow-left image-arrow-left"></i>
-                </div>
-                <div class="image-arrow-wrap image-arrow-wrap-right" data-domdot="id:25103">
-                  <i class="ui2-icon ui2-icon-arrow-right image-arrow-right"></i>
-                </div>
-                <div class="icon-wrap">
-
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="item-info">
-          <h2 class="title two-line" style="display:flex;">
-            <a target="_blank" data-domdot="id:2678,mn:allpage,pid:60786752103" data-p4plog="60786752103" href="//www.alibaba.com/product-detail/M915-Special-Cat-Pet-Audio-BT_60786752103.html?s=p"
-              title="M915 Special Cat Pet Audio BT 4.1 Animal Wireless Mini Speaker 3W output power" flasher-type="title">
-
-              <span data-role="tags-before-title" style="display: inline-block;">
-                <div class="promotion-tags-wrapper">
-                  <span class="promotion-activity-tag style-552502"></span>
-                </div>
-              </span>
-
-
-              <div class="ad-flag" mul76i1="" hidden="">
-                <div class="sl">
-                  Ad
-                </div>
-              </div>
-              M915 Special Cat Pet <strong>Audio</strong> BT 4.1 Animal Wireless Mini Speaker 3W
-              output power
-            </a>
-
-          </h2>
-          <div class="pmo ">
-            <div class="price">
-              <b>
-                US$4.50-US$6.50
-              </b>
-              / Piece
-            </div>
-
-            <div class="min-order">
-              <b>50 Pieces</b>
-              (Min Order)
-            </div>
-          </div>
-          <div class="stitle util-ellipsis">
-
-            <div class="s-gold-supplier-year-icon" flasher-type="supplierYear">3<span class="unit">YRS
-              </span></div>
-            <a title="Shenzhen Microboe iCutes Technology Co., Ltd." href="//microboe.en.alibaba.com/company_profile.html#top-nav-bar"
-              data-domdot="id:2679,mn:allpage,pid:60786752103" data-p4plog="60786752103" target="_blank" flasher-type="supplierName">Shenzhen
-              Microboe iCutes Technology Co., Ltd.</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-3 px-1">
-      <div class="gallery-product">
-        <div class="item-main">
-          <div class="item-img">
-            <div class="place"></div>
-            <div class="item-img-inner">
-              <a target="_blank" data-domdot="id:2677,mn:allpage,pid:60822475528" data-p4plog="60822475528" href="www.alibaba.com/product-detail/Lesozoh-portable-speaker-outdoor-vibrating-home_60822475528.html?s=p">
-                <div class="offer-image-box">
-                  <div class="J-favorite-manager-wrap-product gallery-favorite-container J-sc-fav-item-wrap"
-                    data-fav-id="60822475528" data-type="product" data-hasbkgcircle="true" data-fav-init="true">
-                    <div class="J-scc-favorite-manager-label scc-favorite-manager-label scc-fav-label-onlyicon scc-fav-icon-bkg">
-                      <i class="J-fav-icon scc-fav-i-heart-n-normal-small label-icon-mail"></i>
-                      <i class="J-animation-circle fav-bak-animation"></i>
-                      <span class="J-text scc-fav-lable-text">Add to Favorites</span>&nbsp;
-                    </div>
-                  </div>
-                  <img src="http://sc01.alicdn.com/kf/HTB1p2AMIHSYBuNjSspiq6xNzpXaA/M915-Special-Cat-Pet-Audio-BT-4.jpg"
-                    alt="Lesozoh portable speaker outdoor vibrating home theater professional audio">
-                </div>
-                <div class="image-arrow-wrap image-arrow-wrap-left" data-domdot="id:25103">
-                  <i class="ui2-icon ui2-icon-arrow-left image-arrow-left"></i>
-                </div>
-                <div class="image-arrow-wrap image-arrow-wrap-right" data-domdot="id:25103">
-                  <i class="ui2-icon ui2-icon-arrow-right image-arrow-right"></i>
-                </div>
-                <div class="icon-wrap">
-
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="item-info">
-          <h2 class="title two-line" style="display:flex;">
-            <a target="_blank" data-domdot="id:2678,mn:allpage,pid:60786752103" data-p4plog="60786752103" href="//www.alibaba.com/product-detail/M915-Special-Cat-Pet-Audio-BT_60786752103.html?s=p"
-              title="M915 Special Cat Pet Audio BT 4.1 Animal Wireless Mini Speaker 3W output power" flasher-type="title">
-
-              <span data-role="tags-before-title" style="display: inline-block;">
-                <div class="promotion-tags-wrapper">
-                  <span class="promotion-activity-tag style-552502"></span>
-                </div>
-              </span>
-
-
-              <div class="ad-flag" mul76i1="" hidden="">
-                <div class="sl">
-                  Ad
-                </div>
-              </div>
-              M915 Special Cat Pet <strong>Audio</strong> BT 4.1 Animal Wireless Mini Speaker 3W
-              output power
-            </a>
-
-          </h2>
-          <div class="pmo ">
-            <div class="price">
-              <b>
-                US$4.50-US$6.50
-              </b>
-              / Piece
-            </div>
-
-            <div class="min-order">
-              <b>50 Pieces</b>
-              (Min Order)
-            </div>
-          </div>
-          <div class="stitle util-ellipsis">
-
-            <div class="s-gold-supplier-year-icon" flasher-type="supplierYear">3<span class="unit">YRS
-              </span></div>
-            <a title="Shenzhen Microboe iCutes Technology Co., Ltd." href="//microboe.en.alibaba.com/company_profile.html#top-nav-bar"
-              data-domdot="id:2679,mn:allpage,pid:60786752103" data-p4plog="60786752103" target="_blank" flasher-type="supplierName">Shenzhen
-              Microboe iCutes Technology Co., Ltd.</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-3 px-1">
-      <div class="gallery-product">
-        <div class="item-main">
-          <div class="item-img">
-            <div class="place"></div>
-            <div class="item-img-inner">
-              <a target="_blank" data-domdot="id:2677,mn:allpage,pid:60822475528" data-p4plog="60822475528" href="www.alibaba.com/product-detail/Lesozoh-portable-speaker-outdoor-vibrating-home_60822475528.html?s=p">
-                <div class="offer-image-box">
-                  <div class="J-favorite-manager-wrap-product gallery-favorite-container J-sc-fav-item-wrap"
-                    data-fav-id="60822475528" data-type="product" data-hasbkgcircle="true" data-fav-init="true">
-                    <div class="J-scc-favorite-manager-label scc-favorite-manager-label scc-fav-label-onlyicon scc-fav-icon-bkg">
-                      <i class="J-fav-icon scc-fav-i-heart-n-normal-small label-icon-mail"></i>
-                      <i class="J-animation-circle fav-bak-animation"></i>
-                      <span class="J-text scc-fav-lable-text">Add to Favorites</span>&nbsp;
-                    </div>
-                  </div>
-                  <img src="http://sc01.alicdn.com/kf/HTB1p2AMIHSYBuNjSspiq6xNzpXaA/M915-Special-Cat-Pet-Audio-BT-4.jpg"
-                    alt="Lesozoh portable speaker outdoor vibrating home theater professional audio">
-                </div>
-                <div class="image-arrow-wrap image-arrow-wrap-left" data-domdot="id:25103">
-                  <i class="ui2-icon ui2-icon-arrow-left image-arrow-left"></i>
-                </div>
-                <div class="image-arrow-wrap image-arrow-wrap-right" data-domdot="id:25103">
-                  <i class="ui2-icon ui2-icon-arrow-right image-arrow-right"></i>
-                </div>
-                <div class="icon-wrap">
-
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="item-info">
-          <h2 class="title two-line" style="display:flex;">
-            <a target="_blank" data-domdot="id:2678,mn:allpage,pid:60786752103" data-p4plog="60786752103" href="//www.alibaba.com/product-detail/M915-Special-Cat-Pet-Audio-BT_60786752103.html?s=p"
-              title="M915 Special Cat Pet Audio BT 4.1 Animal Wireless Mini Speaker 3W output power" flasher-type="title">
-
-              <span data-role="tags-before-title" style="display: inline-block;">
-                <div class="promotion-tags-wrapper">
-                  <span class="promotion-activity-tag style-552502"></span>
-                </div>
-              </span>
-
-
-              <div class="ad-flag" mul76i1="" hidden="">
-                <div class="sl">
-                  Ad
-                </div>
-              </div>
-              M915 Special Cat Pet <strong>Audio</strong> BT 4.1 Animal Wireless Mini Speaker 3W
-              output power
-            </a>
-
-          </h2>
-          <div class="pmo ">
-            <div class="price">
-              <b>
-                US$4.50-US$6.50
-              </b>
-              / Piece
-            </div>
-
-            <div class="min-order">
-              <b>50 Pieces</b>
-              (Min Order)
-            </div>
-          </div>
-          <div class="stitle util-ellipsis">
-
-            <div class="s-gold-supplier-year-icon" flasher-type="supplierYear">3<span class="unit">YRS
-              </span></div>
-            <a title="Shenzhen Microboe iCutes Technology Co., Ltd." href="//microboe.en.alibaba.com/company_profile.html#top-nav-bar"
-              data-domdot="id:2679,mn:allpage,pid:60786752103" data-p4plog="60786752103" target="_blank" flasher-type="supplierName">Shenzhen
-              Microboe iCutes Technology Co., Ltd.</a>
+            <a title="{{supplier[i].companyProfile.tradingName}}" [routerLink]="['/overview',sid[i].id]"
+            target="_blank" flasher-type="supplierName">{{supplier[i].companyProfile.tradingName}}</a>
           </div>
         </div>
       </div>

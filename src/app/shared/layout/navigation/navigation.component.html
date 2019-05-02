@@ -19,7 +19,7 @@
       <!-- Functionalities -->
       <ul class="navbar-nav scrollable-content p-0">
         <li class="nav-item" *ngIf="manufacturer">
-          <a routerLink="/overview" class="nav-link">
+          <a [routerLink]="['/overview',id]" class="nav-link">
             <i class="material-icons">
               dashboard
             </i>
@@ -95,7 +95,7 @@
             CONNECTIONS</a>
         </li>
       </ul>
-      <button type="button" class="logout" (click)="this.as.SignOut()">
+      <button type="button" class="logout" (click)="logout()">
         <span class="float-left font-weight-bold">SIGN OUT</span>
         <i class="font-weight-bold material-icons float-right">
           arrow_back_ios

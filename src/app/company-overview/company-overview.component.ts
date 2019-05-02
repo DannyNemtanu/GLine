@@ -1,6 +1,8 @@
+import { ActivatedRoute } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { UserDataService } from './../services/user-data.service';
 import { Component, OnInit } from '@angular/core';
+import { User } from '../shared/services/user';
 @Component({
   selector: 'app-company-overview',
   templateUrl: './company-overview.component.html',
@@ -9,23 +11,25 @@ import { Component, OnInit } from '@angular/core';
 export class CompanyOverviewComponent implements OnInit {
   retailer: boolean;
   isLoaded = false;
+  id;
   cInfo: any;
   currentYear = new Date().getFullYear();
   yearsInBusiness: any;
   constructor(
     private userService: UserDataService,
-    private afs: AngularFirestore
+    private afs: AngularFirestore,
+    private route: ActivatedRoute
   ) {}
   ngOnInit() {
-    this.userData(this.userService.getUserID());
+    this.route.params.subscribe(params => {
+      this.id = params['id'];
+      this.getInfo(this.id);
+    });
+    this.setUserType();
+    // this.userData(this.userService.getUserID());
   }
-  userData(id) {
+  getInfo(id) {
     const doc = this.afs.doc(`users/${id}`);
-    if (this.userService.setUserType()) {
-      this.retailer = true;
-    } else {
-      this.retailer = false;
-    }
     doc.valueChanges().subscribe(data => {
       this.cInfo = data.companyProfile;
       const years = this.currentYear - data.companyProfile.currentYear;
@@ -35,6 +39,20 @@ export class CompanyOverviewComponent implements OnInit {
         this.yearsInBusiness = years;
       }
       this.isLoaded = true;
+    });
+  }
+  setUserType() {
+    const query = this.afs
+      .collection<User>('users', ref =>
+        ref.where('uid', '==', this.userService.getUserID())
+      )
+      .valueChanges();
+    query.subscribe(snapshot => {
+      if (snapshot[0].retailer) {
+        this.retailer = true;
+      } else {
+        this.retailer = false;
+      }
     });
   }
 }

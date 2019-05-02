@@ -1,5 +1,8 @@
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AuthService } from './../../services/auth.service';
 import { UserDataService } from './../../../services/user-data.service';
 import { Component, OnInit } from '@angular/core';
+import { User } from '../../services/user';
 
 @Component({
   selector: 'app-navigation',
@@ -10,20 +13,34 @@ export class NavigationComponent implements OnInit {
   retailer = false;
   manufacturer = false;
   user;
+  type;
+  id;
   constructor(
     private userService: UserDataService,
+    private as: AuthService,
+    private afs: AngularFirestore
   ) {}
 
   ngOnInit() {
-    const id = this.userService.getUserID();
-    this.checkUser();
+    this.setUserType();
+    this.id = this.userService.getUserID();
   }
-  private checkUser() {
-    // console.log(this.userService.setUserType());
-    if (this.userService.setUserType()) {
-      this.retailer = true;
-    } else {
-      this.manufacturer = true;
-    }
+  setUserType() {
+    const query = this.afs
+      .collection<User>('users', ref =>
+        ref.where('uid', '==', this.userService.getUserID())
+      )
+      .valueChanges();
+    query.subscribe(snapshot => {
+      if (snapshot[0].retailer) {
+        this.retailer = true;
+      } else {
+        this.manufacturer = true;
+      }
+    });
+  }
+
+  logout() {
+    this.as.SignOut();
   }
 }

@@ -14,36 +14,49 @@
 
   <!-- Body -->
 
-  <div class="container my-2 p-0" style="background-color: white;">
-      <div class="header w-100" style="background-color: #dbdbdc; padding: 0">
-          <span class="m-0 p-2 px-3 text-secondary font-weight-bold" style="font-size: 1.2rem; background-color: white; display:block; width: 150px; word-wrap:break-word;">All Products</span>
-      </div>
-      <table class="table table-hover mtable">
-          <thead>
-            <tr>
-              <th scope="col">Product</th>
-              <th scope="col">Inventory</th>
-              <th scope="col">Min Order</th>
-              <th scope="col">Price Range</th>
-              <th scope="col">Brand</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td scope="row">
-                  <div class="media">
-                <img class="align-self-center mr-3" src="https://via.placeholder.com/50" alt="img" height="50" width="50" style="object-fit: contain;">
-                <div class="media-body">
-                    <span>Fancy Bear</span>
-                </div>
+  <div class="container my-2 p-0" style="background-color: white;" *ngIf="isLoaded">
+    <div class="header w-100" style="background-color: #dbdbdc; padding: 0">
+      <span class="m-0 p-2 px-3 text-secondary font-weight-bold"
+        style="font-size: 1.2rem; background-color: white; display:block; width: 150px; word-wrap:break-word;">All
+        Products</span>
+    </div>
+    <table class="table table-hover mtable">
+      <thead>
+        <tr>
+          <th scope="col">Product</th>
+          <th scope="col">Type</th>
+          <th scope="col">Min Order</th>
+          <th scope="col">Price Range</th>
+          <th scope="col">Brand</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let product of allProducts; let i = index;" id="{{products[i]}}">
+          <td scope="row" [routerLink]="['/product',cUser,products[i]]">
+            <div class="media">
+              <img class="align-self-center mr-3" src="{{product.productImages[0].productImage}}" alt="img" height="50"
+                width="50" style="object-fit: contain;">
+              <div class="media-body">
+                <span>{{product.title}}</span>
               </div>
-              </td>
-              <td>32,000 pieces</td>
-              <td>100 piece/pieces</td>
-              <td>$22 - 29/piece</td>
-              <td>HoXen</td>
-            </tr>
-          </tbody>
-        </table>
+            </div>
+          </td>
+          <td>{{product.type}}</td>
+          <td>{{product.orderPrices[0].qmin}} piece/pieces</td>
+          <td>${{product.orderPrices.slice(-1)[0].qprice}} - {{product.orderPrices[0].qprice}}</td>
+          <td>{{product.brand}}</td>
+          <td [routerLink]="['/editProduct',cUser,products[i]]">
+            <i class="ml-2 text-secondary disabled" class="material-icons">
+              edit
+            </i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="container my-2 p-0" style="background-color: white;" *ngIf="!isLoaded">
+    Loading products please wait...
   </div>
 </div>
