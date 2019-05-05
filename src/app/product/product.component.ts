@@ -17,6 +17,9 @@ export class ProductComponent implements OnInit {
     private us: UserDataService,
     private afs: AngularFirestore
   ) {
+  }
+
+  ngOnInit() {
     const supplierRef = this.afs.collection('users', ref => ref.where('manufacturer', '==', true)).get();
     supplierRef.forEach(supplier => {
       supplier.docs.forEach(d => {
@@ -36,17 +39,7 @@ export class ProductComponent implements OnInit {
       });
     }).then(() => {
       this.isLoaded = true;
-      console.log(this.products);
-      console.log(this.supplier);
-      console.log(this.pid);
-      console.log(this.sid);
     });
-    // this.afs.collection(`${supplierRef}/products`).valueChanges().subscribe(data => {
-    //   console.log(data);
-    // });
-  }
-
-  ngOnInit() {
   }
 
 }

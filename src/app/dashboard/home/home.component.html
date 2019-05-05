@@ -11,201 +11,23 @@
             </div>
             <div class="menu-category-view index-category indiv-category-view">
               <ul class="indiv-category-list">
-                <li class="category-item-wrapper  first-item " data-goldlog="area=indiv_cate1&amp;pos=0">
-                  <a class="category-item util-ellipsis" href="//www.alibaba.com/Consumer-Electronics_p44" title="Consumer Electronics">
-                    Consumer Electronics
+                <li class="category-item-wrapper  first-item " *ngFor="let categories of myMarkets; let i = index;">
+                  <a class="category-item util-ellipsis" self="_blannk"
+                    (click)="searchCategory($event, categories.name)"
+                    title="Consumer Electronics">
+                    {{categories.name}}
                   </a>
                 </li>
-                <li class="category-item-wrapper ">
-                  <a class="category-item util-ellipsis" href="//www.alibaba.com/Lights-Lighting_p39" title="Lights &amp; Lighting">
-                    Lights &amp; Lighting
+                <li data-role="vmore" class="category-item-wrapper vmore">
+                  <a class="category-item vmore-link">
+                    All Categories<i class="ui2-icon ui2-icon-arrow-right"></i>
                   </a>
-                </li>
-                <li class="category-item-wrapper " data-goldlog="area=indiv_cate1&amp;pos=2">
-                  <a class="category-item util-ellipsis" href="//www.alibaba.com/Vehicles-Accessories_p34" title="Vehicles &amp; Accessories">
-                    Vehicles &amp; Accessories
-                  </a>
-                </li>
-                <li class="category-item-wrapper " data-goldlog="area=indiv_cate1&amp;pos=3">
-                  <a class="category-item util-ellipsis" href="//www.alibaba.com/Security-Protection_p30" title="Security &amp; Protection">
-                    Security &amp; Protection
-                  </a>
-                </li>
-                <li class="category-item-wrapper " data-goldlog="area=indiv_cate1&amp;pos=4">
-                  <a class="category-item util-ellipsis" href="//www.alibaba.com/Construction-Real-Estate_p13"
-                    title="Construction &amp; Real Estate">
-                    Construction &amp; Real Estate
-                  </a>
-                </li>
-                <li class="category-item-wrapper">
-                  <a class="category-item util-ellipsis" href="//www.alibaba.com/Gifts-Crafts_p17" title="Gifts &amp; Crafts">
-                    Gifts &amp; Crafts
-                  </a>
-                </li>
-                <li data-role="vmore" class="category-item-wrapper vmore" data-goldexpovalue="prefer_1=44&amp;prefer_2=39&amp;prefer_3=34&amp;type=old_user">
-                  <a class="category-item vmore-link" href="//www.alibaba.com/Products">All
-                    Categories<i class="ui2-icon ui2-icon-arrow-right"></i></a>
                   <div class="hover-fix"></div>
                   <ul class="vmore-menu">
-                    <li class="menu-item util-ellipsis">
-                      <a href="//www.alibaba.com/Machinery_p43" title=" Machinery">
-                        Machinery
-                      </a>
-                      <span class="divider">/</span>
-                      <a href="//www.alibaba.com/Fabrication-Services_p41" title=" Fabrication
-                                         Service">
-                        Fabrication Service
-                      </a>
-                    </li>
-                    <li class="menu-item util-ellipsis">
-                      <a href="//www.alibaba.com/Consumer-Electronics_p44" title=" Consumer
-                                         Electronics">
-                        Consumer Electronics
-                      </a>
-                      <span class="divider">/</span>
-                      <a href="//www.alibaba.com/Home-Appliances_p6" title=" Home Appliances">
-                        Home Appliances
-                      </a>
-                    </li>
-                    <li class="menu-item util-ellipsis">
-                      <a href="//www.alibaba.com/Vehicles-Accessories_p34" title=" Vehicles
-                                         &amp; Accessories">
-                        Vehicles &amp; Accessories
-                      </a>
-                      <span class="divider">/</span>
-                      <a href="//www.alibaba.com/Sports-Entertainment_p18" title=" Sports
-                                         &amp; Entertainment">
-                        Sports &amp; Entertainment
-                      </a>
-                    </li>
-                    <li class="menu-item util-ellipsis">
-                      <a href="//www.alibaba.com/Apparel_p3" title=" Apparel">
-                        Apparel
-                      </a>
-                      <span class="divider">/</span>
-                      <a href="//www.alibaba.com/Textiles-Leather-Products_p4" title="
-                                         Textiles">
-                        Textiles
-                      </a>
-                      <span class="divider">/</span>
-                      <a href="//www.alibaba.com/Timepieces-Jewelry-Eyewear_p36" title="
-                                         Timepieces">
-                        Timepieces
-                      </a>
-                      <span class="divider">/</span>
-                      <a href="//www.alibaba.com/Fashion-Accessories_p339" title="
-                                         Accessories">
-                        Accessories
-                      </a>
-                    </li>
-                    <li class="menu-item util-ellipsis">
-                      <a href="//www.alibaba.com/Home-Garden_p15" title=" Home &amp; Garden">
-                        Home &amp; Garden
-                      </a>
-                      <span class="divider">/</span>
-                      <a href="//www.alibaba.com/Lights-Lighting_p39" title=" Lights">
-                        Lights
-                      </a>
-                      <span class="divider">/</span>
-                      <a href="//www.alibaba.com/Furniture_p1503" title=" Furniture">
-                        Furniture
-                      </a>
-                      <span class="divider">/</span>
-                      <a href="//www.alibaba.com/Construction-Real-Estate_p13" title="
-                                         Construction">
-                        Construction
-                      </a>
-                    </li>
-                    <li class="menu-item util-ellipsis">
-                      <a href="//www.alibaba.com/Beauty-Personal-Care_p66" title=" Beauty
-                                         &amp; Personal Care">
-                        Beauty &amp; Personal Care
-                      </a>
-                      <span class="divider">/</span>
-                      <a href="//www.alibaba.com/Health-Medical_p16" title=" Health &amp;
-                                         Medical ">
-                        Health &amp; Medical
-                      </a>
-                    </li>
-                    <li class="menu-item util-ellipsis">
-                      <a href="//www.alibaba.com/Packaging-Printing_p23" title=" Packaging
-                                         &amp; Printing">
-                        Packaging &amp; Printing
-                      </a>
-                      <span class="divider">/</span>
-                      <a href="//www.alibaba.com/Office-School-Supplies_p21" title=" Office
-                                         &amp; School">
-                        Office &amp; School
-                      </a>
-                      <span class="divider">/</span>
-                      <a href="//www.alibaba.com/Service-Equipment_p2829" title=" Service
-                                         Equipment">
-                        Service Equipment
-                      </a>
-                    </li>
-                    <li class="menu-item util-ellipsis">
-                      <a href="//www.alibaba.com/Electrical-Equipment-Supplies_p5" title="
-                                         Electrical">
-                        Electrical
-                      </a>
-                      <span class="divider">/</span>
-                      <a href="//www.alibaba.com/Tools-Hardware_p1420" title=" Tools &amp;
-                                         Hardware">
-                        Tools &amp; Hardware
-                      </a>
-                      <span class="divider">/</span>
-                      <a href="//www.alibaba.com/Security-Protection_p30" title=" Security
-                                         &amp; Protection">
-                        Security &amp; Protection
-                      </a>
-                    </li>
-                    <li class="menu-item util-ellipsis">
-                      <a href="//www.alibaba.com/Electronic-Components-Supplies_p502" title="
-                                         Electronic Components">
-                        Electronic Components
-                      </a>
-                      <span class="divider">/</span>
-                      <a href="//www.alibaba.com/Telecommunications_p509" title="
-                                         Telecommunications">
-                        Telecommunications
-                      </a>
-                    </li>
-                    <li class="menu-item util-ellipsis">
-                      <a href="//www.alibaba.com/Toys-Hobbies_p26" title=" Toys &amp; Hobbies">
-                        Toys &amp; Hobbies
-                      </a>
-                      <span class="divider">/</span>
-                      <a href="//www.alibaba.com/Gifts-Crafts_p17" title=" Gifts &amp; Crafts">
-                        Gifts &amp; Crafts
-                      </a>
-                    </li>
-                    <li class="menu-item util-ellipsis">
-                      <a href="//www.alibaba.com/Luggage-Bags-Cases_p1524" title="
-                                         Luggage，Bags &amp; Cases">
-                        Luggage，Bags &amp; Cases
-                      </a>
-                      <span class="divider">/</span>
-                      <a href="//www.alibaba.com/Shoes-Accessories_p322" title=" Shoes &amp;
-                                         Accessories">
-                        Shoes &amp; Accessories
-                      </a>
-                    </li>
-                    <li class="menu-item util-ellipsis">
-                      <a href="//www.alibaba.com/Minerals-Metallurgy_p9" title=" Minerals">
-                        Minerals
-                      </a>
-                      <span class="divider">/</span>
-                      <a href="//www.alibaba.com/Chemicals_p8" title=" Chemicals">
-                        Chemicals
-                      </a>
-                      <span class="divider">/</span>
-                      <a href="//www.alibaba.com/Rubber-Plastics_p80" title=" Rubber &amp;
-                                         Plastics">
-                        Rubber &amp; Plastics
-                      </a>
-                      <span class="divider">/</span>
-                      <a href="//www.alibaba.com/Energy_p10" title=" Energy">
-                        Energy
+                    <li class="menu-item util-ellipsis" *ngFor="let scat of allCategories; let x = index">
+                      <a [routerLink]="['/products',singlecat.name]" *ngFor="let singlecat of allCategories[x]"
+                        title=" {{singlecat.name}}">
+                        {{singlecat.name}}
                       </a>
                     </li>
                   </ul>
@@ -213,16 +35,13 @@
               </ul>
             </div>
           </aside>
-
           <div class="col-md-6">
-            <div class="owl-init slider-main owl-carousel  mt-3" data-items="1" data-nav="true" data-dots="false">
+            <div class="owl-init slider-main owl-carousel  mt-3">
               <div class="item-slide">
                 <img alt="ImageAlt" src="../../assets/images/BannerIamge@2x.png" width="100%" height="100%" />
               </div>
             </div>
-
           </div>
-
           <aside class="col-md-3">
             <h6 class="title-bg bg-dark">Qualified Suppliers</h6>
             <div style="height:90%;">
@@ -250,13 +69,9 @@
             </div>
           </aside>
         </div>
-        <!-- row.// -->
       </div>
-      <!-- card-body .// -->
     </div>
-    <!-- card.// -->
   </div>
-  <!-- container .//  -->
 </div>
 <!-- ========================= SECTION MAIN END// ========================= -->
 <!-- ========================= SECTION BANNER & TABS ITEMS// ========================= -->
@@ -274,11 +89,12 @@
       </div>
       <div class="home-category-info-content">
         <div class="home-category-info-banner-warpper">
-          <a class="home-category-info-banner banner-new " href="https://www.alibaba.com/Consumer-Electronics_p44?tracelog=20190219_ICBU_PC_DAILY_BANNER_ICBU_PC_DAILY_BANNER_ALL_44"
+          <a class="home-category-info-banner banner-new "
+            href="https://www.alibaba.com/Consumer-Electronics_p44?tracelog=20190219_ICBU_PC_DAILY_BANNER_ICBU_PC_DAILY_BANNER_ALL_44"
             data-goldkey="procatesFloor" data-goldlog="click_item=banner&amp;floorIndex=0&amp;cid=44">
             <canvas class="theme-canvas" style="display: none" width="600" height="320"></canvas>
-            <img alt="ImageAlt" class="theme-image" src="https://img.alicdn.com/tfs/TB1J5jev7voK1RjSZPfXXXPKFXa-300-320.png_.webp"
-              crossorigin="anonymous">
+            <img alt="ImageAlt" class="theme-image"
+              src="https://img.alicdn.com/tfs/TB1J5jev7voK1RjSZPfXXXPKFXa-300-320.png_.webp" crossorigin="anonymous">
             <h3 class="title">Selected Novelty Products</h3>
             <div class="btn-wrapper" style="color: rgb(131, 176, 220);">
               Source Now
@@ -289,87 +105,114 @@
           <div class="home-category-info-tab-words">
             <div class="home-category-info-tab-words-content">
               <ul class="home-category-info-tab-words-line">
-                <li class="home-category-info-tab-word word-1 zoom-wrap" data-ctrdot="expose_cid-3803#senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-50042739310#algPos-0#matchType-0#fatherId-null#blockId-1031184#">
+                <li class="home-category-info-tab-word word-1 zoom-wrap"
+                  data-ctrdot="expose_cid-3803#senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-50042739310#algPos-0#matchType-0#fatherId-null#blockId-1031184#">
                   <a href="//www.alibaba.com/industry/product.html?contentId=1031184&amp;contentType=trend&amp;throughOfferIds=50042739310,50046042074,60827526120"
-                    data-goldkey="procatesFloor" data-goldlog="floorIndex=0&amp;click_item=tabWords&amp;index=1&amp;clickParam=click_cid-3852#click_senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-50042739310#pos-0#matchType-0#fatherId-null#blockId-1031184">
+                    data-goldkey="procatesFloor"
+                    data-goldlog="floorIndex=0&amp;click_item=tabWords&amp;index=1&amp;clickParam=click_cid-3852#click_senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-50042739310#pos-0#matchType-0#fatherId-null#blockId-1031184">
                     <div class="home-category-info-tab-word-content">
                       <h3>Mobile Phones</h3>
                     </div>
-                    <img alt="ImageAlt" class="home-category-info-tab-word-img zoom-in" src="https://img.alicdn.com/tfs/TB1UO.WDSzqK1RjSZPxXXc4tVXa-350-350.jpg_.webp">
+                    <img alt="ImageAlt" class="home-category-info-tab-word-img zoom-in"
+                      src="https://img.alicdn.com/tfs/TB1UO.WDSzqK1RjSZPxXXc4tVXa-350-350.jpg_.webp">
                   </a>
                 </li>
-                <li class="home-category-info-tab-word word-1 zoom-wrap" data-ctrdot="expose_cid-3803#senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-60802276776#algPos-2#matchType-0#fatherId-null#blockId-1013586#">
+                <li class="home-category-info-tab-word word-1 zoom-wrap"
+                  data-ctrdot="expose_cid-3803#senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-60802276776#algPos-2#matchType-0#fatherId-null#blockId-1013586#">
                   <a href="//www.alibaba.com/industry/product.html?contentId=1013586&amp;contentType=trend&amp;throughOfferIds=60802276776,60856768016,60807068475"
-                    data-goldkey="procatesFloor" data-goldlog="floorIndex=0&amp;click_item=tabWords&amp;index=3&amp;clickParam=click_cid-3852#click_senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-60802276776#pos-2#matchType-0#fatherId-null#blockId-1013586">
+                    data-goldkey="procatesFloor"
+                    data-goldlog="floorIndex=0&amp;click_item=tabWords&amp;index=3&amp;clickParam=click_cid-3852#click_senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-60802276776#pos-2#matchType-0#fatherId-null#blockId-1013586">
                     <div class="home-category-info-tab-word-content">
                       <h3>Mobile Phone Bags &amp; Cases</h3>
                     </div>
-                    <img alt="ImageAlt" class="home-category-info-tab-word-img zoom-in" src="https://sc01.alicdn.com/kf/HTB1G3arXjzuK1RjSspeq6ziHVXae/Flip-fur-case-For-iphone-X-xs.jpg_300x300.jpg_.webp">
+                    <img alt="ImageAlt" class="home-category-info-tab-word-img zoom-in"
+                      src="https://sc01.alicdn.com/kf/HTB1G3arXjzuK1RjSspeq6ziHVXae/Flip-fur-case-For-iphone-X-xs.jpg_300x300.jpg_.webp">
                   </a>
                 </li>
-                <li class="home-category-info-tab-word word-1 zoom-wrap" data-ctrdot="expose_cid-3803#senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-60718443666#algPos-4#matchType-0#fatherId-null#blockId-1015537#">
+                <li class="home-category-info-tab-word word-1 zoom-wrap"
+                  data-ctrdot="expose_cid-3803#senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-60718443666#algPos-4#matchType-0#fatherId-null#blockId-1015537#">
                   <a href="//www.alibaba.com/industry/product.html?contentId=1015537&amp;contentType=trend&amp;throughOfferIds=60718443666,60661811826,50045469710"
-                    data-goldkey="procatesFloor" data-goldlog="floorIndex=0&amp;click_item=tabWords&amp;index=5&amp;clickParam=click_cid-3852#click_senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-60718443666#pos-4#matchType-0#fatherId-null#blockId-1015537">
+                    data-goldkey="procatesFloor"
+                    data-goldlog="floorIndex=0&amp;click_item=tabWords&amp;index=5&amp;clickParam=click_cid-3852#click_senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-60718443666#pos-4#matchType-0#fatherId-null#blockId-1015537">
                     <div class="home-category-info-tab-word-content">
                       <h3>Speakers</h3>
                     </div>
-                    <img alt="ImageAlt" class="home-category-info-tab-word-img zoom-in" src="https://sc02.alicdn.com/kf/HTB1NbjCgdnJ8KJjSszdq6yxuFXay/New-15-inch-bass-big-power-200W.jpg_300x300.jpg_.webp">
+                    <img alt="ImageAlt" class="home-category-info-tab-word-img zoom-in"
+                      src="https://sc02.alicdn.com/kf/HTB1NbjCgdnJ8KJjSszdq6yxuFXay/New-15-inch-bass-big-power-200W.jpg_300x300.jpg_.webp">
                   </a>
                 </li>
-                <li class="home-category-info-tab-word word-1 zoom-wrap" data-ctrdot="expose_cid-3803#senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-60790274285#algPos-6#matchType-0#fatherId-null#blockId-6115229#">
+                <li class="home-category-info-tab-word word-1 zoom-wrap"
+                  data-ctrdot="expose_cid-3803#senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-60790274285#algPos-6#matchType-0#fatherId-null#blockId-6115229#">
                   <a href="//www.alibaba.com/industry/product.html?contentId=6115229&amp;contentType=attrtrend&amp;throughOfferIds=60790274285,60810431938,60762085521"
-                    data-goldkey="procatesFloor" data-goldlog="floorIndex=0&amp;click_item=tabWords&amp;index=7&amp;clickParam=click_cid-3852#click_senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-60790274285#pos-6#matchType-0#fatherId-null#blockId-6115229">
+                    data-goldkey="procatesFloor"
+                    data-goldlog="floorIndex=0&amp;click_item=tabWords&amp;index=7&amp;clickParam=click_cid-3852#click_senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-60790274285#pos-6#matchType-0#fatherId-null#blockId-6115229">
                     <div class="home-category-info-tab-word-content">
                       <h3>Mobile Phone Housings</h3>
                     </div>
-                    <img alt="ImageAlt" class="home-category-info-tab-word-img zoom-in" src="https://sc02.alicdn.com/kf/HTB1gA7OJ25TBuNjSspcq6znGFXaX/Free-sample-motherboard-for-iphone-unlocked-7p.jpg_300x300.jpg_.webp">
+                    <img alt="ImageAlt" class="home-category-info-tab-word-img zoom-in"
+                      src="https://sc02.alicdn.com/kf/HTB1gA7OJ25TBuNjSspcq6znGFXaX/Free-sample-motherboard-for-iphone-unlocked-7p.jpg_300x300.jpg_.webp">
                   </a>
                 </li>
-                <li class="home-category-info-tab-word word-1 zoom-wrap" data-ctrdot="expose_cid-3803#senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-60682713209#algPos-8#matchType-0#fatherId-null#blockId-1010809#">
+                <li class="home-category-info-tab-word word-1 zoom-wrap"
+                  data-ctrdot="expose_cid-3803#senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-60682713209#algPos-8#matchType-0#fatherId-null#blockId-1010809#">
                   <a href="//www.alibaba.com/industry/product.html?contentId=1010809&amp;contentType=trend&amp;throughOfferIds=60682713209,60677910393,60686940854"
-                    data-goldkey="procatesFloor" data-goldlog="floorIndex=0&amp;click_item=tabWords&amp;index=9&amp;clickParam=click_cid-3852#click_senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-60682713209#pos-8#matchType-0#fatherId-null#blockId-1010809">
+                    data-goldkey="procatesFloor"
+                    data-goldlog="floorIndex=0&amp;click_item=tabWords&amp;index=9&amp;clickParam=click_cid-3852#click_senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-60682713209#pos-8#matchType-0#fatherId-null#blockId-1010809">
                     <div class="home-category-info-tab-word-content">
                       <h3>Projectors</h3>
                     </div>
-                    <img alt="ImageAlt" class="home-category-info-tab-word-img zoom-in" src="https://sc02.alicdn.com/kf/HTB14ixkSFXXXXaUapXXq6xXFXXXf/GP80-1800lumens-Portable-HD-home-cinema-LED.jpg_300x300.jpg_.webp">
+                    <img alt="ImageAlt" class="home-category-info-tab-word-img zoom-in"
+                      src="https://sc02.alicdn.com/kf/HTB14ixkSFXXXXaUapXXq6xXFXXXf/GP80-1800lumens-Portable-HD-home-cinema-LED.jpg_300x300.jpg_.webp">
                   </a>
                 </li>
               </ul>
               <ul class="home-category-info-tab-words-line">
-                <li class="home-category-info-tab-word zoom-wrap" data-ctrdot="expose_cid-3803#senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-477115995#algPos-1#matchType-0#fatherId-null#blockId-102524#">
+                <li class="home-category-info-tab-word zoom-wrap"
+                  data-ctrdot="expose_cid-3803#senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-477115995#algPos-1#matchType-0#fatherId-null#blockId-102524#">
                   <a href="//www.alibaba.com/industry/product.html?contentId=102524&amp;contentType=trend&amp;throughOfferIds=477115995,60791240078,60701817414"
-                    data-goldkey="procatesFloor" data-goldlog="floorIndex=0&amp;click_item=tabWords&amp;index=2&amp;clickParam=click_cid-3852#click_senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-477115995#pos-1#matchType-0#fatherId-null#blockId-102524">
+                    data-goldkey="procatesFloor"
+                    data-goldlog="floorIndex=0&amp;click_item=tabWords&amp;index=2&amp;clickParam=click_cid-3852#click_senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-477115995#pos-1#matchType-0#fatherId-null#blockId-102524">
                     <div class="home-category-info-tab-word-content">
                       <h3>Amplifiers</h3>
                     </div>
-                    <img alt="ImageAlt" class="home-category-info-tab-word-img zoom-in" src="https://sc01.alicdn.com/kf/HTB18V2ELXXXXXaSXXXXq6xXFXXXN/MC1502-1500wattx2-switching-power-supply-amplifier.jpg_300x300.jpg_.webp">
+                    <img alt="ImageAlt" class="home-category-info-tab-word-img zoom-in"
+                      src="https://sc01.alicdn.com/kf/HTB18V2ELXXXXXaSXXXXq6xXFXXXN/MC1502-1500wattx2-switching-power-supply-amplifier.jpg_300x300.jpg_.webp">
                   </a>
                 </li>
-                <li class="home-category-info-tab-word zoom-wrap" data-ctrdot="expose_cid-3803#senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-60478390117#algPos-3#matchType-0#fatherId-null#blockId-102531#">
+                <li class="home-category-info-tab-word zoom-wrap"
+                  data-ctrdot="expose_cid-3803#senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-60478390117#algPos-3#matchType-0#fatherId-null#blockId-102531#">
                   <a href="//www.alibaba.com/industry/product.html?contentId=102531&amp;contentType=trend&amp;throughOfferIds=60478390117,60838610397,60712394641"
-                    data-goldkey="procatesFloor" data-goldlog="floorIndex=0&amp;click_item=tabWords&amp;index=4&amp;clickParam=click_cid-3852#click_senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-60478390117#pos-3#matchType-0#fatherId-null#blockId-102531">
+                    data-goldkey="procatesFloor"
+                    data-goldlog="floorIndex=0&amp;click_item=tabWords&amp;index=4&amp;clickParam=click_cid-3852#click_senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-60478390117#pos-3#matchType-0#fatherId-null#blockId-102531">
                     <div class="home-category-info-tab-word-content">
                       <h3>Other Audio &amp; Video Equipments</h3>
                     </div>
-                    <img alt="ImageAlt" class="home-category-info-tab-word-img zoom-in" src="https://sc02.alicdn.com/kf/HTB1Pz5wKpXXXXavaXXXq6xXFXXXV/RainLane-CD-home-automatic-Turntable-cassette-vinyl.jpg_300x300.jpg_.webp">
+                    <img alt="ImageAlt" class="home-category-info-tab-word-img zoom-in"
+                      src="https://sc02.alicdn.com/kf/HTB1Pz5wKpXXXXavaXXXq6xXFXXXV/RainLane-CD-home-automatic-Turntable-cassette-vinyl.jpg_300x300.jpg_.webp">
                   </a>
                 </li>
-                <li class="home-category-info-tab-word zoom-wrap" data-ctrdot="expose_cid-3803#senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-60726542654#algPos-5#matchType-0#fatherId-null#blockId-102433#">
+                <li class="home-category-info-tab-word zoom-wrap"
+                  data-ctrdot="expose_cid-3803#senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-60726542654#algPos-5#matchType-0#fatherId-null#blockId-102433#">
                   <a href="//www.alibaba.com/industry/product.html?contentId=102433&amp;contentType=trend&amp;throughOfferIds=60726542654,60828337158,60732255150"
-                    data-goldkey="procatesFloor" data-goldlog="floorIndex=0&amp;click_item=tabWords&amp;index=6&amp;clickParam=click_cid-3852#click_senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-60726542654#pos-5#matchType-0#fatherId-null#blockId-102433">
+                    data-goldkey="procatesFloor"
+                    data-goldlog="floorIndex=0&amp;click_item=tabWords&amp;index=6&amp;clickParam=click_cid-3852#click_senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-60726542654#pos-5#matchType-0#fatherId-null#blockId-102433">
                     <div class="home-category-info-tab-word-content">
                       <h3>Screen Protectors</h3>
                     </div>
-                    <img alt="ImageAlt" class="home-category-info-tab-word-img zoom-in" src="https://sc02.alicdn.com/kf/HTB15k16f_dYBeNkSmLyq6xfnVXaD/2018-Top-Quality-Soft-Flexible-Materials-TPU.jpg_300x300.jpg_.webp">
+                    <img alt="ImageAlt" class="home-category-info-tab-word-img zoom-in"
+                      src="https://sc02.alicdn.com/kf/HTB15k16f_dYBeNkSmLyq6xfnVXaD/2018-Top-Quality-Soft-Flexible-Materials-TPU.jpg_300x300.jpg_.webp">
                   </a>
                 </li>
-                <li class="home-category-info-tab-word zoom-wrap" data-ctrdot="expose_cid-3803#senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-60425238556#algPos-7#matchType-0#fatherId-null#blockId-1015201#">
+                <li class="home-category-info-tab-word zoom-wrap"
+                  data-ctrdot="expose_cid-3803#senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-60425238556#algPos-7#matchType-0#fatherId-null#blockId-1015201#">
                   <a href="//www.alibaba.com/industry/product.html?contentId=1015201&amp;contentType=trend&amp;throughOfferIds=60425238556,60768469839,60816429168"
-                    data-goldkey="procatesFloor" data-goldlog="floorIndex=0&amp;click_item=tabWords&amp;index=8&amp;clickParam=click_cid-3852#click_senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-60425238556#pos-7#matchType-0#fatherId-null#blockId-1015201">
+                    data-goldkey="procatesFloor"
+                    data-goldlog="floorIndex=0&amp;click_item=tabWords&amp;index=8&amp;clickParam=click_cid-3852#click_senseid-9200_8#pvid-d591dd6d-4771-467b-a01e-c33838fbb958#id-60425238556#pos-7#matchType-0#fatherId-null#blockId-1015201">
                     <div class="home-category-info-tab-word-content">
                       <h3>Earphone Accessories</h3>
                     </div>
-                    <img alt="ImageAlt" class="home-category-info-tab-word-img zoom-in" src="https://sc01.alicdn.com/kf/HTB1v72VodknBKNjSZKPq6x6OFXam/microphone-foam-windscreen-headset-mic-cover-sponge.jpg_300x300.jpg_.webp">
+                    <img alt="ImageAlt" class="home-category-info-tab-word-img zoom-in"
+                      src="https://sc01.alicdn.com/kf/HTB1v72VodknBKNjSZKPq6x6OFXam/microphone-foam-windscreen-headset-mic-cover-sponge.jpg_300x300.jpg_.webp">
                   </a>
                 </li>
               </ul>
@@ -401,18 +244,21 @@
               <label>One Request, Multiple Quotes</label>
             </div>
             <div class="rfq-row">
-              <input type="text" name="rfqName" class="rfq-keywords ui2-textfield ui2-textfield-large ui2-textfield-single searchbar-keyword"
+              <input type="text" name="rfqName"
+                class="rfq-keywords ui2-textfield ui2-textfield-large ui2-textfield-single searchbar-keyword"
                 maxlength="128" placeholder="What are you looking for…">
             </div>
             <div class="rfq-row util-clearfix">
-              <input type="text" name="quantity" class="rfq-quantity ui2-textfield ui2-textfield-large ui2-textfield-single quantity"
+              <input type="text" name="quantity"
+                class="rfq-quantity ui2-textfield ui2-textfield-large ui2-textfield-single quantity"
                 placeholder="Quantity">
             </div>
             <div class="rfq-row">
               <span class="rfq-tip">Select template type:</span>
               <div class="rfq-tags util-clearfix">
                 <input type="hidden" name="rfqDetail" value="">
-                <div class="ui2-tag ui2-tag-basic ui2-tag-check ui2-tag-small" data-message="I’d like to request a quotation with your best price offer.">
+                <div class="ui2-tag ui2-tag-basic ui2-tag-check ui2-tag-small"
+                  data-message="I’d like to request a quotation with your best price offer.">
                   <div class="ui2-tag-head" data-role="tag-head"></div>
                   <div class="ui2-tag-body" data-role="tag-body">
                     Request price
@@ -420,7 +266,8 @@
                   <div class="ui2-tag-tail" data-role="tag-tail">
                   </div>
                 </div>
-                <div class="ui2-tag ui2-tag-basic ui2-tag-check ui2-tag-small" data-message="Please can you send me a product sample?">
+                <div class="ui2-tag ui2-tag-basic ui2-tag-check ui2-tag-small"
+                  data-message="Please can you send me a product sample?">
                   <div class="ui2-tag-head" data-role="tag-head"></div>
                   <div class="ui2-tag-body" data-role="tag-body">
                     Request a sample
@@ -428,7 +275,8 @@
                   <div class="ui2-tag-tail" data-role="tag-tail">
                   </div>
                 </div>
-                <div class="ui2-tag ui2-tag-basic ui2-tag-check ui2-tag-small" data-message="I’d like to request a quotation including full product details.">
+                <div class="ui2-tag ui2-tag-basic ui2-tag-check ui2-tag-small"
+                  data-message="I’d like to request a quotation including full product details.">
                   <div class="ui2-tag-head" data-role="tag-head"></div>
                   <div class="ui2-tag-body" data-role="tag-body">
                     Request quotation details
@@ -446,7 +294,8 @@
             <ul class="rfq-banner-list util-clearfix ui-switchable-content" data-role="content">
               <li data-role="panel" class="ui-switchable-panel" style="opacity: 1; position: absolute; z-index: 9;">
                 <a href="//rfq.alibaba.com/rfq.html?spm=a2700.8293689.201709-2.1.2ce214be5SCpBM&amp;tracelog=guojizhanshouyerfqbanner_dy0301"
-                  class="rfq-banner-item zoom-in" style="background-image:url(https://img.alicdn.com/tfs/TB1wECTkGagSKJjy0FbXXa.mVXa-1060-376.jpg_.webp)"
+                  class="rfq-banner-item zoom-in"
+                  style="background-image:url(https://img.alicdn.com/tfs/TB1wECTkGagSKJjy0FbXXa.mVXa-1060-376.jpg_.webp)"
                   data-spm-anchor-id="a2700.8293689.201709-2.1">
                 </a>
               </li>

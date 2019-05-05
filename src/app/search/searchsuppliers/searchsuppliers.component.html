@@ -1,0 +1,809 @@
+<app-navigation></app-navigation>
+<div class="main-container pb-2">
+  <div class="container py-3 mx-auto">
+    <!-- FILTER BOX -->
+    <div class="filter-box row">
+      <div class="m-gallery-switch-channel w-100">
+        <div class="ui2-tab  ui2-tab-primary" id="tab1_top">
+          <ul class="ui2-tab-nav ui2-tab-nav-top">
+              <li>
+                  <a  [routerLink]="['/products']" rel="nofollow">
+                    Products
+                  </a>
+                </li>
+                <li class="ui2-tab-active">
+                  <a [routerLink]="['/suppliers']" rel="nofollow">
+                    Suppliers
+                  </a>
+                </li>
+          </ul>
+        </div>
+      </div>
+      <div class="m-gallery-product-filter w-100">
+        <div class="m-gallery-filter-wrap">
+          <div class="hr">
+            <div class="line"></div>
+          </div>
+          <div class="m-filter-wrap">
+            <div class="m-filter-label">
+              FILTER RESULTS BY :
+            </div>
+            <div class="filter-result">
+              <div class="filter-result-item">
+                <div class="filter-item">
+                  <span>Supplier Types<i class="ui2-icon icon-arrow ui2-icon-arrow-down"></i></span>
+                  <div class="category-item-popover supplier-type-popover" data-ctrdot="G-supplierTypes">
+
+                    <div class="ui2-checkbox ui2-checkbox-customize">
+                      <label class="ui2-checkbox-customize-label">
+                        <a href="//www.alibaba.com/catalog/computer-hardware-software_cid7?ta=y" data-domdot="id:17083">
+                          <input class="ui2-checkbox-customize-val" type="checkbox">
+                          <span class="ui2-checkbox-customize-txt">
+                            <i class="supplier-icon ui2-icon-svg ui2-icon-svg-xs ui2-icon-svg-trade-assurance"></i>Trade
+                            Assurance
+                          </span>
+                        </a>
+                      </label>
+                      <p class="content" data-ta="" data-ta-x="top-tips-text">
+                        The supplier supports Trade Assurance – A free service that
+                        protects your orders from payment to delivery.
+                        <a target="_blank" style="padding:0;"
+                          href="https://tradeassurance.alibaba.com/?tracelog=from_list_filter_top">
+                          Learn More
+                        </a>
+                      </p>
+                    </div>
+
+                    <div class="ui2-checkbox ui2-checkbox-customize">
+                      <label class="ui2-checkbox-customize-label">
+                        <a href="//www.alibaba.com/catalog/computer-hardware-software_cid7?assessment_company=ASS"
+                          data-domdot="id:2618,ext:'type=pdgallery'">
+                          <input class="ui2-checkbox-customize-val" type="checkbox">
+                          <span class="ui2-checkbox-customize-txt">
+                            <i class="supplier-icon icbu-certificate-icon icbu-certificate-icon-verified"></i>
+                            Supplier
+                          </span>
+                        </a>
+                      </label>
+                      <p class="content">
+                        A premium membership for higher-level suppliers.
+                      </p>
+                    </div>
+
+
+                  </div>
+                </div>
+
+
+                <!-- SUPPLIER LOCATION                       -->
+                <div class="filter-item supplier-location" data-ctrdot="G-supLoc">
+                  Supplier Location <i class="ui2-icon  icon-arrow ui2-icon-arrow-down"></i>
+                  <div class="location-wrap" data-content="location" data-widget-cid="widget-0">
+                    <div class="m-location" data-role="location-pupup">
+                      <div class="location-content">
+                        <div class="search-content">
+                          <div class="search-box">
+                            <input class="ui2-textfield ui2-textfield-single" data-role="search-text" type="text"
+                              placeholder="Type to find a country or region">
+                            <i class="ui2-icon ui2-icon-search"></i>
+                            <i class="ui2-icon ui2-icon-cross" data-role="search-close"></i>
+                          </div>
+                        </div>
+                        <div class="region-content">
+
+                          <ul class="switch-content util-clearfix" data-role="switch-content">
+
+                            <li class="active" data-domdot="id:19775,ext:'region_c=ALL|loctype=supplier'">
+                              <a data-area="ALL" rel="nofollow" href="javascript:;">All
+                                Countries &amp; Regions</a>
+                            </li>
+
+                          </ul>
+
+                          <div class="country-content" data-role="country-content">
+
+                            <div class="area-country active" data-area="ALL">
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow" href="//www.alibaba.com/catalog/computer-hardware-software_cid7">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=ALL|loctype=supplier'" value="ALL">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=ALL|loctype=supplier'"><span class="loc-name"
+                                      data-role="loc-name">All</span></span>
+                                </label>
+                              </a>
+
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize loc-cn"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=CN&amp;param_order=CNTRY-CN">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=CN|loctype=supplier'" value="CN">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=CN|loctype=supplier'"><span class="loc-name"
+                                      data-role="loc-name">China
+                                      (Mainland)</span></span>
+                                </label>
+
+                                <i class="ui2-icon ui2-icon-arrow-down" data-cn="PROVINCE"
+                                  data-domdot="id:19777,ext:'type=open|loctype=supplier'" data-role="loc-cn-arrow"></i>
+
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=HK&amp;param_order=CNTRY-HK">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=HK|loctype=supplier'" value="HK">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=HK|loctype=supplier'"><span class="loc-name"
+                                      data-role="loc-name">Hong
+                                      Kong</span></span>
+                                </label>
+
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=TW&amp;param_order=CNTRY-TW">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=TW|loctype=supplier'" value="TW">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=TW|loctype=supplier'"><span class="loc-name"
+                                      data-role="loc-name">Taiwan</span></span>
+                                </label>
+
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=UK&amp;param_order=CNTRY-UK">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=UK|loctype=supplier'" value="UK">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=UK|loctype=supplier'"><span class="loc-name"
+                                      data-role="loc-name">United
+                                      Kingdom</span></span>
+                                </label>
+
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=US&amp;param_order=CNTRY-US">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=US|loctype=supplier'" value="US">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=US|loctype=supplier'"><span class="loc-name"
+                                      data-role="loc-name">United
+                                      States</span></span>
+                                </label>
+
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=TR&amp;param_order=CNTRY-TR">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=TR|loctype=supplier'" value="TR">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=TR|loctype=supplier'"><span class="loc-name"
+                                      data-role="loc-name">Turkey</span></span>
+                                </label>
+
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=IN&amp;param_order=CNTRY-IN">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=IN|loctype=supplier'" value="IN">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=IN|loctype=supplier'"><span class="loc-name"
+                                      data-role="loc-name">India</span></span>
+                                </label>
+
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=KR&amp;param_order=CNTRY-KR">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=KR|loctype=supplier'" value="KR">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=KR|loctype=supplier'"><span class="loc-name"
+                                      data-role="loc-name">South
+                                      Korea</span></span>
+                                </label>
+
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=AR&amp;param_order=CNTRY-AR">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=AR|loctype=supplier'" value="AR">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=AR|loctype=supplier'"><span class="loc-name"
+                                      data-role="loc-name">Argentina</span></span>
+                                </label>
+
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=AE&amp;param_order=CNTRY-AE">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=AE|loctype=supplier'" value="AE">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=AE|loctype=supplier'"><span class="loc-name"
+                                      data-role="loc-name">United
+                                      Arab Emirates</span></span>
+                                </label>
+
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=CH&amp;param_order=CNTRY-CH">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=CH|loctype=supplier'" value="CH">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=CH|loctype=supplier'"><span class="loc-name"
+                                      data-role="loc-name">Switzerland</span></span>
+                                </label>
+
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=DE&amp;param_order=CNTRY-DE">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=DE|loctype=supplier'" value="DE">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=DE|loctype=supplier'"><span class="loc-name"
+                                      data-role="loc-name">Germany</span></span>
+                                </label>
+
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=ZA&amp;param_order=CNTRY-ZA">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=ZA|loctype=supplier'" value="ZA">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=ZA|loctype=supplier'"><span class="loc-name"
+                                      data-role="loc-name">South
+                                      Africa</span></span>
+                                </label>
+
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=IT&amp;param_order=CNTRY-IT">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=IT|loctype=supplier'" value="IT">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=IT|loctype=supplier'"><span class="loc-name"
+                                      data-role="loc-name">Italy</span></span>
+                                </label>
+
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=MY&amp;param_order=CNTRY-MY">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=MY|loctype=supplier'" value="MY">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=MY|loctype=supplier'"><span class="loc-name"
+                                      data-role="loc-name">Malaysia</span></span>
+                                </label>
+
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=ES&amp;param_order=CNTRY-ES">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=ES|loctype=supplier'" value="ES">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=ES|loctype=supplier'"><span class="loc-name"
+                                      data-role="loc-name">Spain</span></span>
+                                </label>
+
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=FR&amp;param_order=CNTRY-FR">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=FR|loctype=supplier'" value="FR">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=FR|loctype=supplier'"><span class="loc-name"
+                                      data-role="loc-name">France</span></span>
+                                </label>
+
+                              </a>
+
+                              <div class="loc-no-match" data-role="loc-no-match">No
+                                Matching region Found.</div>
+                            </div>
+
+
+
+                            <div class="area-country" data-area="PROVINCE">
+                              <div class="loc-area-cn">
+                                <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize loc-cn"
+                                  rel="nofollow"
+                                  href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=CN&amp;param_order=CNTRY-CN">
+                                  <label class="ui2-checkbox-customize-label">
+                                    <input type="checkbox" class="ui2-checkbox-customize-val"
+                                      data-domdot="id:19770,ext:'country_c=CN|loctype=supplier'" value="CN">
+                                    <span class="ui2-checkbox-customize-txt"
+                                      data-domdot="id:19770,ext:'country_c=CN|loctype=supplier'"><span class="loc-name"
+                                        data-role="loc-name">China
+                                        (Mainland)</span></span>
+                                  </label>
+                                  <i class="ui2-icon ui2-icon-arrow-up" data-cn="PROVINCE" data-role="loc-cn-arrow-up"
+                                    data-domdot="id:19777,ext:'type=close|loctype=supplier'"></i>
+                                </a>
+                              </div>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=CN&amp;prov=Guangdong&amp;param_order=CNTRY-CN,PROV-Guangdong">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=Guangdong|loctype=supplier'" value="Guangdong">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=Guangdong|loctype=supplier'"><span
+                                      class="loc-name" data-role="loc-name">Guangdong</span></span>
+                                </label>
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=CN&amp;prov=Beijing&amp;param_order=CNTRY-CN,PROV-Beijing">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=Beijing|loctype=supplier'" value="Beijing">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=Beijing|loctype=supplier'"><span
+                                      class="loc-name" data-role="loc-name">Beijing</span></span>
+                                </label>
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=CN&amp;prov=Zhejiang&amp;param_order=CNTRY-CN,PROV-Zhejiang">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=Zhejiang|loctype=supplier'" value="Zhejiang">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=Zhejiang|loctype=supplier'"><span
+                                      class="loc-name" data-role="loc-name">Zhejiang</span></span>
+                                </label>
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=CN&amp;prov=Jiangsu&amp;param_order=CNTRY-CN,PROV-Jiangsu">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=Jiangsu|loctype=supplier'" value="Jiangsu">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=Jiangsu|loctype=supplier'"><span
+                                      class="loc-name" data-role="loc-name">Jiangsu</span></span>
+                                </label>
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=CN&amp;prov=Shanghai&amp;param_order=CNTRY-CN,PROV-Shanghai">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=Shanghai|loctype=supplier'" value="Shanghai">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=Shanghai|loctype=supplier'"><span
+                                      class="loc-name" data-role="loc-name">Shanghai</span></span>
+                                </label>
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=CN&amp;prov=Fujian&amp;param_order=CNTRY-CN,PROV-Fujian">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=Fujian|loctype=supplier'" value="Fujian">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=Fujian|loctype=supplier'"><span
+                                      class="loc-name" data-role="loc-name">Fujian</span></span>
+                                </label>
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=CN&amp;prov=Hebei&amp;param_order=CNTRY-CN,PROV-Hebei">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=Hebei|loctype=supplier'" value="Hebei">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=Hebei|loctype=supplier'"><span class="loc-name"
+                                      data-role="loc-name">Hebei</span></span>
+                                </label>
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=CN&amp;prov=Shandong&amp;param_order=CNTRY-CN,PROV-Shandong">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=Shandong|loctype=supplier'" value="Shandong">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=Shandong|loctype=supplier'"><span
+                                      class="loc-name" data-role="loc-name">Shandong</span></span>
+                                </label>
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=CN&amp;prov=Hubei&amp;param_order=CNTRY-CN,PROV-Hubei">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=Hubei|loctype=supplier'" value="Hubei">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=Hubei|loctype=supplier'"><span class="loc-name"
+                                      data-role="loc-name">Hubei</span></span>
+                                </label>
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=CN&amp;prov=Henan&amp;param_order=CNTRY-CN,PROV-Henan">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=Henan|loctype=supplier'" value="Henan">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=Henan|loctype=supplier'"><span class="loc-name"
+                                      data-role="loc-name">Henan</span></span>
+                                </label>
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=CN&amp;prov=Jiangxi&amp;param_order=CNTRY-CN,PROV-Jiangxi">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=Jiangxi|loctype=supplier'" value="Jiangxi">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=Jiangxi|loctype=supplier'"><span
+                                      class="loc-name" data-role="loc-name">Jiangxi</span></span>
+                                </label>
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=CN&amp;prov=Sichuan&amp;param_order=CNTRY-CN,PROV-Sichuan">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=Sichuan|loctype=supplier'" value="Sichuan">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=Sichuan|loctype=supplier'"><span
+                                      class="loc-name" data-role="loc-name">Sichuan</span></span>
+                                </label>
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=CN&amp;prov=Chongqing&amp;param_order=CNTRY-CN,PROV-Chongqing">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=Chongqing|loctype=supplier'" value="Chongqing">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=Chongqing|loctype=supplier'"><span
+                                      class="loc-name" data-role="loc-name">Chongqing</span></span>
+                                </label>
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=CN&amp;prov=Liaoning&amp;param_order=CNTRY-CN,PROV-Liaoning">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=Liaoning|loctype=supplier'" value="Liaoning">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=Liaoning|loctype=supplier'"><span
+                                      class="loc-name" data-role="loc-name">Liaoning</span></span>
+                                </label>
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=CN&amp;prov=Guangxi&amp;param_order=CNTRY-CN,PROV-Guangxi">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=Guangxi|loctype=supplier'" value="Guangxi">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=Guangxi|loctype=supplier'"><span
+                                      class="loc-name" data-role="loc-name">Guangxi</span></span>
+                                </label>
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=CN&amp;prov=Hunan&amp;param_order=CNTRY-CN,PROV-Hunan">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=Hunan|loctype=supplier'" value="Hunan">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=Hunan|loctype=supplier'"><span class="loc-name"
+                                      data-role="loc-name">Hunan</span></span>
+                                </label>
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=CN&amp;prov=Shanxi&amp;param_order=CNTRY-CN,PROV-Shanxi">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=Shanxi|loctype=supplier'" value="Shanxi">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=Shanxi|loctype=supplier'"><span
+                                      class="loc-name" data-role="loc-name">Shanxi</span></span>
+                                </label>
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=CN&amp;prov=Tibet&amp;param_order=CNTRY-CN,PROV-Tibet">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=Tibet|loctype=supplier'" value="Tibet">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=Tibet|loctype=supplier'"><span class="loc-name"
+                                      data-role="loc-name">Tibet</span></span>
+                                </label>
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=CN&amp;prov=Gansu&amp;param_order=CNTRY-CN,PROV-Gansu">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=Gansu|loctype=supplier'" value="Gansu">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=Gansu|loctype=supplier'"><span class="loc-name"
+                                      data-role="loc-name">Gansu</span></span>
+                                </label>
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=CN&amp;prov=Guizhou&amp;param_order=CNTRY-CN,PROV-Guizhou">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=Guizhou|loctype=supplier'" value="Guizhou">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=Guizhou|loctype=supplier'"><span
+                                      class="loc-name" data-role="loc-name">Guizhou</span></span>
+                                </label>
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=CN&amp;prov=Inner_Mongolia&amp;param_order=CNTRY-CN,PROV-Inner_Mongolia">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=Inner_Mongolia|loctype=supplier'"
+                                    value="Inner_Mongolia">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=Inner_Mongolia|loctype=supplier'"><span
+                                      class="loc-name" data-role="loc-name">Inner
+                                      Mongolia</span></span>
+                                </label>
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=CN&amp;prov=Jilin&amp;param_order=CNTRY-CN,PROV-Jilin">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=Jilin|loctype=supplier'" value="Jilin">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=Jilin|loctype=supplier'"><span class="loc-name"
+                                      data-role="loc-name">Jilin</span></span>
+                                </label>
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=CN&amp;prov=Tianjin&amp;param_order=CNTRY-CN,PROV-Tianjin">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=Tianjin|loctype=supplier'" value="Tianjin">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=Tianjin|loctype=supplier'"><span
+                                      class="loc-name" data-role="loc-name">Tianjin</span></span>
+                                </label>
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=CN&amp;prov=Shaanxi&amp;param_order=CNTRY-CN,PROV-Shaanxi">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=Shaanxi|loctype=supplier'" value="Shaanxi">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=Shaanxi|loctype=supplier'"><span
+                                      class="loc-name" data-role="loc-name">Shaanxi</span></span>
+                                </label>
+                              </a>
+
+                              <a data-role="loc" data-show="true" class="ui2-checkbox ui2-checkbox-customize"
+                                rel="nofollow"
+                                href="//www.alibaba.com/catalog/computer-hardware-software_cid7?Country=CN&amp;prov=Anhui&amp;param_order=CNTRY-CN,PROV-Anhui">
+                                <label class="ui2-checkbox-customize-label">
+                                  <input type="checkbox" class="ui2-checkbox-customize-val"
+                                    data-domdot="id:19770,ext:'country_c=Anhui|loctype=supplier'" value="Anhui">
+                                  <span class="ui2-checkbox-customize-txt"
+                                    data-domdot="id:19770,ext:'country_c=Anhui|loctype=supplier'"><span class="loc-name"
+                                      data-role="loc-name">Anhui</span></span>
+                                </label>
+                              </a>
+
+                              <div class="loc-no-match" data-role="loc-no-match">No
+                                Matching region Found.</div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- END SUPPLIER LOCATION   -->
+                <div class="m-min-order-wrap">
+                  <div class="m-gallery-min-order" data-ctrdot="G-moq">
+                    Min Order :
+                    <input data-role="min-order" class="min-order-input" placeholder="less than">
+                    <button class="min-order-ok btn btn-sm btn-default">OK</button>
+                  </div>
+
+                </div>
+                <div class="m-price-filter-wrap">
+                  <div class="m-gallery-price-filter" data-ctrdot="G-priceFil">
+                    Price :
+                    <input data-role="price-between-min" class="price-between" placeholder="min.">
+                    -
+                    <input data-role="price-between-max" class="price-between" placeholder="max.">
+                    <button class="price-between-ok btn btn-sm btn-default">OK</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- PRODUCTS LIST -->
+    <div *ngIf="isLoaded">
+    <div class="row">
+      <div class="col-auto">
+          <div class="gallery-product my-1" *ngFor="let supplier of suppliers; let i = index;" [id]="supplier.uid" (click)="checkSupplier($event, supplier.uid)">
+              <div class="row d-flex">
+                <div class="col-7">
+                  <h1 title="{{supplier.companyProfile.tradingName}}" class="supplierName">{{supplier.companyProfile.tradingName}}</h1>
+                </div>
+                <div class="col-5 text-right">
+                  <div class="stitle util-ellipsis">
+                    <div class="s-gold-supplier-year-icon" flasher-type="supplierYear">{{supplier.companyProfile.currentYear}}
+                      <span class="unit">YRS</span>
+                    </div>
+                    <span class="font-weight-bold ml-1" style="font-size: .7rem; height: 19px">In the
+                      business</span>
+                  </div>
+        
+                </div>
+              </div>
+              <div class="row d-flex">
+                <div class="col-3">
+                  <div class="item-img">
+                    <a target="_blank">
+                      <div class="offer-image-box">
+                        <img class="img"
+                          [src]="supplier.companyProfile.profilePicture"
+                          alt="supplier.companyProfile.tradingName">
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-7 pl-3">
+                  <div class="item-info">
+                    <div class="info-line">
+                      <div class="d-flex">
+                        <div class="text-right">
+                          <p class="font-weight-bold">Main Products: </p>
+                        </div>
+                        <div class="text-left">
+                          <p class="ml-2">
+                              {{supplier.companyProfile.mainProducts}}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="info-line">
+                      <div class="d-flex">
+                        <div class="text-right">
+                          <p class="font-weight-bold">Revenue: </p>
+                        </div>
+                        <div class="text-left">
+                          <p class="ml-2">
+                              €{{supplier.companyProfile.annualSales.min}} - €{{supplier.companyProfile.annualSales.max}} / Year
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="info-line">
+                      <div class="d-flex">
+                        <div class="text-right">
+                          <p class="font-weight-bold">Markets: </p>
+                        </div>
+                        <div class="text-left">
+                          <p class="ml-2">
+                              {{supplier.companyProfile.mainMarkets}}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="info-line">
+                      <div class="d-flex">
+                        <div class="text-right">
+                          <p class="font-weight-bold">Address: </p>
+                        </div>
+                        <div class="text-left">
+                          <p class="ml-2">
+                              {{supplier.companyProfile.addr}}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <a class="btn btn-secondary contact-s-btn" (click)="contactSupplier($event, supplier.uid)">Contact Supplier</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+    </div>
+    <div *ngIf="!isLoaded">
+      Loading please wait...
+    </div>
+  </div>
+</div>
+<!-- END PRODUCTS LIST -->

@@ -33,7 +33,7 @@ export class CompanyOverviewComponent implements OnInit {
     doc.valueChanges().subscribe(data => {
       this.cInfo = data.companyProfile;
       const years = this.currentYear - data.companyProfile.currentYear;
-      if (years == 0) {
+      if (years === 0) {
         this.yearsInBusiness = 1;
       } else {
         this.yearsInBusiness = years;

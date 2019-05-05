@@ -10,177 +10,79 @@
           </div>
           <div class="connection-list">
             <ul class="con-list">
-              <li class="single-con d-flex">
+              <li class="single-con d-flex" *ngFor="let supplier of userConnections; let i = index;">
                 <div class="d-block">
-                  <div class="profile-img" style="background-image: url('../../assets/images/Avatar@2x.png'); background-size: contain; background-position: center;"></div>
-                </div>
-                <div class="d-block">
-                  <div class="title">
-                    <h5>Conneli</h5>
+                  <div class="profile-img"
+                    [ngStyle]="{'background-image': 'url(' + supplier.companyProfile.profilePicture + ')'}">
                   </div>
-                  <div class="last-message text-truncate">
-                    Lorem ipsum dolor sit ammet hello world
-                  </div>
-                </div>
-              </li>
-              <li class="single-con d-flex">
-                <div class="d-block">
-                  <div class="profile-img" style="background-image: url('../../assets/images/Avatar@2x.png'); background-size: contain; background-position: center;"></div>
                 </div>
                 <div class="d-block">
                   <div class="title">
-                    <h5>Conneli</h5>
+                    <h5>{{supplier.companyProfile.tradingName}}</h5>
                   </div>
-                  <div class="last-message text-truncate">
-                    Lorem ipsum dolor sit ammet hello world
+                  <div class="last-message text-truncate" *ngIf="messenger[messenger.length-1].uid === currentUser">
+                    {{messenger[messenger.length-1].content}}
                   </div>
-                </div>
-              </li>
-              <li class="single-con d-flex">
-                <div class="d-block">
-                  <div class="profile-img" style="background-image: url('../../assets/images/Avatar@2x.png'); background-size: contain; background-position: center;"></div>
-                </div>
-                <div class="d-block">
-                  <div class="title">
-                    <h5>Conneli</h5>
-                  </div>
-                  <div class="last-message text-truncate">
-                    Lorem ipsum dolor sit ammet hello world
+                  <div class="last-message text-truncate font-weight-bold" *ngIf="messenger[messenger.length-1].uid !== currentUser">
+                    {{messenger[messenger.length-1].content}}
                   </div>
                 </div>
               </li>
-              <li class="single-con d-flex">
-                <div class="d-block">
-                  <div class="profile-img" style="background-image: url('../../assets/images/Avatar@2x.png'); background-size: contain; background-position: center;"></div>
-                </div>
-                <div class="d-block">
-                  <div class="title">
-                    <h5>Conneli</h5>
-                  </div>
-                  <div class="last-message text-truncate">
-                    Lorem ipsum dolor sit ammet hello world
-                  </div>
-                </div>
-              </li>
-              <li class="single-con d-flex">
-                <div class="d-block">
-                  <div class="profile-img" style="background-image: url('../../assets/images/Avatar@2x.png'); background-size: contain; background-position: center;"></div>
-                </div>
-                <div class="d-block">
-                  <div class="title">
-                    <h5>Conneli</h5>
-                  </div>
-                  <div class="last-message text-truncate">
-                    Lorem ipsum dolor sit ammet hello world
-                  </div>
-                </div>
-              </li>
-              <li class="single-con d-flex">
-                <div class="d-block">
-                  <div class="profile-img" style="background-image: url('../../assets/images/Avatar@2x.png'); background-size: contain; background-position: center;"></div>
-                </div>
-                <div class="d-block">
-                  <div class="title">
-                    <h5>Conneli</h5>
-                  </div>
-                  <div class="last-message text-truncate">
-                    Lorem ipsum dolor sit ammet hello world
-                  </div>
-                </div>
-              </li>
-              <li class="single-con d-flex">
-                <div class="d-block">
-                  <div class="profile-img" style="background-image: url('../../assets/images/Avatar@2x.png'); background-size: contain; background-position: center;"></div>
-                </div>
-                <div class="d-block">
-                  <div class="title">
-                    <h5>Conneli</h5>
-                  </div>
-                  <div class="last-message text-truncate">
-                    Lorem ipsum dolor sit ammet hello world
-                  </div>
-                </div>
-              </li>
-              <li class="single-con d-flex">
-                <div class="d-block">
-                  <div class="profile-img" style="background-image: url('../../assets/images/Avatar@2x.png'); background-size: contain; background-position: center;"></div>
-                </div>
-                <div class="d-block">
-                  <div class="title">
-                    <h5>Conneli</h5>
-                  </div>
-                  <div class="last-message text-truncate">
-                    Lorem ipsum dolor sit ammet hello world
-                  </div>
-                </div>
-              </li>
-              <li class="single-con d-flex">
-                <div class="d-block">
-                  <div class="profile-img" style="background-image: url('../../assets/images/Avatar@2x.png'); background-size: contain; background-position: center;"></div>
-                </div>
-                <div class="d-block">
-                  <div class="title">
-                    <h5>Conneli</h5>
-                  </div>
-                  <div class="last-message text-truncate">
-                    Lorem ipsum dolor sit ammet hello world
-                  </div>
-                </div>
-              </li>
-
             </ul>
           </div>
         </div>
         <div class="messages-area col-6 offset-3">
 
-          <div class="body">
+          <div class="body" *ngIf="sidValid">
             <div class="all-messages">
               <div class="messages-list">
-                <div class="single-message-wrapper" id="con">
-                  <div class="single-message">
+                <div class="message-row" *ngFor="let message of messenger">
+                  <div class="single-message" id="own" *ngIf="currentUser === message.uid">
                     <div class="msg-content">
-                      <span class="type-txt">Hi Alison, how can I help you?</span>
+                      <span class="type-txt">{{message.content}}</span>
+                    </div>
+                  </div>
+                  <div class="single-message" id="con" *ngIf="currentUser !== message.uid">
+                    <div class="msg-content">
+                      <span class="type-txt">{{message.content}}</span>
                     </div>
                   </div>
                 </div>
-                <div class="single-message-wrapper" id="own">
-                  <div class="single-message">
-                    <div class="msg-content">
-                      <span class="type-txt">Hey John, I have a question regarding manufacturing process. Do you have
-                        time for a call?</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="single-message-wrapper" id="con">
-                  <div class="single-message">
-                    <div class="msg-content">
-                      <span class="type-txt">Hi Alison, how can I help you?</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="single-message-wrapper" id="own">
-                  <div class="single-message">
-                    <div class="msg-content">
-                      <span class="type-txt">Hi Allison</span>
-                    </div>
-                  </div>
-                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="body" *ngIf="!sidValid">
+            <div class="all-messages"
+              style="    display: flex;align-items: center;justify-content: center;height: 100%;top: 25px;">
+              <div class="messages-list text-center text-secondary" style="width: 50%; height: 50%">
+                Please select the contact to start the chat!
               </div>
             </div>
           </div>
           <div class="footer">
-            <textarea name="message" placeholder="Type your message here..." id="conmessage"></textarea>
+            <form (ngSubmit)="sendMessage(chatID,messageForm.get('message').value)" [formGroup]="messageForm">
+              <textarea formControlName="message" [disabled]="!sidValid" placeholder="Type your message here..."
+                id="conmessage" style="resize:none;" (keydown.enter)="onKeydown()"></textarea>
+              <button type="submit" id="submitmessage" class="btn">
+                <i class="material-icons">
+                  send
+                </i>
+              </button>
+            </form>
           </div>
         </div>
-        <div class="about-connection col-3 offset-9">
+        <div class="about-connection col-3 offset-9" *ngIf="sidValid">
           <div class="header">
-            <div class="m-image d-block mx-auto mt-4" style="background-image: url('images/profile-pic@2x.png'); background-size: contain; background-position: center; background-repeat: no-repeat;"></div>
+            <div class="m-image d-block mx-auto mt-4"
+              [ngStyle]="{'background-image': 'url(' + supplierProfileImage + ')'}">
+            </div>
             <div class="m-description text-center">
               <span>
                 <div class="name">
-                  <h1 class="font-weight-bold">John Mayers</h1>
+                  <h1 class="font-weight-bold">{{supplierData.companyProfile.managerName}}</h1>
                 </div>
-                <div class="position">Microsoft Contact Trustee</div>
+                <div class="position">{{supplierData.companyProfile.tradingName}} Manager</div>
               </span>
             </div>
           </div>
@@ -206,10 +108,7 @@
             <div class="company-description">
               <div class="row">
                 <div class="col">
-                  <p style="width: 100%; height: 200px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                    consectetur, ipsum vel ultricies tristique, risus libero rhoncus tortor, id vestibulum arcu diam et
-                    est. Duis tortor mi, egestas ut tristique non, elementum a velit. Phasellus tristique laoreet
-                    bibendum. Maecenas nulla nisi, conval</p>
+                  <p style="width: 100%; height: 200px;">{{supplierData.companyProfile.businessDescription}}</p>
                 </div>
               </div>
             </div>

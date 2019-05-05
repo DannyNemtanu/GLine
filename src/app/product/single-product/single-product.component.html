@@ -1,56 +1,32 @@
 <app-navigation></app-navigation>
 <!--SINGLE PRODUCTS HEADER -->
-<div class="main-container my-0" *ngIf="isLoaded">
+<div class="main-container" *ngIf="isLoaded">
   <div class="container py-3">
     <div class="single-product">
       <div class="action-sub">
         <div class="detail-box">
           <div class="scc-wrapper detail-module module-detailBoothImage" data-spm="degeboot10">
-
             <div class="widget-detail-booth-image J-disable-event" data-role="widget-detail-booth-image">
               <div class="imain" id="J-dbi-imgplayer">
                 <div class="icontent" id="J-image-icontent" data-widget-cid="widget-0">
                   <div class="iwrap nopic" data-role="thumbWrap">
-                    <a class="inner dot-app-pd" data-dot="d_type=see_lagrgeimg_a&amp;cid=3311" data-domdot="id:3311"
-                      data-role="thumbFrame" href="javascript:void(0);">
-
-                      <img
-                        src="http://sc01.alicdn.com/kf/HTB1PplgdjfguuRjSszcq6zb7FXag/audio-mixer-with-power-vacuum-tube-speaker.jpg"
-                        class="" alt="audio mixer with power vacuum tube speaker portable capsule speaker"></a>
+                    <a class="inner dot-app-pd" href="javascript:void(0);">
+                      <img [src]="mainImage" [alt]="product.title">
+                    </a>
                   </div>
-                  <a class="ui-magnifier-glass dot-app-pd" data-dot="d_type=see_lagrgeimg_a&amp;cid=3311"
-                    data-domdot="id:3311" href="javascript:void(0);" target="_blank"
-                    style="width: 0px; height: 0px; position: absolute; left: 342px; top: 290px; display: none;"></a>
-                </div>
-                <div class="ui-image-viewer-viewport"
-                  style="width: 380px; height: 372px; display: none; z-index: 99; position: absolute; left: 360px; top: 0px;"
-                  data-widget-cid="widget-15">
-                  <div class="ui-image-viewer-image-wrap" data-role="imageWrap" style="position: absolute;">
-                    <a class="ui-image-viewer-image-frame" href="javascript:void(0);" target="_blank"
-                      data-role="imageFrame"><img
-                        src="http://sc01.alicdn.com/kf/HTB1PplgdjfguuRjSszcq6zb7FXag/audio-mixer-with-power-vacuum-tube-speaker.jpg"></a>
-                  </div>
-                </div>
-                <div class="ls-icon zoom" data-role="zoom" style="display: block;">
-                  <span class="ico-zoom"></span>
                 </div>
               </div>
-              <div data-role="widget-company-video"></div>
-              <ul class="inav util-clearfix">
-                <li class="item first active" data-role="item">
+              <ul class="inav util-clearfix mt-2">
+                <li class="item mx-1" data-role="item" *ngFor="let image of product.productImages; let i = index;" (click)="changeImage($event, image.productImage)">
                   <div class="thumb">
-                    <a rel="nofollow" href="javascript:void(0);">
                       <img
-                        src="http://sc01.alicdn.com/kf/HTB1PplgdjfguuRjSszcq6zb7FXag/audio-mixer-with-power-vacuum-tube-speaker.jpg"
-                        alt="audio mixer with power vacuum tube speaker portable capsule speaker">
-                    </a>
+                        [src]="image.productImage"
+                        [alt]="image.productImage">
                   </div>
                   <span class="arrow"></span>
                 </li>
 
               </ul>
-              <div class="favorite-corner" data-fav-id="60074890987" data-type="product" data-hasbkgcircle="true"
-                id="detail-favorite-mark"></div>
             </div>
 
           </div>
@@ -182,12 +158,12 @@
               <div class="ui2-tab  ui2-tab-primary" id="tab1_top">
                 <ul class="ui2-tab-nav ui2-tab-nav-top">
                   <li class="ui2-tab-active">
-                    <a href="//www.alibaba.com/products/audio.html?IndexArea=product_en" rel="nofollow">
+                    <a>
                       Product Details
                     </a>
                   </li>
-                  <li class="">
-                    <a href="//www.alibaba.com/corporations/audio.html" rel="nofollow">
+                  <li>
+                    <a [routerLink]="['/overview',id]" rel="nofollow">
                       Company Profile
                     </a>
                   </li>

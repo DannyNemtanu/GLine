@@ -43,9 +43,6 @@ export class AllproductsComponent implements OnInit {
     });
     this.isLoaded = true;
   }
-  editProduct(event, product){
-    
-  }
   showProduct(id) {
     console.log('Working ' + id);
   }

@@ -1,4 +1,3 @@
-
 // Main
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -36,6 +35,9 @@ import { DropZoneDirective } from './shared/directives/drop-zone.directive';
 import { AllproductsComponent } from './product/allproducts/allproducts.component';
 import { AddnewComponent } from './product/allproducts/addnew/addnew.component';
 import { EditProductComponent } from './product/allproducts/edit-product/edit-product.component';
+import { SuppliersComponent } from './suppliers/suppliers.component';
+import { SearchproductsComponent } from './search/searchproducts/searchproducts.component';
+import { SearchsuppliersComponent } from './search/searchsuppliers/searchsuppliers.component';
 
 
 @NgModule({
@@ -57,6 +59,9 @@ import { EditProductComponent } from './product/allproducts/edit-product/edit-pr
     AllproductsComponent,
     AddnewComponent,
     EditProductComponent,
+    SuppliersComponent,
+    SearchproductsComponent,
+    SearchsuppliersComponent,
   ],
   imports: [
     NgbModule,
@@ -71,7 +76,7 @@ import { EditProductComponent } from './product/allproducts/edit-product/edit-pr
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

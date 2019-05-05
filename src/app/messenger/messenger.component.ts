@@ -1,4 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators
+} from '@angular/forms';
+import {
+  UserDataService
+} from './../services/user-data.service';
+import {
+  AngularFirestore
+} from '@angular/fire/firestore';
+import {
+  ChatService
+} from './../shared/directives/chat.service';
+import {
+  ActivatedRoute,
+  Router
+} from '@angular/router';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
 
 @Component({
   selector: 'app-messenger',
@@ -6,10 +27,143 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./messenger.component.scss']
 })
 export class MessengerComponent implements OnInit {
-
-  constructor() { }
+  currentUser;
+  supplierID;
+  clientID;
+  chatID;
+  userConnections: Array<any> = [];
+  source: any;
+  supplierData: any;
+  retailerData: any;
+  sidValid = false;
+  cidValid = false;
+  messenger: any;
+  supplierProfileImage = '';
+  messageForm: FormGroup;
+  messageValidation = {
+    message: [{
+        type: 'required',
+        message: 'Title is required!'
+      },
+      {
+        type: 'pattern',
+        message: 'Please remove prohhibited characters!'
+      },
+    ]
+  };
+  constructor(
+    private route: ActivatedRoute,
+    private chatService: ChatService,
+    private afs: AngularFirestore,
+    private us: UserDataService,
+    private router: Router,
+    private fb: FormBuilder
+  ) {
+    this.messageForm = this.fb.group({
+      message: [
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.pattern(/^[a-zA-Z0-9-/\.:\r?\n()%?!@|&€#*$"', ]*$/)
+        ])
+      ]
+    });
+  }
 
   ngOnInit() {
+    this.currentUser = this.us.getUserID();
+    this.route.params.subscribe(params => {
+      this.chatID = params['chatid'];
+    });
+    this.source = this.chatService.getSource();
+    this.clientID = this.source.cid;
+    this.supplierID = this.source.sid;
+    this.checkChat(this.chatID);
+    this.loadConnections(this.currentUser);
+    this.showMessages(this.chatID);
+  }
+
+  onKeydown() {
+    this.sendMessage(this.chatID, this.messageForm.get('message').value);
+  }
+
+  loadConnections(currentUser) {
+    this.afs.collection(`users/${currentUser}/connections`).valueChanges().subscribe(connections => {
+      connections.forEach(con => {
+        this.afs.doc(`users/${con.receiver}`).valueChanges().subscribe(conData => {
+          this.userConnections.push(conData);
+          console.log(this.userConnections);
+        });
+      });
+    });
+  }
+
+  checkChat(chatid) {
+    this.afs.doc(`chats/${chatid}`).valueChanges().subscribe(data => {
+      if (data) {
+        this.showData(chatid);
+      } else {
+        if (chatid !== this.us.getUserID()) {
+          this.create(chatid);
+        }
+      }
+    });
+  }
+
+  async create(chatid) {
+    const data = {
+      sid: this.supplierID,
+      cid: this.clientID,
+      createdAt: Date.now(),
+      chatID: this.chatID
+    };
+    this.afs.doc(`chats/${chatid}`).set(data).then(() => {
+      this.showData(chatid);
+    });
+  }
+
+  async sendMessage(chatId, content) {
+    const uid = this.us.getUserID();
+    if (this.messageForm.valid) {
+      const data = {
+        uid,
+        content,
+        createdAt: Date.now()
+      };
+      this.afs.collection(`chats/${chatId}/messages`).add(data).then(() => {
+        this.showMessages(chatId);
+        // this.afs.collection(`chats/${chatId}/messages`).valueChanges().subscribe(doc => {
+        //   console.log(doc);
+        // });
+      });
+    }
+  }
+  showMessages(id){
+    this.afs.collection(`chats/${id}/messages`, ref=>ref.orderBy('createdAt','asc')).valueChanges().subscribe(messages => {
+      this.messenger = messages;
+      this.messageForm.patchValue({message: ''});
+    });
+  }
+  showData(id) {
+    console.log('Chat ID:  ' + id);
+    this.afs.doc(`chats/${id}`).valueChanges().subscribe(chatData => {
+      if (chatData) {
+        if (chatData.cid === this.us.getUserID()) { // Retailer side messeger
+          this.afs.doc(`users/${chatData.sid}`).valueChanges().subscribe(data => {
+            this.supplierData = data;
+            this.supplierProfileImage = this.supplierData.companyProfile.profilePicture;
+            this.sidValid = true;
+          });
+        } else { // Supplier side messenger
+          this.afs.doc(`users/${chatData.cid}`).valueChanges().subscribe(data => {
+            console.log(data);
+            this.retailerData = data;
+            this.cidValid = true;
+            console.log('Not enough client data!');
+          });
+        }
+      }
+    });
   }
 
 }

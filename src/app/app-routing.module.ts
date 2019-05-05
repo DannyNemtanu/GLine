@@ -1,3 +1,4 @@
+import { SuppliersComponent } from './suppliers/suppliers.component';
 import { AddnewComponent } from './product/allproducts/addnew/addnew.component';
 import { AllproductsComponent } from './product/allproducts/allproducts.component';
 import { CompanyOverviewComponent } from './company-overview/company-overview.component';
@@ -19,6 +20,8 @@ import { SecureInnerPagesGuard } from './shared/guard/secure-inner-pages.guard.t
 import { AuthGuard } from './shared/guard/auth.guard';
 import { SingleProductComponent } from './product/single-product/single-product.component';
 import { EditProductComponent } from './product/allproducts/edit-product/edit-product.component';
+import { SearchproductsComponent } from './search/searchproducts/searchproducts.component';
+import { SearchsuppliersComponent } from './search/searchsuppliers/searchsuppliers.component';
 
 // Include route guard in routes array
 const routes: Routes = [
@@ -29,6 +32,9 @@ const routes: Routes = [
   { path: 'allproducts', component: AllproductsComponent, canActivate: [AuthGuard] },
   { path: 'add', component: AddnewComponent, canActivate: [AuthGuard] },
   { path: 'products', component: ProductComponent, canActivate: [AuthGuard] },
+  { path: 'products/:query', component: SearchproductsComponent, canActivate: [AuthGuard] },
+  { path: 'suppliers', component: SuppliersComponent, canActivate: [AuthGuard] },
+  { path: 'suppliers/:query', component: SearchsuppliersComponent, canActivate: [AuthGuard] },
   { path: 'product/:user/:id', component: SingleProductComponent, canActivate: [AuthGuard] },
   { path: 'editProduct/:user/:id', component: EditProductComponent, canActivate: [AuthGuard] },
   { path: 'manufacturers', component: ProductComponent, canActivate: [AuthGuard] },
@@ -36,7 +42,7 @@ const routes: Routes = [
   { path: 'overview/:id', component: CompanyOverviewComponent, canActivate: [AuthGuard] },
   // { path: 'rfq', component: ProductComponent, canActivate: [AuthGuard] },
   // { path: 'rfqlist', component: ProductComponent, canActivate: [AuthGuard] },
-  { path: 'messenger', component: MessengerComponent, canActivate: [AuthGuard] },
+  { path: 'messenger/:chatid', component: MessengerComponent, canActivate: [AuthGuard] },
   { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'verify-email-address', component: VerifyEmailComponent, canActivate: [SecureInnerPagesGuard] }
 ];

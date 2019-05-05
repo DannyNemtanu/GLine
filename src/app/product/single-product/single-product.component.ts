@@ -13,6 +13,7 @@ export class SingleProductComponent implements OnInit {
   id;
   pid;
   isLoaded = false;
+  mainImage = '';
   constructor(
     private userService: UserDataService,
     private afs: AngularFirestore,
@@ -34,8 +35,11 @@ export class SingleProductComponent implements OnInit {
     doc.subscribe(data => {
       this.product = data;
       this.isLoaded = true;
+      this.mainImage = this.product.productImages[0].productImage;
       console.log(this.product);
     });
-
+  }
+  changeImage(event, url) {
+    this.mainImage = url;
   }
 }
