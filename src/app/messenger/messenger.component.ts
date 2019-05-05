@@ -92,10 +92,10 @@ export class MessengerComponent implements OnInit {
   }
 
   loadConnections(currentUser) {
-    this.afs.doc(`users/${currentUser}`).valueChanges().subscribe(user => {
+    this.afs.doc(`users/${currentUser}`).valueChanges().subscribe((user: any) => {
       this.isRetailer = user.retailer;
       this.afs.collection(`users/${currentUser}/connections`).valueChanges().subscribe(connections => {
-        connections.forEach(con => {
+        connections.forEach((con: any) => {
           this.afs.doc(`users/${con.receiver}`).valueChanges().subscribe(conData => {
             if (this.isRetailer) {
               const supplierID = con.receiver;
@@ -111,7 +111,7 @@ export class MessengerComponent implements OnInit {
               const retailerID = con.receiver;
               this.supplierConnections.push(conData);
               // console.log(this.supplierConnections);
-              this.afs.collection(`chats/${currentUser+ retailerID}/messages`,
+              this.afs.collection(`chats/${currentUser + retailerID}/messages`,
                 ref => ref.orderBy('createdAt', 'asc')).valueChanges().subscribe(data => {
                 this.lastMessage = data[data.length - 1];
                 this.isMessage = true;
@@ -178,7 +178,7 @@ export class MessengerComponent implements OnInit {
   }
   showData(id) {
     // console.log('Chat ID:  ' + id);
-    this.afs.doc(`chats/${id}`).valueChanges().subscribe(chatData => {
+    this.afs.doc(`chats/${id}`).valueChanges().subscribe((chatData: any) => {
       if (chatData) {
         if (chatData.cid === this.us.getUserID()) { // Retailer side messeger
           this.afs.doc(`users/${chatData.sid}`).valueChanges().subscribe(data => {
@@ -187,7 +187,7 @@ export class MessengerComponent implements OnInit {
             this.sidValid = true;
           });
         } else { // Supplier side messenger
-          this.afs.doc(`users/${chatData.cid}`).valueChanges().subscribe(data => {
+          this.afs.doc(`users/${chatData.cid}`).valueChanges().subscribe((data: any) => {
             // console.log(data);
             this.retailerData = data;
             this.cidValid = true;

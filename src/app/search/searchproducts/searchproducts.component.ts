@@ -50,7 +50,7 @@ export class SearchproductsComponent implements OnInit {
             this.afs.doc(`${d.ref.path}`).valueChanges().subscribe(sup => {
               this.supplier.push(sup);
             });
-            this.afs.doc(`${item.ref.path}`).valueChanges().subscribe(product => {
+            this.afs.doc(`${item.ref.path}`).valueChanges().subscribe((product: any) => {
               const value = product.tags;
               // Checking Tags
               current = item.ref.id;

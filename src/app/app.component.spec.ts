@@ -1,9 +1,29 @@
-import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import {
+  TestBed,
+  async,
+  fakeAsync,
+  tick
+} from '@angular/core/testing';
+import {
+  RouterTestingModule
+} from '@angular/router/testing';
+import {
+  AppComponent
+} from './app.component';
+import {
+  Router
+} from '@angular/router';
+import {
+  Location
+} from '@angular/common';
+import { isGeneratedFile } from '@angular/compiler/src/aot/util';
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
+  let router: Router;
+  let location: Location;
+  let fixture;
+
+  beforeEach(async (() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
@@ -13,23 +33,18 @@ describe('AppComponent', () => {
       ],
     }).compileComponents();
   }));
-
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'GLine'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('GLine');
-  });
-
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to GLine!');
+  beforeEach(() => {
+    router = TestBed.get(Router);
+    location = TestBed.get(Location);
+    fixture = TestBed.createComponent(AppComponent);
+    router.initialNavigation();
+    it('should be true if true', () => {
+      expect(true).toBe(true);
+    });
+    it('starting path should be', fakeAsync(() => {
+      router.navigate(['']);
+      tick();
+      expect(location.path()).toBe('/something');
+    }));
   });
 });

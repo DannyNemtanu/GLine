@@ -47,7 +47,7 @@ export class AuthService {
   SignIn(email, password) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
-        this.afs.doc(`users/${result.user.uid}`).valueChanges().subscribe(user => {
+        this.afs.doc(`users/${result.user.uid}`).valueChanges().subscribe((user: any) => {
           if (user.manufacturer === true) {
             this.router.navigate(['overview', user.uid]);
           } else {

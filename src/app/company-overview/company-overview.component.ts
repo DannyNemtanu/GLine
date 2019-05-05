@@ -76,7 +76,7 @@ export class CompanyOverviewComponent implements OnInit {
   }
   getInfo(id) {
     const doc = this.afs.doc(`users/${id}`);
-    doc.valueChanges().subscribe(data => {
+    doc.valueChanges().subscribe((data: any) => {
       this.cInfo = data.companyProfile;
       const years = this.currentYear - data.companyProfile.currentYear;
       if (years === 0) {

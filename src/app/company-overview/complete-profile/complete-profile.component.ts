@@ -680,7 +680,7 @@ export class CompleteProfileComponent implements OnInit {
     const user = this.user.getUserID();
     const doc = this.afs.doc(`users/${user}`);
 
-    doc.valueChanges().subscribe(data => {
+    doc.valueChanges().subscribe((data: any) => {
       const profile = data.completedProfile;
       if (profile) {
         this.form_data.companyProfile.currentYear =

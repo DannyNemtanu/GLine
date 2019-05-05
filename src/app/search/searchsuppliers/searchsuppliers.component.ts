@@ -40,7 +40,7 @@ export class SearchsuppliersComponent implements OnInit {
     const supplierRef = this.afs.collection('users', ref => ref.where('manufacturer', '==', true));
     supplierRef.get().forEach(supplier => {
       supplier.docs.forEach(d => {
-        this.afs.doc(`${d.ref.path}`).valueChanges().subscribe(data => {
+        this.afs.doc(`${d.ref.path}`).valueChanges().subscribe((data: any) => {
           const value = (data.companyProfile.mainProducts).toLowerCase();
           // Checking Tags
           current = d.ref.id;
