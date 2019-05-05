@@ -2,9 +2,6 @@ import {
   ChatService
 } from './../../directives/chat.service';
 import {
-  ForgotPasswordComponent
-} from './../../../authentication/forgot-password/forgot-password.component';
-import {
   AngularFirestore
 } from '@angular/fire/firestore';
 import {

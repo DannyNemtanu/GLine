@@ -141,12 +141,50 @@ export class HomeComponent implements OnInit {
       },
     ]
   ];
-
+  allSections = [{
+    name: 'Consumer Electronics',
+    title: 'Selected Novelty Products',
+    image: '../../../assets/images/categories/Consumer Electronics/main.png',
+    data: [
+      [{
+          title: 'Mobile Phone',
+          image: '../../../assets/images/categories/Consumer Electronics/mobile-phone.jpg'
+        },
+        {
+          title: 'Mobile Phone Bags & Cases',
+          image: '../../../assets/images/categories/Consumer Electronics/cases.jpg'
+        }, {
+          title: 'Speakers',
+          image: '../../../assets/images/categories/Consumer Electronics/speakers.jpg'
+        }, {
+          title: 'Mobile Phone Housings',
+          image: '../../../assets/images/categories/Consumer Electronics/parts.jpg'
+        },
+      ],
+      [{
+        title: 'Amplifiers',
+        image: '../../../assets/images/categories/Consumer Electronics/amplifiers.jpg'
+      }, {
+        title: 'Other Audio & Video Equipments',
+        image: '../../../assets/images/categories/Consumer Electronics/video.jpg'
+      }, {
+        title: 'Screen Protectors',
+        image: '../../../assets/images/categories/Consumer Electronics/screen.jpg'
+      }, {
+        title: 'Earphone Accessories',
+        image: '../../../assets/images/categories/Consumer Electronics/earphones.jpg'
+      }, ]
+    ]
+  }, ];
   constructor(
     private router: Router
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.myMarkets);
+
+    console.log(this.allSections);
+  }
   searchCategory(event, query) {
     this.router.navigate(['/products', query]).then(() => {
       if (this.router.url.indexOf('/products/') > -1) {

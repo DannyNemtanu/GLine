@@ -103,19 +103,19 @@ export class MessengerComponent implements OnInit {
                 ref => ref.orderBy('createdAt', 'asc')).valueChanges().subscribe(data => {
                 this.lastMessage = data[data.length - 1];
                 this.isMessage = true;
-                console.log(this.lastMessage);
+                // console.log(this.lastMessage);
               });
               this.userConnections.push(conData);
-              console.log(this.userConnections);
+              // console.log(this.userConnections);
             } else {
               const retailerID = con.receiver;
               this.supplierConnections.push(conData);
-              console.log(this.supplierConnections);
+              // console.log(this.supplierConnections);
               this.afs.collection(`chats/${currentUser+ retailerID}/messages`,
                 ref => ref.orderBy('createdAt', 'asc')).valueChanges().subscribe(data => {
                 this.lastMessage = data[data.length - 1];
                 this.isMessage = true;
-                console.log(this.lastMessage);
+                // console.log(this.lastMessage);
               });
             }
           });
@@ -170,14 +170,14 @@ export class MessengerComponent implements OnInit {
   showMessages(id) {
     this.afs.collection(`chats/${id}/messages`, ref => ref.orderBy('createdAt', 'asc')).valueChanges().subscribe(messages => {
       this.messenger = messages;
-      console.log(this.messenger);
+      // console.log(this.messenger);
       this.messageForm.patchValue({
         message: ''
       });
     });
   }
   showData(id) {
-    console.log('Chat ID:  ' + id);
+    // console.log('Chat ID:  ' + id);
     this.afs.doc(`chats/${id}`).valueChanges().subscribe(chatData => {
       if (chatData) {
         if (chatData.cid === this.us.getUserID()) { // Retailer side messeger
@@ -188,14 +188,14 @@ export class MessengerComponent implements OnInit {
           });
         } else { // Supplier side messenger
           this.afs.doc(`users/${chatData.cid}`).valueChanges().subscribe(data => {
-            console.log(data);
+            // console.log(data);
             this.retailerData = data;
             this.cidValid = true;
-            console.log('Not enough client data!');
+            // console.log('Not enough client data!');
           });
         }
       } else {
-        console.log('There is no data!');
+        // console.log('There is no data!');
       }
     });
   }

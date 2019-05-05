@@ -1,3 +1,5 @@
+import { EditrfqComponent } from './rfq/editrfq/editrfq.component';
+import { ListComponent } from './rfq/list/list.component';
 import {
   SuppliersComponent
 } from './suppliers/suppliers.component';
@@ -63,6 +65,7 @@ import {
 import {
   SearchsuppliersComponent
 } from './search/searchsuppliers/searchsuppliers.component';
+import { RfqComponent } from './rfq/rfq.component';
 
 // Include route guard in routes array
 const routes: Routes = [{
@@ -140,8 +143,9 @@ const routes: Routes = [{
     component: CompanyOverviewComponent,
     canActivate: [AuthGuard]
   },
-  // { path: 'rfq', component: ProductComponent, canActivate: [AuthGuard] },
-  // { path: 'rfqlist', component: ProductComponent, canActivate: [AuthGuard] },
+  { path: 'rfq', component: RfqComponent, canActivate: [AuthGuard] },
+  { path: 'myrequests', component: EditrfqComponent, canActivate: [AuthGuard] },
+  { path: 'rfqlist', component: ListComponent, canActivate: [AuthGuard] },
   {
     path: 'messenger/:chatid',
     component: MessengerComponent,

@@ -1,0 +1,194 @@
+<app-navigation></app-navigation>
+<div class="main-container">
+  <!-- Header -->
+  <div class="container py-3">
+    <div class="row">
+      <div class="col ml-auto">
+        <h1 class="mtitle ml-2 text-secondary">REQUEST FORM</h1>
+      </div>
+      <div class="col mr-auto text-right">
+        <button routerLink="/myrequests" class="btn btn-sm btn-secondary text-white py-2" style="height: 100%;">All Requests</button>
+      </div>
+    </div>
+  </div>
+  <div class="container my-2 p-0">
+    <form (ngSubmit)="addNewRFQ()" [formGroup]="rfqForm">
+      <div class="row">
+        <div class="col-8">
+          <div class="row">
+            <!-- Basic -->
+            <div class="col">
+              <div class="card">
+                <span class="card-title font-weight-bold">Basic</span>
+                <div class="form-group">
+                  <label for="title">Title</label>
+                  <input type="text" class="form-control" placeholder="Short Sleeve T-Shirt" formControlName="title">
+                  <div *ngFor="let validation of rfqValidation.title">
+                    <div class="invalid-feedback d-block"
+                      *ngIf="rfqForm.get('title').hasError(validation.type) && (rfqForm.get('title').dirty || rfqForm.get('title').touched)">
+                      {{validation.message}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Overview -->
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <div class="row">
+                  <div class="col">
+                    <span class="ctitle font-weight-bold">Product Description</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-group">
+                    <textarea type="text" rows="7" class="form-control" placeholder="Product Description"
+                      formControlName="description"></textarea>
+                    <div *ngFor="let validation of rfqValidation.description">
+                      <div class="invalid-feedback d-block"
+                        *ngIf="rfqForm.get('description').hasError(validation.type) && (rfqForm.get('description').dirty || rfqForm.get('description').touched)">
+                        {{validation.message}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Image -->
+          <div class="row">
+            <div class="col">
+              <div class="card image">
+                <ul class="ctitle">
+                  <li class="float-left">
+                    <span class="ctitle font-weight-bold">Sample Product Images</span>
+                  </li>
+                </ul>
+                <input class="ievent" type="file" accept='image/*' (change)="startUpload($event.target.files)"
+                  style="opacity: 0;">
+                <div formArrayName="productImages">
+                  <div class="row">
+                    <div class="col-3" *ngFor="let image of rfqForm.get('productImages').controls; let i=index;">
+                      <img class="dpimage" [src]="rfqForm.get('productImages').controls[i].get('productImage').value"
+                        [alt]="rfqForm.get('productImages').controls[i].get('productImage').value">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="imageError">
+                <div class="invalid-feedback d-block">
+                  An error occured.. Make sure the images is valid!
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Order -->
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <div class="row">
+                  <div class="col-8">
+                    <label class="card-title font-weight-bold mt-1 mb-0" style="line-height: 24px">Quantity</label>
+                  </div>
+                  <div class="col-4">
+                    <div class="row">
+                      <div class="col">
+                        <label class="card-title font-weight-bold mt-1 mb-0" style="line-height: 24px">Price</label>
+                      </div>
+                      <div class="col text-right">
+                        <button type="button" class="btn btn-sm" (click)="addPrice()">
+                          <i class="material-icons">
+                            playlist_add
+                          </i></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div formArrayName="orderPrices">
+                  <div *ngFor="let item of rfqForm.get('orderPrices').controls; let i = index">
+                    <div class="row" formGroupName="{{i}}" *ngIf="i === 0">
+                      <div class="form-row col-8">
+                        <div class="col">
+                          <input type="text" class="form-control" placeholder="Quantity" formControlName="quantity"
+                            required>
+                          <div class="invalid-feedback d-block">
+                            <div *ngIf="rfqForm.get('orderPrices').controls[i].get('quantity').hasError('pattern')">
+                              Please include digits only</div>
+                              <div *ngIf="rfqForm.get('orderPrices').controls[i].get('quantity').hasError('required') && rfqForm.get('orderPrices').controls[i].get('quantity').touched">
+                                  Quantity is required!</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Price" formControlName="price" required>
+                          <div class="invalid-feedback d-block">
+                            <div *ngIf="rfqForm.get('orderPrices').controls[i].get('price').hasError('pattern')">
+                              Please include digits and '.' character only!</div>
+                            <div *ngIf="rfqForm.get('orderPrices').controls[i].get('price').hasError('required') && rfqForm.get('orderPrices').controls[i].get('price').touched">
+                                  Price is required!</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row" formGroupName="{{i}}" *ngIf="i > 0">
+                      <div class="form-row col-8">
+                        <div class="col">
+                          <input type="text" class="form-control" placeholder="Quantity" formControlName="quantity">
+                          <div class="invalid-feedback d-block">
+                            <div *ngIf="rfqForm.get('orderPrices').controls[i].get('quantity').errors">
+                              Please include digits only</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Price" formControlName="price">
+                          <div class="invalid-feedback d-block">
+                            <div *ngIf="rfqForm.get('orderPrices').controls[i].get('price').errors">
+                              Please include digits and '.' character only!</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Shipping -->
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <span class="card-title font-weight-bold">Shipping</span>
+
+
+
+                <div class="form-group">
+                  <label for="corigitn">Destination</label>
+                  <input type="text" class="form-control" placeholder="e.g. Italy" formControlName="destination">
+                  <div *ngFor="let validation of rfqValidation.destination">
+                    <div class="invalid-feedback d-block"
+                      *ngIf="rfqForm.get('destination').hasError(validation.type) && (rfqForm.get('destination').dirty || rfqForm.get('destination').touched)">
+                      {{validation.message}}</div>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+          <!-- Submit -->
+          <div class="row pb-3">
+            <div class="col-12">
+              <div class="card">
+                <button type="submit" [disabled]="rfqForm.invalid" class="w-100 btn btn-small btn-primary b-0">Request
+                  Quotation</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

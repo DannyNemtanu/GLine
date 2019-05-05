@@ -1,8 +1,20 @@
-import {Injectable, NgZone} from '@angular/core';
-import {User} from '../services/user';
-import {AngularFireAuth} from '@angular/fire/auth';
-import {AngularFirestore, AngularFirestoreDocument} from '@angular/fire/firestore';
-import {Router} from '@angular/router';
+import {
+  Injectable,
+  NgZone
+} from '@angular/core';
+import {
+  User
+} from '../services/user';
+import {
+  AngularFireAuth
+} from '@angular/fire/auth';
+import {
+  AngularFirestore,
+  AngularFirestoreDocument
+} from '@angular/fire/firestore';
+import {
+  Router
+} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -35,8 +47,12 @@ export class AuthService {
   SignIn(email, password) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
-        this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
+        this.afs.doc(`users/${result.user.uid}`).valueChanges().subscribe(user => {
+          if (user.manufacturer === true) {
+            this.router.navigate(['overview', user.uid]);
+          } else {
+            this.router.navigate(['dashboard']);
+          }
         });
         // this.SetUserData(result.user);
       }).catch((error) => {

@@ -38,6 +38,9 @@ import { EditProductComponent } from './product/allproducts/edit-product/edit-pr
 import { SuppliersComponent } from './suppliers/suppliers.component';
 import { SearchproductsComponent } from './search/searchproducts/searchproducts.component';
 import { SearchsuppliersComponent } from './search/searchsuppliers/searchsuppliers.component';
+import { RfqComponent } from './rfq/rfq.component';
+import { ListComponent } from './rfq/list/list.component';
+import { EditrfqComponent } from './rfq/editrfq/editrfq.component';
 
 
 @NgModule({
@@ -62,6 +65,9 @@ import { SearchsuppliersComponent } from './search/searchsuppliers/searchsupplie
     SuppliersComponent,
     SearchproductsComponent,
     SearchsuppliersComponent,
+    RfqComponent,
+    ListComponent,
+    EditrfqComponent,
   ],
   imports: [
     NgbModule,

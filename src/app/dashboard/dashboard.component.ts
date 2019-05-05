@@ -35,7 +35,6 @@ export class DashboardComponent implements OnInit {
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
-    private authService: AuthService,
     private uService: UserDataService
   ) {}
 

@@ -1,0 +1,16 @@
+.mtitle {
+    font-size: 2rem;
+  }
+  
+  .mtable {
+    tr{
+        transition: .3s;
+        cursor: pointer;
+    }
+    tr>td {
+      line-height: 50px;
+    }
+  }
+#delete{
+  z-index: 999;
+}

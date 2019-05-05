@@ -1,0 +1,25 @@
+.mtitle {
+    font-size: 2rem;
+  }
+.card{
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+}
+.image-card{
+    min-height: 200px;
+}
+
+.ievent {
+    cursor: pointer;
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+  }
+
+.dpimage{
+  width: 100% !important;
+}
