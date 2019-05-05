@@ -28,16 +28,20 @@ import {
 })
 export class MessengerComponent implements OnInit {
   currentUser;
+  isRetailer;
   supplierID;
   clientID;
   chatID;
-  userConnections: Array<any> = [];
+  lastMessage;
+  userConnections: Array < any > = [];
+  supplierConnections: Array < any > = [];
   source: any;
   supplierData: any;
   retailerData: any;
   sidValid = false;
   cidValid = false;
   messenger: any;
+  isMessage = false;
   supplierProfileImage = '';
   messageForm: FormGroup;
   messageValidation = {
@@ -88,11 +92,33 @@ export class MessengerComponent implements OnInit {
   }
 
   loadConnections(currentUser) {
-    this.afs.collection(`users/${currentUser}/connections`).valueChanges().subscribe(connections => {
-      connections.forEach(con => {
-        this.afs.doc(`users/${con.receiver}`).valueChanges().subscribe(conData => {
-          this.userConnections.push(conData);
-          console.log(this.userConnections);
+    this.afs.doc(`users/${currentUser}`).valueChanges().subscribe(user => {
+      this.isRetailer = user.retailer;
+      this.afs.collection(`users/${currentUser}/connections`).valueChanges().subscribe(connections => {
+        connections.forEach(con => {
+          this.afs.doc(`users/${con.receiver}`).valueChanges().subscribe(conData => {
+            if (this.isRetailer) {
+              const supplierID = con.receiver;
+              this.afs.collection(`chats/${supplierID + currentUser}/messages`,
+                ref => ref.orderBy('createdAt', 'asc')).valueChanges().subscribe(data => {
+                this.lastMessage = data[data.length - 1];
+                this.isMessage = true;
+                console.log(this.lastMessage);
+              });
+              this.userConnections.push(conData);
+              console.log(this.userConnections);
+            } else {
+              const retailerID = con.receiver;
+              this.supplierConnections.push(conData);
+              console.log(this.supplierConnections);
+              this.afs.collection(`chats/${currentUser+ retailerID}/messages`,
+                ref => ref.orderBy('createdAt', 'asc')).valueChanges().subscribe(data => {
+                this.lastMessage = data[data.length - 1];
+                this.isMessage = true;
+                console.log(this.lastMessage);
+              });
+            }
+          });
         });
       });
     });
@@ -121,7 +147,13 @@ export class MessengerComponent implements OnInit {
       this.showData(chatid);
     });
   }
+  chatPerson($event, currentUser, retaileruid) {
+    if (this.isRetailer) {
 
+    } else {
+
+    }
+  }
   async sendMessage(chatId, content) {
     const uid = this.us.getUserID();
     if (this.messageForm.valid) {
@@ -132,16 +164,16 @@ export class MessengerComponent implements OnInit {
       };
       this.afs.collection(`chats/${chatId}/messages`).add(data).then(() => {
         this.showMessages(chatId);
-        // this.afs.collection(`chats/${chatId}/messages`).valueChanges().subscribe(doc => {
-        //   console.log(doc);
-        // });
       });
     }
   }
-  showMessages(id){
-    this.afs.collection(`chats/${id}/messages`, ref=>ref.orderBy('createdAt','asc')).valueChanges().subscribe(messages => {
+  showMessages(id) {
+    this.afs.collection(`chats/${id}/messages`, ref => ref.orderBy('createdAt', 'asc')).valueChanges().subscribe(messages => {
       this.messenger = messages;
-      this.messageForm.patchValue({message: ''});
+      console.log(this.messenger);
+      this.messageForm.patchValue({
+        message: ''
+      });
     });
   }
   showData(id) {
@@ -162,7 +194,15 @@ export class MessengerComponent implements OnInit {
             console.log('Not enough client data!');
           });
         }
+      } else {
+        console.log('There is no data!');
       }
+    });
+  }
+
+  changeChat(first, second) {
+    this.router.navigate(['messenger', first + second]).then(() => {
+      this.showMessages(first + second);
     });
   }
 

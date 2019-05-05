@@ -9,8 +9,9 @@
             <input type="text" placeholder="Search connections..." />
           </div>
           <div class="connection-list">
-            <ul class="con-list">
-              <li class="single-con d-flex" *ngFor="let supplier of userConnections; let i = index;">
+            <ul class="con-list" *ngIf="isRetailer">
+              <li class="single-con d-flex" *ngFor="let supplier of userConnections; let i = index;"
+                [id]="supplier.uid" (click)="changeChat(supplier.uid, currentUser);">
                 <div class="d-block">
                   <div class="profile-img"
                     [ngStyle]="{'background-image': 'url(' + supplier.companyProfile.profilePicture + ')'}">
@@ -20,11 +21,35 @@
                   <div class="title">
                     <h5>{{supplier.companyProfile.tradingName}}</h5>
                   </div>
-                  <div class="last-message text-truncate" *ngIf="messenger[messenger.length-1].uid === currentUser">
-                    {{messenger[messenger.length-1].content}}
+                  <div *ngIf="isMessage">
+                      <div class="last-message text-truncate" *ngIf="lastMessage.uid === currentUser">
+                          {{lastMessage.content}}
+                        </div>
+                        <div class="last-message text-truncate font-weight-bold" *ngIf="lastMessage.uid !== currentUser">
+                          {{lastMessage.content}}
+                        </div>
                   </div>
-                  <div class="last-message text-truncate font-weight-bold" *ngIf="messenger[messenger.length-1].uid !== currentUser">
-                    {{messenger[messenger.length-1].content}}
+                </div>
+              </li>
+            </ul>
+            <ul class="con-list" *ngIf="!isRetailer">
+              <li class="single-con d-flex" *ngFor="let retailer of supplierConnections; let i = index;"
+                [id]="retailer.uid" (click)="changeChat(currentUser, retailer.uid);">
+                <div class="d-block">
+                  <div class="profile-img" [ngStyle]="{'background-image': 'url(' +  + ')'}">
+                  </div>
+                </div>
+                <div class="d-block">
+                  <div class="title">
+                    <h5>{{retailer.displayName}}</h5>
+                  </div>
+                  <div *ngIf="isMessage">
+                    <div class="last-message text-truncate" *ngIf="lastMessage.uid === currentUser">
+                      {{lastMessage.content}}
+                    </div>
+                    <div class="last-message text-truncate font-weight-bold" *ngIf="lastMessage.uid !== currentUser">
+                      {{lastMessage.content}}
+                    </div>
                   </div>
                 </div>
               </li>
@@ -32,8 +57,7 @@
           </div>
         </div>
         <div class="messages-area col-6 offset-3">
-
-          <div class="body" *ngIf="sidValid">
+          <div class="body">
             <div class="all-messages">
               <div class="messages-list">
                 <div class="message-row" *ngFor="let message of messenger">
@@ -52,18 +76,10 @@
               </div>
             </div>
           </div>
-          <div class="body" *ngIf="!sidValid">
-            <div class="all-messages"
-              style="    display: flex;align-items: center;justify-content: center;height: 100%;top: 25px;">
-              <div class="messages-list text-center text-secondary" style="width: 50%; height: 50%">
-                Please select the contact to start the chat!
-              </div>
-            </div>
-          </div>
           <div class="footer">
             <form (ngSubmit)="sendMessage(chatID,messageForm.get('message').value)" [formGroup]="messageForm">
               <textarea formControlName="message" [disabled]="!sidValid" placeholder="Type your message here..."
-                id="conmessage" style="resize:none;" (keydown.enter)="onKeydown()"></textarea>
+                id="conmessage" (keydown.enter)="onKeydown()"></textarea>
               <button type="submit" id="submitmessage" class="btn">
                 <i class="material-icons">
                   send

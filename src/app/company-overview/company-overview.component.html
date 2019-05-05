@@ -1,6 +1,6 @@
 <app-navigation></app-navigation>
 <div class="main-container" *ngIf="isLoaded">
-  <div class="container py-3" >
+  <div class="container py-3">
     <div class="companyOverview">
       <div class="wrap-box">
         <div class="mod-content">
@@ -9,8 +9,7 @@
               <div class="company-images">
                 <div class="image-item" style="outline: none; width: 495px;">
                   <div class="next-row next-row-no-padding next-row-justify-center next-row-align-center image-box">
-                    <img src="{{cInfo.profilePicture}}"
-                      style="width: 100%; height: 100%;" />
+                    <img src="{{cInfo.profilePicture}}" style="width: 100%; height: 100%;" />
                   </div>
                 </div>
               </div>
@@ -24,7 +23,8 @@
                   </div>
                   <span class="assessment-icon">
                     <a class="icbu-icon-gs-year icbu-icon-gs-year-bg icbu-icon-gs-year-small no-icon">
-                      <span class="join-year"><span class="value">{{yearsInBusiness}}</span><span class="unit">YRS</span></span>
+                      <span class="join-year"><span class="value">{{yearsInBusiness}}</span><span
+                          class="unit">YRS</span></span>
                     </a>
                     <span class="font-weight-bold ml-1" style="font-size: .7rem;">In the
                       business</span>
@@ -369,8 +369,9 @@
                       <td class="title">Address:</td>
                       <td class="content text-truncate">{{cInfo.addr}}</td>
                     </tr>
-                    <tr class="action-row">
-                      <td><button class="btn btn-dark btn-sm">Contact Supplier</button></td>
+                    <tr class="action-row" *ngIf="retailer">
+                      <td><button class="btn btn-dark btn-sm" (click)="contactSupplier($event, id)">Contact
+                          Supplier</button></td>
                     </tr>
                   </tbody>
                 </table>
@@ -388,32 +389,34 @@
           </div>
           <div class="message-form">
             <div class="row">
-              <div class="col-12 mx-auto">
-                <div class="row">
-                  <div class="col-3 label">
-                    To:
+              <form (ngSubmit)="create()" [formGroup]="messageForm" style="width: 100%">
+                <div class="col-12 mx-auto">
+                  <div class="row">
+                    <div class="col-3 label">
+                      To:
+                    </div>
+                    <div class="col-9 to-person">
+                      <p>{{cInfo.managerName}}</p>
+                    </div>
                   </div>
-                  <div class="col-9 to-person">
-                    <p>Name Surname</p>
+                  <div class="row mt-3">
+                    <div class="col-3 label">
+                      Message:
+                    </div>
+                    <div class="col-9 message-area">
+                      <textarea name="content" rows="4"
+                        placeholder="Enter your inquiry details such as product name, color, size, quantity, material, etc."
+                        data-meta="Field" id="content" maxlength="8000" type="text" height="100%" formControlName="message"></textarea>
+                    </div>
+                  </div>
+                  <div class="row mt-1">
+                    <div class="col-3"></div>
+                    <div class="col-9">
+                      <button class="btn btn-dark btn-sm">Send Message</button>
+                    </div>
                   </div>
                 </div>
-                <div class="row mt-3">
-                  <div class="col-3 label">
-                    Message:
-                  </div>
-                  <div class="col-9 message-area">
-                    <textarea name="content" rows="4"
-                      placeholder="Enter your inquiry details such as product name, color, size, quantity, material, etc."
-                      data-meta="Field" id="content" maxlength="8000" type="text" height="100%"></textarea>
-                  </div>
-                </div>
-                <div class="row mt-1">
-                  <div class="col-3"></div>
-                  <div class="col-9">
-                    <button class="btn btn-dark btn-sm">Send Message</button>
-                  </div>
-                </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>
