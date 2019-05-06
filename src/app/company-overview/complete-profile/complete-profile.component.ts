@@ -112,7 +112,6 @@ export class CompleteProfileComponent implements OnInit {
       }
     }
   };
-
   // Form Validation displaying error messages
   profile_validation = {
     // Step One

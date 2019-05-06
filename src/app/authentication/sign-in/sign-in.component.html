@@ -10,22 +10,32 @@
         <img class="mx-auto d-block" src="../../assets/Logo.png" alt="Logo">
         <h1 class="text-center font-weight-bold">GoldenLine</h1>
         <p class="text-center text-secondary">Welcome back! Please login to your account.</p>
-        <form (ngSubmit)="tryLogin()">
+        <form (ngSubmit)="tryLogin()" [formGroup]="loginForm">
           <div class="form-group">
-            <input type="email" class="form-control" placeholder="Email Address" #userName required>
+            <input type="email" class="form-control" placeholder="Email Address" formControlName="userName" required>
+            <div class="invalid-feedback d-block" *ngIf="loginForm.get('userName').dirty || loginForm.get('userName').touched">
+                <div *ngIf="loginForm.get('userName').hasError('required')">Please enter email!</div>
+                <div *ngIf="loginForm.get('userName').hasError('pattern')">Email address badly fomatted!</div>
+            </div>
           </div>
           <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password" #userPassword required> 
-            <p class="w-100 text-center font-weight-bold m-0 p-0 mb-2" style="color:red; opacity: .8; font-size: .8em">{{error}}</p>
+            <input type="password" class="form-control" placeholder="Password" formControlName="userPassword" required>
+            <div class="invalid-feedback d-block" *ngIf="loginForm.get('userPassword').dirty || loginForm.get('userPassword').touched">
+                <div *ngIf="loginForm.get('userPassword').hasError('required')">Please enter password!</div>
+                <div *ngIf="loginForm.get('userPassword').hasError('pattern')">Please use allowed characters!</div>
+            </div>
           </div>
           <div class="row">
-          <div class="col">
-              <button type="button" (click)="authService.SignIn(userName.value, userPassword.value)"  class="w-100 btn btn-primary"><i class="material-icons">arrow_forward</i></button>
+            <div class="col">
+              <button type="submit" [disabled]="loginForm.invalid" class="w-100 btn btn-primary"><i
+                  class="material-icons">arrow_forward</i></button>
             </div>
           </div>
           <p class="text-center font-weight-bold mt-2 mb-0">Don't have an account ?</p>
-          <button id="reg" routerLink="/register-user" type="button" class="m-0 btn btn-default w-100 font-weight-bold">REGISTER</button>
-          <p style="font-size: .7rem; cursor: pointer;" class="w-100 text-center text-muted" routerLink="/forgot-password">Forgot Password?</p>
+          <button id="reg" routerLink="/register-user" type="button"
+            class="m-0 btn btn-default w-100 font-weight-bold">REGISTER</button>
+          <p style="font-size: .7rem; cursor: pointer;" class="w-100 text-center text-muted"
+            routerLink="/forgot-password">Forgot Password?</p>
         </form>
       </div>
     </div>

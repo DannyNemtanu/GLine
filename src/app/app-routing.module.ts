@@ -68,7 +68,7 @@ import {
 import { RfqComponent } from './rfq/rfq.component';
 
 // Include route guard in routes array
-const routes: Routes = [{
+export const routes: Routes = [{
     path: '',
     redirectTo: '/sign-in',
     pathMatch: 'full'

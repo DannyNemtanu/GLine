@@ -10,28 +10,28 @@
         <img class="mx-auto d-block" src="../../assets/Logo.png" alt="Logo">
         <h1 class="text-center font-weight-bold">GoldenLine</h1>
         <p class="text-center text-secondary">Welcome back! Please login to your account.</p>
-        <form>
+        <form (ngSubmit)="tryRegister()" [formGroup]="registerForm">
           <div class="form-row my-2">
               <div class="col">
-                  <input type="button" value="Manufacturer" class="form-btn w-100 btn" [ngClass]="toogleManufacturer ?  'active' : ' '" (click)="manufacturer()" required />
+                  <input type="button" value="Manufacturer" class="form-btn w-100 btn" [ngClass]="toogleManufacturer ?  'active' : ' '" (click)="manufacturer()" />
               </div>
               <div class="col">
-                  <input type="button" class="form-btn w-100 btn" [ngClass]="toogleRetailer ?  'active' : ''" value="Retailer" (click)="retailer()" required />
+                  <input type="button" class="form-btn w-100 btn" [ngClass]="toogleRetailer ?  'active' : ''" value="Retailer" (click)="retailer()" />
               </div>
           </div>
           <div class="form-group">
-            <input type="text"  class="form-control" placeholder="Username" #regUsername required>
+            <input type="text"  class="form-control" placeholder="Username" formControlName="regUsername">
           </div>
           <div class="form-group">
-            <input type="email"  class="form-control" aria-describedby="emailHelp" #regEmail placeholder="Email Address" required>
+            <input type="email"  class="form-control" aria-describedby="emailHelp" formControlName="regEmail" placeholder="Email Address">
           </div>
           <div class="form-group">
-            <input type="password"  class="form-control" placeholder="Passowrd" #regPassword required>
+            <input type="password"  class="form-control" placeholder="Passowrd" formControlName="regPassword">
           </div>
           <div class="form-group">
-            <input type="password"  class="form-control" placeholder="Confirm Password" #regcPass required>
+            <input type="password"  class="form-control" placeholder="Confirm Password" formControlName="regcPass">
           </div>
-          <button type="submit" (click)="tryRegister(regUsername.value, regEmail.value, regPassword.value, regcPass.value)" class="w-100 btn btn-primary"><i class="material-icons">arrow_forward</i></button>
+          <button type="submit" [disabled]="registerForm.invalid" class="w-100 btn btn-primary"><i class="material-icons">arrow_forward</i></button>
             <p class="text-center font-weight-bold mt-2 mb-0">Already have an account ?</p>
           <button id="reg" routerLink="../sign-in" type="button" class="m-0 btn btn-default w-100 font-weight-bold">LOGIN</button>
         </form>

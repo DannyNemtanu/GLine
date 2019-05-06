@@ -16,9 +16,6 @@ import {
   OnInit
 } from '@angular/core';
 import {
-  User
-} from '../shared/services/user';
-import {
   FormBuilder,
   FormGroup,
   Validators
@@ -51,7 +48,6 @@ export class CompanyOverviewComponent implements OnInit {
     private userService: UserDataService,
     private afs: AngularFirestore,
     private route: ActivatedRoute,
-    private us: UserDataService,
     private chat: ChatService,
     private router: Router,
     private fb: FormBuilder
@@ -67,12 +63,20 @@ export class CompanyOverviewComponent implements OnInit {
     });
   }
   ngOnInit() {
+    this.getRouterID();
+    this.checkUser();
+  }
+  checkUser() {
+    const query = this.afs.doc(`${this.userService.getUserID()}`).valueChanges();
+    query.subscribe(data => {
+      console.log(data);
+    });
+  }
+  getRouterID() {
     this.route.params.subscribe(params => {
       this.id = params['id'];
       this.getInfo(this.id);
     });
-    this.setUserType();
-    // this.userData(this.userService.getUserID());
   }
   getInfo(id) {
     const doc = this.afs.doc(`users/${id}`);
@@ -87,23 +91,10 @@ export class CompanyOverviewComponent implements OnInit {
       this.isLoaded = true;
     });
   }
-  setUserType() {
-    const query = this.afs
-      .collection < User > ('users', ref =>
-        ref.where('uid', '==', this.userService.getUserID())
-      )
-      .valueChanges();
-    query.subscribe(snapshot => {
-      if (snapshot[0].retailer) {
-        this.retailer = true;
-      } else {
-        this.retailer = false;
-      }
-    });
-  }
+
   contactSupplier(event, supplierId) {
     // Data
-    const clientId = this.us.getUserID();
+    const clientId = this.userService.getUserID();
     const data = {
       receiver: supplierId,
       createdAt: Date.now(),
@@ -133,10 +124,10 @@ export class CompanyOverviewComponent implements OnInit {
   }
 
   async create() {
-    const chatId = this.id + this.us.getUserID();
+    const chatId = this.id + this.userService.getUserID();
     const data = {
       sid: this.id,
-      cid: this.us.getUserID(),
+      cid: this.userService.getUserID(),
       createdAt: Date.now(),
       chatID: chatId
     };
@@ -152,7 +143,7 @@ export class CompanyOverviewComponent implements OnInit {
     });
   }
   async sendMessage(chatId, content) {
-    const uid = this.us.getUserID();
+    const uid = this.userService.getUserID();
     if (this.messageForm.valid) {
       const data = {
         uid,

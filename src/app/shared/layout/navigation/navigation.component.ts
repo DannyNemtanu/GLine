@@ -80,9 +80,9 @@ export class NavigationComponent implements OnInit {
       .valueChanges();
     query.subscribe(snapshot => {
       if (snapshot[0].retailer) {
-        this.retailer = true;
+        return this.retailer = true;
       } else {
-        this.manufacturer = true;
+        return this.manufacturer = true;
       }
     });
   }

@@ -26,20 +26,18 @@ export class UserDataService {
     const user = JSON.parse(localStorage.getItem('user'));
     return user.uid;
   }
-  setUserType(): boolean {
+
+  setUserType() {
     const query = this.afs
       .collection<User>('users', ref =>
         ref.where('uid', '==', this.getUserID())
       )
       .valueChanges();
     query.subscribe(snapshot => {
-      if (snapshot[0].retailer) {
-        this.check = true;
-      } else {
-        this.check = false;
+      if (snapshot[0].retailer === true) {
+        return true;
       }
     });
-    return this.check;
   }
 
   getCurrentUser() {

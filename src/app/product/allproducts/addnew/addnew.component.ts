@@ -356,8 +356,8 @@ export class AddnewComponent implements OnInit {
               this.addImageUrl(url);
             })
             .then(() => {
-              console.log('Image successfylly uploaded!');
-              console.log(this.ProductForm.get('productImages').value);
+              // console.log('Image successfylly uploaded!');
+              // console.log(this.ProductForm.get('productImages').value);
               this.imageError = false;
             })
             .catch(function() {
