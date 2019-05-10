@@ -14,7 +14,6 @@ export class ProductComponent implements OnInit {
   supplier: Array<any> = [];
   products: Array<any> = [];
   constructor(
-    private us: UserDataService,
     private afs: AngularFirestore
   ) {
   }

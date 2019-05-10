@@ -30,6 +30,7 @@
     "rxjs": "~6.3.3",
     "rxjs-compat": "^6.0.0-tactical-rc.1",
     "rxjs-observable": "0.0.7",
+    "stacktrace-js": "^2.0.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

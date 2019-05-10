@@ -26,7 +26,9 @@ import {
 import {
   Router
 } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import {
+  BehaviorSubject
+} from 'rxjs';
 
 @Component({
   selector: 'app-navigation',
@@ -42,7 +44,7 @@ export class NavigationComponent implements OnInit {
   sid;
   cid;
   searhGroup: FormGroup;
-  isNewSearch: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  isNewSearch: BehaviorSubject < boolean > = new BehaviorSubject < boolean > (false);
 
   searchType = [{
       id: 1,
@@ -58,8 +60,7 @@ export class NavigationComponent implements OnInit {
     private as: AuthService,
     private afs: AngularFirestore,
     private fb: FormBuilder,
-    public router: Router,
-    private chat: ChatService
+    public router: Router
   ) {}
 
   ngOnInit() {
@@ -67,20 +68,21 @@ export class NavigationComponent implements OnInit {
       type: ['Product', Validators.required],
       search: ['', Validators.compose([Validators.required, Validators.pattern(/^[a-zA-Z0-9-"', ]*$/)])]
     });
-    this.setUserType();
-    this.id = this.userService.getUserID();
-  }
-  goToChat() {
-    this.chat.setSource('', this.userService.getUserID());
-    this.router.navigate(['messenger', this.userService.getUserID()]);
+    try {
+      this.setUserType();
+    } catch (e) {
+      throw new Error('Could not set user type!');
+    }
+  this.id = this.userService.getUserID();
+}
 
-  }
-  setUserType() {
-    const query = this.afs
-      .collection < User > ('users', ref =>
-        ref.where('uid', '==', this.userService.getUserID())
-      )
-      .valueChanges();
+setUserType() {
+  const query = this.afs
+    .collection < User > ('users', ref =>
+      ref.where('uid', '==', this.userService.getUserID())
+    )
+    .valueChanges();
+  try {
     query.subscribe(snapshot => {
       if (snapshot[0].retailer) {
         return this.retailer = true;
@@ -88,26 +90,31 @@ export class NavigationComponent implements OnInit {
         return this.manufacturer = true;
       }
     });
+  } catch (error) {
+    throw new Error(error);
   }
-  searchQuery() {
-    const type = this.searhGroup.get('type').value;
-    const query = this.searhGroup.get('search').value;
-    console.log(this.searhGroup.value);
-    if (type === 'Product') {
-      this.router.navigate(['/products', query]).then(() => {
-      //   if (this.router.url.indexOf('/products/') > -1) {
-      //     window.location.reload();
-      //   }
-      });
-    } else {
-      this.router.navigate(['/suppliers', query]).then(() => {
-        if (this.router.url.indexOf('/suppliers/') > -1) {
-          window.location.reload();
-        }
-      });
-    }
+}
+searchQuery() {
+  const type = this.searhGroup.get('type').value;
+  const query = this.searhGroup.get('search').value;
+  console.log(this.searhGroup.value);
+  if (type === 'Product') {
+    this.router.navigate(['/products', query]).then(() => {
+      if (this.router.url.indexOf('/products/') > -1) {
+        window.location.reload();
+      }
+    });
+  } else {
+    this.router.navigate(['/suppliers', query]).then(() => {
+      if (this.router.url.indexOf('/suppliers/') > -1) {
+        window.location.reload();
+      }
+    });
   }
-  logout() {
-    this.as.SignOut();
-  }
+}
+logout() {
+  this.as.SignOut().catch(() => {
+    throw new Error('Secure sign out failed!');
+  });
+}
 }

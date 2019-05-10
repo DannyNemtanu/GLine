@@ -111,15 +111,19 @@ export class MessengerComponent implements OnInit {
   }
 
   checkChat(chatid) {
-    this.afs.doc(`chats/${chatid}`).valueChanges().subscribe(data => {
-      if (data) {
-        this.showData(chatid);
-      } else {
-        if (chatid !== this.us.getUserID()) {
-          this.create(chatid);
+    try {
+      this.afs.doc(`chats/${chatid}`).valueChanges().subscribe(data => {
+        if (data) {
+          this.showData(chatid);
+        } else {
+          if (chatid !== this.us.getUserID()) {
+            this.create(chatid);
+          }
         }
-      }
-    });
+      });
+    } catch (e) {
+      throw new Error(`Chat could not be found: ${chatid} by the \n USER: ${this.currentUser}`);
+    }
   }
 
   async create(chatid) {
@@ -133,13 +137,6 @@ export class MessengerComponent implements OnInit {
       this.showData(chatid);
     });
   }
-  chatPerson($event, currentUser, retaileruid) {
-    if (this.isRetailer) {
-
-    } else {
-
-    }
-  }
 
   async sendMessage(chatId, content) {
     const uid = this.us.getUserID();
@@ -149,22 +146,31 @@ export class MessengerComponent implements OnInit {
         content: this.encryptData(content),
         createdAt: Date.now()
       };
-      this.afs.collection(`chats/${chatId}/messages`).add(data).then(() => {
-        this.showMessages(chatId);
-      });
+      try {
+        this.afs.collection(`chats/${chatId}/messages`).add(data).then(() => {
+          this.showMessages(chatId);
+        });
+      } catch (e) {
+        throw new Error(`Could not upload message to database`);
+      }
+    } else {
+      throw new Error(`Sending Message: ${this.messageForm.value}`);
     }
   }
   showMessages(id) {
     this.messenger = new Array;
-    this.afs.collection(`chats/${id}/messages`, ref => ref.orderBy('createdAt', 'asc')).valueChanges().subscribe(messages => {
-      messages.forEach(message => {
-        this.messenger = messages;
+    try {
+      this.afs.collection(`chats/${id}/messages`, ref => ref.orderBy('createdAt', 'asc')).valueChanges().subscribe(messages => {
+        messages.forEach(message => {
+          this.messenger = messages;
+        });
+        this.messageForm.patchValue({
+          message: ''
+        });
       });
-      // console.log(this.messenger);
-      this.messageForm.patchValue({
-        message: ''
-      });
-    });
+    } catch (e) {
+      throw new Error('Sowing messages failed!');
+    }
     // console.log(this.decryptData(data.content, data.uid););
   }
 
@@ -176,13 +182,17 @@ export class MessengerComponent implements OnInit {
       // console.log(chipertext.toString());
       return chipertext.toString();
     } catch (e) {
-      // console.log(e);
+      throw new Error('Data encrytion failed!');
     }
   }
   decryptData(chipertext, sender) {
-    const bytes = CryptoJS.AES.decrypt(chipertext.toString(), sender);
-    const plaintext = bytes.toString(CryptoJS.enc.Utf8);
-    return plaintext;
+    try {
+      const bytes = CryptoJS.AES.decrypt(chipertext.toString(), sender);
+      const plaintext = bytes.toString(CryptoJS.enc.Utf8);
+      return plaintext;
+    } catch {
+      throw new Error('Data decryption failed!');
+    }
   }
 
 
@@ -205,7 +215,7 @@ export class MessengerComponent implements OnInit {
           });
         }
       } else {
-        // console.log('There is no data!');
+        throw new Error(`Data could not be found ${this.currentUser}`);
       }
     });
   }

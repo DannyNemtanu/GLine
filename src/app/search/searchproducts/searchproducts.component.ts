@@ -41,17 +41,6 @@ export class SearchproductsComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.setLastQuer !== this.query) {
-      this.newSearch = true;
-      this.setLastQuer = this.query;
-      console.log(this.setLastQuer);
-      console.log(this.newSearch);
-    } else {
-      this.newSearch = false;
-      console.log(this.setLastQuer);
-      console.log(this.newSearch);
-    }
-    this.cdr.detectChanges();
     this.displayProducts(this.query);
   }
   displayProducts(query) {

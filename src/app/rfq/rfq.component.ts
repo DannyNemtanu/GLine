@@ -24,6 +24,7 @@ import {
 import {
   Router
 } from '@angular/router';
+import { StoreService } from '../logging/store.service';
 
 @Component({
   selector: 'app-rfq',
@@ -78,12 +79,13 @@ export class RfqComponent implements OnInit {
       message: 'File not supported!'
     }],
   };
+  
   constructor(
     private afs: AngularFirestore,
     private fb: FormBuilder,
     private us: UserDataService,
     private afStorage: AngularFireStorage,
-    private router: Router
+    private router: Router,
   ) {
     this.rfqForm = this.fb.group({
       uid: [
@@ -117,6 +119,7 @@ export class RfqComponent implements OnInit {
   ngOnInit() {
     this.id = this.afs.createId();
     console.log('Generated ID: ' + this.id);
+    
   }
 
   // Mange Price

@@ -1,5 +1,4 @@
-
- <!-- =========================*
+<!-- =========================*
  *  Classname Home Page Source Code
  *
  *  Date e.g. 13/10/2018
@@ -8,7 +7,7 @@
  *
  ========================= -->
 
- <!-- ========================= SECTION/MAIN ========================= -->
+<!-- ========================= SECTION/MAIN ========================= -->
 <div class="slider pt-2 main-menu">
   <div class="container">
     <div class="card">
@@ -22,8 +21,8 @@
             <div class="menu-category-view index-category indiv-category-view">
               <ul class="indiv-category-list">
                 <li class="category-item-wrapper  first-item " *ngFor="let categories of myMarkets; let i = index;">
-                  <a class="category-item util-ellipsis" self="_blannk"
-                    (click)="searchCategory($event, categories.name)" title="Consumer Electronics">
+                  <a class="category-item util-ellipsis" [routerLink]="['/products', categories.name]"
+                    title="Consumer Electronics">
                     {{categories.name}}
                   </a>
                 </li>
@@ -141,54 +140,54 @@
         <div class="label"></div>
       </div>
       <div class="row-content util-clearfix">
-        <div class="rfq-form" >
-            <div class="rfq-title">
-              <label>One Request, Multiple Quotes</label>
-            </div>
-            <div class="rfq-row">
-              <input type="text" name="rfqName"
-                class="rfq-keywords ui2-textfield ui2-textfield-large ui2-textfield-single searchbar-keyword"
-                maxlength="128" placeholder="What are you looking for…">
-            </div>
-            <div class="rfq-row util-clearfix">
-              <input type="text" name="quantity"
-                class="rfq-quantity ui2-textfield ui2-textfield-large ui2-textfield-single quantity"
-                placeholder="Quantity">
-            </div>
-            <div class="rfq-row">
-              <span class="rfq-tip">Select template type:</span>
-              <div class="rfq-tags util-clearfix">
-                <input type="hidden" name="rfqDetail" value="">
-                <div class="ui2-tag ui2-tag-basic ui2-tag-check ui2-tag-small"
-                  data-message="I’d like to request a quotation with your best price offer.">
-                  <div class="ui2-tag-head" data-role="tag-head"></div>
-                  <div class="ui2-tag-body" data-role="tag-body">
-                    Request price
-                  </div>
-                  <div class="ui2-tag-tail" data-role="tag-tail">
-                  </div>
+        <div class="rfq-form">
+          <div class="rfq-title">
+            <label>One Request, Multiple Quotes</label>
+          </div>
+          <div class="rfq-row">
+            <input type="text" name="rfqName"
+              class="rfq-keywords ui2-textfield ui2-textfield-large ui2-textfield-single searchbar-keyword"
+              maxlength="128" placeholder="What are you looking for…">
+          </div>
+          <div class="rfq-row util-clearfix">
+            <input type="text" name="quantity"
+              class="rfq-quantity ui2-textfield ui2-textfield-large ui2-textfield-single quantity"
+              placeholder="Quantity">
+          </div>
+          <div class="rfq-row">
+            <span class="rfq-tip">Select template type:</span>
+            <div class="rfq-tags util-clearfix">
+              <input type="hidden" name="rfqDetail" value="">
+              <div class="ui2-tag ui2-tag-basic ui2-tag-check ui2-tag-small"
+                data-message="I’d like to request a quotation with your best price offer.">
+                <div class="ui2-tag-head" data-role="tag-head"></div>
+                <div class="ui2-tag-body" data-role="tag-body">
+                  Request price
                 </div>
-                <div class="ui2-tag ui2-tag-basic ui2-tag-check ui2-tag-small"
-                  data-message="Please can you send me a product sample?">
-                  <div class="ui2-tag-head" data-role="tag-head"></div>
-                  <div class="ui2-tag-body" data-role="tag-body">
-                    Request a sample
-                  </div>
-                  <div class="ui2-tag-tail" data-role="tag-tail">
-                  </div>
+                <div class="ui2-tag-tail" data-role="tag-tail">
                 </div>
-                <div class="ui2-tag ui2-tag-basic ui2-tag-check ui2-tag-small"
-                  data-message="I’d like to request a quotation including full product details.">
-                  <div class="ui2-tag-head" data-role="tag-head"></div>
-                  <div class="ui2-tag-body" data-role="tag-body">
-                    Request quotation details
-                  </div>
-                  <div class="ui2-tag-tail" data-role="tag-tail">
-                  </div>
+              </div>
+              <div class="ui2-tag ui2-tag-basic ui2-tag-check ui2-tag-small"
+                data-message="Please can you send me a product sample?">
+                <div class="ui2-tag-head" data-role="tag-head"></div>
+                <div class="ui2-tag-body" data-role="tag-body">
+                  Request a sample
+                </div>
+                <div class="ui2-tag-tail" data-role="tag-tail">
+                </div>
+              </div>
+              <div class="ui2-tag ui2-tag-basic ui2-tag-check ui2-tag-small"
+                data-message="I’d like to request a quotation including full product details.">
+                <div class="ui2-tag-head" data-role="tag-head"></div>
+                <div class="ui2-tag-body" data-role="tag-body">
+                  Request quotation details
+                </div>
+                <div class="ui2-tag-tail" data-role="tag-tail">
                 </div>
               </div>
             </div>
-            <button class="rfq-submit btn btn-dark btn-md">Request For Quotation</button>
+          </div>
+          <button class="rfq-submit btn btn-dark btn-md">Request For Quotation</button>
         </div>
         <div class="rfq-banner-0705">
           <div id="J_RFQ_Slide" class="rfq-banner-slider rfq-banner-slider-onlyone ui-switchable">

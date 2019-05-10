@@ -3,7 +3,7 @@
   <div class="navigation-left sticky-top float-left">
     <!-- Navigation Header -->
     <div class="brand border-bottom">
-      <a href="#">
+      <a [routerLink]="['/sign-in']">
         <div class="container">
           <div class="row">
             <div class="col-auto p-0">
@@ -20,14 +20,14 @@
       <!-- Functionalities -->
       <ul class="navbar-nav scrollable-content p-0">
         <li class="nav-item" *ngIf="manufacturer">
-          <a [routerLink]="['/overview',id]" class="nav-link">
+          <a [routerLink]="['/overview',id]" routerLinkActive="active" class="nav-link">
             <i class="material-icons">
               dashboard
             </i>
             MY PAGE <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item" *ngIf="retailer">
-          <a routerLink="/dashboard" class="nav-link">
+          <a routerLink="/dashboard"  routerLinkActive="active" class="nav-link">
             <i class="material-icons">
               dashboard
             </i>
@@ -47,7 +47,7 @@
                 Complete Profile</a>
             </li>
             <li class="nav-item">
-              <a routerLink="/rfqlist" class="nav-link">
+              <a routerLink="/rfqlist" routerLinkActive="active" class="nav-link">
                 <i class="material-icons">
                   category
                 </i>
@@ -65,21 +65,21 @@
           <!-- Retailer -->
           <ul class="p-0 w-100" *ngIf="retailer">
             <li class="nav-item">
-              <a routerLink="/products" class="nav-link" href="#">
+              <a routerLink="/products" routerLinkActive="active" class="nav-link" href="#">
                 <i class="material-icons">
                   category
                 </i>
                 Search Products</a>
             </li>
             <li class="nav-item">
-              <a routerLink="/suppliers" class="nav-link" href="#">
+              <a routerLink="/suppliers" routerLinkActive="active" class="nav-link" href="#">
                 <i class="material-icons">
                   money
                 </i>
                 Search Suppliers</a>
             </li>
             <li class="nav-item">
-              <a routerLink="/rfq" class="nav-link">
+              <a routerLink="/rfq" routerLinkActive="active" class="nav-link">
                 <i class="material-icons">
                   business_center
                 </i>
@@ -89,7 +89,7 @@
           <!-- End Retailer -->
         </li>
         <li class="nav-item">
-          <a (click)="goToChat()" class="nav-link">
+          <a [routerLink]="['messenger', this.userService.getUserID()]" routerLinkActive="active" class="nav-link">
             <i class="material-icons">
               people
             </i>

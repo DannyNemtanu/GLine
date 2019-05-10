@@ -1,5 +1,12 @@
-import { EditrfqComponent } from './rfq/editrfq/editrfq.component';
-import { ListComponent } from './rfq/list/list.component';
+import {
+  LogsComponent
+} from './logging/logs/logs.component';
+import {
+  EditrfqComponent
+} from './rfq/editrfq/editrfq.component';
+import {
+  ListComponent
+} from './rfq/list/list.component';
 import {
   SuppliersComponent
 } from './suppliers/suppliers.component';
@@ -65,10 +72,27 @@ import {
 import {
   SearchsuppliersComponent
 } from './search/searchsuppliers/searchsuppliers.component';
-import { RfqComponent } from './rfq/rfq.component';
+import {
+  RfqComponent
+} from './rfq/rfq.component';
+import {
+  SecureRetailerGuard
+} from './shared/guard/secure-retailer.guard';
+import { SecureAdminGuard } from './shared/guard/secure-admin.guard';
 
 // Include route guard in routes array
-export const routes: Routes = [{
+export const routes: Routes = [
+  {
+    path: 'forgot-password',
+    component: ForgotPasswordComponent,
+    canActivate: [SecureInnerPagesGuard]
+  },
+  {
+    path: 'verify-email-address',
+    component: VerifyEmailComponent,
+    canActivate: [SecureInnerPagesGuard]
+  },
+  {
     path: '',
     redirectTo: '/sign-in',
     pathMatch: 'full'
@@ -86,80 +110,87 @@ export const routes: Routes = [{
   {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, SecureRetailerGuard]
   },
   {
     path: 'allproducts',
     component: AllproductsComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, SecureRetailerGuard]
   },
   {
     path: 'add',
     component: AddnewComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, SecureRetailerGuard]
   },
   {
     path: 'products',
     component: ProductComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, SecureRetailerGuard]
   },
   {
     path: 'products/:query',
     component: SearchproductsComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, SecureRetailerGuard]
   },
   {
     path: 'suppliers',
     component: SuppliersComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, SecureRetailerGuard]
   },
   {
     path: 'suppliers/:query',
     component: SearchsuppliersComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, SecureRetailerGuard]
   },
   {
     path: 'product/:user/:id',
     component: SingleProductComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, SecureRetailerGuard]
   },
   {
     path: 'editProduct/:user/:id',
     component: EditProductComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, SecureRetailerGuard]
   },
   {
     path: 'manufacturers',
     component: ProductComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, SecureRetailerGuard]
   },
   {
     path: 'complete-profile',
     component: CompleteProfileComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, SecureRetailerGuard]
   },
   {
     path: 'overview/:id',
     component: CompanyOverviewComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, SecureRetailerGuard]
   },
-  { path: 'rfq', component: RfqComponent, canActivate: [AuthGuard] },
-  { path: 'myrequests', component: EditrfqComponent, canActivate: [AuthGuard] },
-  { path: 'rfqlist', component: ListComponent, canActivate: [AuthGuard] },
+  {
+    path: 'rfq',
+    component: RfqComponent,
+    canActivate: [AuthGuard, SecureRetailerGuard]
+  },
+  {
+    path: 'myrequests',
+    component: EditrfqComponent,
+    canActivate: [AuthGuard, SecureRetailerGuard]
+  },
+  {
+    path: 'rfqlist',
+    component: ListComponent,
+    canActivate: [AuthGuard, SecureRetailerGuard]
+  },
   {
     path: 'messenger/:chatid',
     component: MessengerComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, SecureRetailerGuard],
   },
   {
-    path: 'forgot-password',
-    component: ForgotPasswordComponent,
-    canActivate: [SecureInnerPagesGuard]
-  },
-  {
-    path: 'verify-email-address',
-    component: VerifyEmailComponent,
-    canActivate: [SecureInnerPagesGuard]
+    path: 'logger',
+    component: LogsComponent,
+    canActivate: [AuthGuard, SecureAdminGuard],
   }
 ];
 

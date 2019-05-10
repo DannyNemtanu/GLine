@@ -1,5 +1,10 @@
-import { UserDataService } from './../../services/user-data.service';
-import { Component, OnInit } from '@angular/core';
+import {
+  UserDataService
+} from './../../services/user-data.service';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
 import {
   AngularFirestoreDocument,
   AngularFirestore
@@ -8,10 +13,21 @@ import {
   AngularFireStorage,
   AngularFireUploadTask
 } from '@angular/fire/storage';
-import { Observable } from 'rxjs';
-import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
+import {
+  Observable
+} from 'rxjs';
+import {
+  SafeResourceUrl,
+  DomSanitizer
+} from '@angular/platform-browser';
+import {
+  FormGroup,
+  Validators,
+  FormBuilder
+} from '@angular/forms';
+import {
+  Router
+} from '@angular/router';
 
 @Component({
   selector: 'app-complete-profile',
@@ -19,10 +35,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./complete-profile.component.scss']
 })
 export class CompleteProfileComponent implements OnInit {
+  // Logging user
+  currentUser;
   // Angular Storage
   task: AngularFireUploadTask;
-  percentage: Observable<number>;
-  snapshot: Observable<any>;
+  percentage: Observable < number > ;
+  snapshot: Observable < any > ;
   currentYear = new Date();
   // Profile Picture
   showImage = false;
@@ -115,16 +133,20 @@ export class CompleteProfileComponent implements OnInit {
   // Form Validation displaying error messages
   profile_validation = {
     // Step One
-    profilePicture: [
-      { type: 'required', message: 'Business profile picture is required' },
+    profilePicture: [{
+        type: 'required',
+        message: 'Business profile picture is required'
+      },
       {
         type: 'pattern',
         message: 'Trading name must contain only numbers and letters'
       }
       // { type: 'validName', message: 'Trading name has already been taken' }
     ],
-    tradingName: [
-      { type: 'required', message: 'Trading name is required' },
+    tradingName: [{
+        type: 'required',
+        message: 'Trading name is required'
+      },
       {
         type: 'minlength',
         message: 'Trading name must be at least 4 characters long'
@@ -139,8 +161,10 @@ export class CompleteProfileComponent implements OnInit {
       }
       // { type: 'validName', message: 'Trading name has already been taken' }
     ],
-    registrationNumber: [
-      { type: 'required', message: 'Registration number is required' },
+    registrationNumber: [{
+        type: 'required',
+        message: 'Registration number is required'
+      },
       {
         type: 'minlength',
         message: 'Registration number must be at least 4 characters long'
@@ -154,8 +178,10 @@ export class CompleteProfileComponent implements OnInit {
         message: 'Registration number must contain only numbers and letters'
       }
     ],
-    day: [
-      { type: 'required', message: 'Day is required' },
+    day: [{
+        type: 'required',
+        message: 'Day is required'
+      },
       {
         type: 'maxlength',
         message: 'Max length is 2'
@@ -165,15 +191,19 @@ export class CompleteProfileComponent implements OnInit {
         message: 'Date between 1 - 31'
       }
     ],
-    month: [
-      { type: 'required', message: 'Month is required' },
+    month: [{
+        type: 'required',
+        message: 'Month is required'
+      },
       {
         type: 'pattern',
         message: 'Please insert valid month'
       }
     ],
-    year: [
-      { type: 'required', message: 'Year is required' },
+    year: [{
+        type: 'required',
+        message: 'Year is required'
+      },
       {
         type: 'maxlength',
         message: 'Maximum length is 4'
@@ -183,80 +213,161 @@ export class CompleteProfileComponent implements OnInit {
         message: 'Year between 1970 - 2019'
       }
     ],
-    websiteURL: [
+    websiteURL: [{
+      type: 'pattern',
+      message: 'Please insert valid URL'
+    }],
+    // Step two
+    addr: [{
+        type: 'required',
+        message: 'Address is required'
+      },
       {
         type: 'pattern',
-        message: 'Please insert valid URL'
+        message: 'Include only letters and numbers'
+      },
+      {
+        type: 'maxlength',
+        message: 'Maximum 10 characters long'
+      },
+      {
+        type: 'minlength',
+        message: 'Minimum 5 characters long'
       }
     ],
-    // Step two
-    addr: [
-      { type: 'required', message: 'Address is required' },
-      { type: 'pattern', message: 'Include only letters and numbers' },
-      { type: 'maxlength', message: 'Maximum 10 characters long' },
-      { type: 'minlength', message: 'Minimum 5 characters long' }
+    mobilePhone: [{
+        type: 'required',
+        message: 'Mobile number is required'
+      },
+      {
+        type: 'pattern',
+        message: 'Enter a valid mobile number'
+      },
+      {
+        type: 'maxlength',
+        message: 'Maximum 10 characters long'
+      }
     ],
-    mobilePhone: [
-      { type: 'required', message: 'Mobile number is required' },
-      { type: 'pattern', message: 'Enter a valid mobile number' },
-      { type: 'maxlength', message: 'Maximum 10 characters long' }
+    telephone: [{
+      type: 'pattern',
+      message: 'Enter a valid telephone number'
+    }],
+    fax: [{
+        type: 'pattern',
+        message: 'Enter a valid telephone number'
+      },
+      {
+        type: 'maxlength',
+        message: 'Maximum 10 characters long'
+      }
     ],
-    telephone: [{ type: 'pattern', message: 'Enter a valid telephone number' }],
-    fax: [
-      { type: 'pattern', message: 'Enter a valid telephone number' },
-      { type: 'maxlength', message: 'Maximum 10 characters long' }
+    emailAddress: [{
+        type: 'required',
+        message: 'Email is required'
+      },
+      {
+        type: 'pattern',
+        message: 'Enter a valid email'
+      },
+      {
+        type: 'maxlength',
+        message: 'Maximum 50 characters long'
+      }
     ],
-    emailAddress: [
-      { type: 'required', message: 'Email is required' },
-      { type: 'pattern', message: 'Enter a valid email' },
-      { type: 'maxlength', message: 'Maximum 50 characters long' }
-    ],
-    managerName: [
-      { type: 'required', message: 'Manager name is required' },
-      { type: 'pattern', message: 'Should contain letters only!' },
-      { type: 'maxlength', message: 'Maximum 20 characters long' }
+    managerName: [{
+        type: 'required',
+        message: 'Manager name is required'
+      },
+      {
+        type: 'pattern',
+        message: 'Should contain letters only!'
+      },
+      {
+        type: 'maxlength',
+        message: 'Maximum 20 characters long'
+      }
     ],
     // Step Three
-    businessDescription: [
-      { type: 'required', message: 'Description is required' },
+    businessDescription: [{
+        type: 'required',
+        message: 'Description is required'
+      },
       {
         type: 'pattern',
-        message:
-          'Make sure you dont use prohibbited characters such as ("","<")'
+        message: 'Make sure you dont use prohibbited characters such as ("","<")'
       },
-      { type: 'maxlength', message: 'Maximum 50 characters long' }
+      {
+        type: 'maxlength',
+        message: 'Maximum 50 characters long'
+      }
     ],
-    mainProducts: [
-      { type: 'required', message: 'Main products are required' },
-      { type: 'pattern', message: 'Please separate the products using comma.' },
-      { type: 'maxlength', message: 'Maximum 150 characters long' }
+    mainProducts: [{
+        type: 'required',
+        message: 'Main products are required'
+      },
+      {
+        type: 'pattern',
+        message: 'Please separate the products using comma.'
+      },
+      {
+        type: 'maxlength',
+        message: 'Maximum 150 characters long'
+      }
     ],
     // Step Four
-    businessCertification: [
-      { type: 'pattern', message: 'Please separate certificates using comma.' },
-      { type: 'maxlength', message: 'Maximum 100 characters long' }
+    businessCertification: [{
+        type: 'pattern',
+        message: 'Please separate certificates using comma.'
+      },
+      {
+        type: 'maxlength',
+        message: 'Maximum 100 characters long'
+      }
     ],
-    businessPatents: [
-      { type: 'pattern', message: 'Please separate patents using comma.' },
-      { type: 'maxlength', message: 'Maximum 100 characters long' }
+    businessPatents: [{
+        type: 'pattern',
+        message: 'Please separate patents using comma.'
+      },
+      {
+        type: 'maxlength',
+        message: 'Maximum 100 characters long'
+      }
     ],
-    businessTrademarks: [
-      { type: 'pattern', message: 'Please separate trademarks using comma.' },
-      { type: 'maxlength', message: 'Maximum 100 characters long' }
+    businessTrademarks: [{
+        type: 'pattern',
+        message: 'Please separate trademarks using comma.'
+      },
+      {
+        type: 'maxlength',
+        message: 'Maximum 100 characters long'
+      }
     ],
     // Step Five
-    asmin: [{ type: 'pattern', message: 'Enter valid number.' }],
-    asmax: [{ type: 'pattern', message: 'Enter valid number.' }],
-    mainMarkets: [
-      {
+    asmin: [{
+      type: 'pattern',
+      message: 'Enter valid number.'
+    }],
+    asmax: [{
+      type: 'pattern',
+      message: 'Enter valid number.'
+    }],
+    mainMarkets: [{
         type: 'pattern',
-        message:
-          'Please separate main markets using comma. Do not use prohibitted charachters such as ("<","","/")'
+        message: 'Please separate main markets using comma. Do not use prohibitted charachters such as ("<","","/")'
       },
-      { type: 'maxlength', message: 'Maximum 500 characters long' }
+      {
+        type: 'maxlength',
+        message: 'Maximum 500 characters long'
+      }
     ],
-    nemin: [{ type: 'pattern', message: 'Enter valid number.' }],
-    nemax: [{ type: 'pattern', message: 'Enter valid number.' }]
+    nemin: [{
+      type: 'pattern',
+      message: 'Enter valid number.'
+    }],
+    nemax: [{
+      type: 'pattern',
+      message: 'Enter valid number.'
+    }]
   };
 
   constructor(
@@ -269,6 +380,7 @@ export class CompleteProfileComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.currentUser = this.user.getUserID();
     // Starting form
     this.step = 'one';
     this.progressOne = 'active';
@@ -459,7 +571,7 @@ export class CompleteProfileComponent implements OnInit {
   getMapLocation(url) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(
       'https://www.google.com/maps/embed/v1/place?key=AIzaSyDPDQlf8XLxO1ytPRdW95vPrrhRm91gvlQ&q=' +
-        url
+      url
     );
   }
 
@@ -478,19 +590,23 @@ export class CompleteProfileComponent implements OnInit {
       this.task.percentageChanges().subscribe(data => {
         this.uploadProgress = data.toFixed();
       });
-      this.task.snapshotChanges().subscribe(snap => {
-        if (snap.bytesTransferred === snap.totalBytes) {
-          snap.ref.getDownloadURL().then(url => {
-            this.uploadedImage = url;
-            // this.form_data.companyProfile.profilePicture = url;
-            this.formOne.patchValue({
-              profilePicture: url
+      try {
+        this.task.snapshotChanges().subscribe(snap => {
+          if (snap.bytesTransferred === snap.totalBytes) {
+            snap.ref.getDownloadURL().then(url => {
+              this.uploadedImage = url;
+              // this.form_data.companyProfile.profilePicture = url;
+              this.formOne.patchValue({
+                profilePicture: url
+              });
+              this.showImage = true;
             });
-            this.showImage = true;
-          });
-          this.uploadStatus = 'Uploaded';
-        }
-      });
+            this.uploadStatus = 'Uploaded';
+          }
+        });
+      } catch (e) {
+        throw new Error(`Failde uploading profile image ${this.currentUser}`);
+      }
     }
   }
   // Reset Image Upload
@@ -514,50 +630,58 @@ export class CompleteProfileComponent implements OnInit {
     const path = `${uid}/flow/${this.flow}`;
     this.task = this.afStorage.upload(path, file);
 
-    this.task.snapshotChanges().subscribe(snap => {
-      if (snap.bytesTransferred === snap.totalBytes) {
-        snap.ref
-          .getDownloadURL()
-          .then(url => {
-            this.uploadedImage = url;
-            if (this.flow === 1) {
-              this.prodOne = url;
-              this.formThree.patchValue({
-                poimg: url
-              });
-            }
-            if (this.flow === 2) {
-              this.prodTwo = url;
-              this.formThree.patchValue({
-                psimg: url
-              });
-            }
-            if (this.flow === 3) {
-              this.prodThree = url;
-              this.formThree.patchValue({
-                ptimg: url
-              });
-            }
-            if (this.flow === 4) {
-              this.prodFour = url;
-              this.formThree.patchValue({
-                pfimg: url
-              });
-            }
-            if (this.flow === 5) {
-              alert(
-                'Maximum number of steps uploaded! \nPress on start again to update images!'
-              );
-            }
-          })
-          .then(() => {
-            if (this.flow < 6) {
-              this.flow = this.flow + 1;
-              // console.log('Flow ' + this.flow);
-            }
-          });
-      }
-    });
+    try {
+      this.task.snapshotChanges().subscribe(snap => {
+        if (snap.bytesTransferred === snap.totalBytes) {
+          snap.ref
+            .getDownloadURL()
+            .then(url => {
+              this.uploadedImage = url;
+              if (this.flow === 1) {
+                this.prodOne = url;
+                this.formThree.patchValue({
+                  poimg: url
+                });
+              }
+              if (this.flow === 2) {
+                this.prodTwo = url;
+                this.formThree.patchValue({
+                  psimg: url
+                });
+              }
+              if (this.flow === 3) {
+                this.prodThree = url;
+                this.formThree.patchValue({
+                  ptimg: url
+                });
+              }
+              if (this.flow === 4) {
+                this.prodFour = url;
+                this.formThree.patchValue({
+                  pfimg: url
+                });
+              }
+              if (this.flow === 5) {
+                alert(
+                  'Maximum number of steps uploaded! \nPress on start again to update images!'
+                );
+              }
+            })
+            .then(() => {
+              if (this.flow < 6) {
+                this.flow = this.flow + 1;
+                // console.log('Flow ' + this.flow);
+              }
+              if (this.flow > 6) {
+                throw new Error('Complete profile flow error' + this.currentUser);
+              }
+            });
+        }
+      });
+    } catch (e) {
+      throw new Error(`Failde uploading profile image ${this.currentUser}`);
+    }
+
   }
 
   // Submitting form steps
@@ -620,8 +744,12 @@ export class CompleteProfileComponent implements OnInit {
   }
   // Continue to next step
   next() {
-    this.start_step = this.start_step + 1;
-    this.changeState(this.start_step);
+    try {
+      this.start_step = this.start_step + 1;
+      this.changeState(this.start_step);
+    } catch (e) {
+      throw new Error(`Could not update to next state ${this.currentUser}`);
+    }
   }
   // Change Form State
   changeState(num) {
@@ -678,22 +806,22 @@ export class CompleteProfileComponent implements OnInit {
   completeProfile() {
     const user = this.user.getUserID();
     const doc = this.afs.doc(`users/${user}`);
-
     doc.valueChanges().subscribe((data: any) => {
       const profile = data.completedProfile;
       if (profile) {
         this.form_data.companyProfile.currentYear =
           data.companyProfile.currentYear;
-        return doc.update(this.form_data).then(() => {
-          this.router.navigate(['overview']);
-        });
       } else {
         this.form_data.companyProfile.currentYear = this.currentYear.getFullYear();
-        return doc.update(this.form_data).then(() => {
-          doc.update({completedProfile: true});
-          this.router.navigate(['overview']);
-        });
       }
+      return doc.update(this.form_data).then(() => {
+        doc.update({
+          completedProfile: true
+        });
+        this.router.navigate(['overview']);
+      }).catch(() => {
+        throw new Error(`Updating profile data failde ${this.currentUser}`);
+      });
     });
     // return userRef.set(this.form_data, {
     //   merge: true
