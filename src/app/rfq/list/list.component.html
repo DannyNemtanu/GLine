@@ -4,42 +4,84 @@
   <div class="container">
     <div class="row">
       <div class="col ml-auto">
-        <h1 class="mtitle ml-2 text-secondary">Request Fomrs</h1>
+        <h1 class="mtitle ml-2 text-secondary">Request Forms</h1>
       </div>
     </div>
 
     <!-- Body -->
 
-    <div class="container my-3 p-0" style="background-color: white;" *ngIf="isLoaded">
-      <div class="header w-100" style="background-color: #dbdbdc; padding: 0">
+    <div class="container mt-4">
+      <div class="header row" style="background-color: #dbdbdc;">
         <span class="m-0 p-2 px-3 text-secondary font-weight-bold"
-          style="font-size: 1.2rem; background-color: white; display:block; width: 150px; word-wrap:break-word;">All Requests</span>
+          style="font-size: 1.2rem; background-color: white; display:block; width: 150px; word-wrap:break-word;">All
+          Requests</span>
       </div>
-      <table class="table table-hover mtable">
-        <thead>
-          <tr>
-            <th scope="col">Request Product</th>
-            <th scope="col">Destination</th>
-            <th scope="col">Price / Quantity</th>
-          </tr>
-        </thead>
-
-        <tbody *ngIf="isLoaded">
-          <tr *ngFor="let request of allRequests; let i = index;">
-            <td scope="row" (click)="contactRetailer(request.uid)">
-              <div class="media">
-                <img class="align-self-center mr-3" src="{{request.productImages[0].productImage}}" alt="img"
-                  height="50" width="50" style="object-fit: contain;">
-                <div class="media-body">
-                  <span>{{request.title}}</span>
+      <div class="row">
+        <div class="gallery-product my-1 col-12" *ngFor="let request of allRequests; let i = index;" (click)="contactRetailer(request.uid)">
+          <div class="row d-flex">
+            <div class="col-7">
+              <h1 title="{{request.title}}" class="supplierName">
+                {{request.title}}</h1>
+            </div>
+          </div>
+          <div class="row d-flex">
+            <div class="col-2">
+              <div class="item-img">
+                <div class="offer-image-box">
+                  <img class="img" src="{{request.productImages[0].productImage}}" alt="{{request.title}}">
+                </div>
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-2 p-0 mr-2 mt-2 img-th" *ngFor="let image of request.productImages; let i = index">
+                      <img src="{{image.productImage}}" alt="{{request.title}}">
+                    </div>
+                  </div>
                 </div>
               </div>
-            </td>
-            <td>{{request.destination}}</td>
-            <td>${{request.orderPrices[0].price}}€ / {{request.orderPrices[0].quantity}} pieces</td>
-          </tr>
-        </tbody>
-      </table>
+            </div>
+            <div class="col-8 pl-3">
+              <div class="item-info">
+                <div class="info-line">
+                  <div class="d-flex">
+                    <div class="text-right">
+                      <p class="font-weight-bold">Description: </p>
+                    </div>
+                    <div class="text-left">
+                      <p class="ml-2">
+                        {{request.description}}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="info-line">
+                  <div class="d-flex">
+                    <div class="text-right">
+                      <p class="font-weight-bold">Order: </p>
+                    </div>
+                    <div class="text-left">
+                      <p class="ml-2">
+                        €{{request.orderPrices[0].price}} / €{{request.orderPrices[0].quantity}} pieces
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="info-line">
+                  <div class="d-flex">
+                    <div class="text-right">
+                      <p class="font-weight-bold">Destination: </p>
+                    </div>
+                    <div class="text-left">
+                      <p class="ml-2">
+                        {{request.destination}}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="container my-2 p-0" style="background-color: white;" *ngIf="!isLoaded">
       Loading products please wait...

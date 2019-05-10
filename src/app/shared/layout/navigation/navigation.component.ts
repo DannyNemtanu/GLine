@@ -26,6 +26,7 @@ import {
 import {
   Router
 } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-navigation',
@@ -41,6 +42,8 @@ export class NavigationComponent implements OnInit {
   sid;
   cid;
   searhGroup: FormGroup;
+  isNewSearch: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
   searchType = [{
       id: 1,
       name: 'Product'
@@ -92,9 +95,9 @@ export class NavigationComponent implements OnInit {
     console.log(this.searhGroup.value);
     if (type === 'Product') {
       this.router.navigate(['/products', query]).then(() => {
-        if (this.router.url.indexOf('/products/') > -1) {
-          window.location.reload();
-        }
+      //   if (this.router.url.indexOf('/products/') > -1) {
+      //     window.location.reload();
+      //   }
       });
     } else {
       this.router.navigate(['/suppliers', query]).then(() => {

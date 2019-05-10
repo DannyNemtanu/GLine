@@ -101,8 +101,8 @@ export class RfqComponent implements OnInit {
         'Product Description',
         Validators.compose([
           Validators.required,
-          Validators.minLength(5),
-          Validators.pattern(/^[a-zA-Z0-9-"', ]*$/)
+          Validators.minLength(50),
+          Validators.pattern(/^^(.|\s)*[a-zA-Z]+(.|\s)*$/)
         ])
       ],
       destination: [
@@ -189,11 +189,18 @@ export class RfqComponent implements OnInit {
     this.router.navigate(['dashboard']);
   }
   addNewRFQ() {
-    const uid = this.us.getUserID();
-    const path = `users/${uid}/rfq/${this.id}`;
-    this.afs
-      .doc(path)
-      .set(this.rfqForm.value);
-    console.log(this.rfqForm.value);
+    const imageArray: Array < any > = this.rfqForm.get('productImages').value;
+    if (imageArray.length < 1) {
+      alert('No images!');
+    } else {
+      const uid = this.us.getUserID();
+      const path = `users/${uid}/rfq/${this.id}`;
+      this.afs
+        .doc(path)
+        .set(this.rfqForm.value).then(() => {
+          this.router.navigate(['myrequests']);
+        });
+    }
+    // console.log(this.rfqForm.value);
   }
 }

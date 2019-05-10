@@ -56,6 +56,7 @@ describe('SignUpComponent', () => {
     router = TestBed.get(Router);
     router.initialNavigation();
   });
+  
   it('should show sign up', fakeAsync(() => {
     expect(app).toBeTruthy();
   }));

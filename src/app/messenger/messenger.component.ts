@@ -1,3 +1,4 @@
+import * as CryptoJS from 'crypto-js';
 import {
   FormBuilder,
   FormGroup,
@@ -34,7 +35,7 @@ export class MessengerComponent implements OnInit {
   chatID;
   lastMessage;
   userConnections: Array < any > = [];
-  supplierConnections: Array < any > = [];
+  // supplierConnections: Array < any > = [];
   source: any;
   supplierData: any;
   retailerData: any;
@@ -93,31 +94,16 @@ export class MessengerComponent implements OnInit {
 
   loadConnections(currentUser) {
     this.afs.doc(`users/${currentUser}`).valueChanges().subscribe((user: any) => {
-      this.isRetailer = user.retailer;
+      this.isRetailer = user.retailer; // Checking if retailer for choosing what to display
       this.afs.collection(`users/${currentUser}/connections`).valueChanges().subscribe(connections => {
         connections.forEach((con: any) => {
           this.afs.doc(`users/${con.receiver}`).valueChanges().subscribe(conData => {
-            if (this.isRetailer) {
-              const supplierID = con.receiver;
-              this.afs.collection(`chats/${supplierID + currentUser}/messages`,
-                ref => ref.orderBy('createdAt', 'asc')).valueChanges().subscribe(data => {
-                this.lastMessage = data[data.length - 1];
-                this.isMessage = true;
-                // console.log(this.lastMessage);
-              });
-              this.userConnections.push(conData);
-              // console.log(this.userConnections);
-            } else {
-              const retailerID = con.receiver;
-              this.supplierConnections.push(conData);
-              // console.log(this.supplierConnections);
-              this.afs.collection(`chats/${currentUser + retailerID}/messages`,
-                ref => ref.orderBy('createdAt', 'asc')).valueChanges().subscribe(data => {
-                this.lastMessage = data[data.length - 1];
-                this.isMessage = true;
-                // console.log(this.lastMessage);
-              });
-            }
+            this.afs.collection(`chats/${con.chatId}/messages`,
+              ref => ref.orderBy('createdAt', 'asc')).valueChanges().subscribe(data => {
+              this.lastMessage = data[data.length - 1];
+              this.isMessage = true;
+            });
+            this.userConnections.push(conData);
           });
         });
       });
@@ -154,12 +140,13 @@ export class MessengerComponent implements OnInit {
 
     }
   }
+
   async sendMessage(chatId, content) {
     const uid = this.us.getUserID();
     if (this.messageForm.valid) {
       const data = {
         uid,
-        content,
+        content: this.encryptData(content),
         createdAt: Date.now()
       };
       this.afs.collection(`chats/${chatId}/messages`).add(data).then(() => {
@@ -168,14 +155,37 @@ export class MessengerComponent implements OnInit {
     }
   }
   showMessages(id) {
+    this.messenger = new Array;
     this.afs.collection(`chats/${id}/messages`, ref => ref.orderBy('createdAt', 'asc')).valueChanges().subscribe(messages => {
-      this.messenger = messages;
+      messages.forEach(message => {
+        this.messenger = messages;
+      });
       // console.log(this.messenger);
       this.messageForm.patchValue({
         message: ''
       });
     });
+    // console.log(this.decryptData(data.content, data.uid););
   }
+
+
+  // Encryption & Decryption using AES
+  encryptData(data) {
+    try {
+      const chipertext = CryptoJS.AES.encrypt(data, this.currentUser);
+      // console.log(chipertext.toString());
+      return chipertext.toString();
+    } catch (e) {
+      // console.log(e);
+    }
+  }
+  decryptData(chipertext, sender) {
+    const bytes = CryptoJS.AES.decrypt(chipertext.toString(), sender);
+    const plaintext = bytes.toString(CryptoJS.enc.Utf8);
+    return plaintext;
+  }
+
+
   showData(id) {
     // console.log('Chat ID:  ' + id);
     this.afs.doc(`chats/${id}`).valueChanges().subscribe((chatData: any) => {
@@ -200,9 +210,11 @@ export class MessengerComponent implements OnInit {
     });
   }
 
+  // Changing display information on user click
   changeChat(first, second) {
     this.router.navigate(['messenger', first + second]).then(() => {
-      this.showMessages(first + second);
+      this.showMessages(this.chatID);
+      this.showData(this.chatID);
     });
   }
 

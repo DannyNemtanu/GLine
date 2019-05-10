@@ -64,14 +64,14 @@ export class CompanyOverviewComponent implements OnInit {
   }
   ngOnInit() {
     this.getRouterID();
-    this.checkUser();
+    // this.checkUser();
   }
-  checkUser() {
-    const query = this.afs.doc(`${this.userService.getUserID()}`).valueChanges();
-    query.subscribe(data => {
-      console.log(data);
-    });
-  }
+  // checkUser() {
+  //   const query = this.afs.doc(`users/${this.userService.getUserID()}`).valueChanges();
+  //   query.subscribe(data => {
+  //     console.log(data);
+  //   });
+  // }
   getRouterID() {
     this.route.params.subscribe(params => {
       this.id = params['id'];

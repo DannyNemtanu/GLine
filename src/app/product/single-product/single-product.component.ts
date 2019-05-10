@@ -1,7 +1,8 @@
+import { ChatService } from './../../shared/directives/chat.service';
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { UserDataService } from 'src/app/services/user-data.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-single-product',
@@ -17,7 +18,9 @@ export class SingleProductComponent implements OnInit {
   constructor(
     private userService: UserDataService,
     private afs: AngularFirestore,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private chat: ChatService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -36,10 +39,40 @@ export class SingleProductComponent implements OnInit {
       this.product = data;
       this.isLoaded = true;
       this.mainImage = this.product.productImages[0].productImage;
-      console.log(this.product);
+      // console.log(this.product);
     });
   }
   changeImage(event, url) {
     this.mainImage = url;
+  }
+  contactSupplier() {
+    // Data
+    const clientId = this.userService.getUserID();
+    const data = {
+      receiver: this.id,
+      createdAt: Date.now(),
+      chatId: this.id + clientId
+    };
+    const supplier = {
+      receiver: clientId,
+      createdAt: Date.now(),
+      chatId: this.id + clientId
+    };
+    // Init Connections
+    this.afs.collection(`users/${clientId}/connections`, ref => ref.where('receiver', '==', `${this.id}`))
+      .valueChanges().subscribe(doc => {
+        if (doc.length === 0) {
+          this.afs.collection(`users/${clientId}/connections`).add(data).then(() => {
+            this.afs.collection(`users/${this.id}/connections`).add(supplier).then(() => {
+              this.chat.setSource(this.id, clientId);
+              this.router.navigate(['messenger', this.id + clientId]);
+            });
+          });
+        } else {
+          this.chat.setSource(this.id, clientId);
+          this.router.navigate(['messenger', this.id + clientId]);
+        }
+      });
+    event.stopPropagation();
   }
 }

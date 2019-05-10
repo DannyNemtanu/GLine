@@ -2,10 +2,8 @@
 UIkit bootstrap-ecommerce.com 
 ===================== */
 /* ==================== INCLUDE FONTS ======================= */
-/* @import url("../fonts/roboto/font.css"); */
 html {
   font-size: 15px; }
-
 /* ================== HELPERS  =================== */
 a:hover {
   text-decoration: none; }

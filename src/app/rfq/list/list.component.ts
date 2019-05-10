@@ -18,7 +18,7 @@ import {
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  isLoaded = false;
+  isLoaded = true;
   allRequests: Array < any > = [];
 
   constructor(
@@ -39,10 +39,10 @@ export class ListComponent implements OnInit {
         const rfqref = this.afs.collection(`${r.ref.path}/rfq`).get();
         rfqref.forEach(rfqList => {
           rfqList.docs.forEach((item) => {
-            console.log(item.ref.path);
+            // console.log(item.ref.path);
             this.afs.doc(item.ref.path).valueChanges().subscribe(rfqData => {
               this.allRequests.push(rfqData);
-              console.log(this.allRequests);
+              // console.log(this.allRequests);
             });
           });
         });

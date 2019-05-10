@@ -6,8 +6,11 @@ import {
 } from '@angular/router';
 import {
   Component,
-  OnInit
+  OnInit,
+  NgZone,
+  ChangeDetectorRef
 } from '@angular/core';
+
 
 @Component({
   selector: 'app-searchproducts',
@@ -25,16 +28,30 @@ export class SearchproductsComponent implements OnInit {
   products: Array < any > = [];
   isLoaded = false;
   query: string;
+  setLastQuer: string;
+  newSearch = false;
   constructor(
     private route: ActivatedRoute,
-    private afs: AngularFirestore
-
-  ) {}
-
-  ngOnInit() {
+    private afs: AngularFirestore,
+    private cdr: ChangeDetectorRef
+  ) {
     this.route.params.subscribe(params => {
       this.query = params['query'];
     });
+  }
+
+  ngOnInit() {
+    if (this.setLastQuer !== this.query) {
+      this.newSearch = true;
+      this.setLastQuer = this.query;
+      console.log(this.setLastQuer);
+      console.log(this.newSearch);
+    } else {
+      this.newSearch = false;
+      console.log(this.setLastQuer);
+      console.log(this.newSearch);
+    }
+    this.cdr.detectChanges();
     this.displayProducts(this.query);
   }
   displayProducts(query) {

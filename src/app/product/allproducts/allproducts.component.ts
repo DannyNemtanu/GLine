@@ -36,14 +36,11 @@ export class AllproductsComponent implements OnInit {
       d.forEach(doc => {
         this.products.push(doc.id);
       });
-      console.log(this.products);
+      // console.log(this.products);
     });
     collectionRef.valueChanges().subscribe(data => {
       this.allProducts = data;
     });
     this.isLoaded = true;
-  }
-  showProduct(id) {
-    console.log('Working ' + id);
   }
 }

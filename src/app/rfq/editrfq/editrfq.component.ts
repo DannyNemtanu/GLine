@@ -1,6 +1,8 @@
 import {
   Component,
-  OnInit
+  OnInit,
+  ApplicationRef,
+  NgZone
 } from '@angular/core';
 import {
   AngularFirestore
@@ -14,6 +16,12 @@ import {
 import {
   ThrowStmt
 } from '@angular/compiler';
+import {
+  detectChanges
+} from '@angular/core/src/render3';
+import {
+  VirtualTimeScheduler
+} from 'rxjs';
 
 @Component({
   selector: 'app-editrfq',
@@ -21,15 +29,18 @@ import {
   styleUrls: ['./editrfq.component.scss']
 })
 export class EditrfqComponent implements OnInit {
-  rfqID: Array < any > = [];
-  allRequests: Array < any > = [];
+  rfqID = new Array();
+  allRequests = new Array();
+  toDelete = new Array();
   isLoaded = false;
-
+  itemsDeleted = true;
   constructor(
     private afs: AngularFirestore,
     private us: UserDataService,
     private router: Router
-  ) {}
+  ) {
+
+  }
 
   ngOnInit() {
     this.displayRequests(this.us.getUserID());
@@ -43,7 +54,7 @@ export class EditrfqComponent implements OnInit {
           rfqList.docs.forEach((item) => {
             console.log(item.ref.path);
             this.afs.doc(item.ref.path).valueChanges().subscribe(rfqData => {
-              this.rfqID.push(item.id);
+              this.rfqID.push(item.ref.path);
               this.allRequests.push(rfqData);
               console.log(this.allRequests);
               console.log(this.rfqID);
@@ -60,10 +71,24 @@ export class EditrfqComponent implements OnInit {
     const currentUser = this.us.getUserID();
     this.router.navigate(['messenger', currentUser + id]);
   }
-  deleteRFQ(id) {
-    const currentUser = this.us.getUserID();
-    this.afs.doc(`users/${currentUser}/rfq/${id}`).delete().then(() => {
-      this.displayRequests(currentUser);
-    });
+  confirmChanges() {
+    console.log(this.toDelete.length);
+    for (let i = 0; i < this.toDelete.length; i++) {
+      this.afs.doc(this.toDelete[i]).delete();
+    }
+    this.router.navigate(['/dashboard']);
+  }
+  displayClicked(request, index) {
+    console.log(request, index);
+  }
+  deleteRFQ(request, docRef) {
+    const index = this.allRequests.indexOf(request);
+    this.allRequests.splice(index, 1);
+    this.rfqID.splice(index, 1);
+    this.toDelete.push(docRef);
+    // console.log(docRef);
+    // console.log(this.rfqID);
+    // console.log(this.allRequests);
+    // console.log(this.toDelete);
   }
 }

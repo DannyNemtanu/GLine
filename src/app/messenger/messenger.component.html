@@ -23,17 +23,17 @@
                   </div>
                   <div *ngIf="isMessage">
                       <div class="last-message text-truncate" *ngIf="lastMessage.uid === currentUser">
-                          {{lastMessage.content}}
+                          {{decryptData(lastMessage.content, currentUser)}}
                         </div>
                         <div class="last-message text-truncate font-weight-bold" *ngIf="lastMessage.uid !== currentUser">
-                          {{lastMessage.content}}
+                          {{decryptData(lastMessage.content, lastMessage.uid)}}
                         </div>
                   </div>
                 </div>
               </li>
             </ul>
             <ul class="con-list" *ngIf="!isRetailer">
-              <li class="single-con d-flex" *ngFor="let retailer of supplierConnections; let i = index;"
+              <li class="single-con d-flex" *ngFor="let retailer of userConnections; let i = index;"
                 [id]="retailer.uid" (click)="changeChat(currentUser, retailer.uid);">
                 <div class="d-block">
                   <div class="profile-img" [ngStyle]="{'background-image': 'url(' +  + ')'}">
@@ -45,10 +45,10 @@
                   </div>
                   <div *ngIf="isMessage">
                     <div class="last-message text-truncate" *ngIf="lastMessage.uid === currentUser">
-                      {{lastMessage.content}}
+                      {{decryptData(lastMessage.content, lastMessage.uid)}}
                     </div>
                     <div class="last-message text-truncate font-weight-bold" *ngIf="lastMessage.uid !== currentUser">
-                      {{lastMessage.content}}
+                      {{decryptData(lastMessage.content, lastMessage.uid)}}
                     </div>
                   </div>
                 </div>
@@ -63,12 +63,12 @@
                 <div class="message-row" *ngFor="let message of messenger">
                   <div class="single-message" id="own" *ngIf="currentUser === message.uid">
                     <div class="msg-content">
-                      <span class="type-txt">{{message.content}}</span>
+                      <span class="type-txt">{{decryptData(message.content, message.uid)}}</span>
                     </div>
                   </div>
                   <div class="single-message" id="con" *ngIf="currentUser !== message.uid">
                     <div class="msg-content">
-                      <span class="type-txt">{{message.content}}</span>
+                      <span class="type-txt">{{decryptData(message.content, message.uid)}}</span>
                     </div>
                   </div>
                 </div>
