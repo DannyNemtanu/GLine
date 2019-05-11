@@ -27,7 +27,7 @@
             MY PAGE <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item" *ngIf="retailer">
-          <a routerLink="/dashboard"  routerLinkActive="active" class="nav-link">
+          <a routerLink="/dashboard" routerLinkActive="active" class="nav-link">
             <i class="material-icons">
               dashboard
             </i>
@@ -89,7 +89,7 @@
           <!-- End Retailer -->
         </li>
         <li class="nav-item">
-          <a [routerLink]="['messenger', this.userService.getUserID()]" routerLinkActive="active" class="nav-link">
+          <a [routerLink]="['/messenger', this.userService.getUserID()]" routerLinkActive="active" class="nav-link">
             <i class="material-icons">
               people
             </i>
@@ -104,7 +104,6 @@
       </button>
     </div>
   </div>
-  
   <!-- @reference http://www.whereTheClassWasRetrievedFrom.com/example.java -->
   <div class="top-navigation float-left p-0" *ngIf="retailer">
     <div class="header-main">
@@ -165,3 +164,4 @@
     </div>
     <!-- End Top Navigation -->
   </div>
+</div>

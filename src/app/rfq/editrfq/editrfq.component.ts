@@ -52,12 +52,12 @@ export class EditrfqComponent implements OnInit {
         const rfqref = this.afs.collection(`${r.ref.path}/rfq`).get();
         rfqref.forEach(rfqList => {
           rfqList.docs.forEach((item) => {
-            console.log(item.ref.path);
+            // console.log(item.ref.path);
             this.afs.doc(item.ref.path).valueChanges().subscribe(rfqData => {
               this.rfqID.push(item.ref.path);
               this.allRequests.push(rfqData);
-              console.log(this.allRequests);
-              console.log(this.rfqID);
+              // console.log(this.allRequests);
+              // console.log(this.rfqID);
             });
           });
         });
@@ -72,14 +72,14 @@ export class EditrfqComponent implements OnInit {
     this.router.navigate(['messenger', currentUser + id]);
   }
   confirmChanges() {
-    console.log(this.toDelete.length);
+    // console.log(this.toDelete.length);
     for (let i = 0; i < this.toDelete.length; i++) {
       this.afs.doc(this.toDelete[i]).delete();
     }
     this.router.navigate(['/dashboard']);
   }
   displayClicked(request, index) {
-    console.log(request, index);
+    // console.log(request, index);
   }
   deleteRFQ(request, docRef) {
     const index = this.allRequests.indexOf(request);

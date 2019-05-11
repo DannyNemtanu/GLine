@@ -181,9 +181,9 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log(this.myMarkets);
+    // console.log(this.myMarkets);
 
-    console.log(this.allSections);
+    // console.log(this.allSections);
   }
   searchCategory(event, query) {
     this.router.navigate(['/products', query]).then(() => {

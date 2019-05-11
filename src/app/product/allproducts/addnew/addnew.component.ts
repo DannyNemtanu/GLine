@@ -244,7 +244,7 @@ export class AddnewComponent implements OnInit {
   addOverview() {
     const newO = this.ProductForm.get('overview') as FormArray;
     newO.push(this.initOverview());
-    console.log(this.ProductForm.get('overview').value);
+    // console.log(this.ProductForm.get('overview').value);
   }
   // Packagin Delivery
   initPD(): FormGroup {
@@ -268,7 +268,7 @@ export class AddnewComponent implements OnInit {
   addPD() {
     const newO = this.ProductForm.get('pd') as FormArray;
     newO.push(this.initPD());
-    console.log(this.ProductForm.get('pd').value);
+    // console.log(this.ProductForm.get('pd').value);
   }
   // Manage Variants
   initVariant(): FormGroup {
@@ -286,7 +286,7 @@ export class AddnewComponent implements OnInit {
   addVariant() {
     const newV = this.ProductForm.get('variants') as FormArray;
     newV.push(this.initVariant());
-    console.log(this.ProductForm.get('variants').value);
+    // console.log(this.ProductForm.get('variants').value);
   }
   // Mange Price
   initPrices(): FormGroup {
@@ -308,7 +308,7 @@ export class AddnewComponent implements OnInit {
   addPrice() {
     const newC = this.ProductForm.get('orderPrices') as FormArray;
     newC.push(this.initPrices());
-    console.log(this.ProductForm.get('orderPrices').value);
+    // console.log(this.ProductForm.get('orderPrices').value);
   }
   // Complete Form Adding Product
   addNewProduct() {
@@ -318,7 +318,7 @@ export class AddnewComponent implements OnInit {
       .collection(path)
       .add(this.ProductForm.value)
       .then(docRef => {
-        console.log(docRef.id);
+        // console.log(docRef.id);
       })
       .catch(function(error) {
         console.error('Error adding document: ', error);
@@ -341,7 +341,7 @@ export class AddnewComponent implements OnInit {
     const uid = this.us.getUserID();
     const file = event.item(0);
     if (file.type.split('/')[0] !== 'image') {
-      console.log('Please upload an valid iamge!');
+      // console.log('Please upload an valid iamge!');
       this.imageError = true;
       return;
     } else {

@@ -3,7 +3,8 @@ import {
   BrowserModule
 } from '@angular/platform-browser';
 import {
-  NgModule, ErrorHandler
+  NgModule,
+  ErrorHandler
 } from '@angular/core';
 import {
   FormsModule,
@@ -118,8 +119,12 @@ import {
 import {
   GoogleAnalyticsService
 } from './services/google-analytics.service';
-import { GlobalErrorHandler } from './logging/global-error-handling';
-import { LogsComponent } from './logging/logs/logs.component';
+import {
+  GlobalErrorHandler
+} from './logging/global-error-handling';
+import {
+  LogsComponent
+} from './logging/logs/logs.component';
 
 
 @NgModule({
@@ -162,10 +167,12 @@ import { LogsComponent } from './logging/logs/logs.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService, GoogleAnalyticsService, {
-    provide: ErrorHandler,
-    useClass: GlobalErrorHandler
-  }],
+  providers: [AuthService, GoogleAnalyticsService,
+    // {
+    //   provide: ErrorHandler,
+    //   useClass: GlobalErrorHandler
+    // }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

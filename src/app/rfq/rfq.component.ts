@@ -24,7 +24,6 @@ import {
 import {
   Router
 } from '@angular/router';
-import { StoreService } from '../logging/store.service';
 
 @Component({
   selector: 'app-rfq',
@@ -79,7 +78,7 @@ export class RfqComponent implements OnInit {
       message: 'File not supported!'
     }],
   };
-  
+
   constructor(
     private afs: AngularFirestore,
     private fb: FormBuilder,
@@ -118,8 +117,7 @@ export class RfqComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.afs.createId();
-    console.log('Generated ID: ' + this.id);
-    
+    // console.log('Generated ID: ' + this.id);
   }
 
   // Mange Price
@@ -138,7 +136,7 @@ export class RfqComponent implements OnInit {
   addPrice() {
     const newC = this.rfqForm.get('orderPrices') as FormArray;
     newC.push(this.initPrices());
-    console.log(this.rfqForm.get('orderPrices').value);
+    // console.log(this.rfqForm.get('orderPrices').value);
   }
 
   // Upload product images
@@ -157,7 +155,7 @@ export class RfqComponent implements OnInit {
     const uid = this.us.getUserID();
     const file = event.item(0);
     if (file.type.split('/')[0] !== 'image') {
-      console.log('Please upload an valid iamge!');
+      // console.log('Please upload an valid iamge!');
       this.imageError = true;
       return;
     } else {
@@ -172,8 +170,8 @@ export class RfqComponent implements OnInit {
               this.addImageUrl(url);
             })
             .then(() => {
-              console.log('Image successfylly uploaded!');
-              console.log(this.rfqForm.get('productImages').value);
+              // console.log('Image successfylly uploaded!');
+              // console.log(this.rfqForm.get('productImages').value);
               this.imageError = false;
             })
             .catch(function () {

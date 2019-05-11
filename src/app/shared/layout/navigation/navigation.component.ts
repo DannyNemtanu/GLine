@@ -1,7 +1,4 @@
 import {
-  ChatService
-} from './../../directives/chat.service';
-import {
   AngularFirestore
 } from '@angular/fire/firestore';
 import {
@@ -19,7 +16,6 @@ import {
 } from '../../services/user';
 import {
   FormGroup,
-  FormControl,
   FormBuilder,
   Validators
 } from '@angular/forms';
@@ -73,48 +69,47 @@ export class NavigationComponent implements OnInit {
     } catch (e) {
       throw new Error('Could not set user type!');
     }
-  this.id = this.userService.getUserID();
-}
-
-setUserType() {
-  const query = this.afs
-    .collection < User > ('users', ref =>
-      ref.where('uid', '==', this.userService.getUserID())
-    )
-    .valueChanges();
-  try {
-    query.subscribe(snapshot => {
-      if (snapshot[0].retailer) {
-        return this.retailer = true;
-      } else {
-        return this.manufacturer = true;
-      }
-    });
-  } catch (error) {
-    throw new Error(error);
+    this.id = this.userService.getUserID();
   }
-}
-searchQuery() {
-  const type = this.searhGroup.get('type').value;
-  const query = this.searhGroup.get('search').value;
-  console.log(this.searhGroup.value);
-  if (type === 'Product') {
-    this.router.navigate(['/products', query]).then(() => {
-      if (this.router.url.indexOf('/products/') > -1) {
-        window.location.reload();
-      }
-    });
-  } else {
-    this.router.navigate(['/suppliers', query]).then(() => {
-      if (this.router.url.indexOf('/suppliers/') > -1) {
-        window.location.reload();
-      }
+  setUserType() {
+    const query = this.afs
+      .collection < User > ('users', ref =>
+        ref.where('uid', '==', this.userService.getUserID())
+      )
+      .valueChanges();
+    try {
+      query.subscribe(snapshot => {
+        if (snapshot[0].retailer) {
+          return this.retailer = true;
+        } else {
+          return this.manufacturer = true;
+        }
+      });
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+  searchQuery() {
+    const type = this.searhGroup.get('type').value;
+    const query = this.searhGroup.get('search').value;
+    // console.log(this.searhGroup.value);
+    if (type === 'Product') {
+      this.router.navigate(['/products', query]).then(() => {
+        if (this.router.url.indexOf('/products/') > -1) {
+          window.location.reload();
+        }
+      });
+    } else {
+      this.router.navigate(['/suppliers', query]).then(() => {
+        if (this.router.url.indexOf('/suppliers/') > -1) {
+          window.location.reload();
+        }
+      });
+    }
+  }
+  logout() {
+    this.as.SignOut().catch(() => {
+      throw new Error('Secure sign out failed!');
     });
   }
-}
-logout() {
-  this.as.SignOut().catch(() => {
-    throw new Error('Secure sign out failed!');
-  });
-}
 }

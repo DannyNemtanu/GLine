@@ -6,9 +6,7 @@ import {
 } from '@angular/core';
 import {
   AngularFirestore,
-  AngularFirestoreCollection,
-  AngularFirestoreDocument,
-  CollectionReference
+  AngularFirestoreCollection
 } from '@angular/fire/firestore';
 import {
   Observable
@@ -45,17 +43,6 @@ export class UserDataService {
       } else {
         return false;
       }
-    });
-  }
-
-  getCurrentUser() {
-    let user = null;
-    const query = this.afs
-      .collection('users', ref => ref.where('uid', '==', this.getUserID()))
-      .valueChanges();
-    query.subscribe(snapshot => {
-      user = snapshot[0];
-      return user;
     });
   }
 }

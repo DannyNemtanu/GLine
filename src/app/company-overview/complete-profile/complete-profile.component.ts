@@ -580,7 +580,7 @@ export class CompleteProfileComponent implements OnInit {
     const uid = this.user.getUserID();
     const file = event.item(0);
     if (file.type.split('/')[0] !== 'image') {
-      console.log('Please upload an valid iamge!');
+      // console.log('Please upload an valid iamge!');
       return;
     } else {
       // Storage path
@@ -622,7 +622,7 @@ export class CompleteProfileComponent implements OnInit {
     const uid = this.user.getUserID();
     const file = event.item(0);
     if (file.type.split('/')[0] !== 'image') {
-      console.log('Please upload an valid iamge!');
+      // console.log('Please upload an valid iamge!');
       return;
     }
 

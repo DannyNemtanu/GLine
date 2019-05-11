@@ -78,11 +78,12 @@ import {
 import {
   SecureRetailerGuard
 } from './shared/guard/secure-retailer.guard';
-import { SecureAdminGuard } from './shared/guard/secure-admin.guard';
+import {
+  SecureAdminGuard
+} from './shared/guard/secure-admin.guard';
 
 // Include route guard in routes array
-export const routes: Routes = [
-  {
+export const routes: Routes = [{
     path: 'forgot-password',
     component: ForgotPasswordComponent,
     canActivate: [SecureInnerPagesGuard]
@@ -110,82 +111,82 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate: [AuthGuard, SecureRetailerGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'allproducts',
     component: AllproductsComponent,
-    canActivate: [AuthGuard, SecureRetailerGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'add',
     component: AddnewComponent,
-    canActivate: [AuthGuard, SecureRetailerGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'products',
     component: ProductComponent,
-    canActivate: [AuthGuard, SecureRetailerGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'products/:query',
     component: SearchproductsComponent,
-    canActivate: [AuthGuard, SecureRetailerGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'suppliers',
     component: SuppliersComponent,
-    canActivate: [AuthGuard, SecureRetailerGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'suppliers/:query',
     component: SearchsuppliersComponent,
-    canActivate: [AuthGuard, SecureRetailerGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'product/:user/:id',
     component: SingleProductComponent,
-    canActivate: [AuthGuard, SecureRetailerGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'editProduct/:user/:id',
     component: EditProductComponent,
-    canActivate: [AuthGuard, SecureRetailerGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'manufacturers',
     component: ProductComponent,
-    canActivate: [AuthGuard, SecureRetailerGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'complete-profile',
     component: CompleteProfileComponent,
-    canActivate: [AuthGuard, SecureRetailerGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'overview/:id',
     component: CompanyOverviewComponent,
-    canActivate: [AuthGuard, SecureRetailerGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'rfq',
     component: RfqComponent,
-    canActivate: [AuthGuard, SecureRetailerGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'myrequests',
     component: EditrfqComponent,
-    canActivate: [AuthGuard, SecureRetailerGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'rfqlist',
     component: ListComponent,
-    canActivate: [AuthGuard, SecureRetailerGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'messenger/:chatid',
     component: MessengerComponent,
-    canActivate: [AuthGuard, SecureRetailerGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'logger',
