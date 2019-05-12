@@ -1,3 +1,4 @@
+import { AuthService } from './../shared/services/auth.service';
 import * as CryptoJS from 'crypto-js';
 import {
   FormBuilder,
@@ -35,7 +36,8 @@ export class MessengerComponent implements OnInit {
   chatID;
   lastMessage;
   userConnections: Array < any > = [];
-  // supplierConnections: Array < any > = [];
+  displayRetailerName: string;
+  showName = false;
   source: any;
   supplierData: any;
   retailerData: any;
@@ -62,20 +64,21 @@ export class MessengerComponent implements OnInit {
     private afs: AngularFirestore,
     private us: UserDataService,
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private authService: AuthService
   ) {
     this.messageForm = this.fb.group({
       message: [
         '',
         Validators.compose([
-          Validators.required,
-          Validators.pattern(/^[a-zA-Z0-9-/\.:\r?\n()%?!@|&€#*$"', ]*$/)
+          Validators.required
         ])
       ]
     });
   }
 
   ngOnInit() {
+
     this.currentUser = this.us.getUserID();
     this.route.params.subscribe(params => {
       this.chatID = params['chatid'];
@@ -201,12 +204,13 @@ export class MessengerComponent implements OnInit {
     this.afs.doc(`chats/${id}`).valueChanges().subscribe((chatData: any) => {
       if (chatData) {
         if (chatData.cid === this.us.getUserID()) { // Retailer side messeger
-          this.afs.doc(`users/${chatData.sid}`).valueChanges().subscribe(data => {
+          this.afs.doc(`users/${chatData.sid}`).valueChanges().subscribe((data: any) => {
             this.supplierData = data;
-            this.supplierProfileImage = this.supplierData.companyProfile.profilePicture;
+            this.supplierProfileImage = data.companyProfile.profilePicture;
             this.sidValid = true;
           });
-        } else { // Supplier side messenger
+        } else {
+          // Supplier side messenger
           this.afs.doc(`users/${chatData.cid}`).valueChanges().subscribe((data: any) => {
             // console.log(data);
             this.retailerData = data;
@@ -221,10 +225,12 @@ export class MessengerComponent implements OnInit {
   }
 
   // Changing display information on user click
-  changeChat(first, second) {
+  changeChat(first, second, displayName) {
     this.router.navigate(['messenger', first + second]).then(() => {
       this.showMessages(this.chatID);
       this.showData(this.chatID);
+      this.displayRetailerName = displayName;
+      this.showName = true;
     });
   }
 

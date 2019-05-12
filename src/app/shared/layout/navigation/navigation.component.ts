@@ -78,7 +78,7 @@ export class NavigationComponent implements OnInit {
       )
       .valueChanges();
     try {
-      query.subscribe(snapshot => {
+      query.subscribe((snapshot: any) => {
         if (snapshot[0].retailer) {
           return this.retailer = true;
         } else {

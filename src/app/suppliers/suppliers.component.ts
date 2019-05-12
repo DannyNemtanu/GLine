@@ -21,6 +21,7 @@ import {
   styleUrls: ['./suppliers.component.scss']
 })
 export class SuppliersComponent implements OnInit {
+  currentYear: Array < any > = [];
   isLoaded = false;
   suppliers: Array < any > = [];
   sid;
@@ -33,12 +34,21 @@ export class SuppliersComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    const currentDate = new Date().getFullYear();
     const supplierRef = this.afs.collection('users', ref =>
       ref.where('manufacturer', '==', true)
     );
-    supplierRef.valueChanges().subscribe(data => {
+    supplierRef.valueChanges().subscribe((data: any) => {
       data.forEach(supplier => {
         this.suppliers.push(supplier);
+        let yearDifference = currentDate - supplier.companyProfile.currentYear;
+        console.log(yearDifference);
+        if (supplier.companyProfile.currentYear === currentDate) {
+          yearDifference = 1;
+          this.currentYear.push(yearDifference);
+        } else {
+          this.currentYear.push(yearDifference);
+        }
         // console.log(this.suppliers);
         this.isLoaded = true;
       });

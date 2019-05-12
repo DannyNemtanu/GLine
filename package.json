@@ -26,7 +26,7 @@
     "core-js": "^2.5.4",
     "crypto-js": "^3.1.9-1",
     "firebase": "^5.9.2",
-    "firebase-tools": "^6.9.1",
+    "firebase-tools": "^6.9.2",
     "rxjs": "~6.3.3",
     "rxjs-compat": "^6.0.0-tactical-rc.1",
     "rxjs-observable": "0.0.7",

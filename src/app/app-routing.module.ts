@@ -1,3 +1,5 @@
+import { SecureSupplierGuard } from './shared/guard/secure-supplier.guard';
+import { SecureRetailerGuard } from './shared/guard/secure-retailer.guard';
 import {
   LogsComponent
 } from './logging/logs/logs.component';
@@ -76,11 +78,9 @@ import {
   RfqComponent
 } from './rfq/rfq.component';
 import {
-  SecureRetailerGuard
-} from './shared/guard/secure-retailer.guard';
-import {
   SecureAdminGuard
 } from './shared/guard/secure-admin.guard';
+import { SecureCompleteProfileGuard } from './shared/guard/secure-complete-profile.guard';
 
 // Include route guard in routes array
 export const routes: Routes = [{
@@ -111,37 +111,37 @@ export const routes: Routes = [{
   {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, SecureRetailerGuard]
   },
   {
     path: 'allproducts',
     component: AllproductsComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, SecureSupplierGuard, SecureCompleteProfileGuard]
   },
   {
     path: 'add',
     component: AddnewComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, SecureSupplierGuard, SecureCompleteProfileGuard]
   },
   {
     path: 'products',
     component: ProductComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, SecureRetailerGuard]
   },
   {
     path: 'products/:query',
     component: SearchproductsComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, SecureRetailerGuard]
   },
   {
     path: 'suppliers',
     component: SuppliersComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, SecureRetailerGuard]
   },
   {
     path: 'suppliers/:query',
     component: SearchsuppliersComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, SecureRetailerGuard]
   },
   {
     path: 'product/:user/:id',
@@ -151,17 +151,12 @@ export const routes: Routes = [{
   {
     path: 'editProduct/:user/:id',
     component: EditProductComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'manufacturers',
-    component: ProductComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, SecureSupplierGuard, SecureCompleteProfileGuard]
   },
   {
     path: 'complete-profile',
     component: CompleteProfileComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, SecureSupplierGuard]
   },
   {
     path: 'overview/:id',
@@ -171,17 +166,17 @@ export const routes: Routes = [{
   {
     path: 'rfq',
     component: RfqComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, SecureRetailerGuard]
   },
   {
     path: 'myrequests',
     component: EditrfqComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, SecureRetailerGuard]
   },
   {
     path: 'rfqlist',
     component: ListComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, SecureSupplierGuard, SecureCompleteProfileGuard]
   },
   {
     path: 'messenger/:chatid',

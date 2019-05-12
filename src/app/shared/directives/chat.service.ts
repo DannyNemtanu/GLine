@@ -1,3 +1,4 @@
+import { MessengerComponent } from './../../messenger/messenger.component';
 import {
   Injectable
 } from '@angular/core';
@@ -12,7 +13,8 @@ export class ChatService {
   };
   supplierSource: string;
   clientSource: string;
-  constructor() {}
+  constructor(
+  ) {}
 
   setSource(sid: string, cid: string) {
     this.supplierSource = sid;
@@ -24,4 +26,5 @@ export class ChatService {
       cid: this.clientSource
     };
   }
+
 }

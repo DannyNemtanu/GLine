@@ -18,6 +18,7 @@ import {
   styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent implements OnInit {
+  userError;
   loginForm: FormGroup;
   auth;
   constructor(
@@ -29,14 +30,13 @@ export class SignInComponent implements OnInit {
         '',
         Validators.compose([
           Validators.required,
-          Validators.pattern(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/),
+          Validators.email
         ])
       ],
       userPassword: [
         '',
         Validators.compose([
-          Validators.required,
-          Validators.pattern(/^[a-zA-Z0-9-"'+, ]*$/)
+          Validators.required
         ])
       ]
     });
@@ -45,6 +45,8 @@ export class SignInComponent implements OnInit {
   tryLogin() {
     const email = this.loginForm.get('userName').value;
     const password = this.loginForm.get('userPassword').value;
-    return this.authService.SignIn(email, password);
+    return this.authService.SignIn(email, password).catch(error => {
+      this.userError = true;
+    });
   }
 }

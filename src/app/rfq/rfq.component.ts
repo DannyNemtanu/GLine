@@ -24,6 +24,9 @@ import {
 import {
   Router
 } from '@angular/router';
+import {
+  CustomValidators
+} from '../services/custom-validators.service';
 
 @Component({
   selector: 'app-rfq',
@@ -36,6 +39,7 @@ export class RfqComponent implements OnInit {
   snapshot: Observable < any > ;
   id: any; // Generating ID
   imageError = false;
+
   rfqForm: FormGroup;
   rfqValidation = {
     title: [{
@@ -45,10 +49,6 @@ export class RfqComponent implements OnInit {
       {
         type: 'minlength',
         message: 'Minimum 5 characters'
-      },
-      {
-        type: 'pattern',
-        message: 'Please make sure you use safe characters!'
       }
     ],
     description: [{
@@ -59,20 +59,11 @@ export class RfqComponent implements OnInit {
         type: 'minlength',
         message: 'Minimum 30 characters'
       },
-      {
-        type: 'pattern',
-        message: 'Please make sure you use safe characters!'
-      }
     ],
     destination: [{
-        type: 'required',
-        message: 'Produced is required!'
-      },
-      {
-        type: 'pattern',
-        message: 'Please make sure you use safe characters!'
-      }
-    ],
+      type: 'required',
+      message: 'Destination is required!'
+    }],
     productImage: [{
       type: 'pattern',
       message: 'File not supported!'
@@ -91,24 +82,22 @@ export class RfqComponent implements OnInit {
         this.us.getUserID()
       ],
       title: [
-        'Sample Product',
+        '',
         Validators.compose([
           Validators.required,
-          Validators.minLength(5),
-          Validators.pattern(/^[a-zA-Z0-9-"', ]*$/)
+          Validators.minLength(5)
         ])
       ],
       description: [
-        'Product Description',
+        '',
         Validators.compose([
           Validators.required,
-          Validators.minLength(50),
-          Validators.pattern(/^^(.|\s)*[a-zA-Z]+(.|\s)*$/)
+          Validators.minLength(50)
         ])
       ],
       destination: [
-        'Romania',
-        Validators.compose([Validators.pattern(/^[a-zA-Z0-9-,. ]*$/)])
+        '',
+        Validators.required
       ],
       orderPrices: this.fb.array([this.initPrices()]),
       productImages: this.fb.array([]),
@@ -125,11 +114,11 @@ export class RfqComponent implements OnInit {
     return this.fb.group({
       quantity: [
         '',
-        Validators.compose([Validators.pattern(/^[0-9]*$/)])
+        Validators.pattern('[0-9]*')
       ],
       price: [
         '',
-        Validators.compose([Validators.pattern(/^[0-9.]*$/)])
+        Validators.pattern('[0-9]*')
       ]
     });
   }
@@ -191,16 +180,22 @@ export class RfqComponent implements OnInit {
   }
   addNewRFQ() {
     const imageArray: Array < any > = this.rfqForm.get('productImages').value;
+    const pricesArray: Array < any > = this.rfqForm.get('orderPrices').value;
     if (imageArray.length < 1) {
       alert('No images!');
     } else {
-      const uid = this.us.getUserID();
-      const path = `users/${uid}/rfq/${this.id}`;
-      this.afs
-        .doc(path)
-        .set(this.rfqForm.value).then(() => {
-          this.router.navigate(['myrequests']);
-        });
+      console.log(pricesArray);
+      if (pricesArray[0].quantity === '0' || pricesArray[0].price === '0') {
+        alert('Price or quantity can not be 0 !');
+      } else {
+        const uid = this.us.getUserID();
+        const path = `users/${uid}/rfq/${this.id}`;
+        this.afs
+          .doc(path)
+          .set(this.rfqForm.value).then(() => {
+            this.router.navigate(['myrequests']);
+          });
+      }
     }
     // console.log(this.rfqForm.value);
   }

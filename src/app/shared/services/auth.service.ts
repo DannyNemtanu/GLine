@@ -21,24 +21,39 @@ import {
 })
 
 export class AuthService {
-  userData: any; // Save logged in user data
+  userData = {
+    uid: '',
+    lastSignInTime: ''
+  }; // Save logged in user data
 
   constructor(
     private afs: AngularFirestore, // Inject Firestore service
     private afAuth: AngularFireAuth, // Inject Firebase auth service
     private router: Router,
-    private ngZone: NgZone // NgZone service to remove outside scope warning
   ) {
     /* Saving user data in localstorage when
     logged in and setting up null when logged out */
-    this.afAuth.authState.subscribe(user => {
+    this.afAuth.authState.subscribe((user: any) => {
       if (user) {
-        this.userData = user;
+        this.userData = {
+          uid: user.uid,
+          lastSignInTime: user.metadata.lastSignInTime
+        };
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user'));
       } else {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
+      }
+    });
+  }
+
+  getCurrentUser() {
+    this.afAuth.authState.subscribe((user: any) => {
+      if (user) {
+        return user.uid;
+      } else {
+        return null;
       }
     });
   }
@@ -55,8 +70,6 @@ export class AuthService {
           }
         });
         // this.SetUserData(result.user);
-      }).catch((error) => {
-        window.alert(error.message);
       });
   }
 

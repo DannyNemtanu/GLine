@@ -1,11 +1,23 @@
-import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-import { AngularFirestore } from '@angular/fire/firestore';
+import {
+  Injectable
+} from '@angular/core';
+import {
+  CanActivate,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+  Router
+} from '@angular/router';
+import {
+  Observable
+} from 'rxjs';
+import {
+  AngularFirestore
+} from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SecureSupplierGuard implements CanActivate {
+export class SecureCompleteProfileGuard implements CanActivate {
   currentUser: any;
   checkUser: any;
   user: any;
@@ -17,10 +29,10 @@ export class SecureSupplierGuard implements CanActivate {
     const currentUser = JSON.parse(localStorage.getItem('user'));
     return new Promise < any > ((resolve, reject) => {
       let user = this.afs.doc(`users/${currentUser.uid}`).valueChanges().subscribe((user: any) => {
-        if (user.retailer) {
-          reject('No manufacturer');
-        } else {
+        if (user.completedProfile) {
           resolve(user);
+        } else {
+          reject('No completed profile');
         }
       });
     });
@@ -35,7 +47,7 @@ export class SecureSupplierGuard implements CanActivate {
         .then(user => {
           return resolve(true);
         }, err => {
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/complete-profile']);
           return resolve(false);
         });
     });

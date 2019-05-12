@@ -1,4 +1,10 @@
 import {
+  ChatService
+} from './../../shared/directives/chat.service';
+import {
+  MessengerComponent
+} from './../../messenger/messenger.component';
+import {
   AngularFirestore
 } from '@angular/fire/firestore';
 import {
@@ -24,8 +30,8 @@ export class ListComponent implements OnInit {
   constructor(
     private afs: AngularFirestore,
     private us: UserDataService,
-    private router: Router
-
+    private router: Router,
+    private chat: ChatService
   ) {}
 
   ngOnInit() {
@@ -51,10 +57,36 @@ export class ListComponent implements OnInit {
       this.isLoaded = true;
     });
   }
-
   contactRetailer(id) {
+    // Data
     const currentUser = this.us.getUserID();
-    this.router.navigate(['messenger', currentUser + id]);
+    const data = {
+      receiver: id,
+      createdAt: Date.now(),
+      chatId: currentUser + id
+    };
+    const retailer = {
+      receiver: currentUser,
+      createdAt: Date.now(),
+      chatId: currentUser + id
+    };
+
+    // Init Connections
+    this.afs.collection(`users/${currentUser}/connections`, ref => ref.where('receiver', '==', `${id}`))
+      .valueChanges().subscribe(doc => {
+        if (doc.length === 0) {
+          this.afs.collection(`users/${currentUser}/connections`).add(data).then(() => {
+            this.afs.collection(`users/${id}/connections`).add(retailer).then(() => {
+              this.chat.setSource(currentUser, id);
+              this.router.navigate(['messenger', currentUser + id]);
+            });
+          });
+        } else {
+          this.chat.setSource(currentUser, id);
+          this.router.navigate(['messenger', currentUser + id]);
+        }
+      });
+    event.stopPropagation();
   }
 
 }

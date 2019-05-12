@@ -123,8 +123,6 @@
                         <div class="form-group">
                           <input type="text" class="form-control" placeholder="Price" formControlName="price" required>
                           <div class="invalid-feedback d-block">
-                            <div *ngIf="rfqForm.get('orderPrices').controls[i].get('price').hasError('pattern')">
-                              Please include digits and '.' character only!</div>
                             <div *ngIf="rfqForm.get('orderPrices').controls[i].get('price').hasError('required') && rfqForm.get('orderPrices').controls[i].get('price').touched">
                                   Price is required!</div>
                           </div>

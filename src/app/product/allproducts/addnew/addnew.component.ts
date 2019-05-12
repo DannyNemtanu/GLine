@@ -7,6 +7,7 @@ import {
   AngularFireStorage
 } from 'angularfire2/storage';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addnew',
@@ -159,59 +160,53 @@ export class AddnewComponent implements OnInit {
     private afs: AngularFirestore,
     private fb: FormBuilder,
     private us: UserDataService,
-    private afStorage: AngularFireStorage
+    private afStorage: AngularFireStorage,
+    private router: Router
   ) {
     this.ProductForm = this.fb.group({
       title: [
-        'Sample Product',
+        '',
         Validators.compose([
           Validators.required,
-          Validators.minLength(5),
-          Validators.pattern(/^[a-zA-Z0-9-"', ]*$/)
+          Validators.minLength(5)
         ])
       ],
       overview: this.fb.array([this.initOverview()]),
       pd: this.fb.array([this.initPD()]),
       supplyAbility: [
-        '1200 piece per Month',
+        '',
         Validators.compose([
-          Validators.required,
-          Validators.pattern(/^[a-zA-Z0-9, ]*$/)
+          Validators.required
         ])
       ],
       type: [
-        'Electronic, mobile, phone, consumers',
+        '',
         Validators.compose([
-          Validators.required,
-          Validators.pattern(/^[a-zA-Z0-9, ]*$/)
+          Validators.required
         ])
       ],
       brand: [
-        'Collasion',
+        '',
         Validators.compose([
-          Validators.required,
-          Validators.pattern(/^[a-zA-Z0-9, ]*$/)
+          Validators.required
         ])
       ],
       collection: [
-        'Mobile Phone, Electronics',
+        '',
         Validators.compose([
           Validators.required,
-          Validators.pattern(/^[a-zA-Z0-9, ]*$/)
         ])
       ],
       tags: [
-        'electronics, mobile, phone, consumer',
+        '',
         Validators.compose([
-          Validators.required,
-          Validators.pattern(/^[a-zA-Z0-9, ]*$/)
+          Validators.required
         ])
       ],
       digital: [false],
-      weight: ['0.850', Validators.compose([Validators.pattern(/^[0-9.]*$/)])],
+      weight: ['', Validators.compose([Validators.pattern(/^[0-9.]*$/)])],
       origin: [
-        'Romania',
-        Validators.compose([Validators.pattern(/^[a-zA-Z0-9-,. ]*$/)])
+        ''
       ],
       variants: this.fb.array([this.initVariant()]),
       orderPrices: this.fb.array([this.initPrices()]),
@@ -228,15 +223,13 @@ export class AddnewComponent implements OnInit {
     title: [
       '',
       Validators.compose([
-        Validators.maxLength(50),
-        Validators.pattern(/^[a-zA-Z0-9-"()/:', ]*$/)
+        Validators.maxLength(50)
       ])
     ],
     value: [
       '',
       Validators.compose([
-        Validators.maxLength(50),
-        Validators.pattern(/^[a-zA-Z0-9-"/():', ]*$/)
+        Validators.maxLength(50)
       ])
     ],
     });
@@ -252,15 +245,13 @@ export class AddnewComponent implements OnInit {
     title: [
       '',
       Validators.compose([
-        Validators.maxLength(50),
-        Validators.pattern(/^[a-zA-Z0-9-"/:()', ]*$/)
+        Validators.maxLength(50)
       ])
     ],
     value: [
       '',
       Validators.compose([
-        Validators.maxLength(50),
-        Validators.pattern(/^[a-zA-Z0-9-"/:', ]*$/)
+        Validators.maxLength(50)
       ])
     ],
     });
@@ -274,12 +265,10 @@ export class AddnewComponent implements OnInit {
   initVariant(): FormGroup {
     return this.fb.group({
       optionName: [
-        'Color',
-        Validators.compose([Validators.pattern(/^[a-zA-Z0-9-, ]*$/)])
+        'Color'
       ],
       optionValue: [
-        'Black',
-        Validators.compose([Validators.pattern(/^[a-zA-Z0-9-, ]*$/)])
+        'Black'
       ]
     });
   }
@@ -319,6 +308,7 @@ export class AddnewComponent implements OnInit {
       .add(this.ProductForm.value)
       .then(docRef => {
         // console.log(docRef.id);
+        this.router.navigate(['overview', uid]);
       })
       .catch(function(error) {
         console.error('Error adding document: ', error);

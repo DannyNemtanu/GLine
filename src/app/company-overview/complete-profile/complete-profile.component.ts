@@ -293,10 +293,6 @@ export class CompleteProfileComponent implements OnInit {
         message: 'Description is required'
       },
       {
-        type: 'pattern',
-        message: 'Make sure you dont use prohibbited characters such as ("","<")'
-      },
-      {
         type: 'maxlength',
         message: 'Maximum 50 characters long'
       }
@@ -389,25 +385,23 @@ export class CompleteProfileComponent implements OnInit {
     this.formOne = this.fb.group({
       profilePicture: [this.picture, Validators.required],
       tradingName: [
-        'GoldenLine',
+        '',
         Validators.compose([
           Validators.maxLength(25),
           Validators.minLength(4),
-          Validators.pattern(/^[a-zA-Z0-9_.-]*$/),
           Validators.required
         ])
       ],
       registrationNumber: [
-        'GL12345',
+        '',
         Validators.compose([
           Validators.maxLength(25),
           Validators.minLength(4),
-          Validators.pattern(/^[a-zA-Z0-9_.-]*$/),
           Validators.required
         ])
       ],
       day: [
-        '26',
+        '',
         Validators.compose([
           Validators.maxLength(2),
           Validators.minLength(1),
@@ -416,7 +410,7 @@ export class CompleteProfileComponent implements OnInit {
         ])
       ],
       month: [
-        'Aug',
+        '',
         Validators.compose([
           Validators.pattern(
             // tslint:disable-next-line:max-line-length
@@ -426,7 +420,7 @@ export class CompleteProfileComponent implements OnInit {
         ])
       ],
       year: [
-        '1996',
+        '',
         Validators.compose([
           Validators.maxLength(4),
           Validators.pattern(/19[789]\d|20[01]\d/),
@@ -434,13 +428,7 @@ export class CompleteProfileComponent implements OnInit {
         ])
       ],
       websiteURL: [
-        'https://www.gline.com',
-        Validators.compose([
-          Validators.pattern(
-            // tslint:disable-next-line:max-line-length
-            /^(?:(?:https):\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,}))\.?)(?::\d{2,5})?(?:[/?#]\S*)?$/i
-          )
-        ])
+        '',
       ]
     });
     this.formTwo = this.fb.group({
@@ -454,26 +442,26 @@ export class CompleteProfileComponent implements OnInit {
         ])
       ],
       telephone: [
-        '+3531398812',
+        '',
         Validators.compose([
           Validators.pattern(/^(\(?\+?[0-9]*\)?)?[0-9_\- \(\)]*$/)
         ])
       ],
       mobilePhone: [
-        '+353877777777',
+        '',
         Validators.compose([
           Validators.pattern(/^(\(?\+?[0-9]*\)?)?[0-9_\- \(\)]*$/),
           Validators.required
         ])
       ],
       fax: [
-        '+3531321233',
+        '',
         Validators.compose([
           Validators.pattern(/^(\(?\+?[0-9]*\)?)?[0-9_\- \(\)]*$/)
         ])
       ],
       emailAddress: [
-        'support@gline.com',
+        '',
         Validators.compose([
           Validators.maxLength(50),
           Validators.pattern(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/),
@@ -481,7 +469,7 @@ export class CompleteProfileComponent implements OnInit {
         ])
       ],
       managerName: [
-        'Dan Nemtanu',
+        '',
         Validators.compose([
           Validators.required,
           Validators.maxLength(20),
@@ -494,74 +482,71 @@ export class CompleteProfileComponent implements OnInit {
     this.formThree = this.fb.group({
       businessDescription: [
         // tslint:disable-next-line:max-line-length
-        'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur,',
+        '',
         Validators.compose([
           Validators.maxLength(500),
           Validators.minLength(50),
-          Validators.pattern(/[\pL\pN_\-]+/),
           Validators.required
         ])
       ],
       poimg: [''],
-      potitle: ['Raw Material'],
+      potitle: [''],
       psimg: [''],
-      pstitle: ['Assembly'],
+      pstitle: [''],
       ptimg: [''],
-      pttitle: ['Life Testing'],
+      pttitle: [''],
       pfimg: [''],
-      pftitle: ['Inspection and Packaging'],
+      pftitle: [''],
       mainProducts: [
-        'Electronics, Phones, Mobile Phones',
+        '',
         Validators.compose([
           Validators.maxLength(400),
-          Validators.minLength(5),
-          Validators.pattern(/^[a-zA-Z0-9-, ]*$/),
+          Validators.minLength(5), ,
           Validators.required
         ])
       ]
     });
     this.formFour = this.fb.group({
       businessCertification: [
-        'BQB,FCC,CE,CE,Test Report,Test Report,Test Report',
+        '',
         Validators.compose([
           Validators.maxLength(100),
-          Validators.pattern(/^[a-zA-Z0-9-, ]*$/)
+
         ])
       ],
       businessPatents: [
-        'Certificate of Registration for a UK Design',
+        '',
         Validators.compose([
           Validators.maxLength(100),
-          Validators.pattern(/^[a-zA-Z0-9-, ]*$/)
+
         ])
       ],
       businessTrademarks: [
-        'CALION',
+        '',
         Validators.compose([
           Validators.maxLength(100),
-          Validators.pattern(/^[a-zA-Z0-9-, ]*$/)
+
         ])
       ]
     });
     this.formFive = this.fb.group({
       asmin: [
-        '100000000',
+        '',
         Validators.compose([Validators.pattern(/^[0-9]*$/)])
       ],
       asmax: [
-        '500000000',
+        '',
         Validators.compose([Validators.pattern(/^[0-9]*$/)])
       ],
       mainMarkets: [
         // tslint:disable-next-line:max-line-length
-        'Domestic Market 60.00 % North America 15.00 % Eastern Asia 15.00 % Western Europe 5.00 % Central America 2.00 % South Asia 2.00 % Oceania 1.00 %',
+        '',
         Validators.compose([
-          Validators.maxLength(500),
-          Validators.pattern(/^[a-zA-Z0-9-,.% ]*$/)
+          Validators.maxLength(500)
         ])
       ],
-      nemin: ['45000', Validators.compose([Validators.pattern(/^[0-9]*$/)])],
-      nemax: ['50000', Validators.compose([Validators.pattern(/^[0-9]*$/)])]
+      nemin: ['', Validators.compose([Validators.pattern(/^[0-9]*$/)])],
+      nemax: ['', Validators.compose([Validators.pattern(/^[0-9]*$/)])]
     });
   }
   // Google Maps Location Update & Display
@@ -818,7 +803,7 @@ export class CompleteProfileComponent implements OnInit {
         doc.update({
           completedProfile: true
         });
-        this.router.navigate(['overview']);
+        this.router.navigate(['overview', user]);
       }).catch(() => {
         throw new Error(`Updating profile data failde ${this.currentUser}`);
       });

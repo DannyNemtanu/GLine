@@ -3,9 +3,7 @@ import {
   BrowserModule
 } from '@angular/platform-browser';
 import {
-  NgModule,
-  ErrorHandler
-} from '@angular/core';
+  NgModule} from '@angular/core';
 import {
   FormsModule,
   ReactiveFormsModule
@@ -19,7 +17,6 @@ import {
 import {
   AppComponent
 } from './app.component';
-import * as CryptoJS from 'crypto-js';
 
 // Firestore
 import {
@@ -84,8 +81,7 @@ import {
   AngularFireStorageModule
 } from 'angularfire2/storage';
 import {
-  HttpClientModule
-} from '@angular/common/http';
+  HttpClientModule} from '@angular/common/http';
 import {
   DropZoneDirective
 } from './shared/directives/drop-zone.directive';
@@ -120,12 +116,8 @@ import {
   GoogleAnalyticsService
 } from './services/google-analytics.service';
 import {
-  GlobalErrorHandler
-} from './logging/global-error-handling';
-import {
   LogsComponent
 } from './logging/logs/logs.component';
-
 
 @NgModule({
   declarations: [
@@ -176,7 +168,6 @@ import {
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  // @reference https://filipmolcik.com/google-analytics-%F0%9F%93%88-in-angular-2-app-example/
+  // @reference https://filipmolci  k.com/google-analytics-%F0%9F%93%88-in-angular-2-app-example/
   constructor(protected _googleAnalyticsService: GoogleAnalyticsService) {} // < --We inject the service here to keep it alive whole time
-
 }

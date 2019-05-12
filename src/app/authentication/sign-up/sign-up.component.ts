@@ -10,9 +10,6 @@ import {
   Component,
   OnInit
 } from '@angular/core';
-import {
-  wrapListenerWithPreventDefault
-} from '@angular/core/src/render3/instructions';
 
 
 @Component({
@@ -47,7 +44,7 @@ export class SignUpComponent implements OnInit {
         '',
         Validators.compose([
           Validators.required,
-          Validators.pattern(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/),
+          Validators.email
         ])
       ],
       regPassword: [
