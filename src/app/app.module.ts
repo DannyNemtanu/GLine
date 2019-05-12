@@ -3,7 +3,7 @@ import {
   BrowserModule
 } from '@angular/platform-browser';
 import {
-  NgModule} from '@angular/core';
+  NgModule, ErrorHandler} from '@angular/core';
 import {
   FormsModule,
   ReactiveFormsModule
@@ -118,6 +118,7 @@ import {
 import {
   LogsComponent
 } from './logging/logs/logs.component';
+import { GlobalErrorHandler } from './logging/global-error-handling';
 
 @NgModule({
   declarations: [
@@ -160,10 +161,10 @@ import {
     ReactiveFormsModule
   ],
   providers: [AuthService, GoogleAnalyticsService,
-    // {
-    //   provide: ErrorHandler,
-    //   useClass: GlobalErrorHandler
-    // }
+    {
+      provide: ErrorHandler,
+      useClass: GlobalErrorHandler
+    }
   ],
   bootstrap: [AppComponent]
 })
