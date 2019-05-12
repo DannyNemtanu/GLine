@@ -46,6 +46,7 @@ export class EditrfqComponent implements OnInit {
     this.displayRequests(this.us.getUserID());
   }
   displayRequests(id) {
+    // @reference https://firebase.google.com/docs/firestore/query-data/queries
     const retailerRef = this.afs.collection('users', ref => ref.where('retailer', '==', true).where('uid', '==', id)).get();
     retailerRef.forEach(retailer => {
       retailer.docs.forEach(r => {

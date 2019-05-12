@@ -72,6 +72,7 @@ export class NavigationComponent implements OnInit {
     this.id = this.userService.getUserID();
   }
   setUserType() {
+    // @reference https://firebase.google.com/docs/firestore/query-data/queries
     const query = this.afs
       .collection < User > ('users', ref =>
         ref.where('uid', '==', this.userService.getUserID())

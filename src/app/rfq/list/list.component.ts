@@ -17,6 +17,7 @@ import {
 import {
   Router
 } from '@angular/router';
+import { reference } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-list',
@@ -39,6 +40,7 @@ export class ListComponent implements OnInit {
   }
 
   displayRequests() {
+    // @reference https://firebase.google.com/docs/firestore/query-data/queries
     const retailerRef = this.afs.collection('users', ref => ref.where('retailer', '==', true)).get();
     retailerRef.forEach(retailer => {
       retailer.docs.forEach(r => {

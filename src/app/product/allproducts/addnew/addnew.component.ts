@@ -327,6 +327,8 @@ export class AddnewComponent implements OnInit {
     const picForm = this.ProductForm.get('productImages') as FormArray;
     picForm.push(this.initProductImages(url));
   }
+  // @reference https://angularfirebase.com/lessons/angular-file-uploads-to-firebase-storage/
+  // @reference https://www.youtube.com/watch?v=wRWZQwiNFnM
   startUpload(event: FileList) {
     const uid = this.us.getUserID();
     const file = event.item(0);

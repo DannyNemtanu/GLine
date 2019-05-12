@@ -35,6 +35,7 @@ export class SuppliersComponent implements OnInit {
 
   ngOnInit() {
     const currentDate = new Date().getFullYear();
+    // @reference https://firebase.google.com/docs/firestore/query-data/queries
     const supplierRef = this.afs.collection('users', ref =>
       ref.where('manufacturer', '==', true)
     );

@@ -570,6 +570,9 @@ export class CompleteProfileComponent implements OnInit {
     } else {
       // Storage path
       const path = `${uid}/profilePicture`;
+      // @reference https://angularfirebase.com/lessons/angular-file-uploads-to-firebase-storage/
+      // @reference https://www.youtube.com/watch?v=wRWZQwiNFnM
+      
       this.task = this.afStorage.upload(path, file);
 
       this.task.percentageChanges().subscribe(data => {
@@ -670,6 +673,9 @@ export class CompleteProfileComponent implements OnInit {
   }
 
   // Submitting form steps
+  // @reference https://angular.io/guide/reactive-forms
+  // @reference https://www.youtube.com/watch?v=6Y_0MJWlPK8
+  // @reference https://www.youtube.com/watch?v=q3t_hzkAnQE
   stepOne() {
     const form = this.form_data.companyProfile;
     form.profilePicture = this.formOne.get('profilePicture').value;

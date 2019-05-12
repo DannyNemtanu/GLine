@@ -33,6 +33,7 @@ export class AuthService {
   ) {
     /* Saving user data in localstorage when
     logged in and setting up null when logged out */
+    // @reference https://angularfirebase.com/lessons/google-user-auth-with-firestore-custom-data/
     this.afAuth.authState.subscribe((user: any) => {
       if (user) {
         this.userData = {
@@ -47,7 +48,7 @@ export class AuthService {
       }
     });
   }
-
+  // @reference https://angularfirebase.com/lessons/google-user-auth-with-firestore-custom-data/
   getCurrentUser() {
     this.afAuth.authState.subscribe((user: any) => {
       if (user) {
@@ -59,6 +60,7 @@ export class AuthService {
   }
 
   // Sign in with email/password
+  // @reference https://angularfirebase.com/lessons/google-user-auth-with-firestore-custom-data/
   SignIn(email, password) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
@@ -74,6 +76,7 @@ export class AuthService {
   }
 
   // Sign up with email/password
+  // @reference https://angularfirebase.com/lessons/google-user-auth-with-firestore-custom-data/
   SignUp(displayName, email, password, manufactuerer, retailer) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((result) => {
@@ -87,6 +90,7 @@ export class AuthService {
   }
 
   // Send email verfificaiton when new user sign up
+  // @reference https://angularfirebase.com/lessons/google-user-auth-with-firestore-custom-data/
   SendVerificationMail() {
     return this.afAuth.auth.currentUser.sendEmailVerification()
       .then(() => {
@@ -95,6 +99,7 @@ export class AuthService {
   }
 
   // Reset Forggot password
+  // @reference https://angularfirebase.com/lessons/google-user-auth-with-firestore-custom-data/
   ForgotPassword(passwordResetEmail) {
     return this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
@@ -105,6 +110,7 @@ export class AuthService {
   }
 
   // Returns true when user is looged in and email is verified
+  // @reference https://angularfirebase.com/lessons/google-user-auth-with-firestore-custom-data/
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
     return (user !== null && user.emailVerified !== false) ? true : false;
@@ -113,6 +119,7 @@ export class AuthService {
   /* Setting up user data when sign in with username/password,
   sign up with username/password and sign in with social auth
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
+  // @reference https://angularfirebase.com/lessons/google-user-auth-with-firestore-custom-data/
   SetUserData(displayName, user, manufactuerer, retailer) {
     const userRef: AngularFirestoreDocument < any > = this.afs.doc(`users/${user.uid}`);
     const userData: User = {
@@ -143,6 +150,7 @@ export class AuthService {
   }
 
   // Sign out
+  // @reference https://angularfirebase.com/lessons/google-user-auth-with-firestore-custom-data/
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('user');

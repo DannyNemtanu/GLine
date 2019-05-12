@@ -416,6 +416,8 @@ export class EditProductComponent implements OnInit {
     });
     picForm.push(picture);
   }
+  // @reference https://angularfirebase.com/lessons/angular-file-uploads-to-firebase-storage/
+  // @reference https://www.youtube.com/watch?v=wRWZQwiNFnM
   startUpload(event: FileList) {
     const uid = this.us.getUserID();
     const file = event.item(0);

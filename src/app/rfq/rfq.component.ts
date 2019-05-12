@@ -140,6 +140,8 @@ export class RfqComponent implements OnInit {
     const picForm = this.rfqForm.get('productImages') as FormArray;
     picForm.push(this.initProductImages(url));
   }
+  // @reference https://angularfirebase.com/lessons/angular-file-uploads-to-firebase-storage/
+  // @reference https://www.youtube.com/watch?v=wRWZQwiNFnM
   startUpload(event: FileList) {
     const uid = this.us.getUserID();
     const file = event.item(0);
@@ -170,6 +172,8 @@ export class RfqComponent implements OnInit {
       });
     }
   }
+  // @reference https://angularfirebase.com/lessons/angular-file-uploads-to-firebase-storage/
+  // @reference https://www.youtube.com/watch?v=wRWZQwiNFnM
   deleteIamges() {
     const images = this.rfqForm.get('productImages').value;
     images.forEach(image => {

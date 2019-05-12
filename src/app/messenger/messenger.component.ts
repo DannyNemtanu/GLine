@@ -179,6 +179,7 @@ export class MessengerComponent implements OnInit {
 
 
   // Encryption & Decryption using AES
+  // @reference https://www.c-sharpcorner.com/article/aes-encryptiondecryption-with-angular-7/
   encryptData(data) {
     try {
       const chipertext = CryptoJS.AES.encrypt(data, this.currentUser);

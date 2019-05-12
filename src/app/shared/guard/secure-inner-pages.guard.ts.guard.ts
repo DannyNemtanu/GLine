@@ -13,7 +13,7 @@ export class SecureInnerPagesGuard implements CanActivate {
     public authService: AuthService,
     public router: Router
   ) { }
-
+// @reference https://stackoverflow.com/questions/50485433/how-to-use-angular-6-route-auth-guards-for-all-routes-root-and-child-routes
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {

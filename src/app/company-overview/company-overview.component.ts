@@ -106,6 +106,7 @@ export class CompanyOverviewComponent implements OnInit {
       chatId: supplierId + clientId
     };
     // Init Connections
+    // @reference https://www.techiediaries.com/angular-firestore-tutorial/
     this.afs.collection(`users/${clientId}/connections`, ref => ref.where('receiver', '==', `${supplierId}`))
       .valueChanges().subscribe(doc => {
         if (doc.length === 0) {
@@ -150,6 +151,7 @@ export class CompanyOverviewComponent implements OnInit {
         content,
         createdAt: Date.now()
       };
+      // @reference https://www.techiediaries.com/angular-firestore-tutorial/
       this.afs.collection(`chats/${chatId}/messages`).add(data).then(() => {
         this.messageForm.patchValue({
           message: ''

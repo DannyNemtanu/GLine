@@ -31,6 +31,7 @@ export class ProductComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    // @reference https://firebase.google.com/docs/firestore/query-data/queries
     const supplierRef = this.afs.collection('users', ref => ref.where('manufacturer', '==', true)).get();
     supplierRef.forEach(supplier => {
       supplier.docs.forEach(d => {

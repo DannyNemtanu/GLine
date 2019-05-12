@@ -36,7 +36,7 @@ export class SearchsuppliersComponent implements OnInit {
     let current, prev = null;
     const transform = query.toLowerCase();
     const queryArray = transform.split(' ');
-
+    // @reference https://firebase.google.com/docs/firestore/query-data/queries
     const supplierRef = this.afs.collection('users', ref => ref.where('manufacturer', '==', true));
     supplierRef.get().forEach(supplier => {
       supplier.docs.forEach(d => {
