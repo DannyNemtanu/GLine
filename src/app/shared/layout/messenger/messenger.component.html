@@ -1,0 +1,174 @@
+<app-navigation></app-navigation>
+<!-- CONTAINER -->
+<div class="main-container pb-2">
+  <div class="container py-3">
+    <div class="messenger-wrapper">
+      <div class="row no-gutters p-0 m-0">
+        <div class="connections col-3">
+          <div class="search-connections">
+            <input type="text" placeholder="Search connections..." />
+          </div>
+          <div class="connection-list">
+            <ul class="con-list" *ngIf="isRetailer">
+              <li class="single-con d-flex" *ngFor="let supplier of userConnections; let i = index;" [id]="supplier.uid"
+                (click)="changeChat(supplier.uid, currentUser, supplier.companyProfile.tradingName);">
+                <div class="d-block">
+                  <div class="profile-img"
+                    [ngStyle]="{'background-image': 'url(' + supplier.companyProfile.profilePicture + ')'}">
+                  </div>
+                </div>
+                <div class="d-block">
+                  <div class="title">
+                    <h5>{{supplier.companyProfile.tradingName}}</h5>
+                  </div>
+                  <div *ngIf="isMessage">
+                    <div class="last-message text-truncate" *ngIf="lastMessage[i].uid === currentUser">
+                      {{decryptData(lastMessage[i].content, lastMessage[i].uid)}}
+                    </div>
+                    <div class="last-message text-truncate font-weight-bold" *ngIf="lastMessage[i].uid !== currentUser">
+                      {{decryptData(lastMessage[i].content, lastMessage[i].uid)}}
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <ul class="con-list" *ngIf="!isRetailer">
+              <li class="single-con d-flex" *ngFor="let retailer of userConnections; let i = index;" [id]="retailer.uid"
+                (click)="changeChat(currentUser, retailer.uid, retailer.displayName);">
+                <div class="d-block">
+                  <div class="profile-img" [ngStyle]="{'background-image': 'url(' +  + ')'}">
+                  </div>
+                </div>
+                <div class="d-block">
+                  <div class="title">
+                    <h5>{{retailer.displayName}}</h5>
+                  </div>
+                  <div *ngIf="isMessage">
+                    <div class="last-message text-truncate" *ngIf="lastMessage[i].uid === currentUser">
+                      {{decryptData(lastMessage[i].content, lastMessage[i].uid)}}
+                    </div>
+                    <div class="last-message text-truncate font-weight-bold" *ngIf="lastMessage[i].uid !== currentUser">
+                      {{decryptData(lastMessage[i].content, lastMessage[i].uid)}}
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="messages-area col-6 offset-3" #scrollMe *ngIf="isRetailer">
+          <div class="body" >
+            <div class="all-messages" >
+              <div class="messages-list" >
+                <div class="message-row" *ngFor="let message of messenger" >
+                  <div class="single-message" id="own" *ngIf="currentUser === message.uid">
+                    <div class="msg-content">
+                      <span class="type-txt">{{decryptData(message.content, message.uid)}}</span>
+                    </div>
+                  </div>
+                  <div class="single-message" id="con" *ngIf="currentUser !== message.uid">
+                    <div class="msg-content">
+                      <span class="type-txt">{{decryptData(message.content, message.uid)}}</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="footer">
+            <form (ngSubmit)="sendMessage(chatID,messageForm.get('message').value)" [formGroup]="messageForm">
+              <textarea formControlName="message" [disabled]="!sidValid" placeholder="Type your message here..."
+                id="conmessage" (keydown.enter)="onKeydown()"></textarea>
+              <button type="submit" id="submitmessage" class="btn">
+                <i class="material-icons">
+                  send
+                </i>
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="messages-area col-9 offset-3" *ngIf="!isRetailer">
+          <div class="header" style="height: 10%;position: absolute;top: 0;width: 100%;" *ngIf="showName">
+            <p class="text-secondary"
+              style="display: flex;align-items: center;height: 100%;justify-content:center;position: relative;">Active
+              chat with <span class="ml-2 font-weight-bold" style="color: #333; font-style: italic; text-decoration: underline">{{displayRetailerName}}</span></p>
+          </div>
+          <div class="body" style="bottom: 20%;height: 70%;">
+            <div class="all-messages">
+              <div class="messages-list">
+                <div class="message-row" *ngFor="let message of messenger">
+                  <div class="single-message" id="own" *ngIf="currentUser === message.uid">
+                    <div class="msg-content">
+                      <span class="type-txt">{{decryptData(message.content, message.uid)}}</span>
+                    </div>
+                  </div>
+                  <div class="single-message" id="con" *ngIf="currentUser !== message.uid">
+                    <div class="msg-content">
+                      <span class="type-txt">{{decryptData(message.content, message.uid)}}</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="footer">
+            <form (ngSubmit)="sendMessage(chatID,messageForm.get('message').value)" [formGroup]="messageForm">
+              <textarea formControlName="message" [disabled]="!sidValid" placeholder="Type your message here..."
+                id="conmessage" (keydown.enter)="onKeydown()" style="height: 90px;padding: 20px;"></textarea>
+              <button type="submit" id="submitmessage" class="btn" style="right: 50px;bottom: 20px;">
+                <i class="material-icons">
+                  send
+                </i>
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="about-connection col-3 offset-9" *ngIf="isRetailer && sidValid">
+          <div class="header">
+            <div class="m-image d-block mx-auto mt-4"
+              [ngStyle]="{'background-image': 'url(' + supplierProfileImage + ')'}">
+            </div>
+            <div class="m-description text-center">
+              <span>
+                <div class="name">
+                  <h1 class="font-weight-bold">{{supplierData.companyProfile.managerName}}</h1>
+                </div>
+                <div class="position">{{supplierData.companyProfile.tradingName}} Manager</div>
+              </span>
+            </div>
+          </div>
+          <div class="body">
+            <div class="contact-methods mt-3">
+              <div class="container">
+                <div class="row d-flex">
+                  <div class="col-auto ml-5">
+                    <a href="">
+                      <img src="../../../../assets/images/phone.png" alt="Phone" height="60" width="60">
+                    </a>
+                  </div>
+                  <div class="col-auto">
+                    <a href="">
+                      <img src="../../../../assets/images/message.png" alt="Phone" height="60" width="60">
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="footer">
+            <div class="company-description">
+              <div class="row">
+                <div class="col">
+                  <p style="width: 100%; height: 200px;">{{supplierData.companyProfile.businessDescription}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END CONTAINER -->

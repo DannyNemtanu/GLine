@@ -1,0 +1,238 @@
+/* Start Messenger */
+.messenger-wrapper {
+  width: 100%;
+  height: 85vh;
+  position: relative;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+/* Connections */
+.messenger-wrapper .connections {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  border-right: 1px solid #f6f6f6;
+}
+
+.messenger-wrapper .connections .search-connections input {
+  width: 100%;
+  height: 60px;
+  font-size: .8rem;
+  border: none;
+  padding: 10px;
+  border-bottom: 1px solid #f6f6f6;
+  opacity: .6;
+}
+
+.messenger-wrapper .connections .search-connections input:focus,
+.messenger-wrapper .connections .search-connections input::selection,
+.messenger-wrapper .connections .search-connections input:hover {
+  outline: none;
+  border-bottom: 1px solid #ff6a00;
+  opacity: 1;
+  transition: 1s;
+}
+
+.messenger-wrapper .connection-list .single-con {
+  width: 100%;
+  height: 70px;
+  padding: 15px 15px;
+  border: 1px solid transparent;
+  border-bottom: 1px solid #F5F6FA;
+  cursor: pointer;
+}
+
+.messenger-wrapper .connection-list .single-con:hover {
+  background-color: #F5F6FA;
+  border-bottom: 1px solid #ff6a00;
+  transition: 1s;
+}
+
+.messenger-wrapper .connection-list .single-con:hover .last-message {
+  opacity: 1;
+  transition: 1s;
+}
+
+.messenger-wrapper .connection-list .single-con .profile-img {
+  width: 35px;
+  height: 35px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 5px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.messenger-wrapper .connection-list .single-con .title {
+  width: 200px;
+  font-size: .8rem;
+  height: 20px;
+  color: #4D4F5C;
+  margin-top: 2px;
+}
+
+.messenger-wrapper .connection-list .single-con .last-message {
+  width: 200px;
+  font-size: .6rem;
+  height: 20px;
+  opacity: .5;
+  color: #43425D;
+}
+
+/* Finished Connection Lists */
+/* Main Area */
+/* Body */
+.messages-area {
+  position: absolute;
+  height: 100%;
+  border-right: 1px solid #f6f6f6;
+}
+
+.messages-area .body {
+  position: absolute;
+  height: 80%;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+  padding: 0px 10px;
+}
+.all-messages{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.messages-area .body .messages-list {
+  position: absolute;
+  padding-right: 30px;
+  padding-left: 30px;
+  left: 0;
+  bottom: 20px;
+  width: 100%;
+  height: auto;
+}
+.messages-area .body .messages-list .message-row{
+  display: inline-block;
+  width: 100%;
+}
+
+.messages-area .body .msg-content {
+  margin-bottom: 10px;
+  padding: 1%;
+  font-size: .8rem !important;
+  font-weight: lighter;
+  max-width: 70%;
+}
+.messages-area .body .msg-content .type-txt{
+  word-wrap: break-word;
+}
+
+.messages-area .body .messages-list #con .msg-content {
+  border-radius: 10px;
+  float: left;
+  background-color: #EDF0F5;
+}
+
+.messages-area .body .messages-list #own .msg-content{
+  float: right;
+  border-radius: 10px;
+  background-color: #3B86FF;
+  color: #fff;
+}
+
+/* Footer */
+
+.messages-area .footer {
+  height: 20%;
+  border-top: 1px solid #F5F6FA;
+  position: absolute;
+  bottom: 0;
+  padding: 2% 5%;
+  width: 100%;
+}
+
+.messages-area .footer textarea {
+  background-color: #F5F6FA;
+  border: none;
+  border-radius: 10px;
+  height: 100%;
+  padding: 5% 10%;
+  overflow: hidden !important;
+  width: 100%;
+  font-size: .8rem;
+  resize: none;
+}
+
+.messages-area .footer textarea:focus {
+  outline: none;
+}
+
+/* About Connection */
+.about-connection {
+  position: absolute;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Header */
+.about-connection .header {
+  overflow: hidden;
+  padding: 5%;
+}
+
+.about-connection .header .m-image {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.about-connection .header .m-description {
+  margin-left: 20px;
+  padding-top: 15px;
+  font-style: italic;
+}
+
+.about-connection .header .m-description .name {
+  color: #333;
+  margin-bottom: 7px;
+  font-size: 1.3rem;
+}
+
+.about-connection .header .m-description .position {
+  font-size: .8rem;
+  color: #43425D;
+  opacity: .5;
+  font-style: italic;
+}
+
+.about-connection .footer .company-description {
+  padding: 10%;
+  max-height: 200px;
+  overflow: hidden;
+  font-size: .9rem;
+  color: #c6c6c6;
+  font-style: italic;
+}
+
+/* End Abbout Connection */
+
+
+/* End Messenger */
+
+#submitmessage {
+  position: absolute;
+  right: 35px;
+  bottom: 35px;
+  color: #3B86FF;
+  background: none;
+  padding: 0;
+  border: none;
+  line-height: 24px;
+  margin: 0;
+}

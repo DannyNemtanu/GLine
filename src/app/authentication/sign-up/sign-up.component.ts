@@ -5,7 +5,7 @@ import {
 } from '@angular/forms';
 import {
   AuthService
-} from './../../shared/services/auth.service';
+} from '../../services/auth.service';
 import {
   Component,
   OnInit

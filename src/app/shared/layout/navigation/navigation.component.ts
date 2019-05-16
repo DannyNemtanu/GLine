@@ -3,7 +3,7 @@ import {
 } from '@angular/fire/firestore';
 import {
   AuthService
-} from './../../services/auth.service';
+} from '../../../services/auth.service';
 import {
   UserDataService
 } from './../../../services/user-data.service';
@@ -13,7 +13,7 @@ import {
 } from '@angular/core';
 import {
   User
-} from '../../services/user';
+} from '../../../services/user';
 import {
   FormGroup,
   FormBuilder,
@@ -109,8 +109,10 @@ export class NavigationComponent implements OnInit {
     }
   }
   logout() {
-    this.as.SignOut().catch(() => {
+    try {
+      this.as.SignOut();
+    } catch {
       throw new Error('Secure sign out failed!');
-    });
+    }
   }
 }

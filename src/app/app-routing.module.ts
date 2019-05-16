@@ -5,34 +5,25 @@ import {
 } from './logging/logs/logs.component';
 import {
   EditrfqComponent
-} from './rfq/editrfq/editrfq.component';
-import {
-  ListComponent
-} from './rfq/list/list.component';
+} from './retailer/rfq/editrfq/editrfq.component';
 import {
   SuppliersComponent
-} from './suppliers/suppliers.component';
+} from './retailer/suppliers/suppliers.component';
 import {
   AddnewComponent
-} from './product/allproducts/addnew/addnew.component';
+} from './supplier/addnew/addnew.component';
 import {
   AllproductsComponent
-} from './product/allproducts/allproducts.component';
+} from './supplier/allproducts/allproducts.component';
 import {
   CompanyOverviewComponent
-} from './company-overview/company-overview.component';
-import {
-  CompleteProfileComponent
-} from './company-overview/complete-profile/complete-profile.component';
-import {
-  MessengerComponent
-} from './messenger/messenger.component';
+} from './shared/layout/company-overview/company-overview.component';
 import {
   ProductComponent
-} from './product/product.component';
+} from './retailer/product/product.component';
 import {
   DashboardComponent
-} from './dashboard/dashboard.component';
+} from './retailer/dashboard/dashboard.component';
 import {
   NgModule
 } from '@angular/core';
@@ -62,25 +53,25 @@ import {
 import {
   AuthGuard
 } from './shared/guard/auth.guard';
-import {
-  SingleProductComponent
-} from './product/single-product/single-product.component';
-import {
-  EditProductComponent
-} from './product/allproducts/edit-product/edit-product.component';
+
 import {
   SearchproductsComponent
-} from './search/searchproducts/searchproducts.component';
+} from './retailer/search/searchproducts/searchproducts.component';
 import {
   SearchsuppliersComponent
-} from './search/searchsuppliers/searchsuppliers.component';
+} from './retailer/search/searchsuppliers/searchsuppliers.component';
 import {
   RfqComponent
-} from './rfq/rfq.component';
+} from './retailer/rfq/rfq.component';
 import {
   SecureAdminGuard
 } from './shared/guard/secure-admin.guard';
 import { SecureCompleteProfileGuard } from './shared/guard/secure-complete-profile.guard';
+import { EditProductComponent } from './supplier/edit-product/edit-product.component';
+import { CompleteProfileComponent } from './supplier/complete-profile/complete-profile.component';
+import { ListComponent } from './supplier/list/list.component';
+import { MessengerComponent } from './shared/layout/messenger/messenger.component';
+import { SingleProductComponent } from './shared/layout/single-product/single-product.component';
 
 // Include route guard in routes array
 export const routes: Routes = [{

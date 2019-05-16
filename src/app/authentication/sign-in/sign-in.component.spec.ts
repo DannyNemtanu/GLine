@@ -3,7 +3,7 @@ import {
 } from '@angular/common';
 import {
   HomeComponent
-} from './../../dashboard/home/home.component';
+} from '../../retailer/dashboard/home/home.component';
 import {
   AppComponent
 } from './../../app.component';
@@ -12,10 +12,10 @@ import {
 } from './../../shared/layout/navigation/navigation.component';
 import {
   DashboardComponent
-} from './../../dashboard/dashboard.component';
+} from '../../retailer/dashboard/dashboard.component';
 import {
   FakeauthService
-} from './../../shared/services/fakeauth.service';
+} from '../../services/fakeauth.service';
 import {
   async,
   ComponentFixture,
@@ -35,14 +35,16 @@ import {
 } from '@angular/forms';
 import {
   AuthService
-} from 'src/app/shared/services/auth.service';
+} from 'src/app/services/auth.service';
 import {
   CompanyOverviewComponent
-} from 'src/app/company-overview/company-overview.component';
+} from 'src/app/shared/layout/company-overview/company-overview.component';
 import {
   Router
 } from '@angular/router';
-import { VerifyEmailComponent } from '../verify-email/verify-email.component';
+import {
+  VerifyEmailComponent
+} from '../verify-email/verify-email.component';
 
 
 describe('SignInComponent', () => {
@@ -71,8 +73,7 @@ describe('SignInComponent', () => {
           provide: AuthService,
           useClass: FakeauthService
         }],
-        declarations:
-        [HomeComponent, SignInComponent, CompanyOverviewComponent, DashboardComponent, NavigationComponent, VerifyEmailComponent]
+        declarations: [HomeComponent, SignInComponent, CompanyOverviewComponent, DashboardComponent, NavigationComponent, VerifyEmailComponent]
       })
       .compileComponents().then(() => {
         fixture = TestBed.createComponent(SignInComponent);
@@ -84,8 +85,10 @@ describe('SignInComponent', () => {
       });
   }));
   it('should show sign in if the user is not logged in', () => {
-    if (localStorage.getItem('user') == null) {
-      expect(app).toBeTruthy();
+    spyOn(router, 'navigate').and.returnValue(true);
+    localStorage.clear();
+    if (router.navigate(['sign-in'])) {
+      expect(localStorage.getItem('users')).toBe(null);
     }
   });
 
@@ -93,9 +96,10 @@ describe('SignInComponent', () => {
     spyOn(router, 'navigate').and.returnValue(true);
     component.loginForm.patchValue({
       userName: 'danix826@gmail.com',
-      userPassword: 'danielo26'
+      userPassword: 'GoodPassword1234.'
     });
     component.tryLogin();
+    tick();
     expect(router.navigate).toHaveBeenCalledWith(['dashboard']);
   }));
 });

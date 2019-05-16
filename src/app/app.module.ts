@@ -1,3 +1,4 @@
+
 // Main
 import {
   BrowserModule
@@ -52,31 +53,24 @@ import {
 // Auth service
 import {
   AuthService
-} from './shared/services/auth.service';
+} from './services/auth.service';
 import {
   DashboardComponent
-} from './dashboard/dashboard.component';
+} from './retailer/dashboard/dashboard.component';
 import {
   NavigationComponent
 } from './shared/layout/navigation/navigation.component';
 import {
   HomeComponent
-} from './dashboard/home/home.component';
+} from './retailer/dashboard/home/home.component';
 import {
   ProductComponent
-} from './product/product.component';
-import {
-  SingleProductComponent
-} from './product/single-product/single-product.component';
+} from './retailer/product/product.component';
+
 import {
   CompanyOverviewComponent
-} from './company-overview/company-overview.component';
-import {
-  MessengerComponent
-} from './messenger/messenger.component';
-import {
-  CompleteProfileComponent
-} from './company-overview/complete-profile/complete-profile.component';
+} from './shared/layout/company-overview/company-overview.component';
+
 import {
   AngularFireStorageModule
 } from 'angularfire2/storage';
@@ -87,31 +81,25 @@ import {
 } from './shared/directives/drop-zone.directive';
 import {
   AllproductsComponent
-} from './product/allproducts/allproducts.component';
+} from './supplier/allproducts/allproducts.component';
 import {
   AddnewComponent
-} from './product/allproducts/addnew/addnew.component';
-import {
-  EditProductComponent
-} from './product/allproducts/edit-product/edit-product.component';
+} from './supplier/addnew/addnew.component';
 import {
   SuppliersComponent
-} from './suppliers/suppliers.component';
+} from './retailer/suppliers/suppliers.component';
 import {
   SearchproductsComponent
-} from './search/searchproducts/searchproducts.component';
+} from './retailer/search/searchproducts/searchproducts.component';
 import {
   SearchsuppliersComponent
-} from './search/searchsuppliers/searchsuppliers.component';
+} from './retailer/search/searchsuppliers/searchsuppliers.component';
 import {
   RfqComponent
-} from './rfq/rfq.component';
-import {
-  ListComponent
-} from './rfq/list/list.component';
+} from './retailer/rfq/rfq.component';
 import {
   EditrfqComponent
-} from './rfq/editrfq/editrfq.component';
+} from './retailer/rfq/editrfq/editrfq.component';
 import {
   GoogleAnalyticsService
 } from './services/google-analytics.service';
@@ -119,6 +107,11 @@ import {
   LogsComponent
 } from './logging/logs/logs.component';
 import { GlobalErrorHandler } from './logging/global-error-handling';
+import { SingleProductComponent } from './shared/layout/single-product/single-product.component';
+import { MessengerComponent } from './shared/layout/messenger/messenger.component';
+import { EditProductComponent } from './supplier/edit-product/edit-product.component';
+import { CompleteProfileComponent } from './supplier/complete-profile/complete-profile.component';
+import { ListComponent } from './supplier/list/list.component';
 
 @NgModule({
   declarations: [
@@ -127,25 +120,26 @@ import { GlobalErrorHandler } from './logging/global-error-handling';
     SignUpComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    DashboardComponent,
     NavigationComponent,
+    DashboardComponent,
     HomeComponent,
     ProductComponent,
     SingleProductComponent,
     CompanyOverviewComponent,
-    MessengerComponent,
-    CompleteProfileComponent,
     DropZoneDirective,
     AllproductsComponent,
     AddnewComponent,
-    EditProductComponent,
     SuppliersComponent,
     SearchproductsComponent,
     SearchsuppliersComponent,
     RfqComponent,
-    ListComponent,
     EditrfqComponent,
     LogsComponent,
+    CompanyOverviewComponent,
+    MessengerComponent,
+    CompleteProfileComponent,
+    EditProductComponent,
+    ListComponent
   ],
   imports: [
     NgbModule,

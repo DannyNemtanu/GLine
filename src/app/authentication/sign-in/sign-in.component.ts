@@ -5,11 +5,12 @@ import {
 } from '@angular/forms';
 import {
   AuthService
-} from './../../shared/services/auth.service';
+} from '../../services/auth.service';
 import {
   Component,
   OnInit
 } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -23,7 +24,8 @@ export class SignInComponent implements OnInit {
   auth;
   constructor(
     private authService: AuthService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private sanitize: DomSanitizer
   ) {
     this.loginForm = this.fb.group({
       userName: [
@@ -45,8 +47,10 @@ export class SignInComponent implements OnInit {
   tryLogin() {
     const email = this.loginForm.get('userName').value;
     const password = this.loginForm.get('userPassword').value;
-    return this.authService.SignIn(email, password).catch(error => {
+    try {
+      return this.authService.SignIn(email, password);
+    } catch {
       this.userError = true;
-    });
+    }
   }
 }

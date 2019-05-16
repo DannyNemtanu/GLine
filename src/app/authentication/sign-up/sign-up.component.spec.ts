@@ -1,7 +1,4 @@
 import {
-  CompleteProfileComponent
-} from './../../company-overview/complete-profile/complete-profile.component';
-import {
   VerifyEmailComponent
 } from './../verify-email/verify-email.component';
 import {
@@ -22,10 +19,10 @@ import {
 } from '@angular/forms';
 import {
   AuthService
-} from 'src/app/shared/services/auth.service';
+} from 'src/app/services/auth.service';
 import {
   FakeauthService
-} from 'src/app/shared/services/fakeauth.service';
+} from 'src/app/services/fakeauth.service';
 import { Router } from '@angular/router';
 
 describe('SignUpComponent', () => {
@@ -56,7 +53,7 @@ describe('SignUpComponent', () => {
     router = TestBed.get(Router);
     router.initialNavigation();
   });
-  
+
   it('should show sign up', fakeAsync(() => {
     expect(app).toBeTruthy();
   }));

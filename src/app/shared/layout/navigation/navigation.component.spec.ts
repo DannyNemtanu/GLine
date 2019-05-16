@@ -1,6 +1,6 @@
 import {
   ChatService
-} from 'src/app/shared/directives/chat.service';
+} from 'src/app/services/chat.service';
 import {
   Location
 } from '@angular/common';
@@ -25,10 +25,10 @@ import {
 } from '@angular/router';
 import {
   AuthService
-} from '../../services/auth.service';
+} from '../../../services/auth.service';
 import {
   FakeauthService
-} from '../../services/fakeauth.service';
+} from '../../../services/fakeauth.service';
 import {
   AngularFirestore
 } from '@angular/fire/firestore';
@@ -41,6 +41,7 @@ import {
 import {
   SignInComponent
 } from 'src/app/authentication/sign-in/sign-in.component';
+import { tick } from '@angular/core/src/render3';
 
 describe('NavigationComponent', () => {
   let component: NavigationComponent;
@@ -91,6 +92,7 @@ describe('NavigationComponent', () => {
   it('should clear local storage when loged out', fakeAsync(() => {
     spyOn(router, 'navigate').and.returnValue(true);
     component.logout();
-    expect(localStorage.getItem('user')).toBe(null);
+    // expect(router.).toHaveBeenCalledWith('sign-in');
+    expect(localStorage.getItem('users')).toBe(null);
   }));
 });

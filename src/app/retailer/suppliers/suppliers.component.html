@@ -1,0 +1,134 @@
+<!-- =========================*
+ *  Classname Supplier
+ *
+ *  Date e.g. 13/10/2018
+ *	
+ * @reference https://www.alibaba.com
+ *
+ ========================= -->
+<app-navigation></app-navigation>
+<div class="main-container pb-2">
+  <div class="container py-3 mx-auto">
+    <!-- FILTER BOX -->
+    <div class="filter-box row">
+      <div class="m-gallery-switch-channel w-100">
+        <div class="ui2-tab  ui2-tab-primary" id="tab1_top">
+          <ul class="ui2-tab-nav ui2-tab-nav-top">
+            <li>
+              <a [routerLink]="['/products']" rel="nofollow">
+                Products
+              </a>
+            </li>
+            <li class="ui2-tab-active">
+              <a [routerLink]="['/suppliers']" rel="nofollow">
+                Suppliers
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- PRODUCTS LIST -->
+    <div *ngIf="isLoaded">
+      <div class="row">
+        <div class="col-auto">
+          <div class="gallery-product my-1" *ngFor="let supplier of suppliers; let i = index;" [id]="supplier.uid"
+            (click)="checkSupplier($event, supplier.uid)">
+            <div class="row d-flex">
+              <div class="col-7">
+                <h1 title="{{supplier.companyProfile.tradingName}}" class="supplierName">
+                  {{supplier.companyProfile.tradingName}}</h1>
+              </div>
+              <div class="col-5 text-right">
+                <div class="stitle util-ellipsis">
+                  <div class="s-gold-supplier-year-icon" flasher-type="supplierYear">
+                    {{currentYear[i]}}
+                    <span class="unit">YRS</span>
+                  </div>
+                  <span class="font-weight-bold ml-1" style="font-size: .7rem; height: 19px">In the
+                    business</span>
+                </div>
+
+              </div>
+            </div>
+            <div class="row d-flex">
+              <div class="col-3">
+                <div class="item-img">
+                  <a target="_blank">
+                    <div class="offer-image-box">
+                      <img class="img" [src]="supplier.companyProfile.profilePicture"
+                        alt="supplier.companyProfile.tradingName">
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-7 pl-3">
+                <div class="item-info">
+                  <div class="info-line">
+                    <div class="d-flex">
+                      <div class="text-right">
+                        <p class="font-weight-bold">Main Products: </p>
+                      </div>
+                      <div class="text-left">
+                        <p class="ml-2">
+                          {{supplier.companyProfile.mainProducts}}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="info-line">
+                    <div class="d-flex">
+                      <div class="text-right">
+                        <p class="font-weight-bold">Revenue: </p>
+                      </div>
+                      <div class="text-left">
+                        <p class="ml-2">
+                          €{{supplier.companyProfile.annualSales.min}} - €{{supplier.companyProfile.annualSales.max}} /
+                          Year
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="info-line">
+                    <div class="d-flex">
+                      <div class="text-right">
+                        <p class="font-weight-bold">Markets: </p>
+                      </div>
+                      <div class="text-left">
+                        <p class="ml-2">
+                          {{supplier.companyProfile.mainMarkets}}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="info-line">
+                    <div class="d-flex">
+                      <div class="text-right">
+                        <p class="font-weight-bold">Address: </p>
+                      </div>
+                      <div class="text-left">
+                        <p class="ml-2">
+                          {{supplier.companyProfile.addr}}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <a class="btn btn-secondary contact-s-btn" (click)="contactSupplier($event, supplier.uid)">Contact
+                      Supplier</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!isLoaded">
+      Loading please wait...
+    </div>
+  </div>
+</div>
+<!-- END PRODUCTS LIST -->

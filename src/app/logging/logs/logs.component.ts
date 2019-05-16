@@ -5,9 +5,6 @@ import {
   Component,
   OnInit
 } from '@angular/core';
-import {
-  clearModulesForTest
-} from '@angular/core/src/linker/ng_module_factory_loader';
 
 
 @Component({

@@ -3,7 +3,7 @@ import {
 } from '@angular/fire/auth';
 import {
   User
-} from './../shared/services/user';
+} from './user';
 import {
   Injectable
 } from '@angular/core';
@@ -36,13 +36,6 @@ export class UserDataService {
     //     return null;
     //   }
     // });
-  }
-
-  public get currentUserValue(): User {
-    this.user = this.user$.subscribe(user => {
-      return user;
-    });
-    return this.user;
   }
   getUserID() {
     const user = JSON.parse(localStorage.getItem('user'));
